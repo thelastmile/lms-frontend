@@ -44,6 +44,10 @@
             }, 'ui.map')
           }
         })
+        .state('app.list-view', {
+          url: '/list-view',
+          templateUrl: Route.base('list-view.html'),
+        })
         .state('app.ui', {
           url: '/ui',
           template: '<div ui-view ng-class="app.views.animation"></div>'
