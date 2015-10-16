@@ -47,6 +47,7 @@
         .state('app.list-view', {
           url: '/list-view',
           templateUrl: Route.base('list-view.html'),
+          controller: 'NotificationController',
         })
         .state('app.ui', {
           url: '/ui',

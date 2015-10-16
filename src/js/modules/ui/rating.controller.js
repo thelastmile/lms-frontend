@@ -12,8 +12,8 @@
     /* @ngInject */
     function RatingDemoController() {
       var vm = this;
-      vm.rate = 7;
-      vm.max = 10;
+      vm.rate = 0;
+      vm.max = 5;
       vm.isReadonly = false;
 
       vm.hoveringOver = function(value) {

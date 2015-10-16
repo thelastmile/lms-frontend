@@ -1,22 +1,19 @@
-<div class="app-view-header">
-  Hello, World  ಠ_ಠ 
-   <small></small>
-</div>
+
 <div ng-controller="CardsController as viewlist" class="container-fluid container-flush">
    <div class="row">
       <div chained-animation="fadeInUp" class="panel">
          <div class="panel-body">
             <div class="col-sm-1">
-               <img ng-src="app/img/user/01.jpg" alt="Mail Avatar" class="img-circle mb-mail-avatar thumb48" src="app/img/user/01.jpg">
+               <img ng-src="app/img/user/01.jpg" alt="Mail Avatar" class="img-circle mb-mail-avatar thumb48" src="app/img/user/01.jpg" style="">
             </div>
             <div class="col-sm-3">
-               <large>Chris Schumaker</large><br>
-               <small>Level 2</small><br>
-               <small>Success Rank: 94</small>
+               <h3>Chris Shumaker</h3>
+               <h5>Level 2</small></h5>
+               <h6>Success Rank: 94</h6>
             </div>
             <div class="col-sm-2">
             <form>Quick Note
-               <input type="text" name="quicknote">
+               <textarea placeholder="Quick Note" rows="4" ></textarea>
             </form>
             </div>
             <div class="col-sm-2">
@@ -27,79 +24,105 @@
                   <label><input type="checkbox" value="">Absent/Half</label>
                </div>
             </div>
-            <div class="col-sm-2">
-               <h5>Daily Scores</h5>
+            <div class="col-sm-3 ng-scope" ng-controller="RatingDemoController as rating">
+               <h4>Daily Scores</h4>
                   <div class="col-sm-6">Technical</div>
-                  <div class="col-sm-6 survey-builder-container">
-                     <span>
-                        <div class="rating-symbol" style="display: inline-block; position: relative;">
-                           <div class="rating-symbol-background fa-star-o" style="visibility: hidden;">
-                           </div>
-                           <div class="rating-symbol-foreground" style="display: inline-block; position: absolute; overflow: hidden; left: 0px; right: 0px; width: auto;">
-                              <span class="fa-star"></span>
-                           </div>
-                        </div>
-                        <div class="rating-symbol" style="display: inline-block; position: relative;">
-                           <div class="rating-symbol-background fa-star-o" style="visibility: hidden;">
-                           </div>
-                           <div class="rating-symbol-foreground" style="display: inline-block; position: absolute; overflow: hidden; left: 0px; right: 0px; width: auto;">
-                              <span class="fa-star"></span>
-                           </div>
-                        </div>
-                        <div class="rating-symbol" style="display: inline-block; position: relative;">
-                           <div class="rating-symbol-background fa-star-o" style="visibility: hidden;">
-                           </div>
-                           <div class="rating-symbol-foreground" style="display: inline-block; position: absolute; overflow: hidden; left: 0px; right: 0px; width: auto;">
-                              <span class="fa-star"></span>
-                           </div>
-                        </div>
-                        <div class="rating-symbol" style="display: inline-block; position: relative;">
-                           <div class="rating-symbol-background fa-star-o" style="visibility: hidden;">
-                           </div>
-                           <div class="rating-symbol-foreground" style="display: inline-block; position: absolute; overflow: hidden; left: 0px; right: 0px; width: auto;">
-                           <span class="fa-star"></span>
-                           </div>
-                        </div>
-                        <div class="rating-symbol" style="display: inline-block; position: relative;">
-                           <div class="rating-symbol-background fa-star-o" style="visibility: hidden;">
-                           </div>
-                           <div class="rating-symbol-foreground" style="display: inline-block; position: absolute; overflow: hidden; left: 0px; right: 0px; width: auto;">
-                              <span class="fa-star"></span>
-                           </div>
-                        </div>
-                     </span>
+                  <div class="col-sm-6">
+                     <rating ng-model="rating.technical" max="rating.max" readonly="rating.isReadonly" on-hover="rating.hoveringOver(value)" on-leave="rating.overStar = null" state-on="'fa fa-star text-orange'" state-off="'fa fa-star-o'"></rating>
                   </div>
                   <div class="col-sm-6">Social</div>
-                  <div class="col-sm-6"> stars</div>
+                  <div class="col-sm-6"> 
+                     <rating ng-model="rating.social" max="rating.max" readonly="rating.isReadonly" on-hover="rating.hoveringOver(value)" on-leave="rating.overStar = null" state-on="'fa fa-star text-orange'" state-off="'fa fa-star-o'"></rating>
+                  </div>
                   <div class="col-sm-6">Participation</div>
-                  <div class="col-sm-6"> stars</div>
+                  <div class="col-sm-6">
+                     <rating ng-model="rating.participation" max="rating.max" readonly="rating.isReadonly" on-hover="rating.hoveringOver(value)" on-leave="rating.overStar = null" state-on="'fa fa-star text-orange'" state-off="'fa fa-star-o'"></rating>
+                  </div>
             </div>
          </div>
       </div>            
    </div>
    <div class="row">
-      <div chained-animation="fadeInUp" class="panel panel-card panel-card-image bg-pic4">
+      <div chained-animation="fadeInUp" class="panel">
          <div class="panel-body">
-            <small class="text-white">A nice clear day.</small>
-            <h2 class="text-lg text-white">
-               <em class="wi wi-day-sunny mr"></em>21
-               <em class="wi wi-celsius"></em>
-               <br/>
-               <small class="text-white">Paris, France</small>
-            </h2>
+            <div class="col-sm-1">
+               <img ng-src="app/img/user/01.jpg" alt="Mail Avatar" class="img-circle mb-mail-avatar thumb48" src="app/img/user/01.jpg" style="">
+            </div>
+            <div class="col-sm-3">
+               <h3>Ali Tamboura</h3>
+               <h5>Level 2</small></h5>
+               <h6>Success Rank: 84</h6>
+            </div>
+            <div class="col-sm-2">
+            <form>Quick Note
+               <textarea placeholder="Quick Note" rows="4" ></textarea>
+            </form>
+            </div>
+            <div class="col-sm-2">
+               <div class="checkbox">  
+                  <label><input type="checkbox" value="">Absent/Full</label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="checkbox" value="">Absent/Half</label>
+               </div>
+            </div>
+            <div class="col-sm-3 ng-scope" ng-controller="RatingDemoController as rating">
+               <h4>Daily Scores</h4>
+                  <div class="col-sm-6">Technical</div>
+                  <div class="col-sm-6">
+                     <rating ng-model="rating.technical" max="rating.max" readonly="rating.isReadonly" on-hover="rating.hoveringOver(value)" on-leave="rating.overStar = null" state-on="'fa fa-star text-orange'" state-off="'fa fa-star-o'"></rating>
+                  </div>
+                  <div class="col-sm-6">Social</div>
+                  <div class="col-sm-6"> 
+                     <rating ng-model="rating.social" max="rating.max" readonly="rating.isReadonly" on-hover="rating.hoveringOver(value)" on-leave="rating.overStar = null" state-on="'fa fa-star text-orange'" state-off="'fa fa-star-o'"></rating>
+                  </div>
+                  <div class="col-sm-6">Participation</div>
+                  <div class="col-sm-6">
+                     <rating ng-model="rating.participation" max="rating.max" readonly="rating.isReadonly" on-hover="rating.hoveringOver(value)" on-leave="rating.overStar = null" state-on="'fa fa-star text-orange'" state-off="'fa fa-star-o'"></rating>
+                  </div>
+            </div>
          </div>
       </div>            
    </div>
    <div class="row">
-      <div chained-animation="fadeInUp" class="panel panel-card panel-card-image bg-pic4">
+      <div chained-animation="fadeInUp" class="panel">
          <div class="panel-body">
-            <small class="text-white">A nice clear day.</small>
-            <h2 class="text-lg text-white">
-               <em class="wi wi-day-sunny mr"></em>21
-               <em class="wi wi-celsius"></em>
-               <br/>
-               <small class="text-white">Paris, France</small>
-            </h2>
+            <div class="col-sm-1">
+               <img ng-src="app/img/user/01.jpg" alt="Mail Avatar" class="img-circle mb-mail-avatar thumb48" src="app/img/user/01.jpg" style="">
+            </div>
+            <div class="col-sm-3">
+               <h3>Jerome Boone</h3>
+               <h5>Level 2</small></h5>
+               <h6>Success Rank: 73</h6>
+            </div>
+            <div class="col-sm-2">
+            <form>Quick Note
+               <textarea placeholder="Quick Note" rows="4" ></textarea>
+            </form>
+            </div>
+            <div class="col-sm-2">
+               <div class="checkbox">  
+                  <label><input type="checkbox" value="">Absent/Full</label>
+               </div>
+               <div class="checkbox">
+                  <label><input type="checkbox" value="">Absent/Half</label>
+               </div>
+            </div>
+            <div class="col-sm-3 ng-scope" ng-controller="RatingDemoController as rating">
+               <h4>Daily Scores</h4>
+                  <div class="col-sm-6">Technical</div>
+                  <div class="col-sm-6">
+                     <rating ng-model="rating.technical" max="rating.max" readonly="rating.isReadonly" on-hover="rating.hoveringOver(value)" on-leave="rating.overStar = null" state-on="'fa fa-star text-orange'" state-off="'fa fa-star-o'"></rating>
+                  </div>
+                  <div class="col-sm-6">Social</div>
+                  <div class="col-sm-6"> 
+                     <rating ng-model="rating.social" max="rating.max" readonly="rating.isReadonly" on-hover="rating.hoveringOver(value)" on-leave="rating.overStar = null" state-on="'fa fa-star text-orange'" state-off="'fa fa-star-o'"></rating>
+                  </div>
+                  <div class="col-sm-6">Participation</div>
+                  <div class="col-sm-6">
+                     <rating ng-model="rating.participation" max="rating.max" readonly="rating.isReadonly" on-hover="rating.hoveringOver(value)" on-leave="rating.overStar = null" state-on="'fa fa-star text-orange'" state-off="'fa fa-star-o'"></rating>
+                  </div>
+            </div>
          </div>
       </div>            
    </div>
