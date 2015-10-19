@@ -119,6 +119,7 @@ h6 > a.h-link {
 }
 .nav-tabs > li {
   padding: 4px;
+  float: right;
 }
 .nav-tabs > li.active {
   padding: 0;

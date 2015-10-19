@@ -49,6 +49,10 @@
           templateUrl: Route.base('list-view.html'),
           controller: 'NotificationController',
         })
+        .state('app.detail-view', {
+          url: '/detail-view',
+          templateUrl: Route.base('detail-view.html')
+        })
         .state('app.ui', {
           url: '/ui',
           template: '<div ui-view ng-class="app.views.animation"></div>'
