@@ -53,6 +53,9 @@
           url: '/detail-view',
           templateUrl: Route.base('detail-view.html')
         })
+        .state('app.detail-view.tests', {
+          template: '<h1>TESTS</h1>',
+        })
         .state('app.ui', {
           url: '/ui',
           template: '<div ui-view ng-class="app.views.animation"></div>'

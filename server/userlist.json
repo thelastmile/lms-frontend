@@ -1,0 +1,17 @@
+[{
+    "inmate_id": 1,
+    "firstName": "Chris",
+    "lastName": "Schumaker"
+},{
+    "inmate_id": 2,
+    "firstName": "Ali",
+    "lastName": "Tamboura"
+},{
+    "inmate_id": 45,
+    "firstName": "Jerome",
+    "lastName": "Boone"
+},{
+    "inmate_id": 72,
+    "firstName": "Bill",
+    "lastName": "Turner"
+}]
