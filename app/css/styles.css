@@ -5808,7 +5808,7 @@ fieldset[disabled] .calendar-app .fc-button.active {
   position: relative;
   z-index: 200;
   padding: 20px 0 !important;
-  background-color: #2b3d51;
+  background-color: #282D31;
   height: 100px;
 }
 @media only screen and (min-width: 1200px) {
@@ -5839,11 +5839,11 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .mb-folder-list > li > a {
   display: block;
   padding: 12px 20px;
-  color: #a9bcd2;
+  color: #595959;
 }
 .mb-folder-list > li > a.active,
 .mb-folder-list > li > a:hover {
-  background-color: #344a62;
+  background-color: #595959;
   color: #fff;
 }
 .mb-buttons:before,
@@ -7101,6 +7101,94 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-inverse.bg-dark {
   background-color: #292f34 !important;
 }
+
+/********* START TLM **********/
+
+.bg-tlm {
+  background-color: #D0AA2B !important;
+  color: #dce0f3;
+}
+.bg-tlm a {
+  color: #c5cae9;
+}
+.bg-tlm a:focus,
+.bg-tlm a:hover {
+  color: #fefeff;
+}
+.bg-tlm .nav > li > a {
+  color: #fefeff;
+}
+.bg-tlm .nav > li.active {
+  background-color: #3a4aa6 !important;
+}
+.bg-tlm .nav > li:hover > a,
+.bg-tlm .nav > li.active > a {
+  color: #ffffff;
+}
+.bg-tlm .nav > li:hover > a,
+.bg-tlm .nav > li.active > a {
+  background-color: #595959;
+}
+.bg-tlm .sidebar-subnav {
+  background-color: #D0AA2B;
+}
+.bg-tlm .sidebar-subnav > li.active > a {
+  font-weight: bold;
+  background-color: transparent;
+}
+.bg-tlm .navbar-form .form-control {
+  background-color: #D0AA2B;
+  color: #dce0f3;
+}
+.bg-tlm .navbar-form .form-control::-moz-placeholder {
+  color: #9ca6dd;
+  opacity: 1;
+}
+.bg-tlm .navbar-form .form-control:-ms-input-placeholder {
+  color: #9ca6dd;
+}
+.bg-tlm .navbar-form .form-control::-webkit-input-placeholder {
+  color: #9ca6dd;
+}
+.ie9 .bg-tlm .navbar-form .form-control {
+  border-bottom: 1px solid rgba(156, 166, 221, 0.15);
+}
+.bg-tlm .navbar-form .form-control-feedback,
+.bg-tlm .navbar-form .input-group-addon {
+  color: #9ca6dd;
+}
+.bg-tlm .text-muted {
+  color: #9ca6dd;
+}
+.bg-tlm .text-loud {
+  color: #fefeff;
+}
+.bg-tlm small {
+  color: inherit;
+}
+@media print {
+  .bg-tlm {
+    color: #000 !important;
+  }
+}
+.bg-tlm .help-block {
+  color: #9ca6dd;
+}
+.bg-tlm .flot-tick-label {
+  color: #dce0f3;
+}
+.bg-tlm hr {
+  border-top-color: rgba(156, 166, 221, 0.26);
+}
+.bg-tlm.bg-light {
+  background-color: #595959 !important;
+}
+.bg-tlm.bg-dark {
+  background-color: #282D31 !important;
+}
+
+/********* END TLM **********/
+
 .bg-primary {
   background-color: #3f51b5 !important;
   color: #dce0f3;
