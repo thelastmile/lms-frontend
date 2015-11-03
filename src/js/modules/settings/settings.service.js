@@ -21,7 +21,7 @@
       /////////////////
 
       self.themes = [
-        {name: 'tml',   sidebar: 'bg-white',   sidebarHeader: 'bg-tlm bg-light',   brand: 'bg-tlm',   topbar:  'bg-tlm'},
+        {name: 'tlm',   sidebar: 'bg-white',   sidebarHeader: 'bg-tlm bg-light',   brand: 'bg-tlm',   topbar:  'bg-tlm'},
         /*{name: 'primary',   sidebar: 'bg-white',   sidebarHeader: 'bg-primary bg-light',   brand: 'bg-primary',   topbar:  'bg-primary'},
         {name: 'purple',    sidebar: 'bg-white',   sidebarHeader: 'bg-purple bg-light',    brand: 'bg-purple',    topbar:  'bg-purple'},
         {name: 'success',   sidebar: 'bg-white',   sidebarHeader: 'bg-success bg-light',   brand: 'bg-success',   topbar:  'bg-success'},
@@ -35,8 +35,8 @@
       function init() {
         // Global settings
         $rootScope.app = {
-          name:          'Naut',
-          description:   'Bootstrap + AngularJS',
+          name:          'The Last Mile',
+          description:   'Learning Management System',
           year:          new Date().getFullYear(),
           views: {
             animation: 'ng-fadeInLeft2'
@@ -57,11 +57,11 @@
           themeId: 0,
           // default theme
           theme: {
-            name:          'primary',
+            name:          'tlm',
             sidebar:       'bg-white',
-            sidebarHeader: 'bg-primary bg-light',
-            brand:         'bg-primary',
-            topbar:        'bg-primary'
+            sidebarHeader: 'bg-tlm bg-light',
+            brand:         'bg-tlm',
+            topbar:        'bg-tlm'
           }
         };      
       }

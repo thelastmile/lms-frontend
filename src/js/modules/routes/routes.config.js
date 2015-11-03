@@ -16,7 +16,7 @@
       $locationProvider.html5Mode(false);
 
       // Default route
-      $urlRouterProvider.otherwise('/app/dashboard');
+      $urlRouterProvider.otherwise('/page/login');
 
       // Application Routes States
       $stateProvider
@@ -30,11 +30,67 @@
         })
         .state('app.dashboard', {
           url: '/dashboard',
+          authenticate: true,
           templateUrl: Route.base('dashboard.html'),
           resolve: {
             assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
           }
         })
+
+        .state('app.studentdashboard', {
+          url: '/studentdashboard',
+          authenticate: true,
+          templateUrl: Route.base('studentdashboard.html'),
+          resolve: {
+            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
+          }
+        })
+
+        .state('app.viewstudents', {
+          url: '/viewstudents',
+          authenticate: true,
+          templateUrl: Route.base('viewStudents.html'),
+          resolve: {
+            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
+          }
+        })
+
+        .state('app.studentvideo', {
+          url: '/studentvideo',
+          authenticate: true,
+          templateUrl: Route.base('studentvideo.html'),
+          resolve: {
+            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
+          }
+        })
+
+        .state('app.studentreadme', {
+          url: '/studentreadme',
+          authenticate: true,
+          templateUrl: Route.base('studentreadme.html'),
+          resolve: {
+            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
+          }
+        })
+
+        .state('app.studentcode', {
+          url: '/studentcode',
+          authenticate: true,
+          templateUrl: Route.base('studentcode.html'),
+          resolve: {
+            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
+          }
+        })
+
+        .state('app.studentextras', {
+          url: '/studentvideo',
+          authenticate: true,
+          templateUrl: Route.base('studentextras.html'),
+          resolve: {
+            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
+          }
+        })
+
         .state('app.cards', {
           url: '/cards',
           templateUrl: Route.base('cards.html'),
@@ -377,7 +433,13 @@
       })
         .state('page.login', {
           url: '/login',
-          templateUrl: Route.base('page.login.html')
+          controller: 'loginCtrl',
+          controllerAs: 'lctrl',
+          authenticate: false,
+          templateUrl: Route.base('page.login.html'),
+          resolve: {
+            assets: Route.require('toaster')
+          }
         })
         .state('page.register', {
           url: '/register',

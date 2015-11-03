@@ -1,16 +1,18 @@
 <!-- START Top Navbar-->
 <nav role="navigation" ng-controller="HeaderNavController as header" class="navbar topnavbar">
    <!-- START button offset-->
+   <!--
    <div class="btn-offset">
       <button type="button" btn-layer-morph="" target="#layer-search" ripple="" class="btn btn-info btn-circle btn-lg shadow-z1">
          <em class="fa fa-search"></em>
       </button>
    </div>
+   -->
    <!-- START button offset-->
    <!-- START navbar header-->
    <div class="navbar-header">
-      <a ui-sref="app.dashboard" class="navbar-brand">
-         <img src="app/img/logo.png" alt="App Logo" class="brand-logo" />
+      <a ui-sref="app.studentdashboard" class="navbar-brand">
+         <img src="app/img/tlmlogo500w.png" alt="App Logo" class="img-responsive" />
       </a>
       <!-- Mobile buttons-->
       <div class="mobile-toggles">
@@ -54,6 +56,17 @@
                         </a>
                      </div>
                   </div>
+                  <div class="col-xs-4">
+                     <div class="pv">
+                        <a href="" data-ng-click="logout()">
+                           <span class="block mb">
+                              <em class="fa fa-sign-out fa-2x text-warning"></em>
+                           </span>
+                           <small class="text-muted">Logout</small>
+                        </a>
+                     </div>
+                  </div>
+                  <!--
                   <div class="col-xs-4">
                      <div class="pv">
                         <a ui-sref="app-fh.mailbox.folder.list({folder: 'inbox'})">
@@ -104,22 +117,31 @@
                         </a>
                      </div>
                   </div>
+                  -->
                </div>
             </ul>
          </li>
+         <li>
+            <span>
+               <em class="icon-head fa-2x" style="margin-top: 20px; margin-left: 5px;"></em>
+            </span>
+         </li>
+         <li>
+            <div ng-controller="DashboardController as dashboard" style="margin-top: 12px; margin-left: 20px;">
+               <div>
+                  <h3 style="margin-top: 10px; margin-bottom: 1px;">FName Lname</h3>
+               </div>
+               <div ng-if="isAdmin()">Facilitator</div>
+               <div ng-if="!isAdmin()">Student</div>
+         </li>
          <!-- END Apps menu-->
          <!-- START lock screen-->
-         <li>
-            <a ui-sref="page.lock" title="Lock screen" ripple="">
-               <em class="icon-lock fa-fw"></em>
-               <span class="visible-xs-inline ml">Lock Screen</span>
-            </a>
-         </li>
+
          <!-- END lock screen-->
       </ul>
       <!-- END Left navbar-->
-   </div>
-   <!-- END Nav wrapper-->
+      </div>
+      <!-- END Nav wrapper-->
 
 </nav>
 <!-- END Top Navbar-->

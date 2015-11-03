@@ -10,7 +10,8 @@
         .controller('CoreController', CoreController);
 
     /* @ngInject */
-    function CoreController($rootScope) {
+    CoreController.$inject = ['$rootScope','UserService'];
+    function CoreController($rootScope,UserService) {
       // Get title for each page
       $rootScope.pageTitle = function() {
         return $rootScope.app.name + ' - ' + $rootScope.app.description;
@@ -22,7 +23,11 @@
         $event.preventDefault();
         $event.stopPropagation();
       };
+
+      $rootScope.logout = function () {
+            UserService.logout();
+      };
     }
-    CoreController.$inject = ['$rootScope'];
+    
 
 })();

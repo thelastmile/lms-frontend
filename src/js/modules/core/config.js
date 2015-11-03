@@ -7,7 +7,56 @@
   angular
     .module('naut')
     .config(commonConfig)
-    .config(lazyLoadConfig);
+    .config(lazyLoadConfig)    
+    .run(function($templateCache,$http, $rootScope, $state, UserService){
+            $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+                  if (toState.authenticate && ( (UserService.isAuthenticated() === "false") || (UserService.isAuthenticated() === null) ) ){
+                    // User isn’t authenticated
+                    event.preventDefault();
+                    $state.transitionTo("page.login");
+                  }
+                });
+    })
+
+    .factory('customUrl', function(){
+        //"url": "http://esystapi-env.elasticbeanstalk.com",
+        if (document.location.hostname == "localhost" || document.location.hostname == "127.0.0.1"){
+            console.log("In Local DEV");
+            return {"url": "http://127.0.0.1:8000"}
+        } else {
+            return {"url": "http://lms-backend-dev.elasticbeanstalk.com"}
+        }
+    })
+
+    //==============================================
+    // RESET PASSWORD SERVICE
+    //==============================================
+    .service('resetService', ['$http', 'registerService', '$state', 'customUrl', function($http, registerService, $state, customUrl){
+        var resetMethods = {};
+        // var url = registerService.backend_url();
+
+        resetMethods.password_update = function(data){
+            console.log(data);
+            $http.post(customUrl.url + '/api/user_profile/password_update/', data)
+            .success(function(data){
+                $state.go('confirmation');
+            })
+            .error(function(data){
+                $state.go('error')
+            })
+        };
+
+        resetMethods.password_reset = function(data){
+            $http.post(customUrl.url + '/api/user_profile/password_reset/', data)
+            .success(function(data){
+                $state.go('reset-success');
+            })
+//            .error(function(data){
+//                $state.go('error')
+//            })
+        };
+        return resetMethods;
+    }]);
 
   // Common object accessibility
   commonConfig.$inject = ['$controllerProvider', '$compileProvider', '$filterProvider', '$provide'];

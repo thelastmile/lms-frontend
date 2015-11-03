@@ -9,9 +9,17 @@
         .module('naut')
         .controller('DashboardController', DashboardController);
     
-    DashboardController.$inject = ['$rootScope', '$scope', 'colors', 'flotOptions', '$timeout'];
-    function DashboardController($rootScope, $scope, colors, flotOptions, $timeout) {
+    DashboardController.$inject = ['$rootScope', '$scope', 'colors', 'flotOptions', '$timeout' ,'$window'];
+    function DashboardController($rootScope, $scope, colors, flotOptions, $timeout, $window) {
       var vm = this;
+
+      $scope.isAdmin = function(){
+        if ($window.sessionStorage.getItem("userPermissions")=='admin'){
+          return true;
+        } else {
+          return false;
+        }
+      }
 
       // Some numbers for demo
       vm.loadProgressValues = function() {

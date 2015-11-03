@@ -28,8 +28,7 @@
                      <input id="id-source" type="password" placeholder="Type your password" ng-model="form.match1" class="form-control" />
                   </div>
                   <div class="col-xs-6">
-                     <input type="password" placeholder="Retype your password" name="confirm_match" data-parsley-equalto="#id-source" required="" ng-model="form.match2" ui-validate="'$value==form.match1'" ui-validate-watch="'validator.match1'" class="form-control"
-                     />
+                     <input type="password" placeholder="Retype your password" name="confirm_match" data-parsley-equalto="#id-source" required="" ng-model="form.match2" ui-validate="'$value==form.match1'" ui-validate-watch="'validator.match1'" class="form-control" />
                   </div>
                </div>
                <p ng-show="form_step1.confirm_match.$error.validator" class="text-danger">Password do not match!</p>
