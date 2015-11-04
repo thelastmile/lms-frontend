@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "Bootstrap Admin Theme + AngularJS",
   "author": "@geedmo",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-karma": "^0.12.1",
+    "karma": "^0.13.15",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-cli": "^0.1.1",
+    "karma-jasmine": "^0.3.6"
+  },
   "devDependencies": {
     "del": "^1.1.1",
     "glob": "^5.0.3",
@@ -38,9 +44,6 @@
     "gulp-webserver": "^0.9.0",
     "jasmine-core": "^2.3.4",
     "jshint-stylish": "^1.0.1",
-    "karma": "^0.13.15",
-    "karma-chrome-launcher": "^0.2.1",
-    "karma-jasmine": "^0.3.6",
     "plato": "^1.4.0",
     "run-sequence": "^1.0.2",
     "through2": "^0.6.3",

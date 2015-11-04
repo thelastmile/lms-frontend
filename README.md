@@ -5,7 +5,7 @@
 1. ```git clone``` with your credentials
 2. ```cd lms-frontend```
 
-###Setup Virtual Environment
+###SetupEnvironment
 1. Download Node.js from https://nodejs.org/
 2. install gulp ```npm -g install bower gulp```
 make sure you are still in the root of the project ```lms-frontend/```
