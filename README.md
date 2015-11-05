@@ -14,7 +14,7 @@ make sure you are still in the root of the project ```lms-frontend/```
 This will install the node modules and vendor assets along with allow the build for production.
 
 ###Local Development Server
-```./manage.py runserver``` <- requires backend  (https://github.com/thelastmile/lms-backend)[https://github.com/thelastmile/lms-backend]
+```./manage.py runserver``` <- requires backend  [https://github.com/thelastmile/lms-backend](https://github.com/thelastmile/lms-backend)
 or ```gulp serve --usehtml```
 
 Open your browser to ```http://127.0.0.1:8000/```
