@@ -43,7 +43,7 @@
     "animated-climacons": "noahblon/animated-climacons",
     "jquery-knob": "1.2.11",
     "screenfull": "2.0.0",
-    "moment": "2.9.0",
+    "moment": "latest",
     "flot": "0.8.3",
     "flot-spline": "*",
     "flot.tooltip": "0.8.4",
