@@ -2,15 +2,19 @@
 
 
 ###Installation
-1. ```git clone git@github.com:thelastmile/lms-frontend.git```
-2. ```cd lms-frontend```
+```
+git clone git@github.com:thelastmile/lms-frontend.git
+cd lms-frontend
+```
 
 ###Setup Environment
-1. Download Node.js from https://nodejs.org/
-2. install gulp ```sudo npm -g install bower gulp```
-make sure you are still in the root of the project ```lms-frontend/```
-3. ```npm install```
-4. ```gulp serve --usehtml```
+Download Node.js from https://nodejs.org/
+from ```lms-frontend/``` directory run:
+```
+sudo npm -g install bower gulp
+npm install
+gulp serve --usehtml
+```
 This will install the node modules and vendor assets along with allow the build for production.
 
 ###Local Development Server
