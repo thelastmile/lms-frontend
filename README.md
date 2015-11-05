@@ -15,6 +15,7 @@ This will install the node modules and vendor assets along with allow the build 
 
 ###Local Development Server
 ```./manage.py runserver``` <- requires backend  [https://github.com/thelastmile/lms-backend](https://github.com/thelastmile/lms-backend)
-or ```gulp serve --usehtml```
 
-Open your browser to ```http://127.0.0.1:8000/```
+```gulp serve --usehtml```
+
+Open your browser to [http://127.0.0.1:3000](http://127.0.0.1:3000) after gulp fires up the server 
