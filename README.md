@@ -2,7 +2,7 @@
 
 
 ###Installation
-1. ```git clone https://github.com/thelastmile/lms-frontend.git```
+1. ```git clone git@github.com:thelastmile/lms-frontend.git```
 2. ```cd lms-frontend```
 
 ###Setup Environment
