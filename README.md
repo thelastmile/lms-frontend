@@ -1,11 +1,11 @@
-# lms-backend
+# lms-frontend
 
 
 ###Installation
-1. ```git clone``` with your credentials
+1. ```git clone https://github.com/thelastmile/lms-frontend.git```
 2. ```cd lms-frontend```
 
-###Setup Virtual Environment
+###Setup Environment
 1. Download Node.js from https://nodejs.org/
 2. install gulp ```npm -g install bower gulp```
 make sure you are still in the root of the project ```lms-frontend/```
@@ -14,7 +14,8 @@ make sure you are still in the root of the project ```lms-frontend/```
 This will install the node modules and vendor assets along with allow the build for production.
 
 ###Local Development Server
-```./manage.py runserver``` if you have the backend as well.
-or ```gulp serve --usehtml```
+```./manage.py runserver``` <- requires backend  [https://github.com/thelastmile/lms-backend](https://github.com/thelastmile/lms-backend)
 
-Open your browser to ```http://127.0.0.1:8000/```
+```gulp serve --usehtml```
+
+Open your browser to [http://127.0.0.1:3000](http://127.0.0.1:3000) after gulp fires up the server 
