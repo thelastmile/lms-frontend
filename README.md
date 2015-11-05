@@ -7,7 +7,7 @@
 
 ###Setup Environment
 1. Download Node.js from https://nodejs.org/
-2. install gulp ```npm -g install bower gulp```
+2. install gulp ```sudo npm -g install bower gulp```
 make sure you are still in the root of the project ```lms-frontend/```
 3. ```npm install```
 4. ```gulp serve --usehtml```
