@@ -27,9 +27,9 @@
                      </div>
                      <div class="text-center col-xs-3 col-md-3" style="padding: 25px;">
                         <p class="input-group">
-                        <input type="text" datepicker-popup="" ng-model="form.dt" is-open="form.opened" min-date="false" max-date="false" datepicker-options="form.dateOptions" date-disabled="form.disabled(form.date, form.mode)" close-text="Close" class="form-control ng-pristine ng-valid ng-isolate-scope ng-valid-date ng-touched"><!-- ngIf: isOpen -->
+                        <input type="text" datepicker-popup ng-model="obj.dt" is-open="obj.datepickerOpen" close-text="Close" init-date="dashboard.defaultDate" class="form-control">
                         <span class="input-group-btn">
-                           <button type="button" ng-click="form.open($event)" class="btn btn-default">
+                           <button type="button" ng-click="dashboard.toggleDatepicker($event, obj)" class="btn btn-default">
                               <em class="fa fa-calendar"></em>
                            </button>
                         </span>

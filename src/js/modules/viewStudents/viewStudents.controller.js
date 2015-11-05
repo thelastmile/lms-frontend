@@ -56,6 +56,13 @@
         });
       };
 
+      vm.defaultDate = new Date();
+      vm.toggleDatepicker = function ($event, obj) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        obj.datepickerOpen = !obj.datepickerOpen;
+      }
+
       // Pie Charts
       // ----------------------------------- 
 
