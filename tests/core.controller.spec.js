@@ -41,12 +41,11 @@ describe('testing the CoreController: ', function() {
 		done();
 	});
 
-	it('$rootScope.logout - function that logs out of UserService', function(done) {
+	it('$rootScope.logout - function that logs out of UserService', function() {
 		var controller = $controller('CoreController', { $rootScope : $rootScope });
 		// function we are testing
 		$rootScope.logout();
 		expect(UserService.logout).toHaveBeenCalled();
-		done();
 	});
 
 });
