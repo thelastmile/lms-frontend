@@ -1,0 +1,14 @@
+<div class="studentnotes row" ng-controller="StudentNotesController as SNC">
+  <div class="col-xs-3 note-picker">
+    <h3>Saved notes</h3>
+    <ul class="note-list">
+      <li class="note-item" ng-repeat="note in SNC.notes" ng-click="SNC.selectedNote = note">
+        {{ note.notes.slice(0, 50) }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-xs-9 note-viewer">
+    <h3 ng-if="!SNC.selectedNote" class="placeholder">Select a note on left to read it</h3>
+    <div ng-if="SNC.selectedNote" marked="SNC.selectedNote.notes"></div>
+  </div>
+</div>

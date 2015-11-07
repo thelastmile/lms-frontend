@@ -5597,30 +5597,42 @@ body .toast-warning {
 /**
    Component: toaster.less
 */
-.student-notes {
+.student-notetaker {
   position: absolute;
   bottom: 55px;
   width: 100%;
   z-index: 999;
 }
-.student-notes h1 {
+.student-notetaker h1 {
   margin-left: 10px;
 }
-.student-notes .editor {
+.student-notetaker .editor {
   max-height: 130px;
 }
-.student-notes .editor textarea {
+.student-notetaker .editor textarea {
   width: 100%;
   height: 125px;
   margin-left: 10px;
   margin-bottom: 10px;
 }
-.student-notes .editor .results {
+.student-notetaker .editor .results {
   max-height: inherit;
   overflow: scroll;
 }
-.student-notes .save-btn {
+.student-notetaker .save-btn {
   margin-left: 10px;
+}
+.studentnotes .note-picker {
+  border-right: 1px solid black;
+}
+.studentnotes .note-picker .note-list {
+  overflow: scroll;
+}
+.studentnotes .note-picker .note-list .note-item {
+  cursor: pointer;
+}
+.studentnotes .note-viewer .placeholder {
+  color: #777;
 }
 /**
    Component: calendar.less

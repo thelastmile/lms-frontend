@@ -3,8 +3,7 @@
 */
 
 // Notetaker for students
-
-.student-notes {
+.student-notetaker {
   position: absolute;
   bottom: 55px;
   width: 100%;
@@ -31,5 +30,25 @@
 
   .save-btn {
     margin-left: 10px;
+  }
+}
+
+// Notes page
+.studentnotes {
+  .note-picker {
+    border-right: 1px solid black;
+
+    .note-list {
+      overflow: scroll;
+      .note-item {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .note-viewer {
+    .placeholder {
+      color: #777;
+    }
   }
 }
