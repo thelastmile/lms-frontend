@@ -5595,6 +5595,27 @@ body .toast-warning {
   padding: 15px 0;
 }
 /**
+   Component: toaster.less
+*/
+.student-notes {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: blue;
+  z-index: 999;
+}
+.student-notes .editor {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.student-notes .editor textarea {
+  width: 100%;
+  height: 125px;
+}
+.student-notes .save-btn {
+  margin-left: 10px;
+}
+/**
    Component: calendar.less
 */
 .calendar-app .calendar {
