@@ -5599,18 +5599,25 @@ body .toast-warning {
 */
 .student-notes {
   position: absolute;
-  bottom: 0;
+  bottom: 55px;
   width: 100%;
-  background-color: blue;
   z-index: 999;
 }
-.student-notes .editor {
+.student-notes h1 {
   margin-left: 10px;
-  margin-bottom: 10px;
+}
+.student-notes .editor {
+  max-height: 130px;
 }
 .student-notes .editor textarea {
   width: 100%;
   height: 125px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.student-notes .editor .results {
+  max-height: inherit;
+  overflow: scroll;
 }
 .student-notes .save-btn {
   margin-left: 10px;

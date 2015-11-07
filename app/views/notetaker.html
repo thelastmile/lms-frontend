@@ -1,0 +1,16 @@
+<div class="student-notes" class="row">
+   <div class="row">
+      <h1 class="col-xs-3">Notetaker 5000
+         <button class="btn save-btn" ng-click="NC.save()">Save</button>
+      </h1>
+   </div>
+   <div class="row editor">
+      <div class="col-xs-5">
+         <textarea class="form-control" ng-model="NC.note"></textarea>
+      </div>
+      <div class="col-xs-5 results">
+         <!-- Results -->
+         <div marked="NC.note"></div>
+      </div>
+   </div>
+</div>
