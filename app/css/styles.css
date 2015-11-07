@@ -5602,25 +5602,35 @@ body .toast-warning {
   bottom: 55px;
   width: 100%;
   z-index: 999;
-}
-.student-notetaker h1 {
+  background-color: #f0f0f0;
+  padding-top: 10px;
   margin-left: 10px;
+  border-top: 1px solid #b4b4b4;
+}
+.student-notetaker h3 {
+  margin-top: 0;
+}
+.student-notetaker .title input {
+  margin-bottom: 10px;
+}
+.student-notetaker .title h3 {
+  margin-bottom: 10px;
+}
+.student-notetaker .title .notes-title {
+  display: inline-block;
+  width: calc(100% - 82px);
 }
 .student-notetaker .editor {
-  max-height: 130px;
+  max-height: 125px;
 }
 .student-notetaker .editor textarea {
   width: 100%;
   height: 125px;
-  margin-left: 10px;
   margin-bottom: 10px;
 }
 .student-notetaker .editor .results {
   max-height: inherit;
   overflow: scroll;
-}
-.student-notetaker .save-btn {
-  margin-left: 10px;
 }
 .studentnotes .note-picker {
   border-right: 1px solid black;

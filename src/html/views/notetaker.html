@@ -1,10 +1,17 @@
 <div class="student-notetaker" class="row">
-   <div class="row">
-      <h1 class="col-xs-3">Notetaker 5000<button class="btn save-btn" ng-click="NC.save()">Save</button></h1>
+   <h3>Notes:</h3>
+   <div class="row title">
+      <div class="col-xs-5">
+         <input ng-model="NC.title" class="form-control notes-title" placeholder="Title">
+         <button class="btn save-btn" ng-click="NC.save()">Save</button>
+      </div>
+      <div class="col-xs-6">
+         <h3>{{ NC.title }}</h3>
+      </div>
    </div>
    <div class="row editor">
       <div class="col-xs-5">
-         <textarea class="form-control" ng-model="NC.note"></textarea>
+         <textarea class="form-control" ng-model="NC.note" placeholder="Notes"></textarea>
       </div>
       <div class="col-xs-5 results">
          <!-- Results -->
