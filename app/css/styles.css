@@ -5632,7 +5632,11 @@ body .toast-warning {
   max-height: inherit;
   overflow: scroll;
 }
+.studentnotes {
+  height: 500px;
+}
 .studentnotes .note-picker {
+  height: inherit;
   border-right: 1px solid black;
 }
 .studentnotes .note-picker .note-list {
@@ -5641,8 +5645,20 @@ body .toast-warning {
 .studentnotes .note-picker .note-list .note-item {
   cursor: pointer;
 }
+.studentnotes .note-viewer {
+  height: inherit;
+}
 .studentnotes .note-viewer .placeholder {
   color: #777;
+}
+.studentnotes .note-viewer .body {
+  height: inherit;
+}
+.studentnotes .note-viewer .body .edit-body {
+  height: inherit;
+}
+.studentnotes .note-viewer .body .edit-body textarea {
+  height: calc(100% - 54px);
 }
 /**
    Component: calendar.less

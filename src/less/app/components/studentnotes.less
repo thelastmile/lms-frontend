@@ -48,9 +48,10 @@
 
 // Notes page
 .studentnotes {
+  height: 500px;
   .note-picker {
+    height: inherit;
     border-right: 1px solid black;
-
     .note-list {
       overflow: scroll;
       .note-item {
@@ -60,8 +61,19 @@
   }
 
   .note-viewer {
+    height: inherit;
     .placeholder {
       color: #777;
+    }
+
+    .body {
+      height: inherit;
+      .edit-body {
+        height: inherit;
+        textarea {
+          height: calc(~"100% - 54px");
+        }
+      }
     }
   }
 }
