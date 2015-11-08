@@ -7,9 +7,10 @@
   function notes($http, $window, customUrl) {
     var id = Number($window.sessionStorage.getItem('id'));
     return {
-      create: function (text) {
+      create: function (noteData) {
         return $http.post(customUrl.url + '/api/note/', {
-          notes: text,
+          title: noteData.title,
+          body: noteData.body,
           object_id: 2,
           author: id,
           content_type: 16 // module

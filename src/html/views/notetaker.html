@@ -2,20 +2,20 @@
    <h3>Notes:</h3>
    <div class="row title">
       <div class="col-xs-5">
-         <input ng-model="NC.title" class="form-control notes-title" placeholder="Title">
-         <button class="btn save-btn" ng-click="NC.save()">Save</button>
+         <input ng-model="NC.note.title" class="form-control notes-title" placeholder="Title">
+         <button class="btn save-btn" ng-click="NC.save()" tabindex="-1">Save</button>
       </div>
       <div class="col-xs-6">
-         <h3>{{ NC.title }}</h3>
+         <h3>{{ NC.note.title }}</h3>
       </div>
    </div>
    <div class="row editor">
       <div class="col-xs-5">
-         <textarea class="form-control" ng-model="NC.note" placeholder="Notes"></textarea>
+         <textarea class="form-control" ng-model="NC.note.body" placeholder="Notes"></textarea>
       </div>
       <div class="col-xs-5 results">
          <!-- Results -->
-         <div marked="NC.note"></div>
+         <div marked="NC.note.body"></div>
       </div>
    </div>
 </div>

@@ -10,7 +10,6 @@
 
     notes.fetchAll()
     .then(function (notes) {
-      console.log(notes);
       SNC.notes = notes;
     });
   }

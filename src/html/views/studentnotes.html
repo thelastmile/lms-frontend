@@ -3,12 +3,15 @@
     <h3>Saved notes</h3>
     <ul class="note-list">
       <li class="note-item" ng-repeat="note in SNC.notes" ng-click="SNC.selectedNote = note">
-        {{ note.notes.slice(0, 50) }}
+        {{ note.title }}
       </li>
     </ul>
   </div>
   <div class="col-xs-9 note-viewer">
     <h3 ng-if="!SNC.selectedNote" class="placeholder">Select a note on left to read it</h3>
-    <div ng-if="SNC.selectedNote" marked="SNC.selectedNote.notes"></div>
+    <div ng-if="SNC.selectedNote">
+      <h3>{{ SNC.selectedNote.title }}</h3>
+      <div marked="SNC.selectedNote.body"></div>
+    </div>
   </div>
 </div>
