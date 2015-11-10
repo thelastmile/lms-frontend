@@ -14,6 +14,7 @@ angular
     'ngAnimate',
     'ngStorage',
     'ngCookies',
+    'ngMock',
     'ngSanitize',
     'ngResource',
     'ui.bootstrap',
@@ -22,5 +23,5 @@ angular
     'oc.lazyLoad',
     'cfp.loadingBar',
     'tmh.dynamicLocale',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
 ]);
