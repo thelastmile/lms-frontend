@@ -127,7 +127,8 @@ module.exports = function(config) {
         'src/js/modules/ui/typeahead.controller.js',
         'app/js/templates.js',
         'src/js/modules/viewStudents/viewStudents.controller.js',
-        'src/js/modules/viewStudents/viewStudents.services.js'
+        'src/js/modules/viewStudents/viewStudents.services.js',
+
     ],
 
 
