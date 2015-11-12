@@ -85,6 +85,12 @@
                </a>
             </li>
             <li ui-sref-active="active">
+               <a ui-sref="app.studentnotes" title="Notes" ripple="">
+                  <em class="sidebar-item-icon fa fa-file-o"></em>
+                  <span>Notes</span>
+               </a>
+            </li>
+            <li ui-sref-active="active">
                <a ui-sref="app.studentextras" title="Mailbox" ripple="">
                   <em class="sidebar-item-icon icon-ribbon"></em>
                   <span>Extras</span>
@@ -534,6 +540,9 @@
             -->
          </ul>
       </div>
+      <footer class="footer">
+         <span>&copy; {{app.year}} - {{ app.name }}</span>
+      </footer>
    </div>
 </div>
 <!-- END Sidebar-->

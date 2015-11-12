@@ -857,6 +857,12 @@ body {
   -o-transition: -o-transform 0.2s ease;
   transition: transform 0.2s ease;
 }
+.sidebar .footer {
+  position: fixed;
+  bottom: 0;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
 .sidebar-subnav {
   height: 0;
   margin-left: -20px;
@@ -5593,6 +5599,72 @@ body .toast-warning {
   color: #fff;
   font-size: 13px;
   padding: 15px 0;
+}
+/**
+   Component: toaster.less
+*/
+.student-notetaker {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #f0f0f0;
+  padding-top: 10px;
+  margin-left: 10px;
+  border-top: 1px solid #b4b4b4;
+}
+.student-notetaker h3 {
+  margin-top: 0;
+}
+.student-notetaker .title input {
+  margin-bottom: 10px;
+}
+.student-notetaker .title h3 {
+  margin-bottom: 10px;
+}
+.student-notetaker .title .notes-title {
+  display: inline-block;
+  width: calc(100% - 82px);
+}
+.student-notetaker .editor {
+  max-height: 125px;
+}
+.student-notetaker .editor textarea {
+  width: 100%;
+  height: 125px;
+  margin-bottom: 10px;
+}
+.student-notetaker .editor .results {
+  max-height: inherit;
+  overflow: scroll;
+}
+.studentnotes {
+  height: 500px;
+}
+.studentnotes .note-picker {
+  height: inherit;
+  border-right: 1px solid black;
+}
+.studentnotes .note-picker .note-list {
+  overflow: scroll;
+}
+.studentnotes .note-picker .note-list .note-item {
+  cursor: pointer;
+}
+.studentnotes .note-viewer {
+  height: inherit;
+}
+.studentnotes .note-viewer .placeholder {
+  color: #777;
+}
+.studentnotes .note-viewer .body {
+  height: inherit;
+}
+.studentnotes .note-viewer .body .edit-body {
+  height: inherit;
+}
+.studentnotes .note-viewer .body .edit-body textarea {
+  height: calc(100% - 54px);
 }
 /**
    Component: calendar.less

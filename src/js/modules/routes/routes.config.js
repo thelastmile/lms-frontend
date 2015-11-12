@@ -82,6 +82,15 @@
           }
         })
 
+        .state('app.studentnotes', {
+          url: '/studentnotes',
+          authenticate: true,
+          templateUrl: Route.base('studentnotes.html'),
+          resolve: {
+            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
+          }
+        })
+
         .state('app.studentextras', {
           url: '/studentvideo',
           authenticate: true,

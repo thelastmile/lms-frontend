@@ -1,0 +1,79 @@
+/**
+   Component: toaster.less
+*/
+
+// Notetaker for students
+.student-notetaker {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #f0f0f0;
+  padding-top: 10px;
+  margin-left: 10px;
+  border-top: 1px solid darken(@navbar-default-border, 20%);
+
+  h3 {
+    margin-top: 0;
+  }
+
+  .title {
+    input {
+      margin-bottom: 10px;
+    }
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    .notes-title {
+      display: inline-block;
+      width: calc(~"100% - 82px");
+    }
+  }
+
+  .editor {
+    max-height: 125px;
+    textarea {
+      width: 100%;
+      height: 125px;
+      margin-bottom: 10px;
+    }
+
+    .results {
+      max-height: inherit;
+      overflow: scroll;
+    }
+  }
+}
+
+// Notes page
+.studentnotes {
+  height: 500px;
+  .note-picker {
+    height: inherit;
+    border-right: 1px solid black;
+    .note-list {
+      overflow: scroll;
+      .note-item {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .note-viewer {
+    height: inherit;
+    .placeholder {
+      color: #777;
+    }
+
+    .body {
+      height: inherit;
+      .edit-body {
+        height: inherit;
+        textarea {
+          height: calc(~"100% - 54px");
+        }
+      }
+    }
+  }
+}

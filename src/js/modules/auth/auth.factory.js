@@ -21,6 +21,7 @@
                         $window.sessionStorage.setItem("authenticated", true);
                         $window.sessionStorage.setItem("username", username);
                         $window.sessionStorage.setItem("token", data['token']);
+                        $window.sessionStorage.setItem("id", data.id);
                         //var permissions = userPermissions.getOrSetAndRoute();
                         factory.getAndRoute();
                         
@@ -42,6 +43,7 @@
             factory.getAndRoute = function(){
                 $http.get(customUrl.url + '/api/users/?username=' + $window.sessionStorage.getItem("username"))
                     .success(function(data) {
+                      $window.sessionStorage.setItem("id", data[0].id);
                       if (data[0].groups.indexOf(1) > -1){
                         console.log('is admin');
                         $window.sessionStorage.setItem("userPermissions","admin");

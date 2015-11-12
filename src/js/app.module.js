@@ -22,5 +22,6 @@ angular
     'oc.lazyLoad',
     'cfp.loadingBar',
     'tmh.dynamicLocale',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'hc.marked'
 ]);
