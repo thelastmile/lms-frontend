@@ -4,25 +4,13 @@ describe('ViewStudentService test =>', function() {
 
   beforeEach(module('naut'));
 
-
-  beforeEach(module('naut', function ($provide, $translateProvider) {
-
-    $provide.factory('customLoader', function () {
-      // loader logic goes here
-    });
-
-    $translateProvider.useLoader('customLoader');
-
-  }));
-
-  beforeEach(inject(function(_$httpBackend_, StudentInfoService){
+  beforeEach(inject(function($injector, StudentInfoService){
     $scope = {};
-    $httpBackend = _$httpBackend_;
+    $httpBackend = $injector.get('$httpBackend');
     StudentInfoServiceObj = StudentInfoService;
   }));
 
   it('defines StudentInfoServiceObj:', function() {
-    console.log(StudentInfoServiceObj);
     expect(StudentInfoServiceObj).toBeDefined();
   });
 
@@ -31,17 +19,22 @@ describe('ViewStudentService test =>', function() {
   });
 
   xit('checks for a POST call', function() {
-    var data = {name:'foo_user'};
-    $httpBackend.expectPOST('/api/users/', data).respond(201, 'success');
+    var data = {'user':'test_user'}
+    $httpBackend.expectPOST('', data).respond(201, 'success');
     StudentInfoServiceObj.post(data);
     $httpBackend.flush();
   });
 
   it('tests for a GET to /api/users/ : ', function() {
-    $httpBackend.expectGET('/api/users/')
-    StudentInfoServiceObj.get('/api/users/');
+    $httpBackend.expectGET('').respond({});
     $httpBackend.flush();
+    StudentInfoServiceObj.get('/api/users/');
   });
 
+  it('tests for a GET to /api/users/ with a pk:', function() {
+    $httpBackend.expectGET('/api/users/1/').respond({});
+    $httpBackend.flush();
+    StudentInfoServiceObj.get('/api/users/1/')
+  });
 });
 
