@@ -1,22 +1,23 @@
 describe('ViewStudentsController test =>', function() {
 
-	var ViewStudentsControllerObj, $controller, StudentInfoService;
+	var ViewStudentsControllerObj, $controller, controller, scope, $rootScope, StudentInfoServiceObj;
 
 
 	beforeEach(function() {
 		module('naut');
 
-		inject(function( _$controller_, _$rootScope_, _StudentInfoService_ ){
-			$controller = _$controller_;
-			$rootScope = _$rootScope_;
-			StudentInfoService = _StudentInfoService_;
+		inject(function( $controller, $scope, StudentInfoService ){
+			scope = $rootScope.$new();
+			StudentInfoServiceObj = _StudentInfoService_;
+			ViewStudentsControllerObj = $controller("ViewStudentsController", { 
+				$scope : scope,
+				StudentInfoService : StudentInfoServiceObj
+			 });
 
 		});
 	});
 
 	it("gets the students information", function(){
-		var $rootScope = {};
-		var controller = $controller("ViewStudentsController", { $rootScope : $rootScope })
-		expect(StudentInfoService.get).toHaveBeenCalled();
+		expect(ViewStudentsControllerObj).toBeDefined();
 	});
 });
