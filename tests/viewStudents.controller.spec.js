@@ -2,6 +2,7 @@ describe('ViewStudentsController test =>', function() {
 
 	var ViewStudentsControllerObj, $controller, StudentInfoService;
 
+
 	beforeEach(function() {
 		module('naut');
 
