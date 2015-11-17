@@ -1,10 +1,21 @@
 describe('ViewStudentsController test =>', function() {
 
-	var ViewStudentsControllerObj;
+	var ViewStudentsControllerObj, $controller, StudentInfoService;
 
-	beforeEach(module('naut'));
+	beforeEach(function() {
+		module('naut');
 
-	beforeEach(inject(function(_$controller_) {
-		$controller = _$controller_;
-	}));
+		inject(function( _$controller_, _$rootScope_, _StudentInfoService_ ){
+			$controller = _$controller_;
+			$rootScope = _$rootScope_;
+			StudentInfoService = _StudentInfoService_;
+
+		});
+	});
+
+	it("gets the students information", function(){
+		var $rootScope = {};
+		var controller = $controller("ViewStudentsController", { $rootScope : $rootScope })
+		expect(StudentInfoService.get).toHaveBeenCalled();
+	});
 });
