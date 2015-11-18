@@ -16,12 +16,14 @@ describe('CoreConfig Module => ', function() {
 	}));
 
 	beforeEach(inject(function($injector){
-		$rootScope = injector.get('$rootScope');
-		$state = injector.get('$state');
-		$templateCache = injector.get('$templateCache');
-		$http = injector.get('$http')
-		UserService = injector.get('UserService');
+		$rootScope = $injector.get('$rootScope');
+		$state = $injector.get('$state');
+		$templateCache = $injector.get('$templateCache');
+		$http = $injector.get('$http')
+		UserService = $injector.get('UserService');
 	}));
 
-	it('')
+	it('checks $rootScope', function() {
+		expect($rootScope).toBeDefined();
+	})
 });
