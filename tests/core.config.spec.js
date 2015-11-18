@@ -25,5 +25,18 @@ describe('CoreConfig Module => ', function() {
 
 	it('checks $rootScope', function() {
 		expect($rootScope).toBeDefined();
-	})
+	});
+
+	it('checks $rootScope.$on', function() {
+		expect($rootScope.$on).toBeDefined();
+	});
+
+	// it('checks $stateChangeStart', function() {
+	// 	expect($stateChangeStart).toBeDefined();	
+	// })
+
+	// it('checks if toState.authenticate is defined', function() {
+	// 	expect(toState.authenticate).toBeDefined();
+	// });
+
 });
