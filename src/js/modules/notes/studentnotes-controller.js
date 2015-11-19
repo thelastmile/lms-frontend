@@ -8,7 +8,7 @@
   function StudentNotesController(notes) {
     var SNC = this;
 
-    notes.fetchAll()
+    notes.fetchAll(true)
     .then(function (notes) {
       SNC.notes = notes;
     });
