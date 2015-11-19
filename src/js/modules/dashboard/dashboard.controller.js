@@ -8,7 +8,7 @@
     angular
         .module('naut')
         .controller('DashboardController', DashboardController);
-    
+
     DashboardController.$inject = ['$rootScope', '$scope', 'colors', 'flotOptions', '$timeout' ,'$window'];
     function DashboardController($rootScope, $scope, colors, flotOptions, $timeout, $window) {
       var vm = this;
@@ -34,7 +34,7 @@
       };
 
       // Pie Charts
-      // ----------------------------------- 
+      // -----------------------------------
 
       vm.piePercent1 = 75;
       vm.piePercent2 = 50;
@@ -51,7 +51,7 @@
       };
 
       // Dashboard charts
-      // ----------------------------------- 
+      // -----------------------------------
 
       // Spline chart
       vm.splineChartOpts = angular.extend({}, flotOptions['default'], {
@@ -100,7 +100,7 @@
 
 
       // Small line chart
-      // ----------------------------------- 
+      // -----------------------------------
 
       vm.smallChartOpts = angular.extend({}, flotOptions['default'], {
         points: {
@@ -140,8 +140,8 @@
         ]
       }];
       // Sparkline
-      // ----------------------------------- 
-      
+      // -----------------------------------
+
       vm.sparkValues1 = [2,3,4,6,6,5,6,7,8,9,10];
       vm.sparkValues2 = [2,3,4,1,2,3,5,4,9,6,1];
       vm.sparkValues3 = [6,5,1,2,6,9,8,7,4,5,6,9];
