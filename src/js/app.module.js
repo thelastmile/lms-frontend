@@ -14,7 +14,6 @@ angular
     'ngAnimate',
     'ngStorage',
     'ngCookies',
-    'ngMock',
     'ngSanitize',
     'ngResource',
     'ui.bootstrap',

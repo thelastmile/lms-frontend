@@ -3,7 +3,7 @@
 </div>
 <div ng-controller="ViewStudentsController as dashboard" class="row">
    <!-- START dashboard content-->
-   <div class="col-lg-12 fw-boxed" ng-repeat="obj in students">
+   <div class="col-lg-12 fw-boxed" ng-repeat="student in students">
       <!-- START Tabbed panel-->
       <div ng-init="hpanel = [true, false, false, false]" class="panel panel-default">
          <div class="row">
@@ -13,9 +13,9 @@
                         <em class="icon-head fa-4x mv"></em>
                      </div>
                      <div ripple="" ng-click="hpanel = [true, false, false, false]" ng-class="{'bg-primary': hpanel[0]}" class="col-xs-3 col-md-6 bb br pv-xxl clickable">
-                        <h2>{{students[$index].first_name}}<br>{{students[$index].last_name}}</h2>
-                        <p>Level: {{students[$index].level}}</p>
-                        <p>Success Rank: {{students[$index].rank}}</p>
+                        <h2>{{student.first_name}}<br>{{student.last_name}}</h2>
+                        <p>Level: {{student.level}}</p>
+                        <p>Success Rank: {{student.rank}}</p>
                      </div>
                   </div>
                </div>
@@ -27,9 +27,9 @@
                      </div>
                      <div class="text-center col-xs-3 col-md-3" style="padding: 25px;">
                         <p class="input-group">
-                        <input type="text" datepicker-popup="" ng-model="form.dt" is-open="form.opened" min-date="false" max-date="false" datepicker-options="form.dateOptions" date-disabled="form.disabled(form.date, form.mode)" close-text="Close" class="form-control ng-pristine ng-valid ng-isolate-scope ng-valid-date ng-touched"><!-- ngIf: isOpen -->
+                        <input type="text" datepicker-popup ng-model="student.dt" is-open="student.datepickerOpen" close-text="Close" init-date="dashboard.defaultDate" class="form-control">
                         <span class="input-group-btn">
-                           <button type="button" ng-click="form.open($event)" class="btn btn-default">
+                           <button type="button" ng-click="dashboard.toggleDatepicker($event, student)" class="btn btn-default">
                               <em class="fa fa-calendar"></em>
                            </button>
                         </span>
