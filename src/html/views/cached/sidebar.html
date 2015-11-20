@@ -2,7 +2,7 @@
 <div class="sidebar-wrapper">
    <div ui-sidebar="" class="sidebar">
       <div class="sidebar-nav" ng-controller="DashboardController as dashboard">
-         <ul class="nav" ng-if="isAdmin()">
+         <ul class="nav" ng-if="isAdmin() || isSuperAdmin()">
             <!-- Iterates over all sidebar items-->
             <li class="nav-heading">
                <span translate="sidebar.heading.HEADER" class="text-muted">Main Navigation</span>
@@ -37,17 +37,17 @@
                   <span>Media</span>
                </a>
             </li>
-            <li ui-sref-active="active">
+            <li ui-sref-active="active" ng-if="isSuperAdmin()">
                <a href="http://lms-backend-dev.elasticbeanstalk.com/admin" title="Admin" ripple="">
                   <em class="sidebar-item-icon icon-stack"></em>
-                  <span>Super Admin</span>
+                  <span>Backend Admin</span>
                </a>
             </li>
          </ul>
 
 
          <!-- STUDENT MENU -->
-         <ul class="nav" ng-if="!isAdmin()">
+         <ul class="nav" ng-if="isStudent()">
             <!-- Iterates over all sidebar items-->
             <li class="nav-heading">
                <span translate="sidebar.heading.HEADER" class="text-muted">Main Navigation</span>

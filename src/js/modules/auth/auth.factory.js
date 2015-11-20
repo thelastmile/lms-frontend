@@ -42,17 +42,23 @@
             factory.getAndRoute = function(){
                 $http.get(customUrl.url + '/api/users/?username=' + $window.sessionStorage.getItem("username"))
                     .success(function(data) {
-                      if (data[0].groups.indexOf(1) > -1){
-                        console.log('is admin');
-                        $window.sessionStorage.setItem("userPermissions","admin");
-                        $state.go("app.viewstudents");
-                        //$rootScope.userPermissions = "admin";
-                      } else {
-                        console.log('is user');
-                        $window.sessionStorage.setItem("userPermissions","user");
-                        //$rootScope.userPermissions = "user";
-                        $state.go("app.studentdashboard");
+                      for (var group in data[0].groups){
+                        if (data[0].groups[group].name==='Super Admin'){
+                          console.log('is Super Admin');
+                          $window.sessionStorage.setItem("userPermissions","superAdmin");
+                          $state.go("app.viewstudents");
+                          break;
+                        } else if (data[0].groups[group].name==='Faculty') {
+                          console.log('is Admin');
+                          $window.sessionStorage.setItem("userPermissions","faculty");
+                          $state.go("app.studentdashboard");
+                        } else if (data[0].groups[group].name==='Student') {
+                          console.log('is Student');
+                          $window.sessionStorage.setItem("userPermissions","Student");
+                          $state.go("app.studentdashboard");
+                        }
                       }
+
                     });
             }
 
