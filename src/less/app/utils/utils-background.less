@@ -116,6 +116,8 @@
       color: mix(@link, @@bg, 70%);
       &:focus, &:hover {
         color: @link;
+      }&.active {
+        background-color: mix(@@bg, @navlinkbg, 50%) !important;
       }
       // &.btn-default { color: @btn-default-color; }
       // &.btn-primary { color: @btn-primary-color; }

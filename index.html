@@ -18,6 +18,7 @@
 
 <body ng-cloak="" ng-class="{ 'layout-fixed' : app.layout.isFixed, 'layout-boxed' : app.layout.isBoxed, 'layout-dock' : app.layout.isDocked, 'layout-material': app.layout.isMaterial, 'aside-offscreen' : app.sidebar.isOffscreen, 'aside-mini' : app.sidebar.isMini, 'aside-right' : app.sidebar.isRight, 'footer-hidden': app.footer.hidden, 'in-app': !$state.includes('page')}">
    <div data-ui-view="" data-autoscroll="false" ng-controller="CoreController" class="app-container"></div>
+
    <!-- Settings-->
    <!--
    <div ng-include="'templates/settings.html'" ng-class="{'visible': showSettings}" ng-init="showSettings = false" class="settings-wrapper"></div>
@@ -37,6 +38,7 @@
          <div class="layer-morph-footer">The Last Mile</div>
       </div>
    </div>
+
    <!-- End Layer Morph-->
    <!-- build:vendor app/js/vendor.js-->
    <script src="vendor/modernizr/modernizr.js"></script>
