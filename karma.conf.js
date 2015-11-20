@@ -21,7 +21,6 @@ module.exports = function(config) {
         'tests/*.js',//new
         'vendor/modernizr/modernizr.js',
         'vendor/jquery/dist/jquery.js',
-        'vendor/angular/angular.js',
         'vendor/angular-route/angular-route.js',
         'vendor/angular-cookies/angular-cookies.js',
         'vendor/angular-animate/angular-animate.js',
@@ -127,7 +126,8 @@ module.exports = function(config) {
         'src/js/modules/ui/typeahead.controller.js',
         'app/js/templates.js',
         'src/js/modules/viewStudents/viewStudents.controller.js',
-        'src/js/modules/viewStudents/viewStudents.services.js'
+        'src/js/modules/viewStudents/viewStudents.services.js',
+
     ],
 
 

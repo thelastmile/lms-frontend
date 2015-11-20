@@ -15,7 +15,7 @@
                     event.preventDefault();
                     $state.transitionTo("page.login");
                   }
-                });
+            });
     })
 
     .factory('customUrl', function(){
