@@ -13,8 +13,24 @@
     function DashboardController($rootScope, $scope, colors, flotOptions, $timeout, $window) {
       var vm = this;
 
+      $scope.isSuperAdmin = function(){
+        if ($window.sessionStorage.getItem("userPermissions")=='superAdmin'){
+          return true;
+        } else {
+          return false;
+        }
+      }
+
       $scope.isAdmin = function(){
-        if ($window.sessionStorage.getItem("userPermissions")=='admin'){
+        if ($window.sessionStorage.getItem("userPermissions")=='faculty'){
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      $scope.isStudent = function(){
+        if ($window.sessionStorage.getItem("userPermissions")=='student'){
           return true;
         } else {
           return false;
