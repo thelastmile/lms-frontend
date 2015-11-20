@@ -5638,32 +5638,32 @@ body .toast-warning {
   max-height: inherit;
   overflow: scroll;
 }
-.studentnotes {
+.noteviewer {
   height: 500px;
 }
-.studentnotes .note-picker {
+.noteviewer .note-picker {
   height: inherit;
   border-right: 1px solid black;
 }
-.studentnotes .note-picker .note-list {
+.noteviewer .note-picker .note-list {
   overflow: scroll;
 }
-.studentnotes .note-picker .note-list .note-item {
+.noteviewer .note-picker .note-list .note-item {
   cursor: pointer;
 }
-.studentnotes .note-viewer {
+.noteviewer .note-viewer {
   height: inherit;
 }
-.studentnotes .note-viewer .placeholder {
+.noteviewer .note-viewer .placeholder {
   color: #777;
 }
-.studentnotes .note-viewer .body {
+.noteviewer .note-viewer .body {
   height: inherit;
 }
-.studentnotes .note-viewer .body .edit-body {
+.noteviewer .note-viewer .body .edit-body {
   height: inherit;
 }
-.studentnotes .note-viewer .body .edit-body textarea {
+.noteviewer .note-viewer .body .edit-body textarea {
   height: calc(100% - 54px);
 }
 /**

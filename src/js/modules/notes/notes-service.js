@@ -27,13 +27,17 @@
           content_type: 16 // module table
         });
       },
-      fetchAll: function () {
+      fetchAll: function (byUser) {
         return $http.get(customUrl.url + '/api/note/')
         .then(function (response) {
-          // Ideally, this would be filtered on the Django side
-          return response.data.filter(function (note) {
-            return note.author === userId;
-          });
+          if (byUser) {
+            // Ideally, this would be filtered on the Django side
+            return response.data.filter(function (note) {
+              return note.author === userId;
+            });
+          } else {
+            return response.data;
+          }
         });
       }
     };
