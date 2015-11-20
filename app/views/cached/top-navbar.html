@@ -141,66 +141,68 @@
 
          <!-- END lock screen-->
       </ul>
-      <ul style="margin-top: 30px; margin-left: 20px; bottom: 0px;" class='pull-right nav navbar-bar'>
-         <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-            <a ui-sref="app.studentdashboard" title="Student Dashboard" ripple="">
-               <em class="sidebar-item-icon fa fa-home"></em>
-               <span>Home</span>
-            </a>
-         </button>
-         <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-            <a ui-sref="app.studentvideo" title="Video" ripple="">
-               <em class="sidebar-item-icon fa fa-film"></em>
-               <span>Video</span>
-            </a>
-         </button>
-         <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-            <a ui-sref="app.studentreadme" title="Readme" ripple="">
-               <em class="sidebar-item-icon fa fa-file-text-o"></em>
-               <span>Readme</span>
-            </a>
-         </button>
-         <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-            <a ui-sref="app.studentcode" title="Mailbox" ripple="">
-               <em class="sidebar-item-icon fa fa-code"></em>
-               <span>Code Editor</span>
-            </a>
-         </button>
-
-
-         <!-- NOTES MENU DROPDOWN -->
-         <span dropdown="" class="dropdown">
-            <button ui-sref-active="active" type="button" class="btn btn-default">
-               <a title="Notes" dropdown-toggle="" ripple="" class="dropdown-toggle">
-                  <em class="sidebar-item-icon fa fa-file-o"></em>
-                  <span>Notes</span>
+      <div ng-controller="DashboardController as dashboard">
+         <ul ng-if="isStudent()" style="margin-top: 30px; margin-left: 20px; bottom: 0px;" class='pull-right nav navbar-bar'>
+            <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+               <a ui-sref="app.studentdashboard" title="Student Dashboard" ripple="">
+                  <em class="sidebar-item-icon fa fa-home"></em>
+                  <span>Home</span>
                </a>
             </button>
-            <!-- START Dropdown menu-->
-            <ul id="bg-white" class="dropdown-menu p wd-lg">
+            <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+               <a ui-sref="app.studentvideo" title="Video" ripple="">
+                  <em class="sidebar-item-icon fa fa-film"></em>
+                  <span>Video</span>
+               </a>
+            </button>
+            <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+               <a ui-sref="app.studentreadme" title="Readme" ripple="">
+                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
+                  <span>Readme</span>
+               </a>
+            </button>
+            <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+               <a ui-sref="app.studentcode" title="Mailbox" ripple="">
+                  <em class="sidebar-item-icon fa fa-code"></em>
+                  <span>Code Editor</span>
+               </a>
+            </button>
 
-               <li ng-controller="ModalController as modal">
-                  <a ng-click="modal.open()" href="">
-                     <em class="fa fa-plus-circle"></em>
-                     <span class="ml">Create Note</span>
-                  </a>
-               </li>
-               <li>
-                  <a ui-sref="app.studentnotes">
-                     <em class="fa fa-file-o"></em>
-                     <span class="ml">View Notes</span>
-                  </a>
-               </li>
-            </ul>
-         </span>
 
-         <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-            <a ui-sref="app.studentextras" title="Mailbox" ripple="">
-               <em class="sidebar-item-icon icon-ribbon"></em>
-               <span>Extras</span>
-            </a>
-         </button>
-      </ul>
+            <!-- NOTES MENU DROPDOWN -->
+            <span dropdown="" class="dropdown">
+               <button ui-sref-active="active" type="button" class="btn btn-default">
+                  <a title="Notes" dropdown-toggle="" ripple="" class="dropdown-toggle">
+                     <em class="sidebar-item-icon fa fa-file-o"></em>
+                     <span>Notes</span>
+                  </a>
+               </button>
+               <!-- START Dropdown menu-->
+               <ul id="bg-white" class="dropdown-menu p wd-lg">
+
+                  <li ng-controller="ModalController as modal">
+                     <a ng-click="modal.open()" href="">
+                        <em class="fa fa-plus-circle"></em>
+                        <span class="ml">Create Note</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a ui-sref="app.studentnotes">
+                        <em class="fa fa-file-o"></em>
+                        <span class="ml">View Notes</span>
+                     </a>
+                  </li>
+               </ul>
+            </span>
+
+            <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+               <a ui-sref="app.studentextras" title="Mailbox" ripple="">
+                  <em class="sidebar-item-icon icon-ribbon"></em>
+                  <span>Extras</span>
+               </a>
+            </button>
+         </ul>
+      </div>
       <!-- END Left navbar-->
       </div>
       <!-- END Nav wrapper-->

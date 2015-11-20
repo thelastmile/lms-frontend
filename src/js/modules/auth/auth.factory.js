@@ -52,10 +52,10 @@
                         } else if (data[0].groups[group].name==='Faculty') {
                           console.log('is Admin');
                           $window.sessionStorage.setItem("userPermissions","faculty");
-                          $state.go("app.studentdashboard");
-                        } else if (data[0].groups[group].name==='Student') {
+                          $state.go("app.viewstudents");
+                        } else if (data[0].groups[group].name==='Student' || data[0].groups[group].name==='Inmate') {
                           console.log('is Student');
-                          $window.sessionStorage.setItem("userPermissions","Student");
+                          $window.sessionStorage.setItem("userPermissions","student");
                           $state.go("app.studentdashboard");
                         }
                       }

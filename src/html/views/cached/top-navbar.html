@@ -138,7 +138,8 @@
          
          <!-- END lock screen-->
       </ul>
-      <ul style="margin-top: 30px; margin-left: 20px; bottom: 0px;" class='pull-right nav navbar-bar'>
+      <div ng-controller="DashboardController as dashboard">
+      <ul ng-if="isStudent()" style="margin-top: 30px; margin-left: 20px; bottom: 0px;" class='pull-right nav navbar-bar'>
          <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
                <a ui-sref="app.studentdashboard" title="Student Dashboard" ripple="">
                   <em class="sidebar-item-icon fa fa-home"></em>
@@ -198,6 +199,7 @@
                </a>
          </button>
       </ul>
+      </div>
       <!-- END Left navbar-->
    </div>
    <!-- END Nav wrapper-->
