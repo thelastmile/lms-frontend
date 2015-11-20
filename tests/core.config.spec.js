@@ -50,16 +50,16 @@ describe('CoreConfig Module => ', function() {
 		expect($state.transitionTo).toHaveBeenCalled(); // this fails if we .toHaveBeenCalledWith('page.login')
 	});
 
-	it('customUrl function test for localhost return', function() {
-		var document = {location: {hostname: 'localhost'}};
-		expect(customUrl.url).toBe('http://127.0.0.1:8000')
-	});
+	// it('customUrl function test for localhost return', function() {
+	// 	var document = {location: {hostname: 'localhost'}};
+	// 	expect(customUrl.url).toBe('http://127.0.0.1:8000')
+	// });
 
-	it('customUrl function test for aws url return', function() {
-		var customDocument = function() {
-			return document.location.assign('www.google.com');
-		};
-		expect(customUrl.url).toBe('http://lms-backend-dev.elasticbeanstalk.com');
-	})
+	// it('customUrl function test for aws url return', function() {
+	// 	var customDocument = function() {
+	// 		return document.location.assign('www.google.com');
+	// 	};
+	// 	expect(customUrl.url).toBe('http://lms-backend-dev.elasticbeanstalk.com');
+	// })
 
 });
