@@ -6627,6 +6627,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-gray a:hover {
   color: #a9b2b9;
 }
+.bg-gray a.active {
+  background-color: #1f2326 !important;
+}
 .bg-gray .nav > li > a {
   color: #a9b2b9;
 }
@@ -6702,6 +6705,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-gray-darker a:focus,
 .bg-gray-darker a:hover {
   color: #dedede;
+}
+.bg-gray-darker a.active {
+  background-color: #4f4f4f !important;
 }
 .bg-gray-darker .nav > li > a {
   color: #dedede;
@@ -6779,6 +6785,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-gray-dark a:hover {
   color: #e0e3e8;
 }
+.bg-gray-dark a.active {
+  background-color: #485362 !important;
+}
 .bg-gray-dark .nav > li > a {
   color: #e0e3e8;
 }
@@ -6855,6 +6864,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-gray-light a:hover {
   color: #919293;
 }
+.bg-gray-light a.active {
+  background-color: #f3f4f7 !important;
+}
 .bg-gray-light .nav > li > a {
   color: #919293;
 }
@@ -6930,6 +6942,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-gray-lighter a:focus,
 .bg-gray-lighter a:hover {
   color: #919293;
+}
+.bg-gray-lighter a.active {
+  background-color: #fafafa !important;
 }
 .bg-gray-lighter .nav > li > a {
   color: #919293;
@@ -7010,6 +7025,10 @@ fieldset[disabled] .calendar-app .fc-button.active {
 #bg-white a:hover,
 .bg-white a:hover {
   color: #515d6e;
+}
+#bg-white a.active,
+.bg-white a.active {
+  background-color: #f8f9f9 !important;
 }
 #bg-white .nav > li > a,
 .bg-white .nav > li > a {
@@ -7109,6 +7128,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-inverse a:hover {
   color: #bbc4ca;
 }
+.bg-inverse a.active {
+  background-color: #2d353a !important;
+}
 .bg-inverse .nav > li > a {
   color: #bbc4ca;
 }
@@ -7190,6 +7212,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-primary a:focus,
 .bg-primary a:hover {
   color: #fefeff;
+}
+.bg-primary a.active {
+  background-color: #3a4aa6 !important;
 }
 .bg-primary .nav > li > a {
   color: #fefeff;
@@ -7273,6 +7298,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-success a:hover {
   color: #ffffff;
 }
+.bg-success a.active {
+  background-color: #46a149 !important;
+}
 .bg-success .nav > li > a {
   color: #ffffff;
 }
@@ -7354,6 +7382,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-info a:focus,
 .bg-info a:hover {
   color: #ffffff;
+}
+.bg-info a.active {
+  background-color: #168be7 !important;
 }
 .bg-info .nav > li > a {
   color: #ffffff;
@@ -7437,6 +7468,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-warning a:hover {
   color: #ffffff;
 }
+.bg-warning a.active {
+  background-color: #ea8b00 !important;
+}
 .bg-warning .nav > li > a {
   color: #ffffff;
 }
@@ -7518,6 +7552,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-danger a:focus,
 .bg-danger a:hover {
   color: #ffffff;
+}
+.bg-danger a.active {
+  background-color: #f23022 !important;
 }
 .bg-danger .nav > li > a {
   color: #ffffff;
@@ -7601,6 +7638,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-amber a:hover {
   color: #ffffff;
 }
+.bg-amber a.active {
+  background-color: #eeb304 !important;
+}
 .bg-amber .nav > li > a {
   color: #ffffff;
 }
@@ -7682,6 +7722,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-pink a:focus,
 .bg-pink a:hover {
   color: #ffffff;
+}
+.bg-pink a.active {
+  background-color: #da195a !important;
 }
 .bg-pink .nav > li > a {
   color: #ffffff;
@@ -7765,6 +7808,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-purple a:hover {
   color: #fcfbfe;
 }
+.bg-purple a.active {
+  background-color: #5d34a6 !important;
+}
 .bg-purple .nav > li > a {
   color: #fcfbfe;
 }
@@ -7847,6 +7893,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-orange a:hover {
   color: #ffffff;
 }
+.bg-orange a.active {
+  background-color: #fa4911 !important;
+}
 .bg-orange .nav > li > a {
   color: #ffffff;
 }
@@ -7928,6 +7977,9 @@ fieldset[disabled] .calendar-app .fc-button.active {
 .bg-tlm a:focus,
 .bg-tlm a:hover {
   color: #bbc4ca;
+}
+.bg-tlm a.active {
+  background-color: #2d353a !important;
 }
 .bg-tlm .nav > li > a {
   color: #bbc4ca;
