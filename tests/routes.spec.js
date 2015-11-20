@@ -51,10 +51,19 @@ describe('testing specs for TLM routes', function() {
 	});
 
 	it('should respont to the URL', function() { 
-		state = "app.studentvideo"
-		expect($state.href(state)).toEqual('#/app/studentvideo');
-	})
+		state = "app.studentreadme"
+		expect($state.href(state)).toEqual('#/app/studentreadme');
+	});
 
+	it('should respont to the URL', function() { 
+		state = "app.studentcode"
+		expect($state.href(state)).toEqual('#/app/studentcode');
+	});
+
+	it('should respont to the URL', function() { 
+		state = "app.studentextras"
+		expect($state.href(state)).toEqual('#/app/studentvideo');
+	});
 
 	// it("should respond to the URL", function() {
 	// 	 state = 'app.dashboard'
