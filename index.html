@@ -18,7 +18,6 @@
 
 <body ng-cloak="" ng-class="{ 'layout-fixed' : app.layout.isFixed, 'layout-boxed' : app.layout.isBoxed, 'layout-dock' : app.layout.isDocked, 'layout-material': app.layout.isMaterial, 'aside-offscreen' : app.sidebar.isOffscreen, 'aside-mini' : app.sidebar.isMini, 'aside-right' : app.sidebar.isRight, 'footer-hidden': app.footer.hidden, 'in-app': !$state.includes('page')}">
    <div data-ui-view="" data-autoscroll="false" ng-controller="CoreController" class="app-container"></div>
-
    <!-- Settings-->
    <!--
    <div ng-include="'templates/settings.html'" ng-class="{'visible': showSettings}" ng-init="showSettings = false" class="settings-wrapper"></div>
@@ -38,7 +37,6 @@
          <div class="layer-morph-footer">The Last Mile</div>
       </div>
    </div>
-
    <!-- End Layer Morph-->
    <!-- build:vendor app/js/vendor.js-->
    <script src="vendor/modernizr/modernizr.js"></script>
@@ -62,8 +60,6 @@
    <script src="vendor/angular-dynamic-locale/dist/tmhDynamicLocale.js"></script>
    <script src="vendor/oclazyload/dist/ocLazyLoad.js"></script>
    <script src="vendor/angular-loading-bar/build/loading-bar.js"></script>
-   <script src="bower_components/marked/lib/marked.js"></script>
-   <script src="bower_components/angular-marked/angular-marked.js"></script>
    <!-- endbuild-->
    <!-- build:js app/js/application.js-->
    <script src="src/js/app.module.js"></script>
@@ -151,9 +147,6 @@
    <script src="src/js/modules/ui/tooltip.config.js"></script>
    <script src="src/js/modules/ui/tooltip.controller.js"></script>
    <script src="src/js/modules/ui/typeahead.controller.js"></script>
-   <script src="src/js/modules/notes/studentnotes-controller.js"></script>
-   <script src="src/js/modules/notes/notetaker-directive.js"></script>
-   <script src="src/js/modules/notes/notes-service.js"></script>
    <script src="app/js/templates.js"></script>
 
    <script src="src/js/modules/viewStudents/viewStudents.controller.js"></script>
