@@ -1,21 +1,8 @@
-<div class="student-notetaker" class="row">
-   <h3>Notes:</h3>
-   <div class="row title">
-      <div class="col-xs-5">
-         <input ng-model="NC.note.title" class="form-control notes-title" placeholder="Title">
+<div class="">
+   <div class="row-fluid editor">
+      <div>
+         <input class="form-control notes-body" ng-model="NC.note.body" placeholder="Quick Note"></input>
          <button class="btn save-btn" ng-click="NC.save()" tabindex="-1">Save</button>
-      </div>
-      <div class="col-xs-6">
-         <h3>{{ NC.note.title }}</h3>
-      </div>
-   </div>
-   <div class="row editor">
-      <div class="col-xs-5">
-         <textarea class="form-control" ng-model="NC.note.body" placeholder="Notes"></textarea>
-      </div>
-      <div class="col-xs-5 results">
-         <!-- Results -->
-         <div marked="NC.note.body"></div>
       </div>
    </div>
 </div>
