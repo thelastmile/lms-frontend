@@ -10,8 +10,8 @@
         .controller('CoreController', CoreController);
 
     /* @ngInject */
-    CoreController.$inject = ['$rootScope','UserService'];
-    function CoreController($rootScope,UserService) {
+    CoreController.$inject = ['$rootScope','UserService','$scope','customUrl'];
+    function CoreController($rootScope,UserService,$scope,customUrl) {
       // Get title for each page
       $rootScope.pageTitle = function() {
         return $rootScope.app.name + ' - ' + $rootScope.app.description;
@@ -27,6 +27,8 @@
       $rootScope.logout = function () {
             UserService.logout();
       };
+
+      $scope.url = customUrl.url;
     }
     
 

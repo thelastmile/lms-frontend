@@ -10,8 +10,8 @@
         .module('naut')
         .directive('flot', flot);
     
-    flot.$inject = ['$http', '$timeout'] ;
-    function flot($http, $timeout) {
+    flot.$inject = ['$http', '$timeout','customUrl'] ;
+    function flot($http, $timeout, customUrl) {
       
       return {
         restrict: 'EA',
@@ -90,7 +90,7 @@
 
           if( src ) {
 
-            $http.get(src)
+            $http.get(customUrl.url+'/'+src)
               .success(function (data) {
 
                 $timeout(function(){
