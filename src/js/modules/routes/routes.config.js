@@ -109,6 +109,15 @@
           }
         })
 
+        .state('app.classoverview', {
+          url: '/overview',
+          authenticate: true,
+          templateUrl: Route.base('classOverview.html'),
+          resolve: {
+            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
+          }
+        })
+
         .state('app.cards', {
           url: '/cards',
           templateUrl: Route.base('cards.html'),

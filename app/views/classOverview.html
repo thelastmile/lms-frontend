@@ -1,0 +1,27 @@
+<div class="app-view-header">Class Overview
+   <small ng-bind="app.name + ' - ' + app.description"></small>
+</div>
+<div ng-controller="ViewStudentsController as dashboard" class="row">
+   <!-- START dashboard content-->
+   <div ng-controller="FlotChartController as flot" class="container-fluid">
+   <!-- START row-->
+      <div class="col-lg-12 fw-boxed">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <div class="panel-title"><h4>Attendance <small>this week</small></h4></div>
+                  </div>
+                  <div class="panel-body">
+                     <div class="indicator show">
+                        <span class="spinner"></span>
+                     </div>
+                     <flot src="'server/chart/barstacked.json'" options="flot.chartBarStackedFlotChart"></flot>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </div>   
+</div>
