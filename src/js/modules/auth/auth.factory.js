@@ -12,7 +12,7 @@
         // LOGIN FACTORY
         //==============================================
 
-        .factory('UserService', ['$http', '$state', 'registerService', 'customUrl', '$window', function($http, $state, registerService, customUrl, $window){
+        .factory('UserService', ['$http', '$state', 'registerService', 'customUrl', '$window','toasty', function($http, $state, registerService, customUrl, $window, toasty){
             var factory = {};
             factory.login = function(username, password){
                 $http.post(customUrl.url + "/api-token-auth/", {username: username, password: password})
@@ -30,12 +30,24 @@
                         $window.sessionStorage.setItem("authenticated", false);
                         $window.sessionStorage.setItem("username", "");
                         $window.sessionStorage.setItem("token", "");
+                        toasty.error({
+                            title: 'Invalid login',
+                            msg: 'Please check your username and password and try again',
+                            sound: false,
+                            clickToClose: true,
+                        });
                     }
                 })
                 .error(function(data, status, headers, config){
                         $window.sessionStorage.setItem("authenticated", false);
                         $window.sessionStorage.setItem("username", "");
                         $window.sessionStorage.setItem("token", "");
+                        toasty.error({
+                            title: 'Invalid login',
+                            msg: 'Please check your username and password and try again',
+                            sound: false,
+                            clickToClose: true
+                        });
                         //toaster.pop("error", "Invalid credentials", "text");
                 })
             };

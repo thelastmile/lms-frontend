@@ -13,6 +13,7 @@
    <!-- build:css app/css/application.css-->
    <link rel="stylesheet" href="app/css/bootstrap.css">
    <link rel="stylesheet" href="app/css/styles.css">
+   <link rel="stylesheet" href="vendor/angular-toasty/dist/angular-toasty.min.css"/>
    <!-- endbuild-->
 </head>
 
@@ -30,7 +31,6 @@
    <div layer-morph-close="" class="layer-morph-close">
       <em class="icon-cross"></em>
    </div>
-   <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
    <div class="layer-morph-container bg-info">
       <div class="layer-morph-wrapper">
          <div id="layer-search" ng-include="'templates/layer-search.html'" class="layer-morph"></div>
@@ -45,6 +45,7 @@
    <script src="vendor/angular-route/angular-route.js"></script>
    <script src="vendor/angular-cookies/angular-cookies.js"></script>
    <script src="vendor/angular-animate/angular-animate.js"></script>
+   <script src="vendor/angular-toasty/dist/angular-toasty.min.js"></script>
    <script src="vendor/angular-touch/angular-touch.js"></script>
    <script src="vendor/angular-sanitize/angular-sanitize.js"></script>
    <script src="vendor/angular-resource/angular-resource.js"></script>
@@ -143,7 +144,6 @@
    <script src="src/js/modules/ui/sortable.controller.js"></script>
    <script src="src/js/modules/ui/sweetalert.controller.js"></script>
    <script src="src/js/modules/ui/timepicker.controller.js"></script>
-   <script src="src/js/modules/ui/toaster.controller.js"></script>
    <script src="src/js/modules/ui/tooltip.config.js"></script>
    <script src="src/js/modules/ui/tooltip.controller.js"></script>
    <script src="src/js/modules/ui/typeahead.controller.js"></script>
@@ -156,6 +156,7 @@
    <script src="src/js/modules/viewStudents/viewStudents.controller.js"></script>
    <script src="src/js/modules/viewStudents/viewStudents.services.js"></script>
    <!-- endbuild-->
+   <toasty></toasty>
 </body>
 
 </html>

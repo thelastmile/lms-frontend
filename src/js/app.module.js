@@ -23,4 +23,5 @@ angular
     'cfp.loadingBar',
     'tmh.dynamicLocale',
     'pascalprecht.translate',
+    'angular-toasty'
 ]);
