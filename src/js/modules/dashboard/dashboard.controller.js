@@ -37,6 +37,8 @@
         }
       }
 
+      $scope.username = $window.sessionStorage.getItem("username");
+
       // Some numbers for demo
       vm.loadProgressValues = function() {
         vm.progressVal = [0,0,0,0];

@@ -128,7 +128,7 @@
          </li>
          <li>
             <div ng-controller="DashboardController as dashboard"  style="margin-top: 12px; margin-left: 20px;" >
-            <div><h3 style="margin-top: 10px; margin-bottom: 1px;">FName Lname</h3></div>
+            <div><h3 style="margin-top: 10px; margin-bottom: 1px;">{{username}}</h3></div>
             <div ng-if="isSuperAdmin()"style="color:red;"><b>SUPER ADMIN</b></div>
             <div ng-if="isAdmin()">Facilitator</div>
             <div ng-if="isStudent()">Student</div>
