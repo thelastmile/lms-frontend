@@ -28,6 +28,7 @@
             _assets: Route.require('icons', 'screenfull', 'sparklines', 'slimscroll', 'toaster', 'animate')
           }
         })
+
         .state('app.dashboard', {
           url: '/dashboard',
           authenticate: true,
@@ -35,6 +36,12 @@
           resolve: {
             assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
           }
+        })
+
+        .state('app.adminLessons', {
+          url: '/admin/lessons',
+          authenticate: true,
+          templateUrl: Route.base('adminLessons.html'),
         })
 
         .state('app.studentdashboard', {
