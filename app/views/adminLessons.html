@@ -7,10 +7,16 @@
                <div class="col-md-6">
                   <div class="panel-body">
                      <h3>Add Lesson Content</h3>
-                     <input class="form-control" ng-model="NC.note.body" placeholder="Filesystem Path To Content"></input>
+                     <input class="form-control" ng-model="ALC.lessoncontents.link" placeholder="Filesystem Path To Content"></input>
                      <br>
-                     <input class="form-control" ng-model="NC.note.body" placeholder="Content Type (dropdown)"></input>
-                     <br>
+                     <select name="ALC.lessoncontents.content_type" ng-model="ALC.lessoncontents.content_type">
+                        <option value="">--- Please Select Content Type ---</option>
+                        <option ng-repeat="ct in customcontenttypes" value="{{ct.id}}">{{ct.name}}</option>
+                     </select>
+                     <select name="ALC.lessoncontents.content_type" ng-model="ALC.lessoncontents.content_type">
+                        <option value="">--- Please Select Lesson ---</option>
+                        <option ng-repeat="ls in lessons" value="{{ls.id}}">{{ls.name}}</option>
+                     </select>
                      <button class="btn save-btn" ng-click="NC.save()" tabindex="-1">Save</button>
                   </div>
                </div>
@@ -46,8 +52,10 @@
                         <br>
                         <input class="form-control" ng-model="ALC.selectedLesson.description" placeholder="Description"></input>
                         <br>
-                        <input class="form-control" ng-model="ALC.selectedLesson.course" placeholder="Course (dropdown)"></input>
-                        <br>
+                        <select name="course.id" ng-model="ALC.lesson.course">
+                           <option value="">--- Please Select Course ---</option>
+                           <option ng-repeat="course in courses" value="{{course.id}}">{{course.name}}</option>
+                        </select>
                         <button ng-show="ALC.LSNediting" class="btn btn-edit" ng-click="ALC.LSNeditSave()">Save
                         </button>
                      </div>
@@ -67,8 +75,10 @@
                            <br>
                            <input class="form-control" ng-model="ALC.lesson.description" placeholder="Description"></input>
                            <br>
-                           <input class="form-control" ng-model="ALC.lesson.course" placeholder="Course (dropdown)"></input>
-                           <br>
+                           <select name="course.id" ng-model="ALC.lesson.course">
+                              <option value="">--- Please Select Course ---</option>
+                              <option ng-repeat="course in courses" value="{{course.id}}">{{course.name}}</option>
+                           </select>
                            <button class="btn save-btn" ng-click="ALC.LSNsave()" tabindex="-1">Save</button>
                         </form>
                      </div>
@@ -98,11 +108,11 @@
                <div class="col-md-6">
                   <div class="panel-body">
                      <h3>Add Course</h3>
-                     <input class="form-control" ng-model="NC.note.body" placeholder="Name"></input>
+                     <input class="form-control" ng-model="ALC.course.name" placeholder="Name"></input>
                      <br>
-                     <input class="form-control" ng-model="NC.note.body" placeholder="Description"></input>
+                     <input class="form-control" ng-model="ALC.course.description" placeholder="Description"></input>
                      <br>
-                     <button class="btn save-btn" ng-click="NC.save()" tabindex="-1">Save</button>
+                     <button class="btn save-btn" ng-click="ALC.CRSsave()" tabindex="-1">Save</button>
                   </div>
                </div>
                <div class="col-md-6">
