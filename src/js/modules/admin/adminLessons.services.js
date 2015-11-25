@@ -17,6 +17,12 @@
         lessons.post = function(data){
             return $http.post(customUrl.url + '/api/module/', data);
         };
+
+        // update
+        lessons.put = function(data){
+            return $http.put(customUrl.url + '/api/module/' + data.id + '/', data);
+        };
+
         // list of lessons
         lessons.get = function(){
             return $http.get(customUrl.url + '/api/module/')
@@ -35,6 +41,12 @@
         courses.post = function(data){
             return $http.post(customUrl.url + '/api/course/', data);
         };
+
+        // update
+        courses.put = function(data){
+            return $http.put(customUrl.url + '/api/course/' + data.id + '/', data);
+        };
+
         // list of lessons
         courses.get = function(){
             return $http.get(customUrl.url + '/api/course/')
