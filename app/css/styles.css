@@ -3839,6 +3839,10 @@ table.dataTable thead td {
   opacity: 1;
   visibility: visible;
 }
+.toasty-position-top-right {
+  margin-top: 2em !important;
+  /* UX Exception for things like LastPass */
+}
 .alerts-top-right,
 .alerts-bottom-right {
   left: auto;

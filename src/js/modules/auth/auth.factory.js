@@ -41,13 +41,24 @@
                         $window.sessionStorage.setItem("authenticated", false);
                         $window.sessionStorage.setItem("username", "");
                         $window.sessionStorage.setItem("token", "");
-                        toasty.error({
+                        console.log(status);
+                        if (status===-1){
+                          toasty.error({
+                            title: 'Connection Problem',
+                            msg: 'Looks like we can\'t communicate with the backend.',
+                            sound: false,
+                            clickToClose: true,
+                            position: 'bottom-left'
+                          });
+                        } else if (status===400) {
+                          toasty.error({
                             title: 'Invalid login',
                             msg: 'Please check your username and password and try again',
                             sound: false,
-                            clickToClose: true
-                        });
-                        //toaster.pop("error", "Invalid credentials", "text");
+                            clickToClose: true,
+                            position: 'bottom-left'
+                          });
+                        }
                 })
             };
 
@@ -75,7 +86,7 @@
                         toasty.error({
                             title: 'Login valid but you don\'t belong to any groups.',
                             msg: 'Contact your admin for group assignment.',
-                            sound: true,
+                            sound: false,
                             clickToClose: true
                         });
                       }
