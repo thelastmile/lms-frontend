@@ -22,7 +22,6 @@
                         $window.sessionStorage.setItem("username", username);
                         $window.sessionStorage.setItem("token", data['token']);
                         $window.sessionStorage.setItem("id", data.id);
-                        //var permissions = userPermissions.getOrSetAndRoute();
                         factory.getAndRoute();
                         
                     }
@@ -70,6 +69,15 @@
                           $window.sessionStorage.setItem("userPermissions","student");
                           $state.go("app.studentdashboard");
                         }
+                      } 
+
+                      if (data[0].groups.length===0) {
+                        toasty.error({
+                            title: 'Login valid but you don\'t belong to any groups.',
+                            msg: 'Contact your admin for group assignment.',
+                            sound: true,
+                            clickToClose: true
+                        });
                       }
 
                     });
