@@ -44,6 +44,8 @@ gulp serve --usehtml
 * `index.html` <- DONT TOUCH ME!  you'll be sad when your changes are overwritten.  Instead modify `src/html/index.html`
 * `src/html/index.html` <- the main file that loads up everything else
 * `src/js/` <- this is where all of the magic happens.  make your AngularJS changes here.
+* `src/less/` <- css with magic
+* `src/less/styles.less` <- your less config/import file.
 
 ### *should* be excluded from commits but you will have locally is prod or dev deployments
 * `bower_components/`

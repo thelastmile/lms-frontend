@@ -4565,6 +4565,20 @@ fieldset[disabled] .btn-orange.active {
   color: #fe5621 !important;
 }
 /**
+   Component: alerts.less
+*/
+div.files-file {
+  padding-left: 30px;
+}
+@media (max-width: 480px) {
+  .alerts {
+    left: 10px;
+    right: 10px;
+    width: auto;
+    margin: 0;
+  }
+}
+/**
    Component: dropdown-extras.less
 */
 .dropdown-lg > .dropdown-menu {

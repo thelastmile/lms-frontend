@@ -4,7 +4,7 @@
           <!-- START Tabbed panel-->
           <div class="panel panel-default">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-8">
                   <div class="panel-body">
                     <h3>{{ ALC.LFILEediting ? 'Edit' : 'Add' }}  Lesson Content</h3>
 
@@ -46,8 +46,11 @@
                             </select><br>
                             <div class="alert alert-info">Full path to file:<br>{{ALC.selectedLessonContent.file}}</div>
                             <div class="alert alert-info">Relative path to file:<br>{{ALC.selectedLessonContent.file_url}}</div>
-                            <div class="alert alert-danger" ng-show="ALC.selectedLessonContent.extracted_path">Path to extracted contents:<br>
+                            <div class="alert alert-warning" ng-show="ALC.selectedLessonContent.extracted_path">Path to extracted contents:<br>
                                 /media/{{ALC.selectedLessonContent.extracted_path}}
+
+                                <div ng-bind-html="ALC.selectedLessonContent.directory_contents">
+                                </div>
                             </div>
                             <button class="btn save-btn" ng-click="ALC.LFILEeditSave()" tabindex="-1">Save</button>
                         </form>
@@ -55,7 +58,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="panel-body">
                     <h3>Lesson Content</h3>
                     <div ng-repeat="lessoncontent in lessoncontents">
