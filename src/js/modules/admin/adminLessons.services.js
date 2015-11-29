@@ -1,3 +1,4 @@
+
 /**=========================================================
  * Module: DashboardController.js
  =========================================================*/
@@ -30,6 +31,11 @@
         // find 1 lesson
         lessons.get_single = function(pk){
             return $http.get(customUrl.url + '/api/module/' + pk + '/');
+        };
+
+        // delete 1 lesson
+        lessons.delete_single = function(pk){
+            return $http.delete(customUrl.url + '/api/module/' + pk + '/');
         };
         
         return lessons;
@@ -83,6 +89,7 @@
         lessons.get = function(){
             return $http.get(customUrl.url + '/api/binarycontent/')
         };
+
         // find 1 lesson
         lessons.get_single = function(pk){
             return $http.get(customUrl.url + '/api/binarycontent/' + pk + '/');
@@ -115,5 +122,5 @@
         return customcontenttypes;
     }])
 
-    }
+  }
 )();

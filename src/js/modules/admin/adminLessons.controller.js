@@ -48,6 +48,11 @@
 
       }
 
+      vm.removeLesson = function(item,index){
+        AdminLessonsService.delete_single(item.id);
+        $scope.lessons.splice(index, 1);
+      }
+
       // If not editing, enables edit mote
       // If editing, saves and disables editing
       vm.LSNediting = false;

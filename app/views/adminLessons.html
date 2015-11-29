@@ -8,16 +8,19 @@
                   <div class="panel-body">
                      <h3>Add Lesson Content</h3>
                      <form>
-                        <input type="file" ngf-select ng-model="ALC.lessonContents.file" name="ALC.lessonContents.file" />
+                        <input type="file" ngf-select ng-model="ALC.lessonContents.file" name="ALC.lessonContents.file" class="form-control" />
                         <br>
-                        <select name="ALC.lessonContents.content_type" ng-model="ALC.lessonContents.content_type">
-                           <option value="">--- Please Select Content Type ---</option>
+                        <select name="ALC.lessonContents.content_type" ng-model="ALC.lessonContents.content_type" class="form-control">
+                           <option value="">--- Select Content Type ---</option>
                            <option ng-repeat="ct in customcontenttypes" value="{{ct.id}}">{{ct.name}}</option>
                         </select>
-                        <select name="ALC.lessonContents.module" ng-model="ALC.lessonContents.module">
-                           <option value="">--- Please Select Lesson ---</option>
+                        <br>
+                        <select name="ALC.lessonContents.module" ng-model="ALC.lessonContents.module" class="form-control">
+                           <option value="">--- Select Lesson ---</option>
+                           <br>
                            <option ng-repeat="ls in lessons" value="{{ls.id}}">{{ls.name}}</option>
                         </select>
+                        <br>
                         <button class="btn save-btn" ng-click="ALC.LFILEsave()" tabindex="-1">Save</button>
                      </form>
                   </div>
@@ -44,8 +47,6 @@
                <div class="col-md-6">
                   <div class="panel-body">
                      <h3>{{ ALC.LSNediting ? 'Edit' : 'Add' }} Lesson</h3>
-
-
                      <!--
                       <h3 ng-show="!ALC.editing" ng-class="{placeholder: !ALC.selectedLesson}" class="col-xs-10">{{ ALC.selectedLesson ? ALC.selectedLesson.name : 'Select a note on left to read it' }}</h3>
                       -->
@@ -54,10 +55,11 @@
                         <br>
                         <input class="form-control" ng-model="ALC.selectedLesson.description" placeholder="Description"></input>
                         <br>
-                        <select name="course.id" ng-model="ALC.lesson.course">
-                           <option value="">--- Please Select Course ---</option>
+                        <select name="course.id" ng-model="ALC.lesson.course" class="form-control">
+                           <option value="">--- Select Course ---</option>
                            <option ng-repeat="course in courses" value="{{course.id}}">{{course.name}}</option>
                         </select>
+                        <br>
                         <button ng-show="ALC.LSNediting" class="btn btn-edit" ng-click="ALC.LSNeditSave()">Save
                         </button>
                      </div>
@@ -68,10 +70,11 @@
                            <br>
                            <input class="form-control" ng-model="ALC.lesson.description" placeholder="Description"></input>
                            <br>
-                           <select name="course.id" ng-model="ALC.lesson.course">
-                              <option value="">--- Please Select Course ---</option>
+                           <select name="course.id" ng-model="ALC.lesson.course" class="form-control">
+                              <option value="">--- Select Course ---</option>
                               <option ng-repeat="course in courses" value="{{course.id}}">{{course.name}}</option>
                            </select>
+                           <br>
                            <button class="btn save-btn" ng-click="ALC.LSNsave()" tabindex="-1">Save</button>
                         </form>
                      </div>
@@ -80,15 +83,15 @@
                <div class="col-md-6">
                   <div class="panel-body">
                      <h3>Lessons</h3>
-                     <div ng-repeat="lesson in lessons" ng-click="ALC.selectedLesson = lesson; ALC.LSNeditSave()">
-                        <a>{{lesson.name}} {{lesson.course}}</a>
+                     <div ng-repeat="lesson in lessons">
+                        <a href="" ng-click="ALC.selectedLesson = lesson; ALC.LSNeditSave()">{{lesson.name}} {{lesson.course}}</a>
+                        <a class="btn btn-xs" ng-click="ALC.removeLesson(lesson,$index)" ng-confirm-click="Are you sure you want to delete this lesson ({{lesson.name}})?">
+                           <em class="sidebar-item-icon fa fa-times"></em>
+                        </a>
                      </div>
-
-
                   </div>
                </div>
             </div>
-
          </div>
       </div>
    </div>
