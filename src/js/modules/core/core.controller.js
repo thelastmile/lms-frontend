@@ -28,7 +28,7 @@
             UserService.logout();
       };
 
-      $scope.url = customUrl.url;
+      $rootScope.url = customUrl.url;
     }
     
 
