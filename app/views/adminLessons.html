@@ -34,8 +34,8 @@
                            <div class="alert alert-info">Relative Path:
                               <br>{{ALC.lessonContents.file_url || "- Create or view content to see path - "}}</div>
                            <br>
-                           <button class="btn save-btn" ng-click="ALC.LFILEsave()" tabindex="-1">Save</button>
-                           <button class="btn save-btn" ng-click="ALC.LFILEsave()" tabindex="-1">Save</button>
+                           <button class="btn save-btn" ng-show="!ALC.LFILEediting" ng-click="ALC.LFILEsave()" tabindex="-1">Save</button>
+                           <button class="btn save-btn" ng-show="ALC.LFILEediting" ng-click="ALC.LFILEeditSave()" tabindex="-1">Save</button>
                         </form>
                      </div>
                      <div ng-show="ALC.LFILEediting">
