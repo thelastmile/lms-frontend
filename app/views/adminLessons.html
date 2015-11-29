@@ -29,14 +29,14 @@
                               <option ng-repeat="ls in lessons" value="{{ls.id}}">{{ls.name}}</option>
                            </select>
                            <br>
-                           <div class="alert alert-info">Full Path:
+                           <div class="alert alert-info">Full path to file:
                               <br>
                               <div>
 
                                  {{ALC.lessonContents.file_url ? ALC.lessonContents.file : ' - Create or view content to see path - '}}
                               </div>
                            </div>
-                           <div class="alert alert-info">Relative Path:
+                           <div class="alert alert-info">Relative path to file:
                               <br>{{ALC.lessonContents.file_url || "- Create or view content to see path - "}}</div>
                            <br>
                            <button class="btn save-btn" ng-show="!ALC.LFILEediting" ng-click="ALC.LFILEsave()" tabindex="-1">Save</button>
@@ -63,13 +63,12 @@
                               <option ng-repeat="ls in lessons" ng-selected="ALC.selectedLessonContent.module == ls.id" value="{{ls.id}}">{{ls.name}}</option>
                            </select>
                            <br>
-                           <div class="alert alert-info">Full Path:
+                           <div class="alert alert-info">Full path to file:
                               <br>{{ALC.selectedLessonContent.file}}</div>
-                           <div class="alert alert-info">Relative Path:
+                           <div class="alert alert-info">Relative path to file:
                               <br>{{ALC.selectedLessonContent.file_url}}</div>
-                           <br>
-                           <div ng-show="ALC.selectedLessonContent.extracted_path">
-                              /media/{{ALC.selectedLessonContent.extracted_path}}
+                           <div class="alert alert-danger" ng-show="ALC.selectedLessonContent.extracted_path">Path to extracted contents:
+                              <br>/media/{{ALC.selectedLessonContent.extracted_path}}
                            </div>
                            <button class="btn save-btn" ng-click="ALC.LFILEeditSave()" tabindex="-1">Save</button>
                         </form>
