@@ -7,17 +7,19 @@
                <div class="col-md-6">
                   <div class="panel-body">
                      <h3>Add Lesson Content</h3>
-                     <input class="form-control" ng-model="ALC.lessoncontents.link" placeholder="Filesystem Path To Content"></input>
-                     <br>
-                     <select name="ALC.lessoncontents.content_type" ng-model="ALC.lessoncontents.content_type">
-                        <option value="">--- Please Select Content Type ---</option>
-                        <option ng-repeat="ct in customcontenttypes" value="{{ct.id}}">{{ct.name}}</option>
-                     </select>
-                     <select name="ALC.lessoncontents.content_type" ng-model="ALC.lessoncontents.content_type">
-                        <option value="">--- Please Select Lesson ---</option>
-                        <option ng-repeat="ls in lessons" value="{{ls.id}}">{{ls.name}}</option>
-                     </select>
-                     <button class="btn save-btn" ng-click="NC.save()" tabindex="-1">Save</button>
+                     <form>
+                        <input type="file" ngf-select ng-model="ALC.lessonContents.file" name="ALC.lessonContents.file" />
+                        <br>
+                        <select name="ALC.lessonContents.content_type" ng-model="ALC.lessonContents.content_type">
+                           <option value="">--- Please Select Content Type ---</option>
+                           <option ng-repeat="ct in customcontenttypes" value="{{ct.id}}">{{ct.name}}</option>
+                        </select>
+                        <select name="ALC.lessonContents.module" ng-model="ALC.lessonContents.module">
+                           <option value="">--- Please Select Lesson ---</option>
+                           <option ng-repeat="ls in lessons" value="{{ls.id}}">{{ls.name}}</option>
+                        </select>
+                        <button class="btn save-btn" ng-click="ALC.LFILEsave()" tabindex="-1">Save</button>
+                     </form>
                   </div>
                </div>
                <div class="col-md-6">
@@ -59,15 +61,6 @@
                         <button ng-show="ALC.LSNediting" class="btn btn-edit" ng-click="ALC.LSNeditSave()">Save
                         </button>
                      </div>
-
-                     <!--
-                    <div ng-if="ALC.selectedLesson" class="row body">
-                      <div ng-show="!ALC.editing" class="col-xs-10" marked="ALC.selectedLesson.body"></div>
-                      <div ng-show="ALC.editing" class="col-xs-10 edit-body">
-                        <textarea class="form-control" ng-model="ALC.selectedLesson.body"></textarea>
-                      </div>
-                    </div>
-                    -->
 
                      <div ng-show="!ALC.LSNediting">
                         <form name="newALC" ng-submit="submit()">

@@ -9,8 +9,8 @@
         .module('naut')
         .controller('AdminLessonsController', AdminLessonsController);
     
-    AdminLessonsController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'AdminCustomContentType','AdminLessonContents'];
-    function AdminLessonsController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, AdminCustomContentType, AdminLessonContents) {
+    AdminLessonsController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'AdminCustomContentType','AdminLessonContents','Upload'];
+    function AdminLessonsController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, AdminCustomContentType, AdminLessonContents, Upload) {
       var vm = this;
       AdminLessonsService.get().success(function(data){
         $scope.lessons = data;
@@ -85,6 +85,50 @@
               clickToClose: true,
             });
         });
+
+      }
+
+      vm.LFILEsave = function () {
+        console.log(vm.lessonContents);
+        //var file = $scope.myFile;
+
+        AdminLessonContents.post_file(vm.lessonContents)
+        .then(function (resp) {
+            //console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+            toasty.success({
+              title: 'Saved',
+              msg: 'New Lesson Content Added',
+              sound: false,
+              clickToClose: true,
+            });
+        }, function (resp) {
+            toasty.error({
+              title: 'Error',
+              msg: 'Please ensure you\'ve filled out all fields',
+              sound: false,
+              clickToClose: true,
+            });
+        }, function (evt) {
+            //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
+
+        // .success(function(data){
+        //   vm.course = {};
+        //   toasty.success({
+        //     title: 'Saved',
+        //     msg: 'New Lesson Content Added',
+        //     sound: false,
+        //     clickToClose: true,
+        //   });
+        // }).error(function (error){
+        //   toasty.error({
+        //       title: 'Error',
+        //       msg: 'Ensure you added all values',
+        //       sound: false,
+        //       clickToClose: true,
+        //     });
+        // });
 
       }
 
