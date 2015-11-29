@@ -55,12 +55,12 @@
                         <br>
                         <input class="form-control" ng-model="ALC.selectedLesson.description" placeholder="Description"></input>
                         <br>
-                        <select name="course.id" ng-model="ALC.lesson.course" class="form-control">
+                        <select name="course.id" ng-model="ALC.selectedLesson.course" class="form-control">
                            <option value="">--- Select Course ---</option>
-                           <option ng-repeat="course in courses" value="{{course.id}}">{{course.name}}</option>
+                           <option ng-selected="ALC.selectedLesson.course == course.id" ng-model="ALC.selectedLesson.course" ng-repeat="course in courses" value="{{course.id}}">{{course.name}}</option>
                         </select>
                         <br>
-                        <button ng-show="ALC.LSNediting" class="btn btn-edit" ng-click="ALC.LSNeditSave()">Save
+                        <button ng-show="ALC.LSNediting" class="btn btn-edit" ng-click="ALC.LSNeditSave(course)">Save
                         </button>
                      </div>
 
@@ -84,7 +84,7 @@
                   <div class="panel-body">
                      <h3>Lessons</h3>
                      <div ng-repeat="lesson in lessons">
-                        <a href="" ng-click="ALC.selectedLesson = lesson; ALC.LSNeditSave()">{{lesson.name}} {{lesson.course}}</a>
+                        <a href="" ng-click="ALC.selectedLesson = lesson; ALC.LSNedit()">{{lesson.name}} {{lesson.course}}</a>
                         <a class="btn btn-xs" ng-click="ALC.removeLesson(lesson,$index)" ng-confirm-click="Are you sure you want to delete this lesson ({{lesson.name}})?">
                            <em class="sidebar-item-icon fa fa-times"></em>
                         </a>

@@ -21,6 +21,7 @@
 
         // update
         lessons.put = function(data){
+            console.log(data);
             return $http.put(customUrl.url + '/api/module/' + data.id + '/', data);
         };
 

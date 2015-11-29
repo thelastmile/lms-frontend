@@ -45,7 +45,34 @@
               clickToClose: true,
             });
         });
+      }
 
+      vm.LSNeditSave = function () {
+        AdminLessonsService.put(vm.selectedLesson).success(function(data){
+          vm.lesson = {};
+          toasty.success({
+            title: 'Saved',
+            msg: 'Lesson Saved',
+            sound: false,
+            clickToClose: true,
+          });
+        }).error(function (error){
+          toasty.error({
+              title: 'Error',
+              msg: 'Ensure you\'ve added all values',
+              sound: false,
+              clickToClose: true,
+            });
+        });
+      }
+
+      // If not editing, enables edit mote
+      // If editing, saves and disables editing
+      vm.LSNediting = false;
+      vm.LSNedit = function () {
+        if (vm.LSNediting == false) {
+          vm.LSNediting = true;
+        }
       }
 
       vm.removeLesson = function(item,index){
@@ -58,23 +85,22 @@
         $scope.courses.splice(index, 1);
       }
 
-      // If not editing, enables edit mote
-      // If editing, saves and disables editing
-      vm.LSNediting = false;
-      vm.LSNeditSave = function () {
-        if (vm.LSNediting) {
+      vm.CRSediting = false;
+      vm.CRSeditSave = function () {
+        if (vm.CRSediting) {
           vm.lesson = {};
-          vm.LSNediting = false;
-          AdminLessonsService.put(vm.selectedLesson).success(function (){
+          //vm.CRSediting = false;
+
+          AdminCoursesService.put(vm.selectedCourse).success(function (){
             toasty.success({
               title: 'Saved',
-              msg: 'Lesson Updated',
+              msg: 'Course Updated',
               sound: false,
               clickToClose: true,
             });
           });
         } else {
-          vm.LSNediting = true;
+          vm.CRSediting = true;
         }
       }
 
