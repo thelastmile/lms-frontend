@@ -65,7 +65,7 @@
 
         // delete 1 course
         courses.delete_single = function(pk){
-            return $http.delete(customUrl.url + '/api/module/' + pk + '/');
+            return $http.delete(customUrl.url + '/api/course/' + pk + '/');
         };
         
         return courses;
