@@ -28,9 +28,14 @@
         $scope.lessoncontents = data;
       });
 
+      vm.getFilename = function (data){
+        data.name = data.file.name;
+      }
+
       vm.LSNsave = function () {
         AdminLessonsService.post(vm.lesson).success(function(data){
           vm.lesson = {};
+          $scope.lessons.push(data);
           toasty.success({
             title: 'Saved',
             msg: 'New Lesson Added',
@@ -88,9 +93,7 @@
       vm.CRSediting = false;
       vm.CRSeditSave = function () {
         if (vm.CRSediting) {
-          vm.lesson = {};
-          //vm.CRSediting = false;
-
+          vm.course = {};
           AdminCoursesService.put(vm.selectedCourse).success(function (){
             toasty.success({
               title: 'Saved',
@@ -104,9 +107,18 @@
         }
       }
 
+      // If not editing, enables edit mote
+      // If editing, saves and disables editing
+      vm.CRSedit = function () {
+        if (vm.LSNediting == false) {
+          vm.CRSediting = true;
+        }
+      }
+
       vm.CRSsave = function () {
         AdminCoursesService.post(vm.course).success(function(data){
           vm.course = {};
+          $scope.courses.push(data);
           toasty.success({
             title: 'Saved',
             msg: 'New Course Added',
@@ -125,11 +137,9 @@
       }
 
       vm.LFILEsave = function () {
-        console.log(vm.lessonContents);
-        //var file = $scope.myFile;
-
         AdminLessonContents.post_file(vm.lessonContents)
         .then(function (resp) {
+            $scope.lessoncontents.push(vm.lessonContents);
             toasty.success({
               title: 'Saved',
               msg: 'New Lesson Content Added',
