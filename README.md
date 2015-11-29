@@ -24,3 +24,12 @@ Fire up your frontend
 ```gulp serve --usehtml```
 
 Open your browser to [http://127.0.0.1:3000](http://127.0.0.1:3000) after gulp spins up the server
+
+###Getting the latest updates
+```
+cd <appdir>
+git checkout master
+git pull
+npm install
+gulp serve --usehtml
+```
