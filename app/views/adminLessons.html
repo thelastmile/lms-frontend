@@ -115,9 +115,11 @@
                   <div class="panel-body">
                      <h3>Courses</h3>
                      <div ng-repeat="course in courses">
-                        <a>{{course.name}}</a>
+                        <a href="" ng-click="ALC.selectedCourse = course; ALC.CRSeditSave()">{{course.name}}</a>
+                        <a class="btn btn-xs" ng-click="ALC.removeCourse(course,$index)" ng-confirm-click="Are you sure you want to delete this course ({{course.name}})?">
+                           <em class="sidebar-item-icon fa fa-times"></em>
+                        </a>
                      </div>
-
                   </div>
                </div>
             </div>

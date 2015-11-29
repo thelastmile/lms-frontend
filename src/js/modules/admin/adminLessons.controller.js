@@ -53,6 +53,11 @@
         $scope.lessons.splice(index, 1);
       }
 
+      vm.removeCourse = function(item,index){
+        AdminCoursesService.delete_single(item.id);
+        $scope.courses.splice(index, 1);
+      }
+
       // If not editing, enables edit mote
       // If editing, saves and disables editing
       vm.LSNediting = false;

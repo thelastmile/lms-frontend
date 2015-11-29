@@ -61,6 +61,11 @@
         courses.get_single = function(pk){
             return $http.get(customUrl.url + '/api/course/' + pk + '/');
         };
+
+        // delete 1 course
+        courses.delete_single = function(pk){
+            return $http.delete(customUrl.url + '/api/module/' + pk + '/');
+        };
         
         return courses;
     }])
