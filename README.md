@@ -33,3 +33,18 @@ git pull
 npm install
 gulp serve --usehtml
 ```
+
+## Directory Structure
+
+### Included in git repo
+* `app/` <- compiled files live here don't touch for dev, copy these to prod
+* `src/` <- all of your dev files
+* `tests/` <- you know what those are
+* `vendor/` <- some fixed vendor files for the Naut theme
+* `index.html` <- DONT TOUCH ME!  you'll be sad when your changes are overwritten.  Instead modify `src/html/index.html`
+* `src/html/index.html` <- the main file that loads up everything else
+* `src/js/` <- this is where all of the magic happens.  make your AngularJS changes here.
+
+### *should* be excluded from commits but you will have locally is prod or dev deployments
+* `bower_components/`
+* `node_modules`
