@@ -146,7 +146,6 @@
         .then(function (resp) {
             vm.selectedLessonContent = resp.data;
             vm.lessonContents = resp.data;
-            //vm.selectedLessonContent = vm.lessonContents;
             vm.LFILEediting = true;
             $scope.lessoncontents.push(vm.lessonContents);
             toasty.success({
