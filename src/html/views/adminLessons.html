@@ -6,28 +6,53 @@
             <div class="row">
                 <div class="col-md-6">
                   <div class="panel-body">
-                    <h3>Add Lesson Content</h3>
-                    <form>
-                    <input type="file" ngf-select ng-model="ALC.lessonContents.file" name="ALC.lessonContents.file" class="form-control" ng-change="ALC.getFilename(ALC.lessonContents)"/><small>Note: filename will be canged to a guid when stored.</small><br><br>
-                    <input ng-model="ALC.lessonContents.name" class="form-control" placeholder="Content Name (will be shown on lables)"><br>
-                    <input ng-model="ALC.lessonContents.description" class="form-control" placeholder="Description"><br>
-                    <select name="ALC.lessonContents.content_type" ng-model="ALC.lessonContents.content_type"  class="form-control">
-                      <option value="">--- Select Content Type ---</option>
-                      <option ng-repeat="ct in customcontenttypes" value="{{ct.id}}">{{ct.name}}</option>
-                    </select><br>
-                    <select name="ALC.lessonContents.module" ng-model="ALC.lessonContents.module" class="form-control">
-                      <option value="">--- Select Lesson ---</option><br>
-                      <option ng-repeat="ls in lessons" value="{{ls.id}}">{{ls.name}}</option>
-                    </select><br>
-                    <button class="btn save-btn" ng-click="ALC.LFILEsave()" tabindex="-1">Save</button>
-                    </form>
+                    <h3>{{ ALC.LFILEediting ? 'Edit' : 'Add' }}  Lesson Content</h3>
+
+                    <div ng-show="!ALC.LFILEediting">
+                        <form>
+                            <input type="file" ngf-select ng-model="ALC.lessonContents.file" name="ALC.lessonContents.file" class="form-control" ng-change="ALC.getFilename(ALC.lessonContents)"/><small>Note: filename will be canged to a guid when stored.</small><br><br>
+                            <input ng-model="ALC.lessonContents.name" class="form-control" placeholder="Content Name (will be shown on lables)"><br>
+                            <input ng-model="ALC.lessonContents.description" class="form-control" placeholder="Description"><br>
+                            <select name="ALC.lessonContents.content_type" ng-model="ALC.lessonContents.content_type"  class="form-control">
+                              <option value="">--- Select Content Type ---</option>
+                              <option ng-repeat="ct in customcontenttypes" value="{{ct.id}}">{{ct.name}}</option>
+                            </select><br>
+                            <select name="ALC.lessonContents.module" ng-model="ALC.lessonContents.module" class="form-control">
+                              <option value="">--- Select Lesson ---</option><br>
+                              <option ng-repeat="ls in lessons" value="{{ls.id}}">{{ls.name}}</option>
+                            </select><br>
+                            <div class="alert alert-info">Full Path:<br>{{ALC.lessonContents.file || "- Create or view content to see path - "}}</div>
+                            <div class="alert alert-info">Relative Path:<br>{{ALC.lessonContents.file_url || "- Create or view content to see path - "}}</div><br>
+                            <button class="btn save-btn" ng-click="ALC.LFILEsave()" tabindex="-1">Save</button>
+                            <button class="btn save-btn" ng-click="ALC.LFILEsave()" tabindex="-1">Save</button>
+                        </form>
+                    </div>
+                    <div ng-show="ALC.LFILEediting">
+                        <form>
+                            <input type="file" ngf-select ng-model="ALC.selectedLessonContent.file" name="ALC.selectedLessonContent.file" class="form-control" ng-change="ALC.getFilename(ALC.selectedLessonContent)"/><small>Note: filename will be canged to a guid when stored.</small><br><br>
+                            <input ng-model="ALC.selectedLessonContent.name" class="form-control" placeholder="Content Name (will be shown on lables)"><br>
+                            <input ng-model="ALC.selectedLessonContent.description" class="form-control" placeholder="Description"><br>
+                            <select name="ALC.selectedLessonContent.content_type" ng-model="ALC.lessonContents.content_type"  class="form-control">
+                              <option value="">--- Select Content Type ---</option>
+                              <option ng-repeat="ct in customcontenttypes" ng-selected="ALC.selectedLessonContent.content_type == ct.id"  value="{{ct.id}}">{{ct.name}}</option>
+                            </select><br>
+                            <select name="ALC.selectedLessonContent.module" ng-model="ALC.lessonContents.module" class="form-control">
+                              <option value="">--- Select Lesson ---</option><br>
+                              <option ng-repeat="ls in lessons" ng-selected="ALC.selectedLessonContent.module == ls.id" value="{{ls.id}}">{{ls.name}}</option>
+                            </select><br>
+                            <div class="alert alert-info">Full Path:<br>{{ALC.selectedLessonContent.file}}</div>
+                            <div class="alert alert-info">Relative Path:<br>{{ALC.selectedLessonContent.file_url}}</div><br>
+                            <button class="btn save-btn" ng-click="ALC.LFILEsave()" tabindex="-1">Save</button>
+                        </form>
+
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="panel-body">
                     <h3>Lesson Content</h3>
                     <div ng-repeat="lessoncontent in lessoncontents">
-                      <a>{{lessoncontent.name}}</a>
+                      <a href="" ng-click="ALC.selectedLessonContent = lessoncontent; ALC.LFILEedit()">{{lessoncontent.file_url}}</a><a href ="{{lessoncontent.file}}" class="btn btn-xs" ng-click="ALC.removeLessonContent(lessoncontent,$index)" ng-confirm-click="Are you sure you want to delete this lesson content ({{lessoncontent.name}})?"><em class="sidebar-item-icon fa fa-times"></em></a>
                     </div>
                   </div>
                 </div>

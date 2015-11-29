@@ -90,6 +90,11 @@
         $scope.courses.splice(index, 1);
       }
 
+      vm.removeLessonContnet = function(item,index){
+        AdminLessonContents.delete_single(item.id);
+        $scope.lessoncontents.splice(index, 1);
+      }
+
       vm.CRSediting = false;
       vm.CRSeditSave = function () {
         if (vm.CRSediting) {
@@ -110,7 +115,7 @@
       // If not editing, enables edit mote
       // If editing, saves and disables editing
       vm.CRSedit = function () {
-        if (vm.LSNediting == false) {
+        if (vm.CRSediting == false) {
           vm.CRSediting = true;
         }
       }
@@ -137,6 +142,42 @@
       }
 
       vm.LFILEsave = function () {
+        AdminLessonContents.post_file(vm.lessonContents)
+        .then(function (resp) {
+            vm.selectedLessonContent = resp.data;
+            vm.lessonContents = resp.data;
+            //vm.selectedLessonContent = vm.lessonContents;
+            vm.LFILEediting = true;
+            $scope.lessoncontents.push(vm.lessonContents);
+            toasty.success({
+              title: 'Saved',
+              msg: 'New Lesson Content Added',
+              sound: false,
+              clickToClose: true,
+            });
+        }, function (resp) {
+            toasty.error({
+              title: 'Error',
+              msg: 'Please ensure you\'ve filled out all fields',
+              sound: false,
+              clickToClose: true,
+            });
+        }, function (evt) {
+            // USE THIS TO SHOW PROGRESS IF INCLINED
+            //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
+      }
+
+      vm.LFILEediting = false;
+      vm.LFILEedit = function () {
+        if (vm.LFILEediting == false) {
+          vm.LFILEediting = true;
+        }
+        console.log(vm.selectedLessonContent);
+      }
+
+      vm.LFILEeditSave = function () {
         AdminLessonContents.post_file(vm.lessonContents)
         .then(function (resp) {
             $scope.lessoncontents.push(vm.lessonContents);
