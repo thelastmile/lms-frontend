@@ -94,7 +94,6 @@
 
         AdminLessonContents.post_file(vm.lessonContents)
         .then(function (resp) {
-            //console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
             toasty.success({
               title: 'Saved',
               msg: 'New Lesson Content Added',
@@ -109,27 +108,10 @@
               clickToClose: true,
             });
         }, function (evt) {
+            // USE THIS TO SHOW PROGRESS IF INCLINED
             //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
             //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
-
-        // .success(function(data){
-        //   vm.course = {};
-        //   toasty.success({
-        //     title: 'Saved',
-        //     msg: 'New Lesson Content Added',
-        //     sound: false,
-        //     clickToClose: true,
-        //   });
-        // }).error(function (error){
-        //   toasty.error({
-        //       title: 'Error',
-        //       msg: 'Ensure you added all values',
-        //       sound: false,
-        //       clickToClose: true,
-        //     });
-        // });
-
       }
 
     }

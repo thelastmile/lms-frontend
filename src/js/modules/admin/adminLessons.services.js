@@ -71,20 +71,7 @@
             return Upload.upload({
                 url: customUrl.url + '/api/binarycontent/',
                 data: data
-            })
-
-
-            // $http.post(customUrl.url + '/api/binarycontent/', fd, {
-            //     // IMPORTANT!!! DO NOT set to 'multipart/form-data'
-            //     headers: { 'Content-Type': false },
-            //     transformRequest: angular.identity,
-            // }).
-            // success(function (data, status, headers, config) {
-            //     alert("success!");
-            // }).
-            // error(function (data, status, headers, config) {
-            //     alert("failed!");
-            // });
+            });
         };
 
         // update
