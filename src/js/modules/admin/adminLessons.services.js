@@ -21,7 +21,6 @@
 
         // update
         lessons.put = function(data){
-            console.log(data);
             return $http.put(customUrl.url + '/api/module/' + data.id + '/', data);
         };
 
@@ -87,8 +86,8 @@
         };
 
         // update
-        lessons.put = function(data){
-            return $http.put(customUrl.url + '/api/binarycontent/' + data.id + '/', data);
+        lessons.patch = function(id,data){
+            return $http.patch(customUrl.url + '/api/binarycontent/' + id + '/', data);
         };
 
         // list of lessons

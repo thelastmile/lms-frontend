@@ -176,8 +176,28 @@
         console.log(vm.selectedLessonContent);
       }
 
+      vm.LFILEindexPath = '';
       vm.LFILEselectIndexPath = function (){
-        console.log(this);
+        console.log(vm.LFILEindexPath);
+        console.log(vm.selectedLessonContent);
+        AdminLessonContents.patch(vm.selectedLessonContent.id,{index_file:vm.LFILEindexPath})
+        .success(function(data){
+          toasty.success({
+              title: 'Index saved',
+              msg: 'The new index linked to:<br><strong>'+data.index_file.replace(/^.*(\\|\/|\:)/, '')+'</strong>',
+              sound: false,
+              clickToClose: true,
+              html: true,
+            });
+        })
+        .error(function(info){
+          toasty.error({
+              title: 'Error',
+              msg: 'We couldn\'t select this file as the index for some reason.  Please report the error along with the file you\'re trying to select',
+              sound: false,
+              clickToClose: true,
+            });
+        });
       }
 
       vm.LFILEeditSave = function () {
