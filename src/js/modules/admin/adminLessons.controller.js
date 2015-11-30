@@ -176,6 +176,10 @@
         console.log(vm.selectedLessonContent);
       }
 
+      vm.LFILEselectIndexPath = function (){
+        console.log(this);
+      }
+
       vm.LFILEeditSave = function () {
         AdminLessonContents.post_file(vm.lessonContents)
         .then(function (resp) {
