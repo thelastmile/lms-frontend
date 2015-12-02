@@ -44,6 +44,18 @@
           templateUrl: Route.base('adminLessons.html'),
         })
 
+        .state('app.adminCourses', {
+          url: '/admin/courses',
+          authenticate: true,
+          templateUrl: Route.base('adminCourses.html'),
+        })
+
+        .state('app.adminModuleContent', {
+          url: '/admin/modulecontent',
+          authenticate: true,
+          templateUrl: Route.base('adminModuleContent.html'),
+        })
+
         .state('app.studentdashboard', {
           url: '/studentdashboard',
           authenticate: true,
