@@ -26,7 +26,14 @@
 
       AdminLessonContents.get().success(function(data){
         $scope.lessoncontents = data;
+        console.log($scope.lessoncontents);
       });
+
+      vm.editMode = function(){
+        vm.lesson = {};
+        vm.selectedLesson = {}
+        vm.LFILEediting = false;
+      }
 
       vm.getFilename = function (data){
         data.name = data.file.name;

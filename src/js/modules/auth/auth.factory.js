@@ -5,13 +5,11 @@
  
 (function() {
     'use strict';
-
     angular
         .module('naut')
         //==============================================
         // LOGIN FACTORY
         //==============================================
-
         .factory('UserService', ['$http', '$state', 'registerService', 'customUrl', '$window','toasty', function($http, $state, registerService, customUrl, $window, toasty){
             var factory = {};
             factory.login = function(username, password){
@@ -116,9 +114,6 @@
       //==============================================
       .service('registerService', ['$http', '$state', 'customUrl', function($http, $state, customUrl){
           var registerMethods = {};
-          // var backend_url = "http://esystapi-env.elasticbeanstalk.com/"
-          // for local
-          // var backend_url = "http://127.0.0.1:8000";
 
           registerMethods.post = function(data){
               $http.post(customUrl.url + "/api/user_profile/user_create/", data)
