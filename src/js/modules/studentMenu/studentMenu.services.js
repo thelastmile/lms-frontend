@@ -27,34 +27,14 @@
         return menu;
     }])
 
-    .service('StudentCurrentModule', ['customUrl', '$http', function(customUrl, $http){
-        var menu = {};
-        // list of lessons
-        menu.get = function(){
-            return $http.get(customUrl.url + '/api/module/')
-        };
-
+    .service('StudentGetModuleContents', ['customUrl', '$http', function(customUrl, $http){
+        var module = {};
         // find 1 lesson
-        menu.get_single = function(pk){
-            return $http.get(customUrl.url + '/api/module/' + pk + '/');
+        module.get_single = function(pk){
+            return $http.get(customUrl.url + '/api/binarycontent/?module=' + pk + '');
         };
         
-        return menu;
-    }])
-
-    .service('StudentCurrentCourse', ['customUrl', '$http', function(customUrl, $http){
-        var menu = {};
-        // list of lessons
-        menu.get = function(){
-            return $http.get(customUrl.url + '/api/module/')
-        };
-
-        // find 1 lesson
-        menu.get_single = function(pk){
-            return $http.get(customUrl.url + '/api/module/' + pk + '/');
-        };
-        
-        return menu;
+        return module;
     }])
   }
 )();

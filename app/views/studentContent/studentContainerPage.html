@@ -1,9 +1,32 @@
 <div ng-controller="StudentContentController as SCC" class="row">
    <!-- START dashboard content-->
    <div class="col-lg-12 fw-boxed">
-      {{ currentModule }} {{ username }}
+      {{ currentModule }}
 
    </div>
+
+   <div class="col-lg-12 fw-boxed">
+      <div ng-show="currentContentType==1">
+         Home
+      </div>
+
+      <div ng-show="currentContentType==2">
+         Video
+      </div>
+
+      <div ng-show="currentContentType==3">
+         Docs
+      </div>
+
+      <div ng-show="currentContentType==4">
+         Other
+      </div>
+
+      <div ng-show="currentContentType==9">
+         Editor
+      </div>
+   </div>
+
 
    <!-- END dashboard sidebar-->
 

@@ -9,8 +9,8 @@
         .module('naut')
         .controller('StudentContentController', StudentContentController);
     
-    StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService','StudentCurrentModule', 'StudentCurrentCourse'];
-    function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, StudentCurrentModule, StudentCurrentCourse) {
+    StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService'];
+    function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService) {
       var scc = this;
 
       scc.getModule = function(){

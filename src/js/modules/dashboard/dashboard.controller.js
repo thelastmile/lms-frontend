@@ -37,6 +37,10 @@
         }
       }
 
+      vm.setContentType = function (){
+        $rootScope.currentContentType = vm.selectedContentType;
+      }
+
       $rootScope.username = $window.sessionStorage.getItem("username");
 
     }

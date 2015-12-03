@@ -9,12 +9,12 @@
         .module('naut')
         .controller('StudentMenuController', StudentMenuController);
     
-    StudentMenuController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService','StudentCurrentModule', 'StudentCurrentCourse'];
-    function StudentMenuController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, StudentCurrentModule, StudentCurrentCourse) {
+    StudentMenuController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService','StudentGetModuleContents'];
+    function StudentMenuController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, StudentGetModuleContents) {
       var smc = this;
 
       StudentMenuService.get().success(function(data){
-        $rootScope.moduleContent = data;
+        $rootScope.moduleMenuContent = data;
       });
 
       $rootScope.currentModule = false;
@@ -29,6 +29,9 @@
       smc.currentModule = 0;
       smc.setCurrentModule = function(){
         $rootScope.currentModule = smc.currentModule;
+        StudentGetModuleContents.get_single($rootScope.currentModule).success(function(data){
+          $rootScope.moduleContent = data;
+        });
       }
 
       smc.viewModule = function(){
