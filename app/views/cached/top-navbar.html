@@ -143,26 +143,26 @@
       </ul>
       <div ng-controller="DashboardController as dashboard">
          <ul ng-if="isStudent()" style="margin-top: 30px; margin-left: 20px; bottom: 0px;" class='pull-right nav navbar-bar'>
-            <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-               <a ng-click="dashboard.selectedContentType=1; dashboard.setContentType();" title="Student Dashboard" ripple="">
+            <button ng-click="dashboard.selectedContentType=1; dashboard.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+               <a title="Student Dashboard" ripple="">
                   <em class="sidebar-item-icon fa fa-home"></em>
                   <span>Home</span>
                </a>
             </button>
-            <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-               <a ng-click="dashboard.selectedContentType=2; dashboard.setContentType();" title="Video" ripple="">
+            <button ng-click="dashboard.selectedContentType=2; dashboard.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+               <a title="Video" ripple="">
                   <em class="sidebar-item-icon fa fa-film"></em>
                   <span>Video</span>
                </a>
             </button>
-            <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-               <a ng-click="dashboard.selectedContentType=3; dashboard.setContentType();" title="Readme" ripple="">
+            <button ng-click="dashboard.selectedContentType=3; dashboard.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+               <a title="Readme" ripple="">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>Documentation</span>
                </a>
             </button>
-            <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-               <a ng-click="dashboard.selectedContentType=9; dashboard.setContentType();" title="Mailbox" ripple="">
+            <button ng-click="dashboard.selectedContentType=9; dashboard.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+               <a title="Mailbox" ripple="">
                   <em class="sidebar-item-icon fa fa-code"></em>
                   <span>Code Editor</span>
                </a>
@@ -195,8 +195,8 @@
                </ul>
             </span>
 
-            <button ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-               <a ng-click="dashboard.selectedContentType=4; dashboard.setContentType();" title="Mailbox" ripple="">
+            <button ng-click="dashboard.selectedContentType=4; dashboard.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+               <a title="Mailbox" ripple="">
                   <em class="sidebar-item-icon icon-ribbon"></em>
                   <span>Extras</span>
                </a>
