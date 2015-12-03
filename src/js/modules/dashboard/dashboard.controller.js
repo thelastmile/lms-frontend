@@ -37,7 +37,7 @@
         }
       }
 
-      $scope.username = $window.sessionStorage.getItem("username");
+      $rootScope.username = $window.sessionStorage.getItem("username");
 
     }
 })();

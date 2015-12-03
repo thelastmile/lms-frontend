@@ -59,7 +59,7 @@
         .state('app.studentdashboard', {
           url: '/studentdashboard',
           authenticate: true,
-          templateUrl: Route.base('studentdashboard.html'),
+          templateUrl: Route.base('studentContent/studentContainerPage.html'),
           resolve: {
             assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
           }

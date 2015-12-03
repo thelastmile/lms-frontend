@@ -48,6 +48,7 @@
                   <span>Module Content</span>
                </a>
             </li>
+            <!--
             <li ui-sref-active="active">
                <a ui-sref="app.docs" title="Cards" ripple="">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
@@ -60,6 +61,7 @@
                   <span>Media</span>
                </a>
             </li>
+            -->
             <li ui-sref-active="active">
                <a ui-sref="app.notes" title="Notes" ripple="">
                   <em class="sidebar-item-icon fa fa-pencil"></em>
@@ -77,11 +79,21 @@
 
 
          <!-- STUDENT MENU -->
-         <ul class="nav" ng-if="isStudent()">
+         <ul class="nav" ng-if="isStudent()" ng-controller="StudentMenuController as SMC">
             <!-- Iterates over all sidebar items-->
             <li class="nav-heading">
                <span translate="sidebar.heading.HEADER" class="text-muted">Main Navigation</span>
             </li>
+
+            <li ui-sref-active="active" ng-repeat="mc in moduleContent">
+               <a ripple="" ng-click="SMC.currentModule = mc.id;SMC.setCurrentModule()">
+                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
+                  <span>{{ mc.name }}</span>
+               </a>
+
+            </li>
+
+            <!--
             <li ui-sref-active="active">
                <a ripple="">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
@@ -94,56 +106,57 @@
                   <span>Python</span>
                </a>
             </li>
-            <li ui-sref-active="active">
+                        <li ui-sref-active="active">
                <a ripple="">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>HTML</span>
                </a>
             </li>
-            <li ui-sref-active="active">
+                        <li ui-sref-active="active">
                <a ripple="">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>CSS</span>
                </a>
             </li>
-            <li ui-sref-active="active">
+                        <li ui-sref-active="active">
                <a ripple="">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>Javascript</span>
                </a>
             </li>
-            <li ui-sref-active="active">
+                        <li ui-sref-active="active">
                <a ripple="">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>Database & Data Viz</span>
                </a>
             </li>
-            <li ui-sref-active="active">
+                        <li ui-sref-active="active">
                <a ripple="">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>Into to MVC's</span>
                </a>
             </li>
-            <li ui-sref-active="active">
+                        <li ui-sref-active="active">
                <a ripple="">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>UI / UX</span>
                </a>
             </li>
-            </li>
-            <li ui-sref-active="active">
+                        </li>
+                        <li ui-sref-active="active">
                <a ripple="">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>Functional JS</span>
                </a>
             </li>
-            </li>
-            <li ui-sref-active="active">
+                        </li>
+                        <li ui-sref-active="active">
                <a ripple="">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>JS and the DOM</span>
                </a>
             </li>
+            -->
          </ul>
       </div>
       <footer class="footer">
