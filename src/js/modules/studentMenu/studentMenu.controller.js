@@ -9,8 +9,8 @@
         .module('naut')
         .controller('StudentMenuController', StudentMenuController);
     
-    StudentMenuController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService','StudentGetModuleContents'];
-    function StudentMenuController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, StudentGetModuleContents) {
+    StudentMenuController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService','StudentGetModuleContents','AdminLessonContents'];
+    function StudentMenuController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, StudentGetModuleContents, AdminLessonContents) {
       var smc = this;
 
       StudentMenuService.get().success(function(data){
@@ -18,13 +18,6 @@
       });
 
       $rootScope.currentModule = false;
-      // smc.currentModule = StudentCurrentModule.get().success(function(data){
-      //   $rootScope.currentModule = data;
-      // });
-
-      // smc.currentCourse = StudentCurrentCourse.get().success(function(data){
-      //   $rootScope.currentCourse = data;
-      // });
 
       smc.currentModule = 0;
       smc.setCurrentModule = function(){
@@ -38,6 +31,23 @@
         vm.lesson = {};
         vm.selectedLesson = {}
         vm.LFILEediting = false;
+      }
+
+      smc.setContentType = function (){
+        $rootScope.currentContentType = smc.selectedContentType;
+      }
+
+      smc.getLessonContents = function (){
+        console.log('clicked');
+        console.log(smc.selectedContentType);
+        AdminLessonContents.get_by_content_type(smc.selectedContentType).success(function(data){
+          $rootScope.content_by_type = data;
+          console.log(data);
+        })
+        .error(function(data){
+          console.log("failed");
+          console.log(data);
+        });
       }
 
     }

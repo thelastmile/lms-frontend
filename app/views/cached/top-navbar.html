@@ -1,5 +1,5 @@
 <!-- START Top Navbar-->
-<nav role="navigation" ng-controller="HeaderNavController as header" class="navbar topnavbar">
+<nav ng-controller="DashboardController as dashboard" role="navigation" ng-controller="HeaderNavController as header" class="navbar topnavbar">
    <!-- START button offset-->
    <!--
    <div class="btn-offset">
@@ -66,58 +66,6 @@
                         </a>
                      </div>
                   </div>
-                  <!--
-                  <div class="col-xs-4">
-                     <div class="pv">
-                        <a ui-sref="app-fh.mailbox.folder.list({folder: 'inbox'})">
-                           <span class="block mb">
-                              <em class="icon-mail fa-2x text-primary"></em>
-                           </span>
-                           <small class="text-muted">Mailbox</small>
-                        </a>
-                     </div>
-                  </div>
-                  <div class="col-xs-4">
-                     <div class="pv">
-                        <a ui-sref="app.extras.calendar">
-                           <span class="block mb">
-                              <em class="fa fa-calendar fa-2x text-danger"></em>
-                           </span>
-                           <small class="text-muted">Calendar</small>
-                        </a>
-                     </div>
-                  </div>
-                  <div class="col-xs-4">
-                     <div class="pv">
-                        <a ui-sref="app.maps.vector">
-                           <span class="block mb">
-                              <em class="icon-map fa-2x text-success"></em>
-                           </span>
-                           <small class="text-muted">Map</small>
-                        </a>
-                     </div>
-                  </div>
-                  <div class="col-xs-4">
-                     <div class="pv">
-                        <a ui-sref="app.dashboard">
-                           <span class="block mb">
-                              <em class="icon-bar-graph-2 fa-2x text-info"></em>
-                           </span>
-                           <small class="text-muted">Dashboard</small>
-                        </a>
-                     </div>
-                  </div>
-                  <div class="col-xs-4">
-                     <div class="pv">
-                        <a ui-sref="app.extras.gallery">
-                           <span class="block mb">
-                              <em class="icon-image fa-2x text-muted"></em>
-                           </span>
-                           <small class="text-muted">Gallery</small>
-                        </a>
-                     </div>
-                  </div>
-                  -->
                </div>
             </ul>
          </li>
@@ -127,7 +75,7 @@
             </span>
          </li>
          <li>
-            <div ng-controller="DashboardController as dashboard" style="margin-top: 12px; margin-left: 20px;">
+            <div style="margin-top: 12px; margin-left: 20px;">
                <div>
                   <h3 style="margin-top: 10px; margin-bottom: 1px;">{{username}}</h3>
                </div>
@@ -141,27 +89,27 @@
 
          <!-- END lock screen-->
       </ul>
-      <div ng-controller="DashboardController as dashboard">
-         <ul ng-if="isStudent()" style="margin-top: 30px; margin-left: 20px; bottom: 0px;" class='pull-right nav navbar-bar'>
-            <button ng-click="dashboard.selectedContentType=1; dashboard.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+      <div ng-controller="StudentMenuController as SMC">
+         <ul ng-click="SMC.getLessonContents()" ng-if="isStudent()" style="margin-top: 30px; margin-left: 20px; bottom: 0px;" class='pull-right nav navbar-bar'>
+            <button ng-click="SMC.selectedContentType=0; SMC.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
                <a title="Student Dashboard" ripple="">
                   <em class="sidebar-item-icon fa fa-home"></em>
                   <span>Home</span>
                </a>
             </button>
-            <button ng-click="dashboard.selectedContentType=2; dashboard.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+            <button ng-click="SMC.selectedContentType=1; SMC.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+               <a title="Readme" ripple="">
+                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
+                  <span>Instructions</span>
+               </a>
+            </button>
+            <button ng-click="SMC.selectedContentType=3; SMC.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
                <a title="Video" ripple="">
                   <em class="sidebar-item-icon fa fa-film"></em>
                   <span>Video</span>
                </a>
             </button>
-            <button ng-click="dashboard.selectedContentType=3; dashboard.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-               <a title="Readme" ripple="">
-                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
-                  <span>Documentation</span>
-               </a>
-            </button>
-            <button ng-click="dashboard.selectedContentType=9; dashboard.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+            <button ng-click="SMC.selectedContentType=9; SMC.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
                <a title="Mailbox" ripple="">
                   <em class="sidebar-item-icon fa fa-code"></em>
                   <span>Code Editor</span>
@@ -195,10 +143,10 @@
                </ul>
             </span>
 
-            <button ng-click="dashboard.selectedContentType=4; dashboard.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
+            <button ng-click="SMC.selectedContentType=5; SMC.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
                <a title="Mailbox" ripple="">
                   <em class="sidebar-item-icon icon-ribbon"></em>
-                  <span>Extras</span>
+                  <span>Resources</span>
                </a>
             </button>
          </ul>

@@ -6,20 +6,29 @@
    </div>
 
    <div class="col-lg-12 fw-boxed">
-      <div ng-show="currentContentType==1">
+      <div ng-show="currentContentType==0">
          Home
       </div>
 
-      <div ng-show="currentContentType==2">
-         Video
+      <div ng-show="currentContentType==1">
+         Instructions
+         <ul>
+            <li ng-repeat="content in content_by_type">{{ content }}</li>
+         </ul>
       </div>
 
       <div ng-show="currentContentType==3">
-         Docs
+         Video
+         <ul>
+            <li ng-repeat="content in content_by_type">{{ content }}</li>
+         </ul>
       </div>
 
-      <div ng-show="currentContentType==4">
-         Other
+      <div ng-show="currentContentType==5">
+         Resources
+         <ul>
+            <li ng-repeat="content in content_by_type">{{ content }}</li>
+         </ul>
       </div>
 
       <div ng-show="currentContentType==9">

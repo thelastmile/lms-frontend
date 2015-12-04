@@ -99,6 +99,11 @@
         lessons.get_single = function(pk){
             return $http.get(customUrl.url + '/api/binarycontent/' + pk + '/');
         };
+
+        // find lessons by content type
+        lessons.get_by_content_type = function(pk){
+            return $http.get(customUrl.url + '/api/binarycontent/?content_type=' + pk);
+        };
         
         return lessons;
     }])
