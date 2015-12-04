@@ -24,6 +24,7 @@
         $rootScope.currentModule = smc.currentModule;
         StudentGetModuleContents.get_single($rootScope.currentModule).success(function(data){
           $rootScope.moduleContent = data;
+          smc.getLessonContents();
         });
       }
 
@@ -38,15 +39,10 @@
       }
 
       smc.getLessonContents = function (){
-        console.log('clicked');
-        console.log(smc.selectedContentType);
-        AdminLessonContents.get_by_content_type(smc.selectedContentType).success(function(data){
+        AdminLessonContents.get_by_content_type($rootScope.currentContentType,$rootScope.currentModule).success(function(data){
           $rootScope.content_by_type = data;
-          console.log(data);
         })
         .error(function(data){
-          console.log("failed");
-          console.log(data);
         });
       }
 

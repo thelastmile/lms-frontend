@@ -18,7 +18,9 @@
       <div ng-show="currentContentType==3">
       Video
          <ul>
-            <li ng-repeat="content in content_by_type">{{ content }}</li>
+            <li ng-repeat="content in content_by_type">
+               <a href="{{ url }}{{ content.index_file }}">{{ content.name }}</a>
+            </li>
          </ul>
       </div>
 

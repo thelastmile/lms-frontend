@@ -86,77 +86,11 @@
             </li>
 
             <li ui-sref-active="active" ng-repeat="mc in moduleMenuContent">
-               <a ripple="" ng-click="SMC.currentModule = mc.id;SMC.setCurrentModule()">
+               <a ripple="" ui-sref="app.studentdashboard({page: mc.name})" ng-click="SMC.currentModule = mc.id;SMC.setCurrentModule();">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>{{ mc.name }}</span>
                </a>
-
             </li>
-
-            <!--
-            <li ui-sref-active="active">
-               <a ripple="">
-                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
-                  <span>Foundations</span>
-               </a>
-            </li>
-            <li ui-sref-active="active">
-               <a ripple="">
-                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
-                  <span>Python</span>
-               </a>
-            </li>
-                        <li ui-sref-active="active">
-               <a ripple="">
-                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
-                  <span>HTML</span>
-               </a>
-            </li>
-                        <li ui-sref-active="active">
-               <a ripple="">
-                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
-                  <span>CSS</span>
-               </a>
-            </li>
-                        <li ui-sref-active="active">
-               <a ripple="">
-                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
-                  <span>Javascript</span>
-               </a>
-            </li>
-                        <li ui-sref-active="active">
-               <a ripple="">
-                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
-                  <span>Database & Data Viz</span>
-               </a>
-            </li>
-                        <li ui-sref-active="active">
-               <a ripple="">
-                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
-                  <span>Into to MVC's</span>
-               </a>
-            </li>
-                        <li ui-sref-active="active">
-               <a ripple="">
-                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
-                  <span>UI / UX</span>
-               </a>
-            </li>
-                        </li>
-                        <li ui-sref-active="active">
-               <a ripple="">
-                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
-                  <span>Functional JS</span>
-               </a>
-            </li>
-                        </li>
-                        <li ui-sref-active="active">
-               <a ripple="">
-                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
-                  <span>JS and the DOM</span>
-               </a>
-            </li>
-            -->
          </ul>
       </div>
       <footer class="footer">
