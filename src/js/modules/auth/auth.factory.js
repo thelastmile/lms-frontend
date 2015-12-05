@@ -10,22 +10,22 @@
         //==============================================
         // LOGIN FACTORY
         //==============================================
-        .factory('UserService', ['$http', '$state', 'registerService', 'customUrl', '$window','toasty', function($http, $state, registerService, customUrl, $window, toasty){
+        .factory('UserService', ['$http', '$state', 'registerService', 'customUrl', '$window','toasty', 'UserService_','$rootScope', function($http, $state, registerService, customUrl, $window, toasty, UserService_, $rootScope ){
             var factory = {};
             factory.login = function(username, password){
                 $http.post(customUrl.url + "/api-token-auth/", {username: username, password: password})
                 .success(function(data){
                     if (data['token']) {
                         $window.sessionStorage.setItem("authenticated", true);
-                        $window.sessionStorage.setItem("username", username);
+                        $window.sessionStorage.setItem("user", JSON.stringify(data['user']));
                         $window.sessionStorage.setItem("token", data['token']);
                         $window.sessionStorage.setItem("id", data.id);
+                        $rootScope.user = angular.fromJson((data['user']));
                         factory.getAndRoute();
-                        
                     }
                     else {
                         $window.sessionStorage.setItem("authenticated", false);
-                        $window.sessionStorage.setItem("username", "");
+                        $window.sessionStorage.setItem("user", null);
                         $window.sessionStorage.setItem("token", "");
                         toasty.error({
                             title: 'Invalid login',
@@ -37,7 +37,7 @@
                 })
                 .error(function(data, status, headers, config){
                         $window.sessionStorage.setItem("authenticated", false);
-                        $window.sessionStorage.setItem("username", "");
+                        $window.sessionStorage.setItem("user", null);
                         $window.sessionStorage.setItem("token", "");
                         console.log(status);
                         if (status===-1){
@@ -61,26 +61,25 @@
             };
 
             factory.getAndRoute = function(){
-                $http.get(customUrl.url + '/api/users/?username=' + $window.sessionStorage.getItem("username"))
-                    .success(function(data) {
-                      for (var group in data[0].groups){
-                        if (data[0].groups[group].name==='Super Admin'){
+                var user = $rootScope.user;
+                for (var group in user.groups){
+                        if (user.groups[group].name==='Super Admin'){
                           console.log('is Super Admin');
                           $window.sessionStorage.setItem("userPermissions","superAdmin");
                           $state.go("app.viewstudents");
                           break;
-                        } else if (data[0].groups[group].name==='Faculty') {
+                        } else if (user.groups[group].name==='Faculty') {
                           console.log('is Admin');
                           $window.sessionStorage.setItem("userPermissions","faculty");
                           $state.go("app.viewstudents");
-                        } else if (data[0].groups[group].name==='Student' || data[0].groups[group].name==='Inmate') {
+                        } else if (user.groups[group].name==='Student' || user.groups[group].name==='Inmate') {
                           console.log('is Student');
                           $window.sessionStorage.setItem("userPermissions","student");
                           $state.go("app.studentdashboard");
                         }
                       } 
 
-                      if (data[0].groups.length===0) {
+                      if (user.groups[group].length===0) {
                         toasty.error({
                             title: 'Login valid but you don\'t belong to any groups.',
                             msg: 'Contact your admin for group assignment.',
@@ -88,8 +87,6 @@
                             clickToClose: true
                         });
                       }
-
-                    });
             }
 
             factory.isAuthenticated = function(){
@@ -134,10 +131,6 @@
                   $state.go('error')
               })
           };
-
-          // registerMethods.backend_url = function(){
-          //     return backend_url;
-          // }
 
           return registerMethods;
       }])

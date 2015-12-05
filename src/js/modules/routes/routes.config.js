@@ -57,7 +57,7 @@
         })
 
         .state('app.studentdashboard', {
-          url: '/studentdashboard/{page}',
+          url: '/studentdashboard?content&lesson',
           authenticate: true,
           templateUrl: Route.base('studentContent/studentContainerPage.html'),
           resolve: {

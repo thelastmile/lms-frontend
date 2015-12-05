@@ -36,8 +36,5 @@
           return false;
         }
       }
-
-      $rootScope.username = $window.sessionStorage.getItem("username");
-
     }
 })();

@@ -16,7 +16,7 @@
             this.forgot = 0;
 
             this.logMeIn = function(){
-                UserService.login(this.user, this.secret)
+                UserService.login(this.user, this.secret);
             };
 
             this.reset = function(){

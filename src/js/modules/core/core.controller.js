@@ -10,8 +10,8 @@
         .controller('CoreController', CoreController);
 
     /* @ngInject */
-    CoreController.$inject = ['$rootScope','UserService','$scope','customUrl'];
-    function CoreController($rootScope,UserService,$scope,customUrl) {
+    CoreController.$inject = ['$rootScope','UserService','$scope','customUrl','$window'];
+    function CoreController($rootScope,UserService,$scope,customUrl,$window) {
       // Get title for each page
       $rootScope.pageTitle = function() {
         return $rootScope.app.name + ' - ' + $rootScope.app.description;
@@ -25,8 +25,10 @@
       };
 
       $rootScope.logout = function () {
-            UserService.logout();
+        UserService.logout();
       };
+
+      $rootScope.user = angular.fromJson($window.sessionStorage.getItem("user"));
 
       $rootScope.url = customUrl.url;
     }
