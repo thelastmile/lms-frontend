@@ -27,17 +27,7 @@
 
       scc.videos = [
         {
-          sources: [
-            {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"), type: "video/mp4"},
-            {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.webm"), type: "video/webm"},
-            {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.ogg"), type: "video/ogg"}
-          ]
-        },
-        {
-          sources: [
-            {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov"), type: "video/mp4"},
-            {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_stereo.ogg"), type: "video/ogg"}
-          ]
+          sources: []
         }
       ];
  
@@ -45,12 +35,12 @@
         autoHide: false,
         autoHideTime: 3000,
         autoPlay: false,
-        sources: scc.videos[0].sources,
+        //sources: scc.videos[0].sources,
         theme: {
           url: "http://www.videogular.com/styles/themes/default/latest/videogular.css"
         },
         plugins: {
-          poster: "http://www.videogular.com/assets/images/videogular.png"
+          poster: "http://127.0.0.1:3000/app/img/1x1.png"
         }
       };
 
@@ -59,9 +49,19 @@
         scc.API = API;
       };
 
-      scc.setVideo = function(index) {
+      scc.setVideo = function(current_video) {
         scc.API.stop();
-        scc.config.sources = scc.videos[index].sources;
+        scc.API.clearMedia();
+        var tmp_source = [{src: $sce.trustAsResourceUrl($rootScope.url+current_video), type: "video/mp4"}];
+        var tmp_poster = {
+          poster: "http://127.0.0.1:3000/app/img/1x1.png"
+        };
+        
+        scc.config.plugins = tmp_poster;
+
+        scc.config.sources = tmp_source;
+
+        //var result = scc.API.changeSource(tmp_source);
       };
 
     }

@@ -43,39 +43,37 @@
       </div>
 
       <div ng-show="currentContentType==3">
-      Video {{SCC.config}}
+      Video
          <ul>
             <li ng-repeat="content in content_by_type">
-               <a href="{{ url }}{{ content.file_url }}">{{ content.name }}</a>
+               <a href="" ng-click="SCC.setVideo(content.file_url)">{{ content.name }}</a>
             </li>
          </ul>
-         <div class="videogular-container">
-         <div class="videogular-container">
-      <videogular vg-player-ready="SCC.onPlayerReady($API)" vg-theme="SCC.config.theme.url">
-         <vg-media vg-src="SCC.config.sources"
-                 vg-tracks="SCC.config.tracks">
-         </vg-media>
- 
-         <vg-controls>
-            <vg-play-pause-button></vg-play-pause-button>
-            <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
-            <vg-scrub-bar>
-               <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-            </vg-scrub-bar>
-            <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
-            <vg-volume>
-               <vg-mute-button></vg-mute-button>
-               <vg-volume-bar></vg-volume-bar>
-            </vg-volume>
-            <vg-fullscreen-button></vg-fullscreen-button>
-         </vg-controls>
- 
-         <vg-overlay-play></vg-overlay-play>
-         <vg-buffering></vg-buffering>
-         <vg-poster vg-url='SCC.config.plugins.poster'></vg-poster>
-      </videogular>
-   </div>
-          </div>
+         <div class="videogular-container" ng-show="SCC.config.sources">
+            <videogular vg-player-ready="SCC.onPlayerReady($API)" vg-theme="SCC.config.theme.url">
+               <vg-media vg-src="SCC.config.sources"
+                       vg-tracks="SCC.config.tracks">
+               </vg-media>
+       
+               <vg-controls>
+                  <vg-play-pause-button></vg-play-pause-button>
+                  <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                  <vg-scrub-bar>
+                     <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                  </vg-scrub-bar>
+                  <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+                  <vg-volume>
+                     <vg-mute-button></vg-mute-button>
+                     <vg-volume-bar></vg-volume-bar>
+                  </vg-volume>
+                  <vg-fullscreen-button></vg-fullscreen-button>
+               </vg-controls>
+       
+               <vg-overlay-play></vg-overlay-play>
+               <vg-buffering></vg-buffering>
+               <vg-poster vg-url='SCC.config.plugins.poster'></vg-poster>
+            </videogular>
+         </div>
       </div>
 
       <div ng-show="currentContentType==5">
