@@ -12,6 +12,9 @@
     StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService', '$sce'];
     function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, $sce) {
       var scc = this;
+      if (!$rootScope.currentContentType){
+        $rootScope.currentContentType=0;
+      }
 
       scc.API = null;
 

@@ -15,6 +15,11 @@
 
       StudentMenuService.get().success(function(data){
         $rootScope.moduleMenuContent = data;
+        // TODO Add check for browser storage variable
+        if (!smc.currentModule){
+          smc.currentModule = data[0].id;
+          smc.setCurrentModule();
+        }
       });
 
       $rootScope.currentModule = false;
