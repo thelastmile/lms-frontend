@@ -82,7 +82,7 @@
                <div ng-if="isSuperAdmin()" style="color:red;"><b>SUPER ADMIN</b>
                </div>
                <div ng-if="isAdmin()">Facilitator</div>
-               <div ng-if="isStudent()">Student</div>
+               <div ng-if="isStudent()">Student: {{user.course}}</div>
          </li>
          <!-- END Apps menu-->
          <!-- START lock screen-->

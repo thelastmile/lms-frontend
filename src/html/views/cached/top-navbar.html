@@ -79,7 +79,7 @@
             <div><h3 style="margin-top: 10px; margin-bottom: 1px;">{{user.first_name}} {{user.last_name}}</h3></div>
             <div ng-if="isSuperAdmin()"style="color:red;"><b>SUPER ADMIN</b></div>
             <div ng-if="isAdmin()">Facilitator</div>
-            <div ng-if="isStudent()">Student</div>
+            <div ng-if="isStudent()">Student: {{user.course}}</div>
          </li>
          <!-- END Apps menu-->
          <!-- START lock screen-->
