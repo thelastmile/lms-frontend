@@ -75,7 +75,13 @@
     "angular-sweetalert": "~1.1.0",
     "angular-marked": "~0.0.21",
     "angular-toasty": "~1.0.4",
-    "ng-file-upload": "~10.0.4"
+    "ng-file-upload": "~10.0.4",
+    "videogular": "~1.3.2",
+    "videogular-themes-default": "~1.3.2",
+    "videogular-controls": "~1.3.2",
+    "videogular-buffering": "~1.3.2",
+    "videogular-overlay-play": "~1.3.2",
+    "videogular-poster": "~1.3.2"
   },
   "resolutions": {
     "angular": "1.4.6",

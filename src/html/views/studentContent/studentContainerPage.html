@@ -2,8 +2,7 @@
    <!-- START dashboard content-->
 
    <div class="col-lg-12 fw-boxed">
-      <div ng-show="currentContentType==0">
-         <div ng-show="currentContentType==0">
+      <div ng-show="currentContentType==0 || !currentContentType">
             <!-- start - temp page content for 12/9 demo -->
             <h1>Class Announcements</h1>
             <hr>
@@ -32,7 +31,6 @@
             <br>
             <img src="app/img/demoCal.png" id="calendar" alt="Calendar" />
             <!-- end - temp page content for 12/9 demo -->
-         </div>
       </div>
 
       <div ng-show="currentContentType==1">
@@ -45,12 +43,20 @@
       </div>
 
       <div ng-show="currentContentType==3">
-      Video
+      Video {{SCC.config}}
          <ul>
             <li ng-repeat="content in content_by_type">
-               <a href="{{ url }}{{ content.index_file }}">{{ content.name }}</a>
+               <a href="{{ url }}{{ content.file_url }}">{{ content.name }}</a>
             </li>
          </ul>
+         <div class="videogular-container">
+         <videogular vg-theme="SCC.config.theme.url">
+              <vg-media vg-src="SCC.config.sources"
+                        vg-tracks="SCC.config.tracks"
+                        vg-native-controls="true">
+              </vg-media>
+          </videogular>
+          </div>
       </div>
 
       <div ng-show="currentContentType==5">
