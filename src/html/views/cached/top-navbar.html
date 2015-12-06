@@ -11,7 +11,7 @@
    <!-- START button offset-->
    <!-- START navbar header-->
    <div class="navbar-header">
-      <a ui-sref="app.studentdashboard" class="navbar-brand">
+      <a href="/#" class="navbar-brand">
          <img src="app/img/tlmlogo500w.png" alt="App Logo" class="img-responsive" />
       </a>
       <!-- Mobile buttons-->
@@ -86,69 +86,66 @@
          
          <!-- END lock screen-->
       </ul>
-      <div ng-controller="StudentMenuController as SMC">
-      <ul  ng-click="SMC.getLessonContents()" ng-if="isStudent()" style="margin-top: 30px; margin-left: 20px; bottom: 0px;" class='pull-right nav navbar-bar'>
-         <button ng-click="SMC.selectedContentType=0; SMC.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-               <a title="Student Dashboard" ripple="">
-                  <em class="sidebar-item-icon fa fa-home"></em>
-                  <span>Home</span>
-               </a>
-         </button>
-         <button ng-click="SMC.selectedContentType=1; SMC.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-               <a title="Readme" ripple="">
-                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
-                  <span>Instructions</span>
-               </a>
-         </button>
-         <button ng-click="SMC.selectedContentType=3; SMC.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-               <a title="Video" ripple="">
-                  <em class="sidebar-item-icon fa fa-film"></em>
-                  <span>Video</span>
-               </a>
-         </button>
-         <button ng-click="SMC.selectedContentType=9; SMC.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-               <a title="Mailbox" ripple="">
-                  <em class="sidebar-item-icon fa fa-code"></em>
-                  <span>Code Editor</span>
-               </a>
-         </button>
-
-
-         <!-- NOTES MENU DROPDOWN -->
-         <span dropdown="" class="dropdown">
-            <button ui-sref-active="active" type="button" class="btn btn-default">
-                  <a title="Notes" dropdown-toggle="" ripple="" class="dropdown-toggle">
-                     <em class="sidebar-item-icon fa fa-file-o"></em>
-                     <span>Notes</span>
+      <div ng-controller="StudentMenuController as SMC" class="pull-right">
+         <ul ng-click="SMC.getLessonContents()" ng-if="isStudent()" class="nav navbar-nav hidden-material">
+            <li ng-click="SMC.selectedContentType=0; SMC.setContentType();" ui-sref-active="active" ui-sref="app.studentdashboard({lesson: 'home'})" type="button" aria-label="Left Align">
+                  <a title="Student Dashboard" ripple="">
+                     <em class="sidebar-item-icon fa fa-home"></em>
+                     <span>Home</span>
                   </a>
-            </button>
-            <!-- START Dropdown menu-->
-            <ul id="bg-white" class="dropdown-menu p wd-lg">
-
-               <li ng-controller="ModalController as modal">
-                  <a ng-click="modal.open()" href="">
-                     <em class="fa fa-plus-circle"></em>
-                     <span class="ml">Create Note</span>
+            </li>
+            <li ng-click="SMC.selectedContentType=1; SMC.setContentType();" ui-sref-active="active" ui-sref="app.studentdashboard({lesson: 'instructions'})" type="button" aria-label="Left Align">
+                  <a title="Readme" ripple="">
+                     <em class="sidebar-item-icon fa fa-file-text-o"></em>
+                     <span>Instructions</span>
                   </a>
+            </li>
+            <li ng-click="SMC.selectedContentType=3; SMC.setContentType();" ui-sref-active="active" ui-sref="app.studentdashboard({lesson: 'video'})" type="button" aria-label="Left Align">
+                  <a title="Video" ripple="">
+                     <em class="sidebar-item-icon fa fa-film"></em>
+                     <span>Video</span>
+                  </a>
+            </li>
+            <li ng-click="SMC.selectedContentType=9; SMC.setContentType();" ui-sref-active="active" ui-sref="app.studentdashboard({lesson: 'code'})" type="button" aria-label="Left Align">
+                  <a title="Mailbox" ripple="">
+                     <em class="sidebar-item-icon fa fa-code"></em>
+                     <span>Code Editor</span>
+                  </a>
+            </li>
+
+
+            <!-- NOTES MENU DROPDOWN -->
+               <li ui-sref-active="active" type="button" class="dropdown">
+                     <a title="Notes" dropdown-toggle="" ripple="" class="dropdown-toggle">
+                        <em class="sidebar-item-icon fa fa-file-o"></em>
+                        <span>Notes</span>
+                     </a>
                </li>
-               <li>
-                  <a ui-sref="app.studentnotes">
-                     <em class="fa fa-file-o"></em>
-                     <span class="ml">View Notes</span>
-                  </a>
-               </li>
-            </ul>
-         </span>
+               <!-- START Dropdown menu-->
+               <ul id="bg-white" class="dropdown-menu p wd-lg">
 
-         <button ng-click="SMC.selectedContentType=5; SMC.setContentType();" ui-sref-active="active" type="button" class="btn btn-default" aria-label="Left Align">
-               <a title="Mailbox" ripple="">
-                  <em class="sidebar-item-icon icon-ribbon"></em>
-                  <span>Resources</span>
-               </a>
-         </button>
-      </ul>
+                  <li ng-controller="ModalController as modal">
+                     <a ng-click="modal.open()" href="">
+                        <em class="fa fa-plus-circle"></em>
+                        <span class="ml">Create Note</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a ui-sref="app.studentnotes">
+                        <em class="fa fa-file-o"></em>
+                        <span class="ml">View Notes</span>
+                     </a>
+                  </li>
+               </ul>
+
+            <li ng-click="SMC.selectedContentType=5; SMC.setContentType();" ui-sref-active="active" ui-sref="app.studentdashboard({lesson: 'resources'})"  type="button" aria-label="Left Align">
+                  <a title="Mailbox" ripple="">
+                     <em class="sidebar-item-icon icon-ribbon"></em>
+                     <span>Resources</span>
+                  </a>
+            </li>
+         </ul>
       </div>
-      <!-- END Left navbar-->
    </div>
    <!-- END Nav wrapper-->
 
