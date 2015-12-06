@@ -43,36 +43,54 @@
       </div>
 
       <div ng-show="currentContentType==3">
-      Video
-         <ul>
-            <li ng-repeat="content in content_by_type">
-               <a href="" ng-click="SCC.setVideo(content.file_url)">{{ content.name }}</a>
-            </li>
-         </ul>
-         <div class="videogular-container" ng-show="SCC.config.sources">
-            <videogular vg-player-ready="SCC.onPlayerReady($API)" vg-theme="SCC.config.theme.url">
-               <vg-media vg-src="SCC.config.sources"
-                       vg-tracks="SCC.config.tracks">
-               </vg-media>
-       
-               <vg-controls>
-                  <vg-play-pause-button></vg-play-pause-button>
-                  <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
-                  <vg-scrub-bar>
-                     <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                  </vg-scrub-bar>
-                  <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
-                  <vg-volume>
-                     <vg-mute-button></vg-mute-button>
-                     <vg-volume-bar></vg-volume-bar>
-                  </vg-volume>
-                  <vg-fullscreen-button></vg-fullscreen-button>
-               </vg-controls>
-       
-               <vg-overlay-play></vg-overlay-play>
-               <vg-buffering></vg-buffering>
-               <vg-poster vg-url='SCC.config.plugins.poster'></vg-poster>
-            </videogular>
+         <div class="row">
+            <div class="col-sm-2 hidden-xs">
+               <div class="" ng-repeat="content in content_by_type">
+                <a href="" class="thumbnail" ng-click="SCC.setVideo(content.file_url)">
+                  <!-- <img src="{{ content.thumbnail }}" alt="{{ content.name }}"> -->
+                  <img data-src="holder.js/100%x180" alt="{{ content.name }}" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUxNzg3ZmZjZDQgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTE3ODdmZmNkNCI+PHJlY3Qgd2lkdGg9IjE3MSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI1OS41NTQ2ODc1IiB5PSI5NC41Ij4xNzF4MTgwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true">
+                </a>
+               </div>
+            </div>
+            <div class="col-sm-10 col-xs-12 affix-top">
+               <div class="videogular-container">
+                  <videogular vg-player-ready="SCC.onPlayerReady($API)" vg-theme="SCC.config.theme.url">
+                     <vg-media vg-src="SCC.config.sources"
+                             vg-tracks="SCC.config.tracks">
+                     </vg-media>
+             
+                     <vg-controls>
+                        <vg-play-pause-button></vg-play-pause-button>
+                        <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                        <vg-scrub-bar>
+                           <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                        </vg-scrub-bar>
+                        <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+                        <vg-volume>
+                           <vg-mute-button></vg-mute-button>
+                           <vg-volume-bar></vg-volume-bar>
+                        </vg-volume>
+                        <vg-fullscreen-button></vg-fullscreen-button>
+                     </vg-controls>
+             
+                     <vg-overlay-play></vg-overlay-play>
+                     <vg-buffering></vg-buffering>
+                     <vg-poster vg-url='SCC.config.plugins.poster'></vg-poster>
+                  </videogular>
+               </div>
+            </div>
+
+            
+         </div>
+         <div class="row">
+            <div class="col-xs-12 visible-xs"><br>
+               <div class="col-xs-3" ng-repeat="content in content_by_type">
+                <a href="" class="thumbnail" ng-click="SCC.setVideo(content.file_url)">
+                  <!-- <img src="{{ content.thumbnail }}" alt="{{ content.name }}"> -->
+                  <img data-src="holder.js/100%x180" alt="{{ content.name }}" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUxNzg3ZmZjZDQgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTE3ODdmZmNkNCI+PHJlY3Qgd2lkdGg9IjE3MSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI1OS41NTQ2ODc1IiB5PSI5NC41Ij4xNzF4MTgwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true">
+                </a>
+               </div>
+            </div>
          </div>
       </div>
 
