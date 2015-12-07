@@ -12,15 +12,21 @@
     StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService', '$sce', '$stateParams'];
     function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, $sce, $stateParams) {
       var scc = this;
-      if (!$rootScope.currentContentType){
+
+      if (typeof $stateParams.content == 'undefined' && typeof $stateParams.lesson == 'undefined'){
+        $rootScope.currentModule = 0;
+        $rootScope.currentContentType = 0;
+      }
+
+      if (typeof $rootScope.currentContentType == 'undefined'){
         if ($stateParams.lesson){
           $rootScope.currentContentType=$stateParams.lesson; 
         } else {
-          $rootScope.currentContentType=0;
+          $rootScope.currentContentType=1;
         }
       }
 
-      if (!$rootScope.currentModule){
+      if (typeof $rootScope.currentModule == 'undefined'){
         if ($stateParams.content){
           $rootScope.currentModule=$stateParams.content; 
         } else {

@@ -26,6 +26,7 @@
 
       smc.currentModule = 0;
       smc.setCurrentModule = function(){
+        if (!$rootScope.currentContentType){ $rootScope.currentContentType=1;}
         $rootScope.currentModule = smc.currentModule;
         StudentGetModuleContents.get_single($rootScope.currentModule).success(function(data){
           $rootScope.moduleContent = data;
