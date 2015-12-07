@@ -13,6 +13,7 @@
     function HeaderNavController($rootScope) {
       var vm = this;
       vm.headerMenuCollapsed = true;
+      vm.headerSubNavMenuCollapsed = true;
 
       vm.toggleHeaderMenu = function() {
         vm.headerMenuCollapsed = !vm.headerMenuCollapsed;

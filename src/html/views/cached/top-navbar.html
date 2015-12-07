@@ -1,5 +1,6 @@
 <!-- START Top Navbar-->
-<nav ng-controller="DashboardController as dashboard" role="navigation" ng-controller="HeaderNavController as header" class="navbar topnavbar">
+<span ng-controller="DashboardController as dashboard">
+<nav role="navigation" ng-controller="HeaderNavController as header" class="navbar topnavbar">
    <!-- START button offset-->
    <!--
    <div class="btn-offset">
@@ -39,9 +40,15 @@
          </li>
          <!-- START Apps menu-->
          <li dropdown="" class="dropdown">
-            <a href="" dropdown-toggle="" ripple="" class="dropdown-toggle">
-               <em class="fa fa-th fa-fw"></em>
-               <span class="visible-xs-inline ml">Applications</span>
+            <a href="" dropdown-toggle="" ripple="" class="dropdown-toggle" style="padding-top: 1.3em; margin-top: 0px; height: 5.5em;">
+                  <em class="fa icon-head fa-fw fa-2x pull-left"></em>
+                  <div class="pull-left">
+                  <h3 style="padding-top: 0px; margin-top: 0px; margin-bottom: 1px;" class="pull-right">{{user.first_name}} {{user.last_name}}</h3>
+
+               <div ng-if="isSuperAdmin()"style="color:red;"><b>SUPER ADMIN</b></div>
+               <div ng-if="isAdmin()">Facilitator</div>
+               <div ng-if="isStudent()">Student: {{user.course}}</div>
+               </div>
             </a>
             <!-- START Dropdown menu-->
             <ul id="bg-white" class="dropdown-menu p wd-sm">
@@ -69,24 +76,13 @@
                </div>
             </ul>
          </li>
-         <li>
-               <span>
-               <em class="icon-head fa-2x" style="margin-top: 20px; margin-left: 5px;"></em>
-               </span>
-         </li>
-         <li>
-            <div style="margin-top: 12px; margin-left: 20px;" >
-            <div><h3 style="margin-top: 10px; margin-bottom: 1px;">{{user.first_name}} {{user.last_name}}</h3></div>
-            <div ng-if="isSuperAdmin()"style="color:red;"><b>SUPER ADMIN</b></div>
-            <div ng-if="isAdmin()">Facilitator</div>
-            <div ng-if="isStudent()">Student: {{user.course}}</div>
-         </li>
+
          <!-- END Apps menu-->
          <!-- START lock screen-->
          
          <!-- END lock screen-->
       </ul>
-      <div ng-controller="StudentMenuController as SMC" class="pull-right">
+      <div ng-controller="StudentMenuController as SMC" class="navbar-right">
          <ul ng-click="SMC.getLessonContents()" ng-if="isStudent()" class="nav navbar-nav hidden-material">
             <li ng-click="SMC.selectedContentType=0; SMC.setContentType();" ui-sref-active="active" ui-sref="app.studentdashboard({lesson: 'home'})" type="button" aria-label="Left Align">
                   <a title="Student Dashboard" ripple="">
@@ -145,9 +141,11 @@
                   </a>
             </li>
          </ul>
+      
       </div>
    </div>
    <!-- END Nav wrapper-->
 
 </nav>
+</span>
 <!-- END Top Navbar-->
