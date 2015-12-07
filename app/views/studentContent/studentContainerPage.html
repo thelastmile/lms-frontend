@@ -37,7 +37,7 @@
       </div>
 
       <div ng-show="currentContentType==1">
-         Instructions
+         <h1>Lessons</h1>
          <ul>
             <li ng-repeat="content in content_by_type">
                <a href="{{ url }}{{ content.index_file }}">{{ content.name }}</a>
@@ -103,10 +103,23 @@
       </div>
 
       <div ng-show="currentContentType==5">
-         Resources
-         <ul>
-            <li ng-repeat="content in content_by_type">{{ content }}</li>
-         </ul>
+         <h1>Resources</h1>
+
+         <div ng-repeat="content in content_by_type">
+            <div class="announcements">
+               <h2>{{ content.name }}</h2>
+               <p>{{ content.description }}&nbsp;&nbsp;
+
+                  <span ng-if="!content.index_file">
+                     <a class="btn btn-primary btn-xs" href="{{ content.file }}">Download/View File</a>
+                  </span>
+                  <span ng-if="content.index_file">
+                     <a class="btn btn-primary btn-xs" href="{{ content.index_file }}">View</a>
+                  </span>
+               </p>
+               <hr>
+            </div>
+         </div>
       </div>
 
       <div ng-show="currentContentType==9">

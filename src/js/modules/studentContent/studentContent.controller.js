@@ -9,11 +9,23 @@
         .module('naut')
         .controller('StudentContentController', StudentContentController);
     
-    StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService', '$sce'];
-    function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, $sce) {
+    StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService', '$sce', '$stateParams'];
+    function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, $sce, $stateParams) {
       var scc = this;
       if (!$rootScope.currentContentType){
-        $rootScope.currentContentType=0;
+        if ($stateParams.lesson){
+          $rootScope.currentContentType=$stateParams.lesson; 
+        } else {
+          $rootScope.currentContentType=0;
+        }
+      }
+
+      if (!$rootScope.currentModule){
+        if ($stateParams.content){
+          $rootScope.currentModule=$stateParams.content; 
+        } else {
+          $rootScope.currentModule=0;
+        }
       }
 
       scc.API = null;
