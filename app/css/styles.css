@@ -275,7 +275,7 @@ input[type="number"] {
   -o-transition: width 0.2s ease;
   transition: width 0.2s ease;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 992px) {
   .topnavbar > .navbar-header {
     background-image: none;
     z-index: 1;
@@ -290,7 +290,7 @@ input[type="number"] {
   margin: 0 50px;
   z-index: 1;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 992px) {
   .topnavbar > .navbar-header > .navbar-brand {
     margin: 0 15px;
   }
@@ -328,7 +328,7 @@ input[type="number"] {
 .topnavbar .mobile-toggles:after {
   clear: both;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 992px) {
   .topnavbar .mobile-toggles {
     display: none;
   }
