@@ -125,7 +125,52 @@
       </div>
 
       <div ng-show="currentContentType==9">
-         Editor
+         <div class="col-sm-8">
+            <h2>Code Editor</h2>
+            <pre id="editor_code">function foo(items) { var i; for (i = 0; i &lt; items.length; i++) { alert("TLM is AWESOME! " + items[i]); } }
+            </pre>
+
+            <h2>Tests</h2>
+            <pre id="editor_tests">function some_test() { return true; }
+            </pre>
+         </div>
+         <div class="col-sm-4">
+            <h2>Output</h2>
+            <textarea class="code-output"></textarea>
+         </div>
+         <style type="text/css" media="screen">
+            #editor_code {
+                 margin: 0;
+                 top: 0;
+                 bottom: 0;
+                 left: 0;
+                 right: 0;
+                 height: 300px;
+             }
+   
+            #editor_tests {
+                 margin: 0;
+                 top: 0;
+                 bottom: 0;
+                 left: 0;
+                 right: 0;
+                 height: 200px;
+             }
+   
+             .code-output {
+               height: 570px;
+               width: 100%;
+             }
+         </style>
+         <script>
+            var editor_code = ace.edit("editor_code");
+             editor_code.setTheme("ace/theme/twilight");
+             editor_code.session.setMode("ace/mode/javascript");
+   
+             var editor_tests = ace.edit("editor_tests");
+             editor_tests.setTheme("ace/theme/twilight");
+             editor_tests.session.setMode("ace/mode/javascript");
+         </script>
       </div>
    </div>
 
