@@ -145,7 +145,7 @@
                         </li>
                         <li class="divider"></li>
                         <li ng-repeat="code in code_list">
-                           <a href="">{{code.name}}</a>
+                           <a href="" ng-click="CODE.current_code=code;CODE.open()">{{code.name}}</a>
                         </li>
                      </ul>
                   </div>

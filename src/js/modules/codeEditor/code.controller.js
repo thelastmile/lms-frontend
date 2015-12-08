@@ -25,18 +25,25 @@ while (this_loop === true){
    counter++;
 }`;
 
+      editor.setValue(editor_code);
+
       CodeService.get().success(function(data){
         $scope.code_list = data;
         // TODO Add check for browser storage variable
       });
 
-      editor.setValue(editor_code);
+      
       cc.run = function($event){
-        //editor = ace.edit("editor_code");
         var code = editor.getValue();
         return eval(code);
       }
 
+      cc.open = function(){
+        var editor_code = cc.current_code.code;
+        editor.setValue(editor_code);
+      }
+
+      //override console.log and spit it into a div named code-output
       console.log = (function (old_function, div_log) { 
           return function (text) {
               old_function(text);
