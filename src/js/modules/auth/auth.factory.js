@@ -46,15 +46,24 @@
                             msg: 'Looks like we can\'t communicate with the backend.',
                             sound: false,
                             clickToClose: true,
-                            position: 'bottom-left'
                           });
-                        } else if (status===400) {
+                        }
+
+                        if (status===400) {
                           toasty.error({
                             title: 'Invalid login',
-                            msg: 'Please check your username and password and try again',
+                            msg: 'Please check your username and password and try again.',
                             sound: false,
                             clickToClose: true,
-                            position: 'bottom-left'
+                          });
+                        }
+
+                        if (status===500) {
+                          toasty.error({
+                            title: 'User Setup Error',
+                            msg: 'Please ensure that this user is assigned to a group for access.',
+                            sound: false,
+                            clickToClose: true,
                           });
                         }
                 })
@@ -79,7 +88,7 @@
                         }
                       } 
 
-                      if (user.groups[group].length===0) {
+                      if (!user.groups.length) {
                         toasty.error({
                             title: 'Login valid but you don\'t belong to any groups.',
                             msg: 'Contact your admin for group assignment.',
