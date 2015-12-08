@@ -43,6 +43,25 @@ while (this_loop === true){
         editor.setValue(editor_code);
       }
 
+      cc.save = function(){
+        CodeService.post(cc.current_code).success(function(data){
+          toasty.success({
+            title: 'Saved',
+            msg: 'Code Saved',
+            sound: false,
+            clickToClose: true
+            });
+          // TODO Add check for browser storage variable
+        }).error(function(){
+          toasty.error({
+            title: 'Code Not Saved',
+            msg: 'Ensure you filled out the title field',
+            sound: false,
+            clickToClose: true
+            });
+        });
+      }
+
       //override console.log and spit it into a div named code-output
       console.log = (function (old_function, div_log) { 
           return function (text) {

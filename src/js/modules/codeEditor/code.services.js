@@ -23,6 +23,11 @@
         code.get_single = function(pk){
             return $http.get(customUrl.url + '/api/code/' + pk + '/');
         };
+
+        // create a student
+        code.post= function(data){
+            return $http.post(customUrl.url + '/api/code/', data);
+        };
         
         return code;
     }])
