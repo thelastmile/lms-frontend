@@ -142,77 +142,21 @@
                <textarea class="code-output"></textarea>
             </div>
          </div>
-      <style type="text/css" media="screen">
-          #editor_code {
-              margin: 0;
-              top: 0;
-              bottom: 0;
-              left: 0;
-              right: 0;
-              height: 60%;
-              width: 100%;
-          }
+         <script>
+            var editor_code = ace.edit("editor_code");
+            editor_code.setTheme("ace/theme/twilight");
+            editor_code.session.setMode("ace/mode/javascript");
+            editor_code.renderer.setScrollMargin(10, 10);
+            editor_code.setOptions({
+                // "scrollPastEnd": 0.8,
+                autoScrollEditorIntoView: true
+            });
 
-         #editor_tests {
-              margin: 0;
-              top: 0;
-              bottom: 0;
-              left: 0;
-              right: 0;
-              height: 30%;
-              width: 100%;
-          }
+             var editor_tests = ace.edit("editor_tests");
+             editor_tests.setTheme("ace/theme/twilight");
+             editor_tests.session.setMode("ace/mode/javascript");
+         </script>
 
-          .code-output {
-            height: 75vh; 
-            width: 100%;
-          }
-
-          .code-time {
-            height: 75vh;
-          }
-      </style>
-
-      <style type="text/css" media="screen">
-          .ace_editor {
-              position: relative !important;
-              border: 1px solid lightgray;
-              margin: auto;
-              height: 200px;
-              width: 80%;
-          }
-
-          .ace_editor.fullScreen {
-              height: auto;
-              width: auto;
-              border: 0;
-              margin: 0;
-              position: fixed !important;
-              top: 0;
-              bottom: 0;
-              left: 0;
-              right: 0;
-              z-index: 10;
-          }
-
-          .fullScreen {
-              overflow: hidden
-          }
-      </style>
-      <script>
-         var editor_code = ace.edit("editor_code");
-         editor_code.setTheme("ace/theme/twilight");
-         editor_code.session.setMode("ace/mode/javascript");
-         editor_code.renderer.setScrollMargin(10, 10);
-         editor_code.setOptions({
-             // "scrollPastEnd": 0.8,
-             autoScrollEditorIntoView: true
-         });
-
-          var editor_tests = ace.edit("editor_tests");
-          editor_tests.setTheme("ace/theme/twilight");
-          editor_tests.session.setMode("ace/mode/javascript");
-      </script>
       </div>
    </div>
 
