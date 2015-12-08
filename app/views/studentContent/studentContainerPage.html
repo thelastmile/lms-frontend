@@ -125,18 +125,22 @@
       </div>
 
       <div ng-show="currentContentType==9">
-         <div class="col-sm-8">
-            <h2>Code Editor</h2>
-            <pre id="editor_code">function foo(items) { var i; for (i = 0; i &lt; items.length; i++) { alert("TLM is AWESOME! " + items[i]); } }
-            </pre>
+         <div class="row">
+            <div class="col-sm-8">
+               <div class="code-time">
+                  <h2>Code Editor</h2>
+                  <pre id="editor_code">function foo(items) { var i; for (i = 0; i &lt; items.length; i++) { alert("TLM is AWESOME! " + items[i]); } }
+                  </pre>
 
-            <h2>Tests</h2>
-            <pre id="editor_tests">function some_test() { return true; }
-            </pre>
-         </div>
-         <div class="col-sm-4">
-            <h2>Output</h2>
-            <textarea class="code-output"></textarea>
+                  <h2>Tests</h2>
+                  <pre id="editor_tests">function some_test() { return true; }
+                  </pre>
+               </div>
+            </div>
+            <div class="col-sm-4">
+               <h2>Output</h2>
+               <textarea class="code-output"></textarea>
+            </div>
          </div>
          <style type="text/css" media="screen">
             #editor_code {
@@ -145,7 +149,8 @@
                  bottom: 0;
                  left: 0;
                  right: 0;
-                 height: 300px;
+                 height: 60%;
+                 width: 100%;
              }
    
             #editor_tests {
@@ -154,18 +159,55 @@
                  bottom: 0;
                  left: 0;
                  right: 0;
-                 height: 200px;
+                 height: 30%;
+                 width: 100%;
              }
    
              .code-output {
-               height: 570px;
+               height: 75vh; 
                width: 100%;
+             }
+   
+             .code-time {
+               height: 75vh;
+             }
+         </style>
+
+         <style type="text/css" media="screen">
+            .ace_editor {
+                 position: relative !important;
+                 border: 1px solid lightgray;
+                 margin: auto;
+                 height: 200px;
+                 width: 80%;
+             }
+   
+             .ace_editor.fullScreen {
+                 height: auto;
+                 width: auto;
+                 border: 0;
+                 margin: 0;
+                 position: fixed !important;
+                 top: 0;
+                 bottom: 0;
+                 left: 0;
+                 right: 0;
+                 z-index: 10;
+             }
+   
+             .fullScreen {
+                 overflow: hidden
              }
          </style>
          <script>
             var editor_code = ace.edit("editor_code");
-             editor_code.setTheme("ace/theme/twilight");
-             editor_code.session.setMode("ace/mode/javascript");
+            editor_code.setTheme("ace/theme/twilight");
+            editor_code.session.setMode("ace/mode/javascript");
+            editor_code.renderer.setScrollMargin(10, 10);
+            editor_code.setOptions({
+                // "scrollPastEnd": 0.8,
+                autoScrollEditorIntoView: true
+            });
    
              var editor_tests = ace.edit("editor_tests");
              editor_tests.setTheme("ace/theme/twilight");
