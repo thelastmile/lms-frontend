@@ -143,12 +143,9 @@
                      <ul role="menu" class="dropdown-menu">
                         <li><a href="" ng-click="CODE.saveclass='btn btn-default btn-sm';CODE.enterfilename=true">Enter New File Name</a>
                         </li>
-                        <li class="divider">or</li>
-                        <li><a href="">Filename 1</a>
-                        </li>
-                        <li><a href="">Filename 2</a>
-                        </li>
-                        <li><a href="">Filename 3</a>
+                        <li class="divider"></li>
+                        <li ng-repeat="code in code_list">
+                           <a href="">{{code.name}}</a>
                         </li>
                      </ul>
                   </div>
