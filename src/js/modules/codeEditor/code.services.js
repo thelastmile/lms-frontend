@@ -25,8 +25,13 @@
         };
 
         // create a student
-        code.post= function(data){
+        code.post = function(data){
             return $http.post(customUrl.url + '/api/code/', data);
+        };
+
+                // create a student
+        code.put = function(data){
+            return $http.put(customUrl.url + '/api/code/' + data.id + '/', data);
         };
         
         return code;
