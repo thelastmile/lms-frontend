@@ -123,16 +123,7 @@
             <div class="col-sm-8">
                <div class="code-time">
                   <h2>Code Editor</h2>
-                  <pre id="editor_code" ng-model="CODE.editor_code" name="editor_code">console.log('TLM ROCKS');
-                  var this_loop = true;
-                  var counter = 0;
-                  while (this_loop == true){
-                     console.log(counter);
-                     if (counter == 5){
-                        this_loop = false;
-                     }
-                     counter++;
-                  }
+                  <pre id="editor_code" ng-model="CODE.editor_code" name="editor_code">
                   </pre>
                   <a ng-click="CODE.run($event)" class="btn btn-success btn-xs pull-right">Run Code</a>
 
@@ -144,7 +135,7 @@
                </div>
             </div>
             <div class="col-sm-4">
-               <h2>Output</h2>
+               <h2>Console Output</h2>
                <textarea id="code-output"></textarea>
             </div>
          </div>

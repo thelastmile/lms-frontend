@@ -12,10 +12,21 @@
     CodeController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty'];
     function CodeController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty) {
       var cc = this;
+      var editor = ace.edit("editor_code");
 
-      cc.output = "";
+      var editor_code = `console.log('TLM ROCKS');
+var this_loop = true;
+var counter = 0;
+while (this_loop === true){
+   console.log(counter);
+   if (counter == 5){
+      this_loop = false;
+   }
+   counter++;
+}`;
+      editor.setValue(editor_code);
       cc.run = function($event){
-        var editor = ace.edit("editor_code");
+        //editor = ace.edit("editor_code");
         var code = editor.getValue();
         return eval(code);
       }
