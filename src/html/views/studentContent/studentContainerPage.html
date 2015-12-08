@@ -118,17 +118,23 @@
          </div>
       </div>
 
-      <div ng-show="currentContentType==9">
+      <div ng-show="currentContentType==9" ng-controller="CodeController as CODE">
          <div class="row">
             <div class="col-sm-8">
                <div class="code-time">
                   <h2>Code Editor</h2>
-                  <pre id="editor_code">function foo(items) {
-                      var i;
-                      for (i = 0; i &lt; items.length; i++) {
-                          alert("TLM is AWESOME! " + items[i]);
-                      }
-                  }</pre>
+                  <pre id="editor_code" ng-model="CODE.editor_code" name="editor_code">console.log('TLM ROCKS');
+                  var this_loop = true;
+                  var counter = 0;
+                  while (this_loop == true){
+                     console.log(counter);
+                     if (counter == 5){
+                        this_loop = false;
+                     }
+                     counter++;
+                  }
+                  </pre>
+                  <a ng-click="CODE.run($event)" class="btn btn-success btn-xs pull-right">Run Code</a>
 
                   <h2>Tests</h2>
                   <pre id="editor_tests">function some_test() {
@@ -139,7 +145,7 @@
             </div>
             <div class="col-sm-4">
                <h2>Output</h2>
-               <textarea class="code-output"></textarea>
+               <textarea id="code-output"></textarea>
             </div>
          </div>
          <script>

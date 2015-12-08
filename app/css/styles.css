@@ -5759,7 +5759,7 @@ hr {
   height: 30%;
   width: 100%;
 }
-.code-output {
+#code-output {
   height: 75vh;
   width: 100%;
 }
