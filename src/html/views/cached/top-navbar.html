@@ -41,10 +41,10 @@
          <!-- START Apps menu-->
          <li dropdown="" class="dropdown">
             <a href="" dropdown-toggle="" ripple="" class="dropdown-toggle" style="padding-top: 1.3em; margin-top: 0px; height: 5.5em;">
-                  <em ng-show="{{user.profile_image}}" class="fa fa-fw fa-2x pull-left">
-                     <img src="{{url}}/media/{{user.profile_image}}" class="img-responsive" />
+                  <em ng-show="user.profile_image" class="fa fa-fw fa-2x pull-left">
+                     <img ng-src="{{url}}/media/{{user.profile_image}}" class="img-responsive" />
                   </em>
-                  <em ng-show="{{!user.profile_image}}" class="fa icon-head fa-fw fa-2x pull-left"></em>
+                  <em ng-show="!user.profile_image" class="fa icon-head fa-fw fa-2x pull-left"></em>
                   <div class="pull-left">
                   <h3 style="padding-top: 0px; margin-top: 0px; margin-bottom: 1px;" class="pull-right">{{user.first_name}} {{user.last_name}}</h3>
 
