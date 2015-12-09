@@ -1,84 +1,83 @@
-<div class="app-view-header">Students
-   <small ng-bind="app.name + ' - ' + app.description"></small>
-</div>
 <div ng-controller="ViewStudentsController as VSC" class="row">
    <!-- START VSC content-->
-   <div class="col-lg-12 fw-boxed" ng-repeat="student in students">
+   <div class="col-lg-12 fw-boxed student-list-item" ng-repeat="student in students">
       <!-- START Tabbed panel-->
       <div ng-init="hpanel = [true, false, false, false]" class="panel panel-default">
          <div class="row">
             <div class="col-md-4">
                <div class="row row-flush text-center text-muted m0">
-                     <div ripple="" ng-click="hpanel = [false, true, false, false]" ng-class="{'bg-purple': hpanel[1]}" class="col-xs-3 col-md-6 pv-xxl clickable">
-                        <em class="icon-head fa-4x mv"></em>
-                     </div>
-                     <div ripple="" ng-click="hpanel = [true, false, false, false]" ng-class="{'bg-primary': hpanel[0]}" class="col-xs-3 col-md-6 bb br pv-xxl clickable">
-                        <h2>{{student.first_name}}<br>{{student.last_name}}</h2>
-                        <p>Level: {{student.level}}</p>
-                        <p>Success Rank: {{student.rank}}</p>
-                     </div>
+                  <div ripple="" ng-click="hpanel = [false, true, false, false]" class="col-xs-6 clickable">
+                     <em class="fa fa-2x profile-list">
+                        <img src="{{url}}/media/{{student.profile_image}}" class="img-responsive" />
+                     </em>
+                  </div>
+                  <div ripple="" ng-click="hpanel = [true, false, false, false]" class="col-xs-6 bb br pv-xxl clickable bg-primary">
+                     <h2>{{student.first_name}}
+                        <br>{{student.last_name}}</h2>
+                     <p>Level: {{student.level}}</p>
+                     <p>Success Rank: {{student.rank}}</p>
                   </div>
                </div>
-               <div class="row row-flush m0 text-center">
-                     <div class="col-xs-3 col-md-2">
-                           <h6>Add Note</h6>
-                           <textarea rows="6" class="form-control block-note"></textarea><br>
-                           <button type="button" class="mr btn btn-default btn-xs">Save Note</button>
-                     </div>
-                     <div class="text-center col-xs-3 col-md-3" style="padding: 25px;">
-                        <p class="input-group">
-                        <input type="text" datepicker-popup ng-model="student.dt" is-open="student.datepickerOpen" close-text="Close" init-date="VSC.defaultDate" class="form-control">
-                        <span class="input-group-btn">
-                           <button type="button" ng-click="VSC.toggleDatepicker($event, student)" class="btn btn-default">
-                              <em class="fa fa-calendar"></em>
-                           </button>
-                        </span>
-                        </p>
-                        <p>
-                        <div class="checkbox c-checkbox needsclick">
+            </div>
+            <div class="row row-flush m0 text-center">
+               <div class="col-xs-3 col-md-2">
+                  <textarea rows="7" class="form-control note-text-area" placeholder="Add Note"></textarea>
+                  <button type="button" class="mr btn btn-md btn-default btn-fw btn-note-save">Save</button>
+               </div>
+               <div class="text-center col-xs-3 col-md-3" style="padding: 25px;">
+                  <p class="input-group">
+                     <input type="text" datepicker-popup ng-model="student.dt" is-open="student.datepickerOpen" close-text="Close" init-date="VSC.defaultDate" class="form-control">
+                     <span class="input-group-btn">
+                        <button type="button" ng-click="VSC.toggleDatepicker($event, student)" class="btn btn-default">
+                           <em class="fa fa-calendar"></em>
+                        </button>
+                     </span>
+                  </p>
+                  <p>
+                     <div class="checkbox c-checkbox needsclick">
                         <label class="needsclick">
                            <input type="checkbox" value="" class="needsclick">
                            <span class="fa fa-check"></span>Absent Full</label>
-                        </div>
-                        <div class="checkbox c-checkbox needsclick">
+                     </div>
+                     <div class="checkbox c-checkbox needsclick">
                         <label class="needsclick">
                            <input type="checkbox" value="" class="needsclick">
                            <span class="fa fa-check"></span>Absent Part</label>
-                        </div>
-                        </p>
                      </div>
-                     <div class="text-center col-xs-3 col-md-3" style="padding-left: 25px;">
-                        <h6>Daily Scores</h6>
-                        <select name="account" class="form-control m-b" style="width:80%;">
-                           <option value="">Technical</option>
-                           <option value="Option 1">1</option>
-                           <option value="Option 2">2</option>
-                           <option value="Option 3">3</option>
-                           <option value="Option 4">4</option>
-                           <option value="Option 5">5</option>
-                        </select>
-                        <select name="social" class="form-control m-b" style="width:80%;">
-                           <option value="">Social</option>
-                           <option value="Option 1">1</option>
-                           <option value="Option 2">2</option>
-                           <option value="Option 3">3</option>
-                           <option value="Option 4">4</option>
-                           <option value="Option 5">5</option>
-                        </select>
-                        <select name="social" class="form-control m-b" style="width:80%;">
-                           <option value="">Participation</option>
-                           <option value="Option 1">1</option>
-                           <option value="Option 2">2</option>
-                           <option value="Option 3">3</option>
-                           <option value="Option 4">4</option>
-                           <option value="Option 5">5</option>
-                        </select>
-                     </div>
-                  </div>
+                  </p>
                </div>
-         </div>
+               <div class="text-center col-xs-3 col-md-3" style="padding-left: 25px;">
+                  <h6>Daily Scores</h6>
+                  <select name="account" class="form-control m-b" style="width:80%;">
+                     <option value="">Technical</option>
+                     <option value="Option 1">1</option>
+                     <option value="Option 2">2</option>
+                     <option value="Option 3">3</option>
+                     <option value="Option 4">4</option>
+                     <option value="Option 5">5</option>
+                  </select>
+                  <select name="social" class="form-control m-b" style="width:80%;">
+                     <option value="">Social</option>
+                     <option value="Option 1">1</option>
+                     <option value="Option 2">2</option>
+                     <option value="Option 3">3</option>
+                     <option value="Option 4">4</option>
+                     <option value="Option 5">5</option>
+                  </select>
+                  <select name="social" class="form-control m-b" style="width:80%;">
+                     <option value="">Participation</option>
+                     <option value="Option 1">1</option>
+                     <option value="Option 2">2</option>
+                     <option value="Option 3">3</option>
+                     <option value="Option 4">4</option>
+                     <option value="Option 5">5</option>
+                  </select>
+               </div>
+            </div>
          </div>
       </div>
    </div>
-   <!-- END VSC content-->
+</div>
+</div>
+<!-- END VSC content-->
 </div>

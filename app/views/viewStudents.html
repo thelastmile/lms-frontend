@@ -1,9 +1,6 @@
-<div class="app-view-header">Students
-   <small ng-bind="app.name + ' - ' + app.description"></small>
-</div>
 <div ng-controller="ViewStudentsController as VSC" class="row">
    <!-- START VSC content-->
-   <div class="col-lg-12 fw-boxed" ng-repeat="student in students">
+   <div class="col-lg-12 fw-boxed student-list-item" ng-repeat="student in students">
       <!-- START Tabbed panel-->
       <div ng-init="hpanel = [true, false, false, false]" class="panel panel-default">
          <div class="row">
@@ -24,10 +21,8 @@
             </div>
             <div class="row row-flush m0 text-center">
                <div class="col-xs-3 col-md-2">
-                  <h6>Add Note</h6>
-                  <textarea rows="6" class="form-control block-note"></textarea>
-                  <br>
-                  <button type="button" class="mr btn btn-default btn-xs">Save Note</button>
+                  <textarea rows="7" class="form-control note-text-area" placeholder="Add Note"></textarea>
+                  <button type="button" class="mr btn btn-md btn-default btn-fw btn-note-save">Save</button>
                </div>
                <div class="text-center col-xs-3 col-md-3" style="padding: 25px;">
                   <p class="input-group">
