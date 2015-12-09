@@ -1,18 +1,20 @@
 <div class="app-view-header">Students
    <small ng-bind="app.name + ' - ' + app.description"></small>
 </div>
-<div ng-controller="ViewStudentsController as dashboard" class="row">
-   <!-- START dashboard content-->
+<div ng-controller="ViewStudentsController as VSC" class="row">
+   <!-- START VSC content-->
    <div class="col-lg-12 fw-boxed" ng-repeat="student in students">
       <!-- START Tabbed panel-->
       <div ng-init="hpanel = [true, false, false, false]" class="panel panel-default">
          <div class="row">
             <div class="col-md-4">
                <div class="row row-flush text-center text-muted m0">
-                  <div ripple="" ng-click="hpanel = [false, true, false, false]" ng-class="{'bg-purple': hpanel[1]}" class="col-xs-3 col-md-6 pv-xxl clickable">
-                     <em class="icon-head fa-4x mv"></em>
+                  <div ripple="" ng-click="hpanel = [false, true, false, false]" class="col-xs-6 clickable">
+                     <em class="fa fa-2x profile-list">
+                        <img src="{{url}}/media/{{student.profile_image}}" class="img-responsive" />
+                     </em>
                   </div>
-                  <div ripple="" ng-click="hpanel = [true, false, false, false]" ng-class="{'bg-primary': hpanel[0]}" class="col-xs-3 col-md-6 bb br pv-xxl clickable">
+                  <div ripple="" ng-click="hpanel = [true, false, false, false]" class="col-xs-6 bb br pv-xxl clickable bg-primary">
                      <h2>{{student.first_name}}
                         <br>{{student.last_name}}</h2>
                      <p>Level: {{student.level}}</p>
@@ -29,9 +31,9 @@
                </div>
                <div class="text-center col-xs-3 col-md-3" style="padding: 25px;">
                   <p class="input-group">
-                     <input type="text" datepicker-popup ng-model="student.dt" is-open="student.datepickerOpen" close-text="Close" init-date="dashboard.defaultDate" class="form-control">
+                     <input type="text" datepicker-popup ng-model="student.dt" is-open="student.datepickerOpen" close-text="Close" init-date="VSC.defaultDate" class="form-control">
                      <span class="input-group-btn">
-                        <button type="button" ng-click="dashboard.toggleDatepicker($event, student)" class="btn btn-default">
+                        <button type="button" ng-click="VSC.toggleDatepicker($event, student)" class="btn btn-default">
                            <em class="fa fa-calendar"></em>
                         </button>
                      </span>
@@ -82,8 +84,5 @@
    </div>
 </div>
 </div>
-<!-- END dashboard content-->
-<!-- START dashboard sidebar-->
-
-<!-- END dashboard sidebar-->
+<!-- END VSC content-->
 </div>

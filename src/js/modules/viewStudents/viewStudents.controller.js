@@ -14,6 +14,7 @@
       var vm = this;
       StudentInfoService.get().success(function(data){
         $scope.students = data;
+        console.log(data);
       });
 
       $scope.isAdmin = function(){
