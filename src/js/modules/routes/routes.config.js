@@ -70,7 +70,7 @@
           authenticate: true,
           templateUrl: Route.base('viewStudents.html'),
           resolve: {
-            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
+            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart', 'blueimp-gallery')
           }
         })
 
@@ -409,13 +409,6 @@
         .state('app.extras.projects', {
           url: '/projects',
           templateUrl: Route.base('extras.projects.html')
-        })
-        .state('app.extras.gallery', {
-          url: '/gallery',
-          templateUrl: Route.base('extras.gallery.html'),
-          resolve: {
-            assets: Route.require('blueimp-gallery')
-          }
         })
         .state('app.extras.profile', {
           url: '/profile',
