@@ -1,38 +1,44 @@
-<div style="background:url(app/img/profile.jpg) center center; background-size:cover;" class="unwrap">
+<div ng-controller="DashboardController as dashboard" style="background:url(app/img/profile.jpg) center center; background-size:cover;" class="unwrap">
    <div class="container container-lg p-lg">
-      <div class="pull-right">
-         <button type="button" class="btn btn-amber">Follow</button>
-      </div>
       <div class="media mt-lg">
          <div class="media-left media-middle">
-            <a href="">
-               <img src="app/img/user/02.jpg" class="media-object thumb96 img-circle" />
+            <a href="{{url}}/media/{{user.profile_image}}" data-gallery="">
+               <img src="{{url}}/media/{{user.profile_image}}" class="img-circle profile-image-circle" />
             </a>
          </div>
          <div class="media-body text-white">
-            <h2 class="mv-lg media-heading">John Doe</h2>
-            <button type="button" class="btn btn-info btn-xs mr-sm">
-               <em class="fa fa-twitter fa-fw"></em>
-            </button>
-            <button type="button" class="btn btn-primary btn-xs mr-sm">
-               <em class="fa fa-facebook fa-fw"></em>
-            </button>
-            <button type="button" class="btn btn-danger btn-xs">
-               <em class="fa fa-google-plus fa-fw"></em>
-            </button>
+            <div class="col-sm-6">
+               <div ripple="" class="panel panel-default">
+                  <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
+                     <h2 class="mv-lg media-heading">{{user.first_name}}
+                        <br>{{user.last_name}}</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-6">
+               <div ripple="" class="panel panel-default">
+                  <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
+                     <div class="text-left text-md" ng-if="isSuperAdmin()" style="color:red;"><b>SUPER ADMIN</b>
+                     </div>
+                     <div class="text-left text-md" ng-if="isAdmin()">Facilitator</div>
+                     <div class="text-left text-md" ng-if="isStudent()">Student</div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-6">
+               <div ripple="" class="panel panel-default">
+                  <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
+                     <div class="text-left text-md" ng-if="isStudent()">{{user.course}}</div>
+                  </div>
+                  <span class="ripple"></span>
+               </div>
+            </div>
          </div>
-      </div>
-      <div class="text-right text-white pb-lg">
-         <p class="m0">
-            <strong>2k followers</strong>
-         </p>
-         <p class="m0">
-            <strong>1.3k following</strong>
-         </p>
       </div>
    </div>
 </div>
-<div class="container container-lg">
+
+<div ng-if="isAdmin() || isSuperAdmin()" class="container container-lg">
    <div class="row">
       <div class="col-lg-3">
          <div class="panel">
@@ -71,7 +77,7 @@
                         <!-- Contact avatar-->
                         <div class="point-pin">
                            <a href="">
-                              <img src="app/img/user/05.jpg" alt="Image" class="media-object img-circle thumb32" />
+                              <img src="app/img/user/05.jpg" alt="Image" class="media-object img-circle thumb32" data-gallery />
                            </a>
                            <div class="point point-success point-lg"></div>
                         </div>
@@ -470,5 +476,14 @@
             </div>
          </div>
       </div>
+   </div>
+</div>
+
+<!-- The Gallery as lightbox dialog, should be a child element of the document body-->
+<div id="blueimp-gallery" class="blueimp-gallery">
+   <div class="slides">
+      <h3 class="title"></h3><a class="prev">&lsaquo;</a><a class="next">&rsaquo;</a><a class="close">&times;</a>
+      <a class="play-pause"></a>
+      <ol class="indicator"></ol>
    </div>
 </div>

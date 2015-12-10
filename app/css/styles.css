@@ -5819,6 +5819,9 @@ textarea {
 .tlm-login-logo {
   margin-top: 24%;
 }
+.profile-image-circle {
+  height: 150px;
+}
 /**
    Component: calendar.less
 */

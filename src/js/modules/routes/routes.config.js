@@ -421,9 +421,7 @@
           url: '/profile',
           templateUrl: Route.base('extras.profile.html'),
           resolve: {
-            assets: Route.require('loadGoogleMapsJS', function() {
-              return loadGoogleMaps();
-            }, 'ui.map')
+            assets: Route.require('blueimp-gallery')
           }
         })
       // Mailbox
