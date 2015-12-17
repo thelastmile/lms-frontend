@@ -290,7 +290,7 @@ input[type="number"] {
   margin: 0 50px;
   z-index: 1;
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1200px) {
   .topnavbar > .navbar-header > .navbar-brand {
     margin: 0 15px;
   }
@@ -328,7 +328,7 @@ input[type="number"] {
 .topnavbar .mobile-toggles:after {
   clear: both;
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1200px) {
   .topnavbar .mobile-toggles {
     display: none;
   }
