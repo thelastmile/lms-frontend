@@ -9,8 +9,8 @@
         .module('naut')
         .controller('StudentContentController', StudentContentController);
     
-    StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService', '$sce', '$stateParams'];
-    function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, $sce, $stateParams) {
+    StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService', 'HomeContentService', '$sce', '$stateParams'];
+    function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, HomeContentService, $sce, $stateParams) {
       var scc = this;
 
       if (typeof $stateParams.content == 'undefined' && typeof $stateParams.lesson == 'undefined'){
@@ -39,6 +39,10 @@
       scc.getModule = function(){
         return $rootScope.currentModule;
       }
+
+      HomeContentService.get().success(function(data){
+        $rootScope.homeContent = data[0];
+      });
 
       scc.viewModule = function(){
         vm.lesson = {};

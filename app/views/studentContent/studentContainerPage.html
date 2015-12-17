@@ -2,38 +2,8 @@
    <!-- START dashboard content-->
 
    <div class="col-lg-12 fw-boxed">
-      <div ng-show="currentContentType==0">
-         <!-- start - temp page content for 12/9 demo -->
-         <h1>Class Announcements</h1>
-         <hr>
-         <div class="announcements">
-            <h2><i class="fa fa-exclamation-circle"></i> Class Schedule Update</h2>
-            <p>On
-               <strong>Wednesday, April 6th</strong>, classes will begin at 9:00 AM due to scheduled maintenance in the classroom area. Please report for class at 8:45 AM.</p>
-            <hr>
-         </div>
-         <div class="announcements">
-            <h2>Last Mile applications will be going out soon!</h2>
-            <p>A new Last Mile class will be starting soon, and applications should be available within the next week. If you know someone who you believe could be a good candidate for the program, let them know that they will need to apply by the deadline
-               in order to be considered. Speak with your Class Facilitator for additional details.</p>
-            <hr>
-         </div>
-         <div class="announcements">
-            <h2>JavaScript "Functions - Part 1" Quiz this week</h2>
-            <p>Be ready to write some JavaScript! This week's quiz will include 10 multiple choice questions and 3 function exercises that will test your knowledge of basic concepts. Quiz duration will be
-               <em>1 Hour</em>.</p>
-         </div>
-         <hr>
-         <h1>Course Calendar</h1>
-         <div class="btn-group cal-btn-group" role="group">
-            <!-- these buttons are non-functional for the demo -->
-            <button type="button" class="btn btn-default">Day</button>
-            <button type="button" class="btn btn-default">Week</button>
-            <button type="button" class="btn btn-default">Month</button>
-         </div>
-         <br>
-         <img src="app/img/demoCal.png" id="calendar" alt="Calendar" />
-         <!-- end - temp page content for 12/9 demo -->
+      <div ng-show="currentContentType==0" compile="homeContent.value">
+         <!-- PULLED FROM DB -->
       </div>
 
       <div ng-show="currentContentType==1">
