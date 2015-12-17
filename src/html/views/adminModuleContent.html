@@ -11,7 +11,10 @@
                     
                     <div ng-show="!ALC.LFILEediting">
                         <form>
+                            <small>Content File</small>
                             <input type="file" ngf-select ng-model="ALC.lessonContents.file" name="ALC.lessonContents.file" class="form-control" ng-change="ALC.getFilename(ALC.lessonContents)"/><small>Note: filename will be canged to a guid when stored.</small><br><br>
+                            <small>Optional Thumbnail</small>
+                            <input type="file" ngf-select ng-model="ALC.lessonContents.thumbnail" name="ALC.lessonContents.thumbnail" class="form-control" ng-change="ALC.getFilename(ALC.lessonContents)"/><br>
                             <input ng-model="ALC.lessonContents.name" class="form-control" placeholder="Content Name (will be shown on lables)"><br>
                             <input ng-model="ALC.lessonContents.description" class="form-control" placeholder="Description"><br>
                             <select name="ALC.lessonContents.content_type" ng-model="ALC.lessonContents.content_type"  class="form-control">
@@ -34,7 +37,10 @@
                     </div>
                     <div ng-show="ALC.LFILEediting">
                         <form>
+                            <small>Content File</small>
                             <input type="file" ngf-select ng-model="ALC.selectedLessonContent.file" name="ALC.selectedLessonContent.file" class="form-control" ng-change="ALC.getFilename(ALC.selectedLessonContent)"/><small>Note: filename will be canged to a guid when stored.</small><br><br>
+                            <small>Optional Thumbnail</small>
+                            <input type="file" ngf-select ng-model="ALC.lessonContents.thumbnail" name="ALC.lessonContents.thumbnail" class="form-control" ng-change="ALC.getFilename(ALC.lessonContents)"/><br>
                             <input ng-model="ALC.selectedLessonContent.name" class="form-control" placeholder="Content Name (will be shown on lables)"><br>
                             <input ng-model="ALC.selectedLessonContent.description" class="form-control" placeholder="Description"><br>
                             <select name="ALC.selectedLessonContent.content_type" ng-model="ALC.lessonContents.content_type"  class="form-control">
