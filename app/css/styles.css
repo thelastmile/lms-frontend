@@ -5822,6 +5822,19 @@ textarea {
 .profile-image-circle {
   height: 150px;
 }
+.notes-body {
+  height: 70vh !important;
+}
+.autoModal.modal .modal-body {
+  max-height: 100%;
+  max-width: 100%;
+}
+.modal-dialog {
+  max-height: 100%;
+  max-width: 100%;
+  max-height: 80vh !important;
+  width: 70vw !important;
+}
 /**
    Component: calendar.less
 */

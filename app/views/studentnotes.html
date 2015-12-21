@@ -1,28 +1,11 @@
 <div class="noteviewer row" ng-controller="StudentNotesController as SNC">
-   <div class="col-xs-3 note-picker">
-      <h3>Saved notes</h3>
-      <ul class="note-list">
-         <li class="note-item" ng-repeat="note in SNC.notes" ng-click="SNC.selectedNote = note">
-            {{ note.title }}
-         </li>
-      </ul>
-   </div>
-   <div class="col-xs-9 note-viewer">
-      <div class="row title">
-         <h3 ng-show="!SNC.editing" ng-class="{placeholder: !SNC.selectedNote}" class="col-xs-10">{{ SNC.selectedNote ? SNC.selectedNote.title : 'Select a note on left to read it' }}</h3>
-         <div ng-show="SNC.editing" class="col-xs-10">
-            <input ng-model="SNC.selectedNote.title" class="form-control">
-         </div>
-         <div class="col-xs-2">
-            <button ng-show="SNC.selectedNote" class="btn btn-edit" ng-click="SNC.editSave()">
-               {{ SNC.editing ? 'Save' : 'Edit' }}
-            </button>
-         </div>
-      </div>
-      <div ng-if="SNC.selectedNote" class="row body">
-         <div ng-show="!SNC.editing" class="col-xs-10" marked="SNC.selectedNote.body"></div>
-         <div ng-show="SNC.editing" class="col-xs-10 edit-body">
-            <textarea class="form-control" ng-model="SNC.selectedNote.body"></textarea>
+   <div class="col-xs-12">
+      <h3>My Notes</h3>
+      <div class="note-list">
+         <div class="note-item panel" style="padding:5px;" ng-repeat="note in SNC.notes" ng-click="SNC.selectedNote = note">
+            Created: {{ note.date }}
+            <br>
+            <b>{{ note.body }}</b>
          </div>
       </div>
    </div>

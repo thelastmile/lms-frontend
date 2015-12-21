@@ -3,14 +3,19 @@
   angular.module('naut')
   .factory('notes', notes);
 
-  notes.$inject = ['$http', '$window', 'customUrl'];
-  function notes($http, $window, customUrl) {
+  notes.$inject = ['$rootScope', '$http', '$window', 'customUrl'];
+  function notes($rootScope, $http, $window, customUrl) {
 
-    var userId = Number($window.sessionStorage.getItem('id'));
+    var userId = $rootScope.user.id;
+
     return {
       create: function (noteData) {
+        if (noteData === undefined) {
+            var noteData = [];
+            noteData.body = '';
+        }
         return $http.post(customUrl.url + '/api/note/', {
-          title: noteData.title,
+          title: '',
           body: noteData.body,
           object_id: 2, // ID of current module
           author: userId,
