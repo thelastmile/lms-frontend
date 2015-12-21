@@ -2,16 +2,26 @@
    <!-- START dashboard content-->
 
    <div class="col-lg-12 fw-boxed">
-      <div ng-show="currentContentType==0" compile="homeContent.value">
+
+      <div ng-show="content==0">
+         <div compile="homeContent.value">
             <!-- PULLED FROM DB -->
+         </div>
+      </div>
+
+      <div ng-show="currentContentType==0">
+      <div compile="homeContent.value">
+            <!-- PULLED FROM DB -->
+      </div>
       </div>
 
       <div ng-show="currentContentType==1">
          <h1>Lessons</h1>
          <ul>
-            <li ng-repeat="content in content_by_type">
+            <h3 ng-repeat="content in content_by_type">
                <a href="{{ url }}{{ content.index_file }}">{{ content.name }}</a>
-            </li>
+            </h3>
+            <p href="{{ url }}{{ content.index_file }}">{{ content.description }}</p>
          </ul>
       </div>
 

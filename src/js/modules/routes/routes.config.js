@@ -62,6 +62,10 @@
           templateUrl: Route.base('studentContent/studentContainerPage.html'),
           resolve: {
             assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
+          },
+          controller: function($stateParams, $scope) {
+                $scope.content = $stateParams.content;
+                $scope.lesson = $stateParams.lesson;
           }
         })
 

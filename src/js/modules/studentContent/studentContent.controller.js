@@ -13,9 +13,11 @@
     function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, HomeContentService, $sce, $stateParams) {
       var scc = this;
 
-      if (typeof $stateParams.content == 'undefined' && typeof $stateParams.lesson == 'undefined'){
+      if (typeof $scope.content == 'undefined' && typeof $scope.lesson == 'undefined'){
         $rootScope.currentModule = 0;
         $rootScope.currentContentType = 0;
+        $scope.content = 0;
+        $scope.lesson = 0;
       }
 
       if (typeof $rootScope.currentContentType == 'undefined'){
