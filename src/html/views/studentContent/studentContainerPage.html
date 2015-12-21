@@ -17,12 +17,14 @@
 
       <div ng-show="currentContentType==1">
          <h1>Lessons</h1>
-         <ul>
-            <h3 ng-repeat="content in content_by_type">
-               <a href="{{ url }}{{ content.index_file }}">{{ content.name }}</a>
-            </h3>
-            <p href="{{ url }}{{ content.index_file }}">{{ content.description }}</p>
-         </ul>
+            <div ng-repeat="content in content_by_type" class="panel">
+               <div class="panel-body">
+                  <a href="{{ url }}{{ content.index_file }}">
+                  <h4>{{ content.name }}</h4>
+                  <p>{{ content.description }}</p>
+                  </a>
+               </div>
+            </div>
       </div>
 
       <div ng-show="currentContentType==3">
