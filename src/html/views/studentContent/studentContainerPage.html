@@ -3,19 +3,14 @@
 
    <div class="col-lg-12 fw-boxed">
 
-      <div ng-show="content==0">
+      <div ng-show="content==0 || lesson==0">
          <div compile="homeContent.value">
             <!-- PULLED FROM DB -->
          </div>
       </div>
 
-      <div ng-show="currentContentType==0">
-      <div compile="homeContent.value">
-            <!-- PULLED FROM DB -->
-      </div>
-      </div>
 
-      <div ng-show="currentContentType==1">
+      <div ng-show="lesson==1">
          <h1>Lessons</h1>
             <div ng-repeat="content in content_by_type" class="panel">
                <div class="panel-body">
