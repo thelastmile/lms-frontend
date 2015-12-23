@@ -10,7 +10,7 @@
       </div>
 
 
-      <div ng-show="lesson==1">
+      <div ng-show="lesson==1 || (!lesson && content)">
          <div ng-show="!SCC.currentContent && !SCC.projUrl">
             <h1>Lessons</h1>
             <div ng-repeat="content in content_by_type" class="panel">
