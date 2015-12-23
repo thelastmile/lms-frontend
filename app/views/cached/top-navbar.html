@@ -51,32 +51,36 @@
                      <div ng-if="isSuperAdmin()" style="color:red;"><b>SUPER ADMIN</b>
                      </div>
                      <div ng-if="isAdmin()">Facilitator</div>
-                     <div ng-if="isStudent()">Student: {{user.course}}</div>
+                     <div ng-if="isStudent()">
+                        <span class="pull-left">ID# {{user.inmate_id}}</span>
+                        <span class="pull-right">Student: {{user.course}}</span>
+
+                     </div>
                   </div>
                </a>
                <!-- START Dropdown menu-->
                <ul id="bg-white" class="dropdown-menu p wd-sm">
                   <div class="row ml0 mr0 mt mb text-center">
-                     <div class="col-xs-6">
-                        <div class="pv">
-                           <a ui-sref="app.extras.profile">
+                     <a ui-sref="app.extras.profile">
+                        <div class="col-xs-6">
+                           <div class="pv">
                               <span class="block mb">
                                  <em class="icon-head fa-2x text-warning"></em>
                               </span>
                               <small class="text-muted">Profile</small>
-                           </a>
+                           </div>
                         </div>
-                     </div>
-                     <div class="col-xs-6">
-                        <div class="pv">
-                           <a href="" data-ng-click="logout()">
+                     </a>
+                     <a href="" data-ng-click="logout()">
+                        <div class="col-xs-6">
+                           <div class="pv">
                               <span class="block mb">
                                  <em class="fa fa-sign-out fa-2x text-warning"></em>
                               </span>
                               <small class="text-muted">Logout</small>
-                           </a>
+                           </div>
                         </div>
-                     </div>
+                     </a>
                   </div>
                </ul>
             </li>

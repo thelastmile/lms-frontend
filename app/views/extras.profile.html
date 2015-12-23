@@ -1,36 +1,46 @@
 <div ng-controller="DashboardController as dashboard" style="background:url(app/img/profile.jpg) center center; background-size:cover;" class="unwrap">
    <div class="container container-lg p-lg">
       <div class="media mt-lg">
-         <div class="media-left media-middle">
+         <div class="media-left media-middle col-md-2 hidden-xs">
             <a href="{{url}}/media/{{user.profile_image}}" data-gallery="">
                <img src="{{url}}/media/{{user.profile_image}}" class="img-circle profile-image-circle" />
             </a>
          </div>
+         <div class="text-center visible-xs col-xs-12">
+            <a href="{{url}}/media/{{user.profile_image}}" data-gallery="">
+               <img src="{{url}}/media/{{user.profile_image}}" class="img-circle profile-image-circle" />
+            </a><br><br>
+         </div>
          <div class="media-body text-white">
-            <div class="col-sm-6">
-               <div ripple="" class="panel panel-default">
-                  <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
-                     <h2 class="mv-lg media-heading">{{user.first_name}}
-                        <br>{{user.last_name}}</h2>
-                  </div>
-               </div>
-            </div>
-            <div class="col-sm-6">
-               <div ripple="" class="panel panel-default">
-                  <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
-                     <div class="text-left text-md" ng-if="isSuperAdmin()" style="color:red;"><b>SUPER ADMIN</b>
+            <div class="col-md-6">
+               <div class="col-xs-12">
+                  <div class="panel panel-default">
+                     <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
+                        <h2 class="text-left text-lg">{{user.first_name}} {{user.last_name}}</h2>
                      </div>
-                     <div class="text-left text-md" ng-if="isAdmin()">Facilitator</div>
-                     <div class="text-left text-md" ng-if="isStudent()">Student</div>
+                  </div>
+                  <div class="panel panel-default">
+                     <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
+                        <div class="text-left text-md">ID# {{user.inmate_id}}</div>
+                     </div>
                   </div>
                </div>
             </div>
-            <div class="col-sm-6">
-               <div ripple="" class="panel panel-default">
-                  <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
-                     <div class="text-left text-md" ng-if="isStudent()">{{user.course}}</div>
+            <div class="col-md-6">
+               <div class="col-xs-12">
+                  <div class="panel panel-default">
+                     <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
+                        <div class="text-left text-md" ng-if="isSuperAdmin()" style="color:red;"><b>SUPER ADMIN</b>
+                        </div>
+                        <div class="text-left text-md" ng-if="isAdmin()">Facilitator</div>
+                        <div class="text-left text-md" ng-if="isStudent()">Student</div>
+                     </div>
                   </div>
-                  <span class="ripple"></span>
+                  <div class="panel panel-default">
+                     <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
+                        <div class="text-left text-md" ng-if="isStudent()">{{user.course}}</div>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
