@@ -11,19 +11,22 @@
 
 
       <div ng-show="lesson==1">
-         <div ng-show="!SCC.currentContent">  
+         <div ng-show="!SCC.currentContent && !SCC.projUrl">
             <h1>Lessons</h1>
             <div ng-repeat="content in content_by_type" class="panel">
                <div class="panel-body">
-                  <a href="" ng-click="SCC.projUrl = content.index_file">
+                  <a href="" ng-click="$root.iframeActive=true;SCC.projUrl=content.index_file;">
                      <h4>{{ content.name }}</h4>
                      <p>{{ content.description }}</p>
                   </a>
                </div>
             </div>
          </div>
-         <iframe ng-show="SCC.projUrl" ng-src="{{SCC.getFullURL()}}" width="300" height="300">
-          <p>Your browser does not support iframes.</p>
+      </div>
+
+      <div ng-show="SCC.projUrl" id="root">
+         <iframe ng-show="SCC.projUrl" ng-src="{{SCC.getFullURL()}}" class="lesson-frame" frameborder="0">
+            <p>Your browser does not support iframes.</p>
          </iframe>
       </div>
 

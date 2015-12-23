@@ -11,15 +11,23 @@
 
 
       <div ng-show="lesson==1">
-         <h1>Lessons</h1>
+         <div ng-show="!SCC.currentContent && !SCC.projUrl">  
+            <h1>Lessons</h1>
             <div ng-repeat="content in content_by_type" class="panel">
                <div class="panel-body">
-                  <a href="{{ url }}{{ content.index_file }}">
-                  <h4>{{ content.name }}</h4>
-                  <p>{{ content.description }}</p>
+                  <a href="" ng-click="$root.iframeActive=true;SCC.projUrl=content.index_file;">
+                     <h4>{{ content.name }}</h4>
+                     <p>{{ content.description }}</p>
                   </a>
                </div>
             </div>
+         </div>
+      </div>
+
+      <div ng-show="SCC.projUrl" id="root">
+         <iframe ng-show="SCC.projUrl" ng-src="{{SCC.getFullURL()}}" class="lesson-frame" frameborder="0">
+            <p>Your browser does not support iframes.</p>
+         </iframe>
       </div>
 
       <div ng-show="currentContentType==3">
@@ -30,10 +38,9 @@
             <div class="col-sm-8 col-xs-12">
                <div class="videogular-container ">
                   <videogular vg-player-ready="SCC.onPlayerReady($API)" vg-theme="SCC.config.theme.url" vg-auto-play="true">
-                     <vg-media vg-src="SCC.config.sources"
-                             vg-tracks="SCC.config.tracks">
+                     <vg-media vg-src="SCC.config.sources" vg-tracks="SCC.config.tracks">
                      </vg-media>
-             
+
                      <vg-controls>
                         <vg-play-pause-button></vg-play-pause-button>
                         <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
@@ -47,7 +54,7 @@
                         </vg-volume>
                         <vg-fullscreen-button></vg-fullscreen-button>
                      </vg-controls>
-             
+
                      <vg-overlay-play></vg-overlay-play>
                      <vg-buffering></vg-buffering>
                      <vg-poster vg-url='SCC.config.plugins.poster'></vg-poster>
@@ -58,21 +65,24 @@
     overflow:scroll;">
                <div class="" ng-repeat="content in content_by_type">
                   <div class="col-sm-12" style="word-break: break-all;">
-                   <a href="" class="thumbnail" ng-click="SCC.setVideo(content)">
-                     <!-- <img src="{{ content.thumbnail }}" alt="{{ content.name }}"> -->
-                     <img ng-if="content.thumbnail" name="{{ content.name }}" src="{{ content.thumbnail }}" data-holder- width="160" height="90"> <h5 style="margin: 5px;">{{content.name}}</h5>
-                   </a>
+                     <a href="" class="thumbnail" ng-click="SCC.setVideo(content)">
+                        <!-- <img src="{{ content.thumbnail }}" alt="{{ content.name }}"> -->
+                        <img ng-if="content.thumbnail" name="{{ content.name }}" src="{{ content.thumbnail }}" data-holder- width="160" height="90">
+                        <h5 style="margin: 5px;">{{content.name}}</h5>
+                     </a>
                   </div>
                </div>
             </div>
          </div>
          <div class="row">
-            <div class="col-xs-12 visible-xs"><br>
+            <div class="col-xs-12 visible-xs">
+               <br>
                <div class="col-xs-3" ng-repeat="content in content_by_type">
-                <a href="" class="thumbnail" ng-click="SCC.setVideo(content.file_url)">
-                  <!-- <img src="{{ content.thumbnail }}" alt="{{ content.name }}"> -->
-                  <img data-src="holder.js/100%x180" alt="{{ content.name }}" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUxNzg3ZmZjZDQgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTE3ODdmZmNkNCI+PHJlY3Qgd2lkdGg9IjE3MSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI1OS41NTQ2ODc1IiB5PSI5NC41Ij4xNzF4MTgwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true">
-                </a>
+                  <a href="" class="thumbnail" ng-click="SCC.setVideo(content.file_url)">
+                     <!-- <img src="{{ content.thumbnail }}" alt="{{ content.name }}"> -->
+                     <img data-src="holder.js/100%x180" alt="{{ content.name }}" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUxNzg3ZmZjZDQgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTE3ODdmZmNkNCI+PHJlY3Qgd2lkdGg9IjE3MSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI1OS41NTQ2ODc1IiB5PSI5NC41Ij4xNzF4MTgwPC90ZXh0PjwvZz48L2c+PC9zdmc+"
+                     data-holder-rendered="true">
+                  </a>
                </div>
             </div>
          </div>
@@ -86,12 +96,12 @@
                <h2>{{ content.name }}</h2>
                <p>{{ content.description }}&nbsp;&nbsp;
 
-               <span ng-if="!content.index_file">
-                  <a class="btn btn-primary btn-xs" href="{{ content.file }}">Download/View File</a>
-               </span>
-               <span ng-if="content.index_file">
-                  <a class="btn btn-primary btn-xs" href="{{ content.index_file }}">View</a>
-               </span>
+                  <span ng-if="!content.index_file">
+                     <a class="btn btn-primary btn-xs" href="{{ content.file }}">Download/View File</a>
+                  </span>
+                  <span ng-if="content.index_file">
+                     <a class="btn btn-primary btn-xs" href="{{ content.index_file }}">View</a>
+                  </span>
                </p>
                <hr>
             </div>
@@ -105,21 +115,24 @@
                   <h2>Code Editor</h2>
                   <pre id="editor_code" ng-model="CODE.editor_code" name="editor_code">
                   </pre>
-                  
+
                   <a ng-click="CODE.run($event)" class="btn btn-info btn-sm pull-right">Run Code <i class="fa fa-play-circle"></i></a>
 
-<!--                   <div class="btn-switch mb mr btn-switch-success pull-right">
+                  <!--                   <div class="btn-switch mb mr btn-switch-success pull-right">
                      <input type="checkbox" id="input-btn-switch-success">
                      <label for="input-btn-switch-success" class="btn btn-sm btn-success">
                         <em class="fa fa-check"></em>Save Code</label>
                   </div> &nbsp; -->
 
-                 <div uib-dropdown="dropdown" class="btn-group mb mr dropdown pull-right" style="">
+                  <div uib-dropdown="dropdown" class="btn-group mb mr dropdown pull-right" style="">
                      <button type="button" class="btn btn-default btn-sm" ripple="" ng-click="CODE.enterfilename=false;CODE.save(CODE.current_code);CODE.saveclass='btn btn-success btn-sm';" ng-class="CODE.saveclass">Save Code</button>
                      <button type="button" uib-dropdown-toggle="" ripple="" class="btn dropdown-toggle btn-default btn-sm" ng-class="CODE.saveclass" aria-haspopup="true" aria-expanded="false">
                         <span class="caret"></span>
                         <span class="sr-only">primary</span>
-                     <span class="ripple"><span class="angular-ripple" style="width: 35px; height: 35px; left: -2.89062px; top: -2.5px;"></span></span></button>
+                        <span class="ripple">
+                           <span class="angular-ripple" style="width: 35px; height: 35px; left: -2.89062px; top: -2.5px;"></span>
+                        </span>
+                     </button>
                      <ul role="menu" class="dropdown-menu">
                         <li><a href="" ng-click="CODE.saveclass='btn btn-default btn-sm';CODE.enterfilename=true">Save New</a>
                         </li>
@@ -131,9 +144,7 @@
                   </div>
                   <input ng-model="CODE.current_code.name" id="input-id-1" type="text" class="form-control pull-right input-sm" style="width: 25%; margin-right: 1em;" placeholder="Create New Name">&nbsp;
                   <h2>Tests</h2>
-                  <pre id="editor_tests">function some_test() {
-                        return true; 
-                     }
+                  <pre id="editor_tests">function some_test() { return true; }
                   </pre>
                </div>
             </div>
@@ -162,5 +173,5 @@
 
 
    <!-- END dashboard sidebar-->
-   
+
 </div>

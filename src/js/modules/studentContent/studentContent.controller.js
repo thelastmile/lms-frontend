@@ -91,6 +91,7 @@
         scc.API.play();
       };
 
+      $rootScope.iframeActive = false;
       scc.getFullURL = function(){
         //console.log(scc.projUrl);
         //console.log($rootScope.url);
