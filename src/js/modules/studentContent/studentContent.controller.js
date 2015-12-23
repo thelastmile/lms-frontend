@@ -89,9 +89,14 @@
         scc.config.sources = tmp_source;
 
         scc.API.play();
-
-        //var result = scc.API.changeSource(tmp_source);
       };
+
+      scc.getFullURL = function(){
+        //console.log(scc.projUrl);
+        //console.log($rootScope.url);
+        console.log($sce.getTrustedResourceUrl($rootScope.url+scc.projUrl));
+        return $sce.getTrustedResourceUrl($rootScope.url+scc.projUrl);
+      }
 
     }
 })();
