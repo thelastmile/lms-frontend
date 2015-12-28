@@ -1,18 +1,19 @@
 angular.module('naut')
 .directive('notetaker', [function () {
   'use strict';
-  notesCtl.$inject = ['$rootScope','$scope', 'notes', 'toasty'];
-  function notesCtl ($rootScope, $scope, notes, toasty) {
+  notesCtl.$inject = ['$rootScope','$scope', 'notes', 'toasty', '$uibModal'];
+  function notesCtl ($rootScope, $scope, notes, toasty, $uibmodal) {
     var NC = this;
 
-    NC.save = function (result) {
-      notes.create(this.note).success(function (data){
+    NC.save = function() {
+      notes.create(NC.note).success(function (data){
           toasty.success({
             title: 'Saved',
             msg: 'New Reflection Added',
             sound: false,
             clickToClose: true,
           });
+          NC.note.body = "";
       }).error(function (error){
         toasty.error({
             title: 'Not Saved',
