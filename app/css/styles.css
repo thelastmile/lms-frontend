@@ -465,14 +465,10 @@ body {
   }
 }
 .app {
-  width: 100%;
-}
-
-.app-padded {
   padding: 15px;
   padding-bottom: 80px;
+  width: 100%;
 }
-
 .app .container,
 .app .container-fluid {
   padding-left: 0;
@@ -5680,9 +5676,6 @@ body .toast-warning {
 .student-notetaker .editor .results {
   max-height: inherit;
   overflow: scroll;
-}
-.noteviewer {
-  height: 500px;
 }
 .noteviewer .note-picker {
   height: inherit;

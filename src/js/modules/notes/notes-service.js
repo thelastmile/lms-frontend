@@ -33,6 +33,10 @@
         });
       },
       fetchAll: function (byUser) {
+        if ($rootScope.selectedStudent) {
+          userId = $rootScope.selectedStudent.id;
+        }
+        console.log(byUser);
         return $http.get(customUrl.url + '/api/note/')
         .then(function (response) {
           if (byUser) {

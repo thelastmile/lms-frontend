@@ -418,7 +418,7 @@
           url: '/profile',
           templateUrl: Route.base('extras.profile.html'),
           resolve: {
-            assets: Route.require('blueimp-gallery')
+            assets: Route.require('jquery-ui', 'moment', 'ui.calendar', 'gcal', 'flot-chart', 'flot-chart-plugins')
           }
         })
       // Mailbox

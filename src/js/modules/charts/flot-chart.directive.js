@@ -90,7 +90,7 @@
 
           if( src ) {
 
-            $http.get(customUrl.url+'/'+src)
+            $http.get(src)
               .success(function (data) {
 
                 $timeout(function(){

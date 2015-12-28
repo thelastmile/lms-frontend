@@ -37,7 +37,7 @@
       vm.eventSources = [ vm.calEventsPers];
 
 
-      $http.get('server/calendar/external-calendar.json').success(function(data) {
+      $http.get('http://127.0.0.1:3000/server/calendar/external-calendar.json').success(function(data) {
       
         var calEventsExt = {
           id:        2,

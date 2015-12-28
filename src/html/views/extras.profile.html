@@ -1,5 +1,6 @@
-<div ng-controller="DashboardController as dashboard" style="background:url(app/img/profile.jpg) center center; background-size:cover;" class="unwrap">
-   <div class="container container-lg p-lg">
+<div ng-controller="DashboardController as dashboard">
+<div style="background:url(app/img/profile.jpg) center center; background-size:cover;" class="unwrap">
+   <div ng-if="!$root.selectedStudent" class="container container-lg p-lg">
       <div class="media mt-lg">
          <div class="media-left media-middle">
             <a href="{{url}}/media/{{user.profile_image}}" data-gallery="">
@@ -23,10 +24,10 @@
                   </div>
                </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6" ng-if="isStudent()">
                <div ripple="" class="panel panel-default">
                   <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
-                     <div class="text-left text-md" ng-if="isStudent()">{{user.course}}</div>
+                     <div class="text-left text-md">{{user.course}}</div>
                   </div>
                   <span class="ripple"></span>
                </div>
@@ -34,445 +35,118 @@
          </div>
       </div>
    </div>
-</div>
 
-<div ng-if="isAdmin() || isSuperAdmin()" class="container container-lg">
-   <div class="row">
-      <div class="col-lg-3">
-         <div class="panel">
-            <div class="panel-body">
-               <h3>John Doe</h3>
-               <p>Designer</p>
-               <p>It is a long established fact that a reader will be distracted.</p>
-            </div>
+   <div ng-if="$root.selectedStudent" class="container container-lg p-lg">
+      <div class="media mt-lg">
+         <div class="media-left media-middle">
+            <a href="{{url}}/media/{{$root.selectedStudent.profile_image}}" data-gallery="">
+               <img src="{{url}}/media/{{$root.selectedStudent.profile_image}}" class="img-circle profile-image-circle" />
+            </a>
          </div>
-         <div class="panel">
-            <div class="panel-body">
-               <h6>
-                  <span>
-                     <em class="fa fa-twitter mr"></em>@jdoe</span>
-               </h6>
-               <h6>
-                  <span class="mr">
-                     <em class="fa fa-clock-o mr"></em>10:05 PM</span>
-                  <span class="mr">
-                     <em class="fa fa-calendar mr"></em>10/11/15</span>
-                  <span class="mr">
-                     <em class="fa fa-map-marker mr"></em>BA</span>
-               </h6>
-               <h6>
-                  <span>
-                     <em class="fa fa-eye mr"></em>10 feb at 10:00 AM</span>
-               </h6>
+         <div class="media-body text-white">
+            <div class="col-sm-6">
+               <div ripple="" class="panel panel-default">
+                  <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
+                  <h2 class="mv-lg media-heading">{{$root.selectedStudent.first_name}}<br>{{$root.selectedStudent.last_name}}</h2>
+                  </div>
+               </div>
             </div>
-         </div>
-         <div class="panel">
-            <div class="panel-heading no-shadow">Recent contacts</div>
-            <div class="panel-body">
-               <ul class="list-block">
-                  <li class="media">
-                     <div class="pull-left">
-                        <!-- Contact avatar-->
-                        <div class="point-pin">
-                           <a href="">
-                              <img src="app/img/user/05.jpg" alt="Image" class="media-object img-circle thumb32" data-gallery />
-                           </a>
-                           <div class="point point-success point-lg"></div>
-                        </div>
-                     </div>
-                     <!-- Contact info-->
-                     <div class="media-body">
-                        <div class="media-heading"><a href="">Juan Sims</a>
-                           <br/>
-                           <small class="text-muted">Designeer</small>
-                        </div>
-                     </div>
-                  </li>
-                  <!-- END User status-->
-                  <!-- START User status-->
-                  <li class="media">
-                     <div class="pull-left">
-                        <!-- Contact avatar-->
-                        <div class="point-pin">
-                           <a href="">
-                              <img src="app/img/user/06.jpg" alt="Image" class="media-object img-circle thumb32" />
-                           </a>
-                           <div class="point point-success point-lg"></div>
-                        </div>
-                     </div>
-                     <!-- Contact info-->
-                     <div class="media-body">
-                        <div class="media-heading"><a href="">Maureen Jenkins</a>
-                           <br/>
-                           <small class="text-muted">Designeer</small>
-                        </div>
-                     </div>
-                  </li>
-                  <!-- END User status-->
-                  <!-- START User status-->
-                  <li class="media">
-                     <div class="pull-left">
-                        <!-- Contact avatar-->
-                        <div class="point-pin">
-                           <a href="">
-                              <img src="app/img/user/07.jpg" alt="Image" class="media-object img-circle thumb32" />
-                           </a>
-                           <div class="point point-danger point-lg"></div>
-                        </div>
-                     </div>
-                     <!-- Contact info-->
-                     <div class="media-body">
-                        <div class="media-heading"><a href="">Billie Dunn</a>
-                           <br/>
-                           <small class="text-muted">Designeer</small>
-                        </div>
-                     </div>
-                  </li>
-                  <!-- END User status-->
-                  <!-- START User status-->
-                  <li class="media">
-                     <div class="pull-left">
-                        <!-- Contact avatar-->
-                        <div class="point-pin">
-                           <a href="">
-                              <img src="app/img/user/08.jpg" alt="Image" class="media-object img-circle thumb32" />
-                           </a>
-                           <div class="point point-warning point-lg"></div>
-                        </div>
-                     </div>
-                     <!-- Contact info-->
-                     <div class="media-body">
-                        <div class="media-heading"><a href="">Tomothy Roberts</a>
-                           <br/>
-                           <small class="text-muted">Designer</small>
-                        </div>
-                     </div>
-                  </li>
-                  <!-- END User status-->
-               </ul>
+            <div class="col-sm-6">
+               <div ripple="" class="panel panel-default">
+                  <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
+                     <div class="text-left text-md" >Student</div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-6">
+               <div ripple="" class="panel panel-default">
+                  <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
+                     <div class="text-left text-md">{{$root.selectedStudent.course}}</div>
+                  </div>
+                  <span class="ripple"></span>
+               </div>
             </div>
          </div>
       </div>
-      <div class="col-lg-9">
+   </div>
+
+</div>
+
+<div ng-if="(isAdmin() || isSuperAdmin()) && $root.selectedStudent" class="container container-lg">
+   <div class="row">
+      <div class="col-lg-12">
          <div class="panel">
-            <div ng-controller="GoogleMapController as gmap" class="panel-body">
+            <div class="panel-body"> 
+
                <tabset>
-                  <tab heading="Activity" select="refreshMap()">
-                     <!-- START timeline-->
-                     <ul class="timeline-alt">
-                        <li data-datetime="14 Oct" class="timeline-separator"></li>
-                        <!-- START timeline item-->
-                        <li>
-                           <div class="timeline-badge timeline-badge-sm thumb-32 bg-purple">
-                              <em class="fa fa-users"></em>
+                  <tab heading="Tests">
+                     <div class="panel panel-default">
+                           <div class="panel-heading">
+                              <div class="panel-title">Test Scores</div>
                            </div>
-                           <div class="timeline-date">
-                              <time datetime="10m"></time>
-                           </div>
-                           <div class="timeline-panel">
-                              <strong>Client Meeting</strong>
-                              <div class="text-muted">Green Offfice - Av 123 St Floor 2</div>
-                              <div id="map_canvas" ui-map="gmap.myMap" ui-options="gmap.mapOptions" class="gmap"></div>
-                           </div>
-                        </li>
-                        <!-- END timeline item-->
-                        <!-- START timeline item-->
-                        <li>
-                           <div class="timeline-badge timeline-badge-sm bg-amber">
-                              <em class="fa fa-phone"></em>
-                           </div>
-                           <div class="timeline-date">
-                              <time datetime="1h"></time>
-                           </div>
-                           <div class="timeline-panel">
-                              <strong>Call</strong>
-                              <div class="text-muted">From: <a href="tel:+011231987">Michael</a>.
-                                 <em>No message left.</em>
-                              </div>
-                           </div>
-                        </li>
-                        <!-- END timeline item-->
-                        <!-- START timeline item-->
-                        <li>
-                           <div class="timeline-badge timeline-badge-sm bg-info">
-                              <em class="fa fa-envelope"></em>
-                           </div>
-                           <div class="timeline-date">
-                              <time datetime="3h"></time>
-                           </div>
-                           <div class="timeline-panel">
-                              <strong>New invitation</strong>
-                              <div class="text-muted">From:
-                                 <strong>UX Design Team</strong>
-                              </div>
-                              <a href="">
-                                 <img src="app/img/bg1.jpg" alt="Img" class="img-responsive" />
-                              </a>
-                              <p class="text-muted mv">3 Comments</p>
-                              <div class="media bb p">
-                                 <small class="pull-right text-muted">12m ago</small>
-                                 <div class="pull-left">
-                                    <img src="app/img/user/05.jpg" alt="Image" class="media-object img-circle thumb32" />
-                                 </div>
-                                 <div class="media-body">
-                                    <span class="media-heading">
-                                       <p class="m0">
-                                          <a href="">
-                                             <strong>Aiden Curtis</strong>
-                                          </a>
-                                       </p>
-                                       <p class="m0 text-muted">Hey looks amazing!</p>
-                                    </span>
+                           <div class="panel-body">
+                              <div class="row">
+                                 <div class="col-lg-12" ng-controller="FlotChartController as flot">
+                                    <flot src="'http://127.0.0.1:3000/server/chart/line.json'" options="flot.chartLineFlotChart" series="{lines: flot.lineSeriesLines, points: flot.lineSeriesPoints}"></flot>
                                  </div>
                               </div>
-                              <div class="media bb p">
-                                 <small class="pull-right text-muted">30m ago</small>
-                                 <div class="pull-left">
-                                    <img src="app/img/user/08.jpg" alt="Image" class="media-object img-circle thumb32" />
-                                 </div>
-                                 <div class="media-body">
-                                    <span class="media-heading">
-                                       <p class="m0">
-                                          <a href="">
-                                             <strong>Lucas Byrd</strong>
-                                          </a>
-                                       </p>
-                                       <p class="m0 text-muted">I'm In!</p>
-                                    </span>
-                                 </div>
-                              </div>
-                              <div class="media bb p">
-                                 <small class="pull-right text-muted">30m ago</small>
-                                 <div class="pull-left">
-                                    <img src="app/img/user/04.jpg" alt="Image" class="media-object img-circle thumb32" />
-                                 </div>
-                                 <div class="media-body">
-                                    <span class="media-heading">
-                                       <p class="m0">
-                                          <a href="">
-                                             <strong>Jennifer Garcia</strong>
-                                          </a>
-                                       </p>
-                                       <p class="m0 text-muted">See you there guys :)</p>
-                                    </span>
-                                 </div>
-                              </div>
-                              <form method="post" action="" class="mt">
-                                 <textarea placeholder="Comment..." rows="1" class="form-control no-resize"></textarea>
-                              </form>
                            </div>
-                        </li>
-                        <!-- END timeline item-->
-                        <li data-datetime="13 Oct" class="timeline-separator"></li>
-                        <!-- START timeline item-->
-                        <li>
-                           <div class="timeline-badge timeline-badge-sm bg-warning">
-                              <em class="fa fa-upload"></em>
-                           </div>
-                           <div class="timeline-date">
-                              <time datetime="9am"></time>
-                           </div>
-                           <div class="timeline-panel">
-                              <strong>File upload</strong>
-                              <a href="">
-                                 <div class="text-bold">angular+bs.zip</div>
-                              </a>
-                           </div>
-                        </li>
-                        <!-- END timeline item-->
-                     </ul>
-                     <!-- END timeline-->
+                        </div>
                   </tab>
-                  <tab heading="Profile">
-                     <div class="alert alert-info">
-                        <div class="row">
-                           <div class="col-sm-8 col-sm-offset-2 text-center">
-                              <div class="lead m0 p-lg">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</div>
+                  
+                  <tab heading="Notes">
+                     <div class="noteviewer row" ng-controller="StudentNotesController as SNC">
+                       <div class="col-xs-12">
+                         <div class="note-list">
+                           <div class="note-item panel" style="padding:5px;" ng-repeat="note in SNC.notes" ng-click="SNC.selectedNote = note">
+                             <span class="label label-default">{{ note.date | date : medium }}</span>
+                             <span>{{note.author.first_name}}</span>
+                             <br>
+                             <b>{{ note.body }}</b>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                  </tab>
+                  <tab heading="Attendance">
+                     <div ng-controller="CalendarController as calendar" class="calendar-app">
+                     <div class="panel panel-default">
+                        <div class="panel-body">
+                           <div ng-model="calendar.eventSources" calendar="calendar.myCalendar" ui-calendar="calendar.uiConfig.calendar" class="calendar"></div>
+                        </div>
+                        <div class="panel-footer">
+                           <div class="clearfix">
+                              <div class="pull-right">
+                                 <button ng-click="calendar.changeLang()" class="btn btn-default btn-sm">{{calendar.changeTo}}</button>
+                              </div>
+                              <div class="pull-left">
+                                 <div class="btn-switch mb btn-switch-info">
+                                    <input type="checkbox" id="input-btn-switch-info" ng-click="calendar.toggleEventSource(0)" checked="calendar.isVisible(0)" />
+                                    <label for="input-btn-switch-info" class="btn btn-info">
+                                       <em class="fa fa-check"></em>
+                                       <strong>Personal Calendar</strong>
+                                    </label>
+                                 </div>
+                                 <div class="btn-switch mb btn-switch-purple">
+                                    <input type="checkbox" id="input-btn-switch-purple" ng-click="calendar.toggleEventSource(2)" checked="calendar.isVisible(2)" />
+                                    <label for="input-btn-switch-purple" class="btn btn-purple">
+                                       <em class="fa fa-check"></em>
+                                       <strong>External Events (Json)</strong>
+                                    </label>
+                                 </div>
+                              </div>
                            </div>
                         </div>
                      </div>
-                     <h4 class="page-header">Basic information</h4>
-                     <div class="row">
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Name</span>: John</p>
-                        </div>
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Last Name</span>: Doe</p>
-                        </div>
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Birthday</span>: 21 Feb 1983</p>
-                        </div>
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Location</span>: Paris, France</p>
-                        </div>
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Occupation</span>: UX Developer</p>
-                        </div>
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Email</span>: john@doemail.com</p>
-                        </div>
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Mobile Phone</span>: (123) 456 789</p>
-                        </div>
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Home Phone</span>: (+123) 654 987</p>
-                        </div>
-                     </div>
-                     <h4 class="page-header">Company information</h4>
-                     <div class="row">
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Name</span>: Company Name</p>
-                        </div>
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Branch</span>: Dublin</p>
-                        </div>
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Address</span>: Some st, 456</p>
-                        </div>
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Email</span>: company@doemail.com</p>
-                        </div>
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Phone</span>: (+123) 456 789</p>
-                        </div>
-                        <div class="col-xs-6">
-                           <p>
-                              <span>Fax</span>: (+123) 654 987</p>
-                        </div>
-                     </div>
-                  </tab>
-                  <tab heading="Messages">
-                     <ul class="list-group">
-                        <li class="list-group-item">
-                           <p>
-                              <button type="button" class="mr btn btn-amber btn-sm btn-circle">M</button>
-                              <em>Mauris a velit id neque dignissim congue. Curabitur imperdiet consequat hendrerit.</em>
-                           </p>
-                        </li>
-                     </ul>
-                     <ul class="list-group">
-                        <li class="list-group-item">
-                           <p>
-                              <button type="button" class="mr btn btn-success btn-sm btn-circle">J</button>
-                              <em>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin vulputate neque non turpis pellentesque mattis.</em>
-                           </p>
-                        </li>
-                     </ul>
-                     <ul class="list-group">
-                        <li class="list-group-item">
-                           <p>
-                              <a href="" class="btn btn-image btn-circle btn-sm mr">
-                                 <img src="app/img/user/01.jpg" class="img-responsive img-circle" />
-                              </a>
-                              <em>Nullam quis lorem a est auctor venenatis vel vitae ipsum. Fusce pellentesque congue justo in rutrum. Etiam adipiscing, purus ultricies ornare vulputate, quam felis commodo nisl, ut posuere massa turpis ut erat.</em>
-                           </p>
-                        </li>
-                     </ul>
-                     <ul class="list-group">
-                        <li class="list-group-item">
-                           <p>
-                              <button type="button" class="mr btn btn-pink btn-sm btn-circle">K</button>
-                              <em>In cursus cursus lacus, ut faucibus leo pellentesque et. Proin eget quam ante. Etiam odio ante, placerat eu accumsan ut, consectetur vel mi.</em>
-                           </p>
-                        </li>
-                     </ul>
-                     <ul class="list-group">
-                        <li class="list-group-item">
-                           <p>
-                              <button type="button" class="mr btn btn-purple btn-sm btn-circle">M</button>
-                              <em>Mauris eleifend, libero nec cursus lacinia, tellus est pharetra orci, et pretium urna felis eget neque.</em>
-                           </p>
-                        </li>
-                     </ul>
-                     <ul class="list-group">
-                        <li class="list-group-item">
-                           <p>
-                              <button type="button" class="mr btn btn-warning btn-sm btn-circle">L</button>
-                              <em>Nullam ultricies, urna ac aliquet fringilla, eros velit vehicula elit, at faucibus velit erat eu ante. Praesent congue nisi in metus malesuada nec dictum nunc egestas. Donec nec magna a diam eleifend facilisis non in urna.</em>
-                           </p>
-                        </li>
-                     </ul>
-                  </tab>
-                  <tab heading="Settings">
-                     <form role="form" class="form-horizontal">
-                        <div class="form-group">
-                           <label class="col-lg-2 control-label">First Name</label>
-                           <div class="col-lg-6">
-                              <input id="f-name" type="text" placeholder=" " class="form-control" />
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label class="col-lg-2 control-label">Last Name</label>
-                           <div class="col-lg-6">
-                              <input id="l-name" type="text" placeholder=" " class="form-control" />
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label class="col-lg-2 control-label">About Me</label>
-                           <div class="col-lg-10">
-                              <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label class="col-lg-2 control-label">Country</label>
-                           <div class="col-lg-6">
-                              <input id="c-name" type="text" placeholder=" " class="form-control" />
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label class="col-lg-2 control-label">Birthday</label>
-                           <div class="col-lg-6">
-                              <input id="b-day" type="text" placeholder=" " class="form-control" />
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label class="col-lg-2 control-label">Occupation</label>
-                           <div class="col-lg-6">
-                              <input id="occupation" type="text" placeholder=" " class="form-control" />
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label class="col-lg-2 control-label">Email</label>
-                           <div class="col-lg-6">
-                              <input id="email" type="text" placeholder=" " class="form-control" />
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label class="col-lg-2 control-label">Mobile</label>
-                           <div class="col-lg-6">
-                              <input id="mobile" type="text" placeholder=" " class="form-control" />
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label class="col-lg-2 control-label">Website URL</label>
-                           <div class="col-lg-6">
-                              <input id="url" type="text" placeholder="http://example.com " class="form-control" />
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <div class="col-lg-offset-2 col-lg-10">
-                              <button type="submit" class="btn btn-primary">Save</button>
-                              <button type="button" class="btn btn-purple">Cancel</button>
-                           </div>
-                        </div>
-                     </form>
+                     <p class="text-muted">
+                        <small>*Click on the calendar to add events</small>
+                     </p>
+                  </div>
                   </tab>
                </tabset>
             </div>
          </div>
       </div>
    </div>
+</div>
 </div>
