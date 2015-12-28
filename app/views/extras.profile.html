@@ -11,8 +11,12 @@
                <div class="col-sm-6">
                   <div ripple="" class="panel panel-default">
                      <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
-                        <h2 class="mv-lg media-heading">{{user.first_name}}
-                           <br>{{user.last_name}}</h2>
+                        <h2 class="mv-lg media-heading">{{user.first_name}} {{user.last_name}}</h2>
+                     </div>
+                  </div>
+                  <div ripple="" class="panel panel-default" ng-if="user.inmate_id">
+                     <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
+                        <div class="text-left text-md">ID# {{user.inmate_id}}</div>
                      </div>
                   </div>
                </div>
@@ -49,8 +53,12 @@
                <div class="col-sm-6">
                   <div ripple="" class="panel panel-default">
                      <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
-                        <h2 class="mv-lg media-heading">{{$root.selectedStudent.first_name}}
-                           <br>{{$root.selectedStudent.last_name}}</h2>
+                        <h2 class="mv-lg media-heading">{{$root.selectedStudent.first_name}} {{$root.selectedStudent.last_name}}</h2>
+                     </div>
+                  </div>
+                  <div ripple="" class="panel panel-default" ng-if="$root.selectedStudent.inmate_id">
+                     <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
+                        <div class="text-left text-md">ID# {{$root.selectedStudent.inmate_id}}</div>
                      </div>
                   </div>
                </div>
