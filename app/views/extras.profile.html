@@ -19,7 +19,7 @@
                         <h2 class="text-left text-lg">{{user.first_name}} {{user.last_name}}</h2>
                      </div>
                   </div>
-                  <div class="panel panel-default">
+                  <div class="panel panel-default" ng-if="isStudent()">
                      <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
                         <div class="text-left text-md">ID# {{user.inmate_id}}</div>
                      </div>
@@ -32,13 +32,13 @@
                      <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
                         <div class="text-left text-md" ng-if="isSuperAdmin()" style="color:red;"><b>SUPER ADMIN</b>
                         </div>
-                        <div class="text-left text-md" ng-if="isAdmin()">Facilitator</div>
+                        <div class="text-left text-md" ng-if="isAdmin()" style="color:red;"><b>Facilitator</b></div>
                         <div class="text-left text-md" ng-if="isStudent()">Student</div>
                      </div>
                   </div>
-                  <div class="panel panel-default">
+                  <div class="panel panel-default" ng-if="isStudent()">
                      <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
-                        <div class="text-left text-md" ng-if="isStudent()">{{user.course}}</div>
+                        <div class="text-left text-md">{{user.course}}</div>
                      </div>
                   </div>
                </div>
