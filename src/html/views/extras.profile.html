@@ -86,7 +86,7 @@
       <div class="row">
          <div class="col-lg-12">
             <div class="panel">
-               <div class="panel-body"> 
+               <div class="panel-body" ng-controller="CalendarController as calendar" > 
 
                   <tabset>
                      <tab heading="Tests">
@@ -118,11 +118,11 @@
                           </div>
                         </div>
                      </tab>
-                     <tab heading="Attendance" ng-selected=renderCalendar()>
-                        <div ng-controller="CalendarController as calendar" class="calendar-app">
+                     <tab heading="Attendance" ng-selected="calendar.renderCalendar()">
+                        <div class="calendar-app">
                         <div class="panel panel-default">
                            <div class="panel-body">
-                              <div ng-model="calendar.eventSources" calendar="calendar.myCalendar" ui-calendar="calendar.uiConfig.calendar" class="calendar"></div>
+                              <div ng-model="calendar.eventSources" calendar="calendar.myCalendar" ui-calendar="calendar.uiConfig.calendar" id="my-calendar"></div>
                            </div>
                            <div class="panel-footer">
                               <div class="clearfix">

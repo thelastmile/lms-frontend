@@ -73,9 +73,23 @@
       };
       
       /* Change View */
-      vm.renderCalender = function(calendar) {
-        vm.myCalendar.fullCalendar('render');
+      vm.renderCalendar = function() {
+        //console.log('rendering');
+        //vm.myCalendar.fullCalendar('render');
+        //$timeout(function(){
+        //calendar.fullCalendar('render');
+        //calendar.fullCalendar('rerenderEvents');
+        //}, 0);
+        $('#my-calendar').fullCalendar('render');
+        $('#my-calendar').fullCalendar('rerenderEvents');
       };
+
+      // $scope.renderCalendar = function() {
+      //  $timeout(function(){
+      //       $('#calendar').fullCalendar('render');
+      //       $('#calendar').fullCalendar('rerenderEvents');
+      //   }, 0);
+      // };
 
       /* config object */
       vm.uiConfig = {
