@@ -71,34 +71,11 @@
       vm.alertOnDrop = function(event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view){
          console.log('Event Droped to make dayDelta ' + dayDelta);
       };
-      /* alert on Resize */
-      vm.alertOnResize = function(event, dayDelta, minuteDelta, revertFunc, jsEvent, ui, view ){
-         console.log('Event Resized to make dayDelta ' + minuteDelta);
-      };
-
-      /* add custom event*/
-      vm.addEvent = function(newEvent) {
-        if(newEvent) {
-          vm.calEventsPers.events.push(newEvent);
-        }
-      };
-
-      /* remove event */
-      vm.remove = function(index) {
-        vm.calEventsPers.events.splice(index,1);
-      };
-      /* Change View */
-      vm.changeView = function(view,calendar) {
-        vm.myCalendar.fullCalendar('changeView',view);
-      };
+      
       /* Change View */
       vm.renderCalender = function(calendar) {
         vm.myCalendar.fullCalendar('render');
       };
-      
-      vm.toggleEventSource = function(id) {
-        $('.fc-id-'+id).toggleClass('hidden');
-       };
 
       /* config object */
       vm.uiConfig = {
@@ -106,9 +83,7 @@
           height: 450,
           editable: true,
           header:{
-            left: 'month,basicWeek,basicDay',
             center: 'title',
-            right: 'prev,next today'
           },
           eventClick:  vm.alertOnEventClick,
           eventDrop:   vm.alertOnDrop,

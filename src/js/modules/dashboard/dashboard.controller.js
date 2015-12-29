@@ -13,6 +13,13 @@
     function DashboardController($rootScope, $scope, colors, flotOptions, $timeout, $window) {
       var vm = this;
 
+      $scope.renderCalendar = function() {
+       $timeout(function(){
+            $('.calendar').fullCalendar('render');
+            $('.calendar').fullCalendar('rerenderEvents');
+        }, 0);
+};
+
       $scope.isSuperAdmin = function(){
         if ($window.sessionStorage.getItem("userPermissions")=='superAdmin'){
           return true;
