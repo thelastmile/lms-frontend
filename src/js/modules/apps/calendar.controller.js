@@ -62,6 +62,8 @@
 
       // });
 
+      vm.eventSources = [];
+
       
       /* alert on eventClick */
       vm.alertOnEventClick = function( event, allDay, jsEvent, view ){
@@ -81,7 +83,7 @@
         //calendar.fullCalendar('rerenderEvents');
         //}, 0);
         $('.calendars').fullCalendar('render');
-        $('.calendars').fullCalendar('rerenderEvents');
+        //$('.calendars').fullCalendar('rerenderEvents');
       };
 
       // $scope.renderCalendar = function() {
