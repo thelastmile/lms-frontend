@@ -9,9 +9,17 @@
         .module('naut')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['$rootScope', '$scope', 'colors', 'flotOptions', '$timeout' ,'$window'];
-    function DashboardController($rootScope, $scope, colors, flotOptions, $timeout, $window) {
+    DashboardController.$inject = ['$rootScope', '$scope', 'colors', 'flotOptions', '$timeout' ,'$window', '$stateParams', 'StudentInfoService'];
+    function DashboardController($rootScope, $scope, colors, flotOptions, $timeout, $window, $stateParams, StudentInfoService) {
       var vm = this;
+
+      if (typeof $stateParams.selectedStudent != 'undefined'){
+        StudentInfoService.get_single($stateParams.selectedStudent).success(function(data){
+          $rootScope.selectedStudent = data;
+        });
+      } else {
+        delete $rootScope.selectedStudent;
+      }
 
       $scope.isSuperAdmin = function(){
         if ($window.sessionStorage.getItem("userPermissions")=='superAdmin'){

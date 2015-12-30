@@ -4,8 +4,8 @@
 
 .calendar-app {
   
-  .calendar {
-    min-height: 450px;
+  .fc-basic-view .fc-body .fc-row {
+    min-height: 1em;
   }
 
   .fc-button {
@@ -54,7 +54,11 @@
   }
 
   .fc-toolbar h2 {
-    font-size: 18px;
+    font-size: 12px;
+  }
+
+  .fc-toolbar {
+    margin-bottom: .5em;
   }
 
   // style cells
@@ -77,12 +81,13 @@
     background-color: fadeout(@brand-primary, 30%); 
   }
 
+/*
   .fc-day-number {
     font-size: 18px;
     font-weight: bold;
     color: #a1a2a3;
   }
-
+*/
 
   // Allow to drag event outside the calendar
   .fc-view {

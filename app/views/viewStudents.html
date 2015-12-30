@@ -5,7 +5,7 @@
       <div ng-init="hpanel = [true, false, false, false]" class="panel panel-default">
          <div class="row">
             <div class="col-md-4">
-               <div class="row row-flush text-center text-muted m0" ui-sref="app.extras.profile" ng-click="$root.selectedStudent=student">
+               <div class="row row-flush text-center text-muted m0" ui-sref="app.extras.profile({selectedStudent: student.id})">
                   <div ripple="" class="col-xs-6 clickable">
                      <em class="fa fa-2x profile-list">
                         <a href="{{url}}/media/{{student.profile_image}}" data-gallery="">

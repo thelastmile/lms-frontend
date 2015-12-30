@@ -96,7 +96,7 @@
       /* config object */
       vm.uiConfig = {
         calendar_1:{
-          height: 370,
+          height: 230,
           editable: false,
           header:{
               left:   'false',
@@ -108,9 +108,11 @@
           unselectAuto: true,
           fixedWeekCount: false,
           defaultDate: '2015-01-01',
+          dayNames: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa'],
+          dayNamesShort: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
         },
         calendar_2:{
-          height: 370,
+          height: 230,
           editable: false,
           header:{
               left:   'false',
@@ -124,7 +126,7 @@
           defaultDate: '2015-02-01',
         },
         calendar_3:{
-          height: 370,
+          height: 230,
           editable: false,
           header:{
               left:   'false',
@@ -138,7 +140,7 @@
           defaultDate: '2015-03-01',
         },
         calendar_4:{
-          height: 370,
+          height: 230,
           editable: false,
           header:{
               left:   'false',
@@ -152,7 +154,7 @@
           defaultDate: '2015-04-01',
         },
         calendar_5:{
-          height: 370,
+          height: 230,
           editable: false,
           header:{
               left:   'false',
@@ -166,7 +168,7 @@
           defaultDate: '2015-05-01',
         },
         calendar_6:{
-          height: 370,
+          height: 230,
           editable: false,
           header:{
               left:   'false',
@@ -180,7 +182,7 @@
           defaultDate: '2015-06-01',
         },
         calendar_7:{
-          height: 370,
+          height: 230,
           editable: false,
           header:{
               left:   'false',
@@ -194,7 +196,7 @@
           defaultDate: '2015-07-01',
         },
         calendar_8:{
-          height: 370,
+          height: 230,
           editable: false,
           header:{
               left:   'false',
@@ -208,7 +210,7 @@
           defaultDate: '2015-08-01',
         },
         calendar_9:{
-          height: 370,
+          height: 230,
           editable: false,
           header:{
               left:   'false',
@@ -222,7 +224,7 @@
           defaultDate: '2015-09-01',
         },
         calendar_10:{
-          height: 370,
+          height: 230,
           editable: false,
           header:{
               left:   'false',
@@ -236,7 +238,7 @@
           defaultDate: '2015-10-01',
         },
         calendar_11:{
-          height: 370,
+          height: 230,
           editable: false,
           header:{
               left:   'false',
@@ -250,7 +252,7 @@
           defaultDate: '2015-11-01',
         },
         calendar_12:{
-          height: 370,
+          height: 230,
           editable: false,
           header:{
               left:   'false',

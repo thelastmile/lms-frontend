@@ -415,7 +415,7 @@
           templateUrl: Route.base('extras.projects.html')
         })
         .state('app.extras.profile', {
-          url: '/profile',
+          url: '/profile?selectedStudent',
           templateUrl: Route.base('extras.profile.html'),
           resolve: {
             assets: Route.require('jquery-ui', 'moment', 'ui.calendar', 'gcal', 'flot-chart', 'flot-chart-plugins')

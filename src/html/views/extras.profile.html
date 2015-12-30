@@ -106,21 +106,22 @@
                      
                      <tab heading="Notes">
                         <div class="noteviewer row" ng-controller="StudentNotesController as SNC">
-                          <div class="col-xs-12">
-                            <div class="note-list">
-                              <div class="note-item panel" style="padding:5px;" ng-repeat="note in SNC.notes" ng-click="SNC.selectedNote = note">
-                                <span class="label label-default">{{ note.date | date : medium }}</span>
-                                <span>{{note.author.first_name}}</span>
-                                <br>
-                                <b>{{ note.body }}</b>
-                              </div>
-                            </div>
-                          </div>
+                           <div class="col-xs-12">
+                              <div class="note-list">
+                                 <div ng-if="SNC.notes.length < 1">No notes from this student.</div>
+                                 <div class="note-item panel" style="padding:5px;" ng-repeat="note in SNC.notes" ng-click="SNC.selectedNote = note">
+                                   <span class="label label-default">{{ note.date | date : medium }}</span>
+                                   <span>{{note.author.first_name}}</span>
+                                   <br>
+                                   <b>{{ note.body }}</b>
+                                 </div>
+                               </div>
+                           </div>
                         </div>
                      </tab>
                      <tab heading="Attendance" ng-selected="calendar.renderCalendar()">
                         <div class="row">
-                           <div class="calendar-app col-sm-6 col-md-4 col-lg-3" ng-repeat="m in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]">
+                           <div class="calendar-app col-sm-4 col-md-3 col-lg-3" ng-repeat="m in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]">
                               <div class="panel panel-default">
                                  <div class="panel-body">
                                     <div ng-model="calendar.eventSources" calendar="calendar.myCalendar" ui-calendar="calendar.uiConfig.calendar_{{m}}" class="calendars"></div>

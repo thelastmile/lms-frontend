@@ -5848,8 +5848,17 @@ div#root > iframe {
 /**
    Component: calendar.less
 */
-.calendar-app .calendar {
-  min-height: 450px;
+.calendar-app {
+  /*
+  .fc-day-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: #a1a2a3;
+  }
+*/
+}
+.calendar-app .fc-basic-view .fc-body .fc-row {
+  min-height: 1em;
 }
 .calendar-app .fc-button {
   color: #282D31 !important;
@@ -5948,7 +5957,10 @@ fieldset[disabled] .calendar-app .fc-button.active {
   content: "\f104";
 }
 .calendar-app .fc-toolbar h2 {
-  font-size: 18px;
+  font-size: 12px;
+}
+.calendar-app .fc-toolbar {
+  margin-bottom: .5em;
 }
 .calendar-app .fc .fc-month-view th,
 .calendar-app .fc .fc-month-view td {
@@ -5962,11 +5974,6 @@ fieldset[disabled] .calendar-app .fc-button.active {
 }
 .calendar-app .fc-cell-overlay {
   background-color: rgba(63, 81, 181, 0.7);
-}
-.calendar-app .fc-day-number {
-  font-size: 18px;
-  font-weight: bold;
-  color: #a1a2a3;
 }
 .calendar-app .fc-view {
   overflow: visible;
