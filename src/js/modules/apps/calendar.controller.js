@@ -18,6 +18,9 @@
       var d = date.getDate();
       var m = date.getMonth();
       var y = date.getFullYear();
+      vm.y = y;
+
+      vm.selectedYear = y;
 
       // vm.calEventsPers = {
       //     id: 0,
@@ -64,6 +67,20 @@
 
       vm.eventSources = [];
 
+      vm.changeYear = function(year) {
+        vm.uiConfig.calendar_1.defaultDate = year+'-01-01';
+        vm.uiConfig.calendar_2.defaultDate = year+'-02-01';
+        vm.uiConfig.calendar_3.defaultDate = year+'-03-01';
+        vm.uiConfig.calendar_4.defaultDate = year+'-04-01';
+        vm.uiConfig.calendar_5.defaultDate = year+'-05-01';
+        vm.uiConfig.calendar_6.defaultDate = year+'-06-01';
+        vm.uiConfig.calendar_7.defaultDate = year+'-07-01';
+        vm.uiConfig.calendar_8.defaultDate = year+'-08-01';
+        vm.uiConfig.calendar_9.defaultDate = year+'-09-01';
+        vm.uiConfig.calendar_10.defaultDate = year+'-10-01';
+        vm.uiConfig.calendar_11.defaultDate = year+'-11-01';
+        vm.uiConfig.calendar_12.defaultDate = year+'-12-01';
+      };
       
       /* alert on eventClick */
       vm.alertOnEventClick = function( event, allDay, jsEvent, view ){
@@ -124,6 +141,8 @@
           unselectAuto: true,
           fixedWeekCount: false,
           defaultDate: '2015-02-01',
+          dayNames: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa'],
+          dayNamesShort: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
         },
         calendar_3:{
           height: 230,
@@ -138,6 +157,8 @@
           unselectAuto: true,
           fixedWeekCount: false,
           defaultDate: '2015-03-01',
+          dayNames: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa'],
+          dayNamesShort: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
         },
         calendar_4:{
           height: 230,
@@ -152,6 +173,8 @@
           unselectAuto: true,
           fixedWeekCount: false,
           defaultDate: '2015-04-01',
+          dayNames: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa'],
+          dayNamesShort: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
         },
         calendar_5:{
           height: 230,
@@ -166,6 +189,8 @@
           unselectAuto: true,
           fixedWeekCount: false,
           defaultDate: '2015-05-01',
+          dayNames: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa'],
+          dayNamesShort: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
         },
         calendar_6:{
           height: 230,
@@ -180,6 +205,8 @@
           unselectAuto: true,
           fixedWeekCount: false,
           defaultDate: '2015-06-01',
+          dayNames: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa'],
+          dayNamesShort: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
         },
         calendar_7:{
           height: 230,
@@ -194,6 +221,8 @@
           unselectAuto: true,
           fixedWeekCount: false,
           defaultDate: '2015-07-01',
+          dayNames: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa'],
+          dayNamesShort: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
         },
         calendar_8:{
           height: 230,
@@ -208,6 +237,8 @@
           unselectAuto: true,
           fixedWeekCount: false,
           defaultDate: '2015-08-01',
+          dayNames: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa'],
+          dayNamesShort: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
         },
         calendar_9:{
           height: 230,
@@ -222,6 +253,8 @@
           unselectAuto: true,
           fixedWeekCount: false,
           defaultDate: '2015-09-01',
+          dayNames: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa'],
+          dayNamesShort: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
         },
         calendar_10:{
           height: 230,
@@ -236,6 +269,8 @@
           unselectAuto: true,
           fixedWeekCount: false,
           defaultDate: '2015-10-01',
+          dayNames: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa'],
+          dayNamesShort: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
         },
         calendar_11:{
           height: 230,
@@ -250,6 +285,8 @@
           unselectAuto: true,
           fixedWeekCount: false,
           defaultDate: '2015-11-01',
+          dayNames: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa'],
+          dayNamesShort: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
         },
         calendar_12:{
           height: 230,
@@ -264,6 +301,8 @@
           unselectAuto: true,
           fixedWeekCount: false,
           defaultDate: '2015-12-01',
+          dayNames: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa'],
+          dayNamesShort: ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
         }
       };
     }

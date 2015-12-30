@@ -122,6 +122,13 @@
                      </tab>
                      <tab heading="Attendance" ng-selected="calendar.renderCalendar()">
                         <div class="row">
+                           <div class="col-xs-12">
+                              <a ng-click="calendar.selectedYear=calendar.selectedYear+d; calendar.changeYear(calendar.selectedYear)" ng-class="{active: calendar.selectedYear+d==calendar.selectedYear}" class="btn btn-xs pull-right" ng-repeat="d in [1, 0, -1]">{{calendar.selectedYear+d}}</a>
+                              <br>
+                              <hr style="border: none; border-bottom: 1px solid #e6e9ee;">
+                           </div>
+                        </div>
+                        <div class="row">
                            <div class="calendar-app col-sm-4 col-md-3 col-lg-3" ng-repeat="m in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]">
                               <div class="panel panel-default">
                                  <div class="panel-body">
