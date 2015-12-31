@@ -14,7 +14,6 @@
       var vm = this;
       StudentInfoService.get().success(function(data){
         $scope.students = data;
-        console.log(data);
       });
 
       $scope.isAdmin = function(){
@@ -25,24 +24,7 @@
         }
       }
 
-      // Some numbers for demo
-      vm.loadProgressValues = function() {
-        vm.progressVal = [0,0,0,0];
-        // helps to show animation when values change
-        $timeout(function(){
-          vm.progressVal[0] = 60;
-          vm.progressVal[1] = 34;
-          vm.progressVal[2] = 22;
-          vm.progressVal[3] = 76;
-        });
-      };
-
-      vm.defaultDate = new Date();
-      vm.toggleDatepicker = function ($event, obj) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        obj.datepickerOpen = !obj.datepickerOpen;
-      }
+      vm.attendanceDataUrl = $rootScope.url+'/api/attendancegraphdaily';
 
     }
 })();
