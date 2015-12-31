@@ -25,16 +25,20 @@
           borderWidth: 0,
           color: '#8394a9'
         },
-        tooltip: true,
-        tooltipOpts: {
-          content: '%x : %y'
-        },
+        tooltip: false,
+        // tooltipOpts: {
+        //   content: '%x : %y'
+        // },
         xaxis: {
           tickColor: '#f1f2f3',
-          mode: 'categories'
+          mode: 'categories',
+          show: true
         },
         yaxis: {
-          tickColor: '#f1f2f3'
+          tickColor: '#f1f2f3',
+          min: 0,
+          max: 100,
+          show: false
         },
         legend: {
           backgroundColor: 'rgba(0,0,0,0)'

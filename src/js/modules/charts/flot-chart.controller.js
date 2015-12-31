@@ -50,7 +50,8 @@
         },
         yaxis: {
           min: 0,
-          max: 130
+          max: 100,
+          show: false
         },
         xaxis: {
           show: false
