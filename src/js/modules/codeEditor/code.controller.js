@@ -13,6 +13,17 @@
     function CodeController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, CodeService) {
       var cc = this;
       var editor = ace.edit("editor_code");
+      editor.setTheme("ace/theme/twilight");
+      editor.session.setMode("ace/mode/javascript");
+      editor.renderer.setScrollMargin(10, 10);
+      editor.setOptions({
+          // "scrollPastEnd": 0.8,
+          autoScrollEditorIntoView: true
+      });
+
+       var editor_tests = ace.edit("editor_tests");
+       editor_tests.setTheme("ace/theme/twilight");
+       editor_tests.session.setMode("ace/mode/javascript");
 
       var editor_code = `console.log('TLM ROCKS');
 var this_loop = true;
@@ -27,9 +38,12 @@ while (this_loop === true){
 
       editor.setValue(editor_code);
 
-      CodeService.get().success(function(data){
+      CodeService.get_single(1).success(function(data){
         console.log('data', data);
         $scope.code_list = data;
+        editor.setValue(data.code);
+        editor_tests.setValue(data.tests);
+
         // TODO Add check for browser storage variable
       });
 
@@ -44,7 +58,12 @@ while (this_loop === true){
           vanillaConsole(arguments);
           cc.console = cc.console.concat(Array.prototype.slice.call(arguments));
         };
-        eval(code);
+
+        try {
+          eval(code);
+        } catch (e) {
+          cc.console = ['=== An error was thrown during execution ===', e.stack];
+        }
         $window.console.log = vanillaConsole;
       }
 
