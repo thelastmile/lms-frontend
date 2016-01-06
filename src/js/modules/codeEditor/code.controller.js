@@ -14,7 +14,7 @@
       var cc = this;
       var editor = ace.edit("editor_code");
 
-      var editor_code = `console.log('TLM ROCKS'); //KEEP THIS BAD SPACING BELOW!!!
+      var editor_code = `console.log('TLM ROCKS');
 var this_loop = true;
 var counter = 0;
 while (this_loop === true){
@@ -28,14 +28,24 @@ while (this_loop === true){
       editor.setValue(editor_code);
 
       CodeService.get().success(function(data){
+        console.log('data', data);
         $scope.code_list = data;
         // TODO Add check for browser storage variable
       });
 
 
+      cc.console = [];
       cc.run = function($event){
         var code = editor.getValue();
-        return eval(code);
+        var vanillaConsole = $window.console.log.bind(console);
+
+        // Override console.log and spit it into a div named code-output
+        $window.console.log = function () {
+          vanillaConsole(arguments);
+          cc.console = cc.console.concat(Array.prototype.slice.call(arguments));
+        };
+        eval(code);
+        $window.console.log = vanillaConsole;
       }
 
       cc.open = function(){
@@ -81,13 +91,6 @@ while (this_loop === true){
         }
       }
 
-      //override console.log and spit it into a div named code-output
-      $window.console.log = (function (old_function, div_log) {
-          return function (text) {
-              old_function(text);
-              div_log.value += text+'\n';
-          };
-      } ($window.console.log.bind(console), $window.document.getElementById("code-output")));
 
     }
 })();
