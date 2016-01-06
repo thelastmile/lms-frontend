@@ -8,7 +8,7 @@
     angular
         .module('naut')
         .controller('CodeController', CodeController);
-    
+
     CodeController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'CodeService'];
     function CodeController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, CodeService) {
       var cc = this;
@@ -32,7 +32,7 @@ while (this_loop === true){
         // TODO Add check for browser storage variable
       });
 
-      
+
       cc.run = function($event){
         var code = editor.getValue();
         return eval(code);
@@ -82,12 +82,12 @@ while (this_loop === true){
       }
 
       //override console.log and spit it into a div named code-output
-      console.log = (function (old_function, div_log) { 
+      $window.console.log = (function (old_function, div_log) {
           return function (text) {
               old_function(text);
               div_log.value += text+'\n';
           };
-      } (console.log.bind(console), document.getElementById("code-output")));
+      } ($window.console.log.bind(console), $window.document.getElementById("code-output")));
 
     }
 })();
