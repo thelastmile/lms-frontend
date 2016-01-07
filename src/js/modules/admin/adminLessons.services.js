@@ -73,7 +73,7 @@
     .service('AdminLessonContents', ['customUrl', '$http', 'Upload', function(customUrl, $http, Upload){
         var lessons = {};
 
-        lessons.post = function(data){
+        lessons.post = function(data){                
             return $http.post(customUrl.url + '/api/binarycontent/', data);
         };
 

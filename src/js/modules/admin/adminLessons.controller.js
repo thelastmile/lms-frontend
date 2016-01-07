@@ -97,7 +97,7 @@
         $scope.courses.splice(index, 1);
       }
 
-      vm.removeLessonContnet = function(item,index){
+      vm.removeLessonContent = function(item,index){
         AdminLessonContents.delete_single(item.id);
         $scope.lessoncontents.splice(index, 1);
       }
@@ -145,10 +145,17 @@
               clickToClose: true,
             });
         });
-
       }
 
       vm.LFILEsave = function () {
+        if (typeof data.module == "undefined"){
+          return {error: "error"};
+        }
+
+        if (data.module == 'g'){
+          delete data.module;
+          data.is_global = true;
+        }
         AdminLessonContents.post_file(vm.lessonContents)
         .then(function (resp) {
             vm.selectedLessonContent = resp.data;
