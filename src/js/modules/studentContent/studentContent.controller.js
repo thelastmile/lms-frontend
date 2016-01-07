@@ -22,7 +22,7 @@
 
       if (typeof $rootScope.currentContentType == 'undefined'){
         if ($stateParams.lesson){
-          $rootScope.currentContentType=$stateParams.lesson; 
+          $rootScope.currentContentType = 9;
         } else {
           $rootScope.currentContentType=1;
         }
@@ -57,7 +57,7 @@
           sources: []
         }
       ];
- 
+
       scc.config = {
         autoHide: false,
         autoHideTime: 3000,

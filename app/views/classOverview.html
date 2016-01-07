@@ -1,47 +1,30 @@
-   <div class="panel" ng-controller="ViewStudentsController as VSCont">
-      <div class="panel-body">
-         <div class="col-lg-12 fw-boxed">
-         <!-- START dashboard content-->
-            <tabset>
-               <tab heading="Attendance">
-                  <div ng-controller="FlotChartController as flot" class="container-fluid">
-                     <!-- START row-->
-                     <div class="row">
-                        <div class="col-md-12">
-                           <div class="panel panel-default">
-                              <div class="panel-heading">
-                                 <div class="panel-title">
-                                    <h4>Attendance
-                                       <small>Today</small>
-                                    </h4>
-                                 </div>
-                              </div>
-                              <div class="panel-body">
-                                 <div class="indicator show">
-                                    <span class="spinner"></span>
-                                 </div>
-                                 <flot src="VSCont.attendanceDataUrl" options="flot.chartBarStackedFlotChart"></flot>
-                              </div>
-                           </div>
-                        </div>
+<div class="app-view-header">Class Overview
+   <small ng-bind="app.name + ' - ' + app.description"></small>
+</div>
+<div ng-controller="ViewStudentsController as dashboard" class="row">
+   <!-- START dashboard content-->
+   <div ng-controller="FlotChartController as flot" class="container-fluid">
+      <!-- START row-->
+      <div class="col-lg-12 fw-boxed">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <div class="panel-title">
+                        <h4>Attendance
+                           <small>Today</small>
+                        </h4>
                      </div>
                   </div>
-               </tab>
-               <tab heading="Tests">
-                  <div class="panel panel-default">
-                        <div class="panel-heading">
-                           <div class="panel-title">Test Scores</div>
-                        </div>
-                        <div class="panel-body">
-                           <div class="row">
-                              <div class="col-lg-12" ng-controller="FlotChartController as flot">
-                                 <flot src="'http://127.0.0.1:3000/server/chart/line.json'" options="flot.chartLineFlotChart" series="{lines: flot.lineSeriesLines, points: flot.lineSeriesPoints}"></flot>
-                              </div>
-                           </div>
-                        </div>
+                  <div class="panel-body">
+                     <div class="indicator show">
+                        <span class="spinner"></span>
                      </div>
-               </tab>
-            </tabset>
+                     <flot src="'api/attendancegraphdaily/'" options="flot.chartBarStackedFlotChart"></flot>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
    </div>
+</div>
