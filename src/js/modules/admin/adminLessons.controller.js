@@ -147,13 +147,20 @@
         });
       }
 
-      vm.LFILEsave = function (data) {
+      vm.LFILEsave = function () {
+        console.log(vm.lessonContents);
+
+        
         if (typeof vm.lessonContents.module == "undefined"){
+
           return {error: "error"};
         } else if (vm.lessonContents.module == 'g'){
+          console.log('e');
           vm.lessonContents.is_global = true;
+          var lc_module_copy = vm.lessonContents.module;
           delete vm.lessonContents.module;
         }
+
         AdminLessonContents.post_file(vm.lessonContents)
         .then(function (resp) {
             vm.selectedLessonContent = resp.data;
@@ -167,6 +174,7 @@
               clickToClose: true,
             });
         }, function (resp) {
+            if (lc_module_copy) { vm.lessonContents.module = lc_module_copy; }
             toasty.error({
               title: 'Error',
               msg: 'Please ensure you\'ve filled out all fields',
