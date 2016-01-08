@@ -9,9 +9,14 @@
         .module('naut')
         .controller('EditHomePageController', EditHomePageController);
     
-    EditHomePageController.$inject = ['$scope'];
-    function EditHomePageController($scope) {
+    EditHomePageController.$inject = ['$scope','HomeContentService'];
+    function EditHomePageController($scope, HomeContentService) {
       var ehc = this;
+      HomeContentService.get().success(function(data){
+        $scope.homeContent = data[0];
+        console.log($scope.homeContent);
+      });
+
       $scope.tinymceOptions = {
         onChange: function(e) {
           console.log('af');
