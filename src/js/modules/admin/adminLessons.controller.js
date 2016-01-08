@@ -147,14 +147,12 @@
         });
       }
 
-      vm.LFILEsave = function () {
-        if (typeof data.module == "undefined"){
+      vm.LFILEsave = function (data) {
+        if (typeof vm.lessonContents.module == "undefined"){
           return {error: "error"};
-        }
-
-        if (data.module == 'g'){
-          delete data.module;
-          data.is_global = true;
+        } else if (vm.lessonContents.module == 'g'){
+          vm.lessonContents.is_global = true;
+          delete vm.lessonContents.module;
         }
         AdminLessonContents.post_file(vm.lessonContents)
         .then(function (resp) {
