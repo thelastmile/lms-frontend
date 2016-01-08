@@ -31,8 +31,8 @@
                         </select>
                         <br>
                         <select name="ALC.lessonContents.module" ng-model="ALC.lessonContents.module" class="form-control">
-                           <option value="">--- Select Module ---</option>
-                           <option value="g" ng-selected="module==g">* Global Content *</option>
+                           <option selected="selected" value="">--- Select Module ---</option>
+                           <option value="g">* Global Content *</option>
                            <option ng-repeat="ls in lessons" value="{{ls.id}}">{{ls.name}}</option>
                         </select>
                         <br>
