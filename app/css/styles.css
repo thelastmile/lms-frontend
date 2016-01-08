@@ -464,9 +464,13 @@ body {
     margin-left: 240px;
   }
 }
+.edit-home-page {
+  height: 60vh;
+}
 .app {
   padding: 15px;
-  padding-bottom: 80px;
+  /*padding-bottom: @footer-hg + 20; // ensure a space for the footer*/
+  padding-bottom: 0px;
   width: 100%;
 }
 .app .container,

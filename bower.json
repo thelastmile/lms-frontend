@@ -22,6 +22,7 @@
     "angular-route": "1.4.6",
     "angular-bootstrap": "0.14.3",
     "angular-cookies": "1.4.6",
+    "angular-ui-tinymce": "latest",
     "angular-translate-loader-url": "2.8.0",
     "angular-translate-loader-static-files": "2.8.0",
     "angular-translate-storage-local": "2.8.0",

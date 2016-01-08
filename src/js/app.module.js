@@ -19,6 +19,7 @@ angular
     'ui.bootstrap',
     'ui.router',
     'ui.utils',
+    'ui.tinymce',
     'oc.lazyLoad',
     'cfp.loadingBar',
     'tmh.dynamicLocale',
