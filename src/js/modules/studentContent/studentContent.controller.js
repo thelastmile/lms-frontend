@@ -9,9 +9,13 @@
         .module('naut')
         .controller('StudentContentController', StudentContentController);
     
-    StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService', 'HomeContentService', '$sce', '$stateParams'];
-    function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, HomeContentService, $sce, $stateParams) {
+    StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService', 'HomeContentService', '$sce', '$stateParams','AdminCustomContentType'];
+    function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, HomeContentService, $sce, $stateParams, AdminCustomContentType) {
       var scc = this;
+
+      AdminCustomContentType.get().success(function(data){
+        $scope.customcontenttypes = data;
+      });
 
       if (typeof $scope.content == 'undefined' && typeof $scope.lesson == 'undefined'){
         $rootScope.currentModule = 0;
