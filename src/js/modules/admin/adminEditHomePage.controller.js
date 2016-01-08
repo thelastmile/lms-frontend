@@ -9,13 +9,23 @@
         .module('naut')
         .controller('EditHomePageController', EditHomePageController);
     
-    EditHomePageController.$inject = ['$scope','HomeContentService'];
-    function EditHomePageController($scope, HomeContentService) {
+    EditHomePageController.$inject = ['$scope','HomeContentService', 'toasty'];
+    function EditHomePageController($scope, HomeContentService, toasty) {
       var ehc = this;
       HomeContentService.get().success(function(data){
         $scope.homeContent = data[0];
-        console.log($scope.homeContent);
       });
+
+      ehc.saveHomePage = function(){
+        HomeContentService.put($scope.homeContent).success(function(data){
+          toasty.success({
+            title: 'Saved',
+            msg: 'Home page content updated.',
+            sound: false,
+            clickToClose: true,
+          });
+        });
+      }
 
       $scope.tinymceOptions = {
         onChange: function(e) {

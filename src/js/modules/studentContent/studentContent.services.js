@@ -15,9 +15,16 @@
     .service('HomeContentService', ['customUrl', '$http', function(customUrl, $http){
         var homeContent = {};
 
-        // find 1 lesson
         homeContent.get = function(pk){
             return $http.get(customUrl.url + '/api/setting/?name=HomeContent');
+        };
+
+        homeContent.put = function(data){
+            return $http.put(customUrl.url + '/api/setting/'+data.id+'/', data);
+        };
+
+        homeContent.post = function(data){
+            return $http.post(customUrl.url + '/api/setting/', data);
         };
         
         return homeContent;
