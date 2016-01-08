@@ -18,7 +18,7 @@
       editor.renderer.setScrollMargin(10, 10);
       editor.setOptions({
           // "scrollPastEnd": 0.8,
-          autoScrollEditorIntoView: true
+          autoScrollEditorIntoView: true,
       });
 
       var editor_tests = ace.edit("editor_tests");

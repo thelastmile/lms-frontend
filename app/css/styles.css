@@ -5748,7 +5748,6 @@ hr {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 60%;
   width: 100%;
 }
 #editor_tests {
@@ -5757,22 +5756,28 @@ hr {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 30%;
+  min-height: 200px;
   width: 100%;
 }
 #code-output {
-  height: 75vh;
+  height: 10vh;
   width: 100%;
 }
+.console {
+  height: 10vh;
+}
 .code-time {
-  height: 75vh;
+  height: 500px;
+}
+.instruction-panel {
+  min-height: 82vh;
 }
 .ace_editor {
   position: relative !important;
   border: 1px solid lightgray;
   margin: auto;
-  height: 200px;
   width: 80%;
+  height: 500px;
 }
 .ace_editor.fullScreen {
   height: auto;
