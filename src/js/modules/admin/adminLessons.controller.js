@@ -97,7 +97,7 @@
         $scope.courses.splice(index, 1);
       }
 
-      vm.removeLessonContnet = function(item,index){
+      vm.removeLessonContent = function(item,index){
         AdminLessonContents.delete_single(item.id);
         $scope.lessoncontents.splice(index, 1);
       }
@@ -145,10 +145,15 @@
               clickToClose: true,
             });
         });
-
       }
 
-      vm.LFILEsave = function () {
+      vm.LFILEsave = function (data) {
+        if (typeof vm.lessonContents.module == "undefined"){
+          return {error: "error"};
+        } else if (vm.lessonContents.module == 'g'){
+          vm.lessonContents.is_global = true;
+          delete vm.lessonContents.module;
+        }
         AdminLessonContents.post_file(vm.lessonContents)
         .then(function (resp) {
             vm.selectedLessonContent = resp.data;

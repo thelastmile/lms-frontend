@@ -124,7 +124,7 @@
                         <em class="fa fa-check"></em>Save Code</label>
                   </div> &nbsp; -->
 
-                  <div uib-dropdown="dropdown" class="btn-group mb mr dropdown pull-right" style="">
+                  <div uib-dropdown="dropdown" class="btn-group mb mr dropdown pull-right">
                      <button type="button" class="btn btn-default btn-sm" ripple="" ng-click="CODE.enterfilename=false;CODE.save(CODE.current_code);CODE.saveclass='btn btn-success btn-sm';" ng-class="CODE.saveclass">Save Code</button>
                      <button type="button" uib-dropdown-toggle="" ripple="" class="btn dropdown-toggle btn-default btn-sm" ng-class="CODE.saveclass" aria-haspopup="true" aria-expanded="false">
                         <span class="caret"></span>
@@ -144,30 +144,17 @@
                   </div>
                   <input ng-model="CODE.current_code.name" id="input-id-1" type="text" class="form-control pull-right input-sm" style="width: 25%; margin-right: 1em;" placeholder="Create New Name">&nbsp;
                   <h2>Tests</h2>
-                  <pre id="editor_tests">function some_test() { return true; }
+                  <pre id="editor_tests">
                   </pre>
                </div>
             </div>
             <div class="col-sm-4">
                <h2>Console Output</h2>
-               <textarea id="code-output"></textarea>
+               <textarea disabled id="code-output" ng-model="CODE.console" ng-list="&#10;"></textarea>
+               <h2>Test Output</h2>
+               <div id="jasmine-out"></div>
             </div>
          </div>
-         <script>
-            var editor_code = ace.edit("editor_code");
-            editor_code.setTheme("ace/theme/twilight");
-            editor_code.session.setMode("ace/mode/javascript");
-            editor_code.renderer.setScrollMargin(10, 10);
-            editor_code.setOptions({
-                // "scrollPastEnd": 0.8,
-                autoScrollEditorIntoView: true
-            });
-
-             var editor_tests = ace.edit("editor_tests");
-             editor_tests.setTheme("ace/theme/twilight");
-             editor_tests.session.setMode("ace/mode/javascript");
-         </script>
-
       </div>
    </div>
 
