@@ -78,6 +78,15 @@
           }
         })
 
+        .state('app.edithomepage', {
+          url: '/edithomepage',
+          authenticate: true,
+          templateUrl: Route.base('adminEditHomePage.html'),
+          resolve: {
+            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart', 'blueimp-gallery')
+          }
+        })
+
         .state('app.notes', {
           url: '/notes',
           authenticate: true,
