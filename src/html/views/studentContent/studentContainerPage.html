@@ -115,6 +115,13 @@
 
       <div ng-show="currentContentType==9" ng-controller="CodeController as CODE">
          <div class="row">
+            <div class="col-xs-12">
+               <select>
+                   <option ng-repeat="jc in jsonCode" value="{{jc.id}}">
+                     {{jc.title}}
+                   </option>
+               </select>
+            </div>
             <div class="col-sm-4">
                   <b>Instructions</b>
                   <div class="panel instruction-panel">

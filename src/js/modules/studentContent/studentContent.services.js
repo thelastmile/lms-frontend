@@ -30,5 +30,20 @@
         return homeContent;
     }])
 
+    .service('JSONCode', ['customUrl', '$http', function(customUrl, $http){
+        var jc = {};
+
+
+        jc.get = function(){
+            return $http.get(customUrl.url + '/api/jsoncode/')
+        };
+
+        jc.get_single = function(pk){
+            return $http.get(customUrl.url + '/api/jsoncode/' + pk + '/');
+        };
+        
+        return jc;
+    }])
+
   }
 )();

@@ -9,8 +9,8 @@
         .module('naut')
         .controller('CodeController', CodeController);
 
-    CodeController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'CodeService', '$stateParams'];
-    function CodeController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, CodeService, $stateParams) {
+    CodeController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'CodeService', '$stateParams', 'JSONCode'];
+    function CodeController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, CodeService, $stateParams, JSONCode) {
       var cc = this;
       var editor = ace.edit("editor_code");
       editor.setTheme("ace/theme/twilight");
@@ -33,6 +33,11 @@
         editor_tests.setValue(data.tests);
 
         // TODO Add check for browser storage variable
+      });
+
+
+      JSONCode.get().success(function(data){
+        $scope.jsonCode = data;
       });
 
 
