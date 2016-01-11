@@ -119,6 +119,11 @@
             }
 
         };
+
+                // find lessons by content type
+        lessons.get_ultralite = function(){
+            return $http.get(customUrl.url + '/api/binarycontentultralite/');
+        };
         
         return lessons;
     }])

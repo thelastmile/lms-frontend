@@ -24,10 +24,14 @@
         $scope.customcontenttypes = data;
       });
 
-      AdminLessonContents.get().success(function(data){
+      AdminLessonContents.get_ultralite().success(function(data){
         $scope.lessoncontents = data;
-        console.log($scope.lessoncontents);
       });
+
+      // AdminLessonContents.get().success(function(data){
+      //   $scope.lessoncontents = data;
+      //   console.log($scope.lessoncontents);
+      // });
 
       vm.editMode = function(){
         vm.lesson = {};
