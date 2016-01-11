@@ -41,7 +41,7 @@
       }
 
       scc.API = null;
-
+      
       scc.getModule = function(){
         return $rootScope.currentModule;
       }

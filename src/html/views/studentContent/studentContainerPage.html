@@ -116,18 +116,22 @@
       <div ng-show="currentContentType==9" ng-controller="CodeController as CODE">
          <div class="row">
             <div class="col-xs-12">
-               <select>
+               <select ng-change="CODE.getChallenges()" ng-model="CODE.problem">
+                   <option value="">Select Problem</option>
                    <option ng-repeat="jc in jsonCode" value="{{jc.id}}">
                      {{jc.title}}
                    </option>
+               </select>
+               <select ng-show="CODE.problem" ng-model="CODE.challenge"
+
+               ng-options="jcc as jcc.title for jcc in jsonCodeChallenges track by jcc.id" ng-change="CODE.loadCode()" >
                </select>
             </div>
             <div class="col-sm-4">
                   <b>Instructions</b>
                   <div class="panel instruction-panel">
-                     <div class="panel-body">
-                     Content
-                     </div>
+                     <p class="panel-body" ng-bind-html="CODE.challenge.description">
+                     </p>
                   </div>
 
                   <div class="instructions hidden">

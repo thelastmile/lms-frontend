@@ -21,6 +21,17 @@
           autoScrollEditorIntoView: true,
       });
 
+      cc.loadCode = function () {
+        console.log(cc.challenge.challengeSeed);
+        editor.setValue(cc.challenge.challengeSeed.join("\r"), -1);
+      }
+
+
+      cc.getChallenges = function (){
+        $scope.jsonCodeChallenges = $scope.jsonCode[cc.problem].json["challenges"];
+        console.log($scope.jsonCodeChallenges);
+      }
+
       var editor_tests = ace.edit("editor_tests");
       editor_tests.setTheme("ace/theme/twilight");
       editor_tests.session.setMode("ace/mode/javascript");
