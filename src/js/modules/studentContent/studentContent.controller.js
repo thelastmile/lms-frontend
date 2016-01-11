@@ -97,7 +97,7 @@
 
       $rootScope.iframeActive = false;
       scc.getFullURL = function(){
-        if (!scc.projUrl) {return false;}
+        if (!scc.projUrl) {return "";}
         console.log($sce.getTrustedResourceUrl($rootScope.url+scc.projUrl));
         return $sce.getTrustedResourceUrl($rootScope.url+scc.projUrl);
       }

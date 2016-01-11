@@ -15,7 +15,7 @@
             <h1>Lessons</h1>
             <div ng-repeat="content in content_by_type" class="panel">
                <div class="panel-body">
-                  <a href="" ng-click="$root.iframeActive=true;SCC.projUrl=content.index_file; app.sidebar.isOffscreen = !app.sidebar.isOffscreen;">
+                  <a href="" ng-click="$root.iframeActive=true;SCC.projUrl=content.index_file; app.sidebar.isOffscreen = true;">
                      <h4>{{ content.name }}</h4>
                      <p>{{ content.description }}</p>
                   </a>
