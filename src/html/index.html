@@ -14,6 +14,8 @@
    <link rel="stylesheet" href="app/css/bootstrap.css">
    <link rel="stylesheet" href="app/css/styles.css">
    <link rel="stylesheet" href="vendor/angular-toasty/dist/angular-toasty.min.css"/>
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/jasmine/1.3.1/jasmine.css"/>
    <!-- endbuild-->
 </head>
 
@@ -177,6 +179,28 @@
    <script src="src/js/modules/codeEditor/code.controller.js"></script>
    <script src="src/js/modules/codeEditor/code.services.js"></script>
    <script src="src/js/vendor/ace/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+
+   <script src="https://cdn.jsdelivr.net/jasmine/1.3.1/jasmine.js"></script>
+   <script src="https://cdn.jsdelivr.net/jasmine/1.3.1/jasmine-html.js"></script>
+<div id="jasmine-out"></div>
+   <script>
+      // load jasmine htmlReporter
+(function() {
+   var jasmineEnv = jasmine.getEnv();
+   var htmlReporter = new jasmine.HtmlReporter(null, document.getElementById("jasmine-out"));
+  jasmineEnv.updateInterval = 1000;
+jasmineEnv.addReporter(htmlReporter);
+jasmineEnv.specFilter = function(spec) {
+    return htmlReporter.specFilter(spec);
+};
+window.onload = function() {
+    jasmineEnv.execute();
+}
+  // var env = jasmine.getEnv();
+  // env.addReporter(new jasmine.HtmlReporter());
+  // env.execute();
+}());
+   </script>
    <!-- endbuild-->
    <toasty></toasty>
 </body>

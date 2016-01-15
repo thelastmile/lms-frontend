@@ -13,7 +13,8 @@
    // Allow same origin resource loads.
    'self',
    // Allow loading from our assets domain.  Notice the difference between * and **.
-   'http://127.0.0.1:8000/**']);
+   'http://127.0.0.1:8000/**',
+   'https://s3-us-west-2.amazonaws.com/**',]);
  })
     .run(function($templateCache,$http, $rootScope, $state, UserService){
             $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){

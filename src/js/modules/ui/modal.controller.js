@@ -31,6 +31,16 @@
         */
       };
 
+      vm.open_code = function (size) {
+
+        var modalInstance = $modal.open({
+          templateUrl: 'app/views/modal-code.html',
+          animation: false,
+          controller: ModalInstanceCtrl,
+          size: size
+        });
+      };
+
       // Please note that $modalInstance represents a modal window (instance) dependency.
       // It is not the same as the $modal service used above.
 
