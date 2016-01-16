@@ -14,7 +14,9 @@
    'self',
    // Allow loading from our assets domain.  Notice the difference between * and **.
    'http://127.0.0.1:8000/**',
-   'https://s3-us-west-2.amazonaws.com/**',]);
+   'https://s3-us-west-2.amazonaws.com/**',
+   'http://lms-backend-dev.elasticbeanstalk.com/**',
+   'http://tlm-lms-backend.elasticbeanstalk.com/**']);
  })
     .run(function($templateCache,$http, $rootScope, $state, UserService){
             $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
@@ -27,12 +29,11 @@
     })
 
     .factory('customUrl', function(){
-        //"url": "http://esystapi-env.elasticbeanstalk.com",
         if (document.location.hostname == "localhost" || document.location.hostname == "127.0.0.1"){
             console.log("In Local DEV");
             return {"url": "http://127.0.0.1:8000"}
         } else {
-            return {"url": "http://lms-backend-dev.elasticbeanstalk.com"}
+            return {"url": "http://tlm-lms-backend.elasticbeanstalk.com"}
         }
     })
 
