@@ -124,6 +124,11 @@
         lessons.get_ultralite = function(){
             return $http.get(customUrl.url + '/api/binarycontentultralite/');
         };
+
+                // delete 1 course
+        lessons.delete_single = function(pk){
+            return $http.delete(customUrl.url + '/api/binarycontent/' + pk + '/');
+        };
         
         return lessons;
     }])
