@@ -4,8 +4,12 @@
       <div class="sidebar-nav" ng-controller="DashboardController as dashboard">
          <ul class="nav" ng-if="isAdmin() || isSuperAdmin()">
             <!-- Iterates over all sidebar items-->
-            <li class="nav-heading">
-               <span translate="sidebar.heading.HEADER" class="text-muted">Lesson Navigation</span>
+
+            <li class="nav-heading" ng-if="isAdmin() && !isSuperAdmin()">
+               <span class="text-muted">Faculty Menu</span>
+            </li>
+            <li class="nav-heading" ng-if="isSuperAdmin()">
+               <span class="text-muted">Admin Menu</span>
             </li>
             <li ui-sref-active="active">
                <a ui-sref="app.classoverview" title="Overview" ripple="">
@@ -88,7 +92,7 @@
          <ul class="nav" ng-if="isStudent()" ng-controller="StudentMenuController as SMC" >
             <!-- Iterates over all sidebar items-->
             <li class="nav-heading">
-               <span translate="sidebar.heading.HEADER" class="text-muted">Main Navigation</span>
+               <span class="text-muted">Learning Modules</span>
             </li>
             
             <li ui-sref-active="active" ng-repeat="mc in moduleMenuContent">
