@@ -30,7 +30,7 @@
 
       $rootScope.user = angular.fromJson($window.sessionStorage.getItem("user"));
 
-      $rootScope.url = customUrl.url;
+      $rootScope.mediaUrl = "https://lms-backend-static-dev.s3.amazonaws.com";
     }
     
 

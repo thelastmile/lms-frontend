@@ -3,8 +3,8 @@
       <div ng-if="!$root.selectedStudent" class="container container-lg p-lg">
          <div class="media mt-lg">
             <div class="media-left media-middle">
-               <a href="{{url}}/media/{{user.profile_image}}" data-gallery="">
-                  <img src="{{url}}/media/{{user.profile_image}}" class="img-circle profile-image-circle" />
+               <a href="{{mediaUrl}}/{{user.profile_image}}" data-gallery="">
+                  <img src="{{mediaUrl}}/{{user.profile_image}}" class="img-circle profile-image-circle" />
                </a>
             </div>
             <div class="media-body text-white">
@@ -44,8 +44,8 @@
       <div ng-if="$root.selectedStudent" class="container container-lg p-lg">
          <div class="media mt-lg">
             <div class="media-left media-middle">
-               <a href="{{url}}/media/{{$root.selectedStudent.profile_image}}" data-gallery="">
-                  <img src="{{url}}/media/{{$root.selectedStudent.profile_image}}" class="img-circle profile-image-circle" />
+               <a href="{{mediaUrl}}{{$root.selectedStudent.profile_image}}" data-gallery="">
+                  <img src="{{mediaUrl}}{{$root.selectedStudent.profile_image}}" class="img-circle profile-image-circle" />
                </a>
             </div>
             <div class="media-body text-white">

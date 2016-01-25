@@ -83,9 +83,9 @@
         scc.current_video = current_video;
         scc.API.stop();
         scc.API.clearMedia();
-        var tmp_source = [{src: $sce.trustAsResourceUrl($rootScope.url+current_video.file_url), type: "video/mp4"}];
+        var tmp_source = [{src: $sce.trustAsResourceUrl(current_video.file_url), type: "video/mp4"}];
         var tmp_poster = {
-          poster: "http://127.0.0.1:3000/app/img/1x1.png"
+          poster: "/app/img/1x1.png"
         };
         
         scc.config.plugins = tmp_poster;

@@ -13,7 +13,7 @@
     function StudentMenuController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, StudentGetModuleContents, AdminLessonContents) {
       var smc = this;
 
-      StudentMenuService.get().success(function(data){
+      StudentMenuService.get($rootScope.user.course_id).success(function(data){
         $rootScope.moduleMenuContent = data;
         // TODO Add check for browser storage variable
         if (!smc.currentModule){

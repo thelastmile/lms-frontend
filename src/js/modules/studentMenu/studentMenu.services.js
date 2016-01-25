@@ -15,8 +15,8 @@
     .service('StudentMenuService', ['customUrl', '$http', function(customUrl, $http){
         var menu = {};
         // list of lessons
-        menu.get = function(){
-            return $http.get(customUrl.url + '/api/module/')
+        menu.get = function(course){
+            return $http.get(customUrl.url + '/api/module/?course='+ course)
         };
 
         // find 1 lesson
