@@ -42,9 +42,12 @@
           url: '/lessons',
           authenticate: true,
           templateUrl: Route.base('studentContent/lessons.html'),
-          resolve: {
-            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
-          }
+        })
+
+        .state('app.code', {
+          url: '/code',
+          authenticate: true,
+          templateUrl: Route.base('studentContent/code.html'),
         })
 
         .state('app.adminLessons', {
