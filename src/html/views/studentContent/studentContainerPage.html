@@ -9,21 +9,6 @@
          </div>
       </div>
 
-
-      <div ng-show="lesson==1 || (!lesson && content)">
-         <div ng-show="!SCC.currentContent && !$root.iframeActive">  
-            <h1>Lessons</h1>
-            <div ng-repeat="content in content_by_type" class="panel">
-               <div class="panel-body">
-                  <a href="" ng-click="$root.iframeActive=true;SCC.projUrl=content.index_file; app.sidebar.isOffscreen=true;">
-                     <h4>{{ content.name }}</h4>
-                     <p>{{ content.description }}</p>
-                  </a>
-               </div>
-            </div>
-         </div>
-      </div>
-
       <div ng-show="$root.iframeActive" id="root">
          <iframe ng-show="SCC.projUrl" ng-src="{{SCC.getFullURL()}}" class="lesson-frame" frameborder="0">
             <p>Your browser does not support iframes.</p>

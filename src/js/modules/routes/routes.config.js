@@ -38,6 +38,15 @@
           }
         })
 
+        .state('app.lessons', {
+          url: '/lessons',
+          authenticate: true,
+          templateUrl: Route.base('studentContent/lessons.html'),
+          resolve: {
+            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
+          }
+        })
+
         .state('app.adminLessons', {
           url: '/admin/lessons',
           authenticate: true,
