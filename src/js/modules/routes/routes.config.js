@@ -50,6 +50,18 @@
           templateUrl: Route.base('studentContent/code.html'),
         })
 
+        .state('app.video', {
+          url: '/video',
+          authenticate: true,
+          templateUrl: Route.base('studentContent/video.html'),
+        })
+
+        .state('app.resources', {
+          url: '/resources',
+          authenticate: true,
+          templateUrl: Route.base('studentContent/resources.html'),
+        })
+
         .state('app.adminLessons', {
           url: '/admin/lessons',
           authenticate: true,

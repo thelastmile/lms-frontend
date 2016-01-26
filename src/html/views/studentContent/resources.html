@@ -1,0 +1,30 @@
+<div ng-controller="StudentContentController as SCC" class="row testclass">
+   <div class="col-lg-12 fw-boxed">
+         <div class="col-xs-12">
+         <h1>Resources</h1>
+
+         <div ng-repeat="ct in customcontenttypes| orderBy:'name': reverse" class="panel">
+            <div class="panel-body">
+               <h2>{{ct.name}}</h2>
+               <div ng-repeat="content in content_by_type | filter: {content_type: ct.id}">
+                  <div class="col-sm-3">
+                     <div class="alert alert-info">
+                     <b>{{ content.name }}</b>
+                     <p>{{ content.description }}&nbsp;&nbsp;
+                     <br>
+                        <span ng-if="!content.index_file">
+                           <a class="btn btn-primary btn-xs" href="{{ content.file }}">View File</a>
+                        </span>
+                        <span ng-if="content.index_file">
+                           <a class="btn btn-primary btn-xs" href="{{ content.index_file }}">View</a>
+                        </span>
+                     </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </div>
+</div>
