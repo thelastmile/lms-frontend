@@ -70,7 +70,7 @@
         return courses;
     }])
 
-    .service('AdminLessonContents', ['customUrl', '$http', 'Upload', function(customUrl, $http, Upload){
+    .service('AdminLessonContents', ['customUrl', '$http', 'Upload', '$stateParams', function(customUrl, $http, Upload, $stateParams){
         var lessons = {};
 
         lessons.post = function(data){                
@@ -102,6 +102,7 @@
 
         // find lessons by content type
         lessons.get_by_content_type = function(content_pk,module_pk){
+
             if (!content_pk){
                 console.log('no content');
             } else {
@@ -114,9 +115,7 @@
                 // TODO: Set the current module in session
             }
 
-            if (module_pk && content_pk){
-                return $http.get(customUrl.url + '/api/binarycontentlite/?content_type=' + content_pk +'&module=' + module_pk);
-            }
+            return $http.get(customUrl.url + '/api/binarycontentlite/?content_type=' + $stateParams.content +'&module=' + $stateParams.lesson);
 
         };
 
