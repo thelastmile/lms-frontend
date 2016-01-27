@@ -96,7 +96,7 @@
             </li>
             
             <li ui-sref-active="active" ng-repeat="mc in moduleMenuContent">
-               <a ripple="" ui-sref="{{currentState.name}}({module: {{mc.id}}})">
+               <a ripple="" href="/#/app{{currentState.url}}?module={{mc.id}}">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>{{ mc.name }}</span>
                </a>
