@@ -101,11 +101,12 @@
         };
 
         // find lessons by content type
-        lessons.get_by_content_type = function(content_pk,module_pk){
+        lessons.get_by_content_type = function(content_type,module_pk){
 
-            if (!content_pk){
+            if (!content_type){
                 console.log('no content');
             } else {
+                console.log(content_type);
                 // TODO: Set the current content in session
             }
 
@@ -115,7 +116,7 @@
                 // TODO: Set the current module in session
             }
 
-            return $http.get(customUrl.url + '/api/binarycontentlite/?content_type=' + $stateParams.content +'&module=' + $stateParams.lesson);
+            return $http.get(customUrl.url + '/api/binarycontentlite/?content_type=' + content_type +'&module=' + $stateParams.module);
 
         };
 

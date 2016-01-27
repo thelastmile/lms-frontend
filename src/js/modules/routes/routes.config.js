@@ -51,8 +51,8 @@
           }
         })
 
-        .state('app.lessons', {
-          url: '/lessons',
+        .state('app.lesson', {
+          url: '/lesson',
           authenticate: true,
           templateUrl: Route.base('studentContent/lessons.html'),
         })

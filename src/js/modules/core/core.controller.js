@@ -36,6 +36,7 @@
       $rootScope.$on('$stateChangeSuccess', 
       function(event, toState, toParams, fromState, fromParams){ 
           console.log(toState.url);
+          console.log(toState);
           console.log(toParams);
           console.log($location.url());
           AccessLogService.post({path:$location.url(),user:$rootScope.user.id}).success(function(data){
