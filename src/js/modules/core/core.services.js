@@ -16,7 +16,7 @@
         var AccessLog = {};
 
         AccessLog.get = function(pk){
-            return $http.get(customUrl.url + '/api/accesslog/' + pk + '/');
+            return $http.get(customUrl.url + '/api/accesslog/?user=' + pk + '/');
         };
 
         AccessLog.post = function(data){

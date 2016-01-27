@@ -35,15 +35,16 @@
       // Log all state changes, simply comment out to turn off
       $rootScope.$on('$stateChangeSuccess', 
       function(event, toState, toParams, fromState, fromParams){ 
-          console.log(toState.url);
-          console.log(toState);
-          console.log(toParams);
-          console.log($location.url());
-          AccessLogService.post({path:$location.url(),user:$rootScope.user.id}).success(function(data){
+          var location = $location.url();
+          console.log(location.indexOf("login"));
+          if ($rootScope.user && location.indexOf("login") == -1) {
+            AccessLogService.post({path:location,user:$rootScope.user.id}).success(function(data){
             console.log('logged');
           }).error(function (error){
             console.log('error, not logging!');
           });
+          }
+          
       })
     }
     

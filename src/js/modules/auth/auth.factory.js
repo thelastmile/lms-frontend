@@ -10,7 +10,7 @@
         //==============================================
         // LOGIN FACTORY
         //==============================================
-        .factory('UserService', ['$http', '$state', 'registerService', 'customUrl', '$window','toasty', 'UserService_','$rootScope', function($http, $state, registerService, customUrl, $window, toasty, UserService_, $rootScope ){
+        .factory('UserService', ['$http', '$state', 'registerService', 'customUrl', '$window','toasty', 'UserService_','$rootScope', 'AccessLogService', function($http, $state, registerService, customUrl, $window, toasty, UserService_, $rootScope, AccessLogService ){
             var factory = {};
             factory.login = function(username, password){
                 $http.post(customUrl.url + "/api-token-auth/", {username: username, password: password})
@@ -84,7 +84,14 @@
                         } else if (user.groups[group].name==='Student' || user.groups[group].name==='Inmate') {
                           console.log('is Student');
                           $window.sessionStorage.setItem("userPermissions","student");
-                          $state.go("app.home");
+
+                          AccessLogService.get($rootScope.user.id).success(function(data){
+                            console.log(data[0].path);
+                            $window.location = "#"+data[0].path;
+                          }).error(function (error){
+                            console.log('error previous page log not found for user');
+                            $state.go("app.home");
+                          });
                         }
                       } 
 
