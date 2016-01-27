@@ -13,6 +13,8 @@
     function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, HomeContentService, $sce, $stateParams, AdminCustomContentType) {
       var scc = this;
 
+      console.log($stateParams);
+
       AdminCustomContentType.get().success(function(data){
         $scope.customcontenttypes = data;
       });

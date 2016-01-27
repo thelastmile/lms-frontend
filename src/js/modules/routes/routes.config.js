@@ -21,7 +21,7 @@
       // Application Routes States
       $stateProvider
         .state('app', {
-          url: '/app',
+          url: '/app?module',
           abstract: true,
           templateUrl: Route.base('app.html'),
           resolve: {
@@ -35,6 +35,19 @@
           templateUrl: Route.base('dashboard.html'),
           resolve: {
             assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
+          }
+        })
+
+        .state('app.home', {
+          url: '/home',
+          authenticate: true,
+          templateUrl: Route.base('studentContent/home.html'),
+          resolve: {
+            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
+          },
+          controller: function($stateParams, $scope) {
+                $scope.content = $stateParams.content;
+                $scope.lesson = $stateParams.lesson;
           }
         })
 
@@ -78,19 +91,6 @@
           url: '/admin/modulecontent',
           authenticate: true,
           templateUrl: Route.base('adminModuleContent.html'),
-        })
-
-        .state('app.studentdashboard', {
-          url: '/studentdashboard?content&lesson',
-          authenticate: true,
-          templateUrl: Route.base('studentContent/studentContainerPage.html'),
-          resolve: {
-            assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
-          },
-          controller: function($stateParams, $scope) {
-                $scope.content = $stateParams.content;
-                $scope.lesson = $stateParams.lesson;
-          }
         })
 
         .state('app.viewstudents', {

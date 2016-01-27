@@ -84,7 +84,7 @@
                         } else if (user.groups[group].name==='Student' || user.groups[group].name==='Inmate') {
                           console.log('is Student');
                           $window.sessionStorage.setItem("userPermissions","student");
-                          $state.go("app.studentdashboard");
+                          $state.go("app.home");
                         }
                       } 
 

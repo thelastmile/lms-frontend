@@ -96,7 +96,7 @@
             </li>
 
             <li ui-sref-active="active" ng-repeat="mc in moduleMenuContent">
-               <a ripple="" ui-sref="app.studentdashboard({content: mc.id})" ng-click="$root.iframeActive=false;SMC.currentModule=mc.id;SMC.setCurrentModule();">
+               <a ripple="" ui-sref="app.home({id:mc.id})">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>{{ mc.name }}</span>
                </a>
