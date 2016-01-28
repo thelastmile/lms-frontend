@@ -1,89 +1,77 @@
-<div ng-controller="ViewStudentsController as VSC" class="row">
+<div ng-controller="ViewStudentsController as VSC" class="container">
    <!-- START VSC content-->
-   <div class="col-lg-12 fw-boxed student-list-item" ng-repeat="student in students">
+   <div class="col-xl-12 fw fw-boxed" ng-repeat="student in students">
       <!-- START Tabbed panel-->
       <div ng-init="hpanel = [true, false, false, false]" class="panel panel-default">
          <div class="row">
-            <div class="col-md-4">
-               <div class="row row-flush text-center text-muted m0" ui-sref="app.extras.profile({selectedStudent: student.id})">
-                  <div ripple="" class="col-xs-6 clickable">
-                     <em class="fa fa-2x profile-list">
-                        <a href="{{mediaUrl}}{{student.profile_image}}" data-gallery="">
-                           <img src="{{mediaUrl}}{{student.profile_image}}" class="img-responsive" />
-                        </a>
-                     </em>
-                  </div>
+            <div class="col-md-2">
+               <div class="text-center text-muted clickable" ui-sref="app.extras.profile({selectedStudent: student.id})">
+                  <a href="{{mediaUrl}}{{student.profile_image}}" class="thumbnail nopadding">
+                     <img src="{{mediaUrl}}{{student.profile_image}}" class="" />
+                  </a>
 
-                  <div ripple="" ng-click="" class="col-xs-6 bb br pv-xxl clickable bg-primary">
-                     <h2>{{student.first_name}}
-                        <br>{{student.last_name}}</h2>
-                     <p>Level: {{student.course}}</p>
-                     <!-- <p>Success Rank: {{student.rank}}</p> -->
-                     <p>&nbsp;</p>
-                  </div>
+
                </div>
             </div>
-            <div class="row row-flush m0 text-center">
+            <div class="col-md-2 nopadding">
+               <div ripple="" ng-click="" class="clickable profile-name-container">
+                  <h2>{{student.first_name}}
+                     <br>{{student.last_name}}</h2>
+                  <p>Level: {{student.course}}</p>
+                  <!-- <p>Success Rank: {{student.rank}}</p> -->
+                  <p>&nbsp;</p>
+               </div>
+            </div>
+            <div class="text-center">
                <div class="col-xs-3 col-md-2">
-                  <textarea rows="7" class="form-control note-text-area" placeholder="Add Note"></textarea>
+                  <textarea rows="6" class="form-control note-text-area" placeholder="Add Note"></textarea>
                   <button type="button" class="mr btn btn-md btn-default btn-fw btn-note-save">Save</button>
                </div>
-               <div class="text-center col-xs-3 col-md-3" style="padding: 25px;">
-                  <p class="input-group">
+               <div class="text-center col-xs-3 col-md-2" style="padding: 10px;">
+                  <!-- <p class="input-group">
                      <input type="text" datepicker-popup ng-model="student.dt" is-open="student.datepickerOpen" close-text="Close" init-date="VSC.defaultDate" class="form-control">
                      <span class="input-group-btn">
                         <button type="button" ng-click="VSC.toggleDatepicker($event, student)" class="btn btn-default">
                            <em class="fa fa-calendar"></em>
                         </button>
                      </span>
-                  </p>
+                  </p> -->
                   <h4>{{VSC.today}}</h4>
                   <hr>
                   <p>
                      <div class="checkbox c-checkbox needsclick">
                         <label class="needsclick">
-                           <input type="checkbox" value="" class="needsclick">
-                           <span class="fa fa-check" ng-click="VSC.recordAbsentFull(student)"></span>Absent Full</label>
+                           <input type="radio" class="needsclick" ng-model="student.attendance" ng-change="VSC.recordAttendance(student,false)" ng-value="false">
+                           <span class="fa fa-check"></span>Absent Full</label>
                      </div>
                      <div class="checkbox c-checkbox needsclick">
                         <label class="needsclick">
-                           <input type="checkbox" value="" class="needsclick">
-                           <span class="fa fa-check" ng-click="VSC.recordAbsentPart(student)"></span>Absent Part</label>
+                           <input type="radio" class="needsclick" ng-model="student.attendance" ng-change="VSC.recordAttendance(student,'None')" ng-value="null">
+                           <span class="fa fa-check"></span>Absent Part</label>
+                     </div>
+                     <div class="checkbox c-checkbox needsclick">
+                        <label class="needsclick">
+                           <input type="radio" class="needsclick" ng-model="student.attendance" ng-change="VSC.recordAttendance(student,true)" ng-value="true">
+                           <span class="fa fa-check"></span>Present</label>
                      </div>
                   </p>
                </div>
                <div class="text-center col-xs-3 col-md-3" style="padding-left: 25px;">
                   <h6>Daily Scores</h6>
-                  <select ng-model="opt1" ng-change="VSC.recordTechnicalScore(student)" name="account" class="form-control m-b" style="width:80%;">
+                  <select ng-model="student.tech_score" ng-change="VSC.recordTechnicalScore(student)" name="account" class="form-control m-b" style="width:80%;" ng-options="item.val as item.label for item in VSC.score_options_tech">
                      <option value="">Technical</option>
-                     <option value="Option 1">1</option>
-                     <option value="Option 2">2</option>
-                     <option value="Option 3">3</option>
-                     <option value="Option 4">4</option>
-                     <option value="Option 5">5</option>
                   </select>
-                  <select ng-model="opt2" ng-change="VSC.recordSocialScore(student)" name="social" class="form-control m-b" style="width:80%;">
+                  <select ng-model="student.social_score" ng-change="VSC.recordSocialScore(student)" name="social" class="form-control m-b" style="width:80%;" ng-options="item.val as item.label for item in VSC.score_options_social">
                      <option value="">Social</option>
-                     <option value="Option 1">1</option>
-                     <option value="Option 2">2</option>
-                     <option value="Option 3">3</option>
-                     <option value="Option 4">4</option>
-                     <option value="Option 5">5</option>
                   </select>
-                  <select ng-model="opt3" ng-change="VSC.recordParticipationScore(student)" name="social" class="form-control m-b" style="width:80%;">
+                  <select ng-model="student.participation_score" ng-change="VSC.recordParticipationScore(student)" name="social" class="form-control m-b" style="width:80%;" ng-options="item.val as item.label for item in VSC.score_options_participation">
                      <option value="">Participation</option>
-                     <option value="Option 1">1</option>
-                     <option value="Option 2">2</option>
-                     <option value="Option 3">3</option>
-                     <option value="Option 4">4</option>
-                     <option value="Option 5">5</option>
                   </select>
                </div>
             </div>
          </div>
       </div>
    </div>
-</div>
 </div>
 <!-- END VSC content-->
 </div>
