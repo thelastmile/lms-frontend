@@ -24,8 +24,8 @@
             </div>
             <div class="text-center">
                <div class="col-xs-3 col-md-2">
-                  <textarea rows="6" class="form-control note-text-area" placeholder="Add Note"></textarea>
-                  <button type="button" class="mr btn btn-md btn-default btn-fw btn-note-save">Save</button>
+                  <textarea ng-model="notetext" rows="6" class="form-control note-text-area" placeholder="Add Note"></textarea>
+                  <button ng-click="VSC.saveNote(notetext,student)" type="button" class="mr btn btn-md btn-default btn-fw btn-note-save">Save</button>
                </div>
                <div class="text-center col-xs-3 col-md-2" style="padding: 10px;">
                   <!-- <p class="input-group">

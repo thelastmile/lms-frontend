@@ -22,6 +22,18 @@
           content_type: 16 // module table
         });
       },
+      create_via_instructor: function (note,student) {
+        if (note === undefined) {
+            var note = '';
+        }
+        return $http.post(customUrl.url + '/api/note/', {
+          title: '',
+          body: note,
+          author: student.id,
+          instructor_author: userId
+
+        });
+      },
       save: function (noteData) {
         return $http.put(customUrl.url + '/api/note/' + noteData.id + '/', {
           title: noteData.title,

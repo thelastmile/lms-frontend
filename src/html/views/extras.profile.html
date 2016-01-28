@@ -111,9 +111,12 @@
                                  <div ng-if="SNC.notes.length < 1">No notes from this student.</div>
                                  <div class="note-item panel" style="padding:5px;" ng-repeat="note in SNC.notes" ng-click="SNC.selectedNote = note">
                                    <span class="label label-default">{{ note.date | date : medium }}</span>
-                                   <span>{{note.author.first_name}}</span>
                                    <br>
-                                   <b>{{ note.body }}</b>
+                                   <p>
+                                    <span ng-if="note.instructor_author">INSTRUCTOR NOTE:</span>
+                                    <span ng-if="!note.instructor_author">STUDENT NOTE:</span>
+                                    <br>{{ note.body }}
+                                   </p>
                                  </div>
                                </div>
                            </div>

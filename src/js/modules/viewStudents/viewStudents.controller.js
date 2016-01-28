@@ -9,8 +9,8 @@
         .module('naut')
         .controller('ViewStudentsController', ViewStudentsController);
     
-    ViewStudentsController.$inject = ['$rootScope', '$scope', 'colors', 'flotOptions', '$timeout' ,'$window','StudentInfoService', 'toasty' ,'customUrl', 'AttendanceService', 'StatusService'];
-    function ViewStudentsController($rootScope, $scope, colors, flotOptions, $timeout, $window, StudentInfoService, toasty, customUrl, AttendanceService, StatusService) {
+    ViewStudentsController.$inject = ['$rootScope', '$scope', 'colors', 'flotOptions', '$timeout' ,'$window','StudentInfoService', 'toasty' ,'customUrl', 'AttendanceService', 'StatusService', 'notes'];
+    function ViewStudentsController($rootScope, $scope, colors, flotOptions, $timeout, $window, StudentInfoService, toasty, customUrl, AttendanceService, StatusService, notes) {
       var vm = this;
 
       vm.score_options_participation = [{val:1,label:'1 - Participation'},{val:2,label:'2 - Participation'},{val:3,label:'3 - Participation'},{val:4,label:'4 - Participation'},{val:5,label:'5 - Participation'}]; //used for rating of students
@@ -109,6 +109,25 @@
 
       vm.toggleDatepicker = function ($event, student) {
         console.log('toggled');
+      }
+
+      vm.saveNote = function (note,student) {
+        notes.create_via_instructor(note,student).success(function(data){
+          toasty.success({
+            title: 'Saved',
+            msg: 'The Note has been saved.',
+            sound: false,
+            clickToClose: true
+          });
+        }).error(function (error){
+          console.log('error, not saved');
+          toasty.error({
+            title: 'Error',
+            msg: 'The Note was not saved.',
+            sound: false,
+            clickToClose: true
+          });
+        });
       }
 
       var dateObject = new Date();
