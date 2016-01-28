@@ -24,16 +24,16 @@
       vm.recordTechnicalScore = function (student) {
         StatusService.put_tech(student,student.tech_score).success(function(data){
           toasty.success({
-            title: 'Attendance Recorded',
-            msg: 'The attendance record has been saved.',
+            title: 'Saved',
+            msg: 'The technical score has been saved.',
             sound: false,
             clickToClose: true
           });
         }).error(function (error){
           console.log('error, not saved');
           toasty.error({
-            title: 'Attendance Recorded',
-            msg: 'The attendance record not recorded.',
+            title: 'Error',
+            msg: 'Technical Score not saved.',
             sound: false,
             clickToClose: true
           });
@@ -43,16 +43,16 @@
       vm.recordSocialScore = function (student) {
         StatusService.put_social(student,student.social_score).success(function(data){
           toasty.success({
-            title: 'Attendance Recorded',
-            msg: 'The attendance record has been saved.',
+            title: 'Saved',
+            msg: 'The Social Score has been saved.',
             sound: false,
             clickToClose: true
           });
         }).error(function (error){
           console.log('error, not saved');
           toasty.error({
-            title: 'Attendance Recorded',
-            msg: 'The attendance record not recorded.',
+            title: 'Error',
+            msg: 'The Social Score was not saved.',
             sound: false,
             clickToClose: true
           });
@@ -62,16 +62,16 @@
       vm.recordParticipationScore = function (student) {
         StatusService.put_participation(student,student.participation_score).success(function(data){
           toasty.success({
-            title: 'Attendance Recorded',
-            msg: 'The attendance record has been saved.',
+            title: 'Saved',
+            msg: 'The Participation Score has been saved.',
             sound: false,
             clickToClose: true
           });
         }).error(function (error){
           console.log('error, not saved');
           toasty.error({
-            title: 'Attendance Recorded',
-            msg: 'The attendance record not recorded.',
+            title: 'Error',
+            msg: 'The Participation Score was not saved.',
             sound: false,
             clickToClose: true
           });
@@ -81,16 +81,16 @@
       vm.recordAttendance = function (student,current_attendance) {
         AttendanceService.put(student,current_attendance).success(function(data){
           toasty.success({
-            title: 'Attendance Recorded',
-            msg: 'The attendance record has been saved.',
+            title: 'Saved',
+            msg: 'The Attendance record has been saved.',
             sound: false,
             clickToClose: true
           });
         }).error(function (error){
           console.log('error, not saved');
           toasty.error({
-            title: 'Attendance Recorded',
-            msg: 'The attendance record not recorded.',
+            title: 'Error',
+            msg: 'The Attendance record was not saved.',
             sound: false,
             clickToClose: true
           });
