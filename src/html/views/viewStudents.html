@@ -13,14 +13,14 @@
                   
                </div>
             </div>
-            <div class="col-md-2 nopadding">
+            <div class="col-md-2 nopadding clickable" ui-sref="app.extras.profile({selectedStudent: student.id})">
                <div ripple="" ng-click="" class="clickable profile-name-container">
-                     <h2>{{student.first_name}}
-                        <br>{{student.last_name}}</h2>
-                     <p>Level: {{student.course}}</p>
-                     <!-- <p>Success Rank: {{student.rank}}</p> -->
-                     <p>&nbsp;</p>
-                  </div>
+                  <h2>{{student.first_name}}
+                     <br>{{student.last_name}}</h2>
+                  <p>Level: {{student.course}}</p>
+                  <!-- <p>Success Rank: {{student.rank}}</p> -->
+                  <p>&nbsp;</p>
+               </div>
             </div>
             <div class="text-center">
                <div class="col-xs-3 col-md-2">
