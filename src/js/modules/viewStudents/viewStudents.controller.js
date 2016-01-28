@@ -9,43 +9,72 @@
         .module('naut')
         .controller('ViewStudentsController', ViewStudentsController);
     
-    ViewStudentsController.$inject = ['$rootScope', '$scope', 'colors', 'flotOptions', '$timeout' ,'$window','StudentInfoService', 'toasty' ,'customUrl', 'AttendanceService'];
-    function ViewStudentsController($rootScope, $scope, colors, flotOptions, $timeout, $window, StudentInfoService, toasty, customUrl, AttendanceService) {
+    ViewStudentsController.$inject = ['$rootScope', '$scope', 'colors', 'flotOptions', '$timeout' ,'$window','StudentInfoService', 'toasty' ,'customUrl', 'AttendanceService', 'StatusService'];
+    function ViewStudentsController($rootScope, $scope, colors, flotOptions, $timeout, $window, StudentInfoService, toasty, customUrl, AttendanceService, StatusService) {
       var vm = this;
 
       vm.score_options_participation = [{val:1,label:'1 - Participation'},{val:2,label:'2 - Participation'},{val:3,label:'3 - Participation'},{val:4,label:'4 - Participation'},{val:5,label:'5 - Participation'}]; //used for rating of students
-      vm.score_options_social = [{val:1,label:'1 - Participation'},{val:2,label:'2 - Participation'},{val:3,label:'3 - Participation'},{val:4,label:'4 - Participation'},{val:5,label:'5 - Participation'}]; //used for rating of students
-      vm.score_options_tech = [{val:1,label:'1 - Participation'},{val:2,label:'2 - Participation'},{val:3,label:'3 - Participation'},{val:4,label:'4 - Participation'},{val:5,label:'5 - Participation'}]; //used for rating of students
+      vm.score_options_social = [{val:1,label:'1 - Social'},{val:2,label:'2 - Social'},{val:3,label:'3 - Social'},{val:4,label:'4 - Social'},{val:5,label:'5 - Social'}]; //used for rating of students
+      vm.score_options_tech = [{val:1,label:'1 - Tech'},{val:2,label:'2 - Tech'},{val:3,label:'3 - Tech'},{val:4,label:'4 - Tech'},{val:5,label:'5 - Tech'}]; //used for rating of students
 
       StudentInfoService.get().success(function(data){
         $scope.students = data;
       });
 
       vm.recordTechnicalScore = function (student) {
-        console.log(student);
-        toasty.success({
-          title: 'Technical Score Recorded',
-          msg: 'The record has been saved.',
-          sound: false,
-          clickToClose: true
+        StatusService.put_tech(student,student.tech_score).success(function(data){
+          toasty.success({
+            title: 'Attendance Recorded',
+            msg: 'The attendance record has been saved.',
+            sound: false,
+            clickToClose: true
+          });
+        }).error(function (error){
+          console.log('error, not saved');
+          toasty.error({
+            title: 'Attendance Recorded',
+            msg: 'The attendance record not recorded.',
+            sound: false,
+            clickToClose: true
+          });
         });
       }
 
       vm.recordSocialScore = function (student) {
-        toasty.success({
-          title: 'Social Score Recorded',
-          msg: 'The record has been saved.',
-          sound: false,
-          clickToClose: true
+        StatusService.put_social(student,student.social_score).success(function(data){
+          toasty.success({
+            title: 'Attendance Recorded',
+            msg: 'The attendance record has been saved.',
+            sound: false,
+            clickToClose: true
+          });
+        }).error(function (error){
+          console.log('error, not saved');
+          toasty.error({
+            title: 'Attendance Recorded',
+            msg: 'The attendance record not recorded.',
+            sound: false,
+            clickToClose: true
+          });
         });
       }
 
-        vm.recordParticipationScore = function (student) {
-        toasty.success({
-          title: 'Participation Score Recorded',
-          msg: 'The record has been saved.',
-          sound: false,
-          clickToClose: true
+      vm.recordParticipationScore = function (student) {
+        StatusService.put_participation(student,student.participation_score).success(function(data){
+          toasty.success({
+            title: 'Attendance Recorded',
+            msg: 'The attendance record has been saved.',
+            sound: false,
+            clickToClose: true
+          });
+        }).error(function (error){
+          console.log('error, not saved');
+          toasty.error({
+            title: 'Attendance Recorded',
+            msg: 'The attendance record not recorded.',
+            sound: false,
+            clickToClose: true
+          });
         });
       }
 

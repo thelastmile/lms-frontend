@@ -49,5 +49,24 @@
         return attendance;
     }])
 
+    .service('StatusService', ['customUrl', '$http', function(customUrl, $http){
+        var status = {};
+
+        // update student
+        status.put_tech = function(data,current_score){
+            return $http.put(customUrl.url + '/api/dailyscorestech/'+data.tech_score_id+'/', {score: current_score, student:data.id});
+        };
+
+        status.put_social = function(data,current_score){
+            return $http.put(customUrl.url + '/api/dailyscoressocial/'+data.tech_score_id+'/', {score: current_score, student:data.id});
+        };
+
+        status.put_participation = function(data,current_score){
+            return $http.put(customUrl.url + '/api/dailyscorestechparticipation/'+data.tech_score_id+'/', {score: current_score, student:data.id});
+        };
+        
+        return status;
+    }])
+
     }
 )();
