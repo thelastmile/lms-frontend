@@ -62,7 +62,7 @@
         };
 
         status.put_participation = function(data,current_score){
-            return $http.put(customUrl.url + '/api/dailyscorestechparticipation/'+data.tech_score_id+'/', {score: current_score, student:data.id});
+            return $http.put(customUrl.url + '/api/dailyscoresparticipation/'+data.tech_score_id+'/', {score: current_score, student:data.id});
         };
         
         return status;
