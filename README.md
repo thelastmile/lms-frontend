@@ -50,3 +50,7 @@ gulp serve --usehtml
 ### *should* be excluded from commits but you will have locally is prod or dev deployments
 * `bower_components/`
 * `node_modules`
+
+## Production
+* `gulp build --usehtml`
+* `aws s3 sync . s3://tlm-lms-master --acl public-read --exclude '*' --include 'app' --include 'index.html'`
