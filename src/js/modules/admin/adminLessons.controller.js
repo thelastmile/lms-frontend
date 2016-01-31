@@ -152,17 +152,16 @@
       }
 
       vm.LFILEsave = function () {
-        console.log(vm.lessonContents);
+        if (vm.lessonContents){        
+          if (vm.lessonContents.module == 'g'){
+            console.log('e');
+            vm.lessonContents.is_global = true;
+            var lc_module_copy = vm.lessonContents.module;
+            delete vm.lessonContents.module;
+          }
 
-        
-        if (typeof vm.lessonContents.module == "undefined"){
-
-          return {error: "error"};
-        } else if (vm.lessonContents.module == 'g'){
-          console.log('e');
-          vm.lessonContents.is_global = true;
-          var lc_module_copy = vm.lessonContents.module;
-          delete vm.lessonContents.module;
+        } else {
+          vm.lessonContents = {};
         }
 
         AdminLessonContents.post_file(vm.lessonContents)
