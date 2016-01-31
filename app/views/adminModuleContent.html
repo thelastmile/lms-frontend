@@ -40,13 +40,15 @@
                            <br>
                            <div>
 
-                              {{ALC.lessonContents.file_url ? ALC.lessonContents.file : ' - Create or view content to see path - '}}
+                              {{ALC.lessonContents.file_url ? ALC.lessonContents.file_url : ' - Create or view content to see path - '}}
                            </div>
                         </div>
-                        <div class="alert alert-info">Relative path to file:
-                           <br>{{ALC.lessonContents.file_url || "- Create or view content to see path - "}}</div>
+                        <div class="alert alert-info">Relative path to file
+                           <br>{{ALC.lessonContents.relative_url || "- Create or view content to see path - "}}</div>
                         <br>
-                        <button class="btn save-btn" ng-show="!ALC.LFILEediting" ng-click="ALC.LFILEsave()" tabindex="-1">Save</button>
+                        <button busy="Submitting.." class="btn save-btn btn-primary" ng-click="ALC.LFILEsave()" tabindex="-1">
+                           <busy-message><i class="fa fa-refresh fa-spin"></i>&nbsp;&nbsp;Content Uploading. Please wait, this will take some time...</busy-message>
+                           Save</button>
                      </form>
                   </div>
                   <div ng-show="ALC.LFILEediting">
@@ -75,16 +77,18 @@
                         </select>
                         <br>
                         <div class="alert alert-info">Full path to file:
-                           <br>{{ALC.selectedLessonContent.file}}</div>
-                        <div class="alert alert-info">Relative path to file:
                            <br>{{ALC.selectedLessonContent.file_url}}</div>
+                        <div class="alert alert-info">Relative path to file:
+                           <br>{{ALC.selectedLessonContent.relative_url}}</div>
                         <div class="alert alert-warning" ng-show="ALC.selectedLessonContent.extracted_path">Path to extracted contents:
-                           <br>/media/{{ALC.selectedLessonContent.extracted_path}}
+                           <br>{{ALC.selectedLessonContent.extracted_path}}
 
                            <div compile="ALC.selectedLessonContent.directory_contents">
                            </div>
                         </div>
-                        <button class="btn save-btn" ng-click="ALC.LFILEeditSave()" tabindex="-1">Save</button>
+                        <button busy="Submitting.." class="btn save-btn btn-primary" ng-click="ALC.LFILEeditSave()" tabindex="-1">
+                           <busy-message><i class="fa fa-refresh fa-spin"></i>&nbsp;&nbsp;Content Uploading. Please wait, this will take some time...</busy-message>
+                           Save</button>
                      </form>
 
                   </div>

@@ -53,4 +53,4 @@ gulp serve --usehtml
 
 ## Production
 * `gulp build --usehtml`
-* `aws s3 sync . s3://tlm-lms-master --acl public-read --exclude '*' --include 'app' --include 'index.html'`
+* `aws s3 sync . s3://tlm-lms-master --exclude="*" --include="vendor*" --include="src*" --include=index.html --acl public-read`
