@@ -12,6 +12,8 @@
     AdminLessonsController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'AdminCustomContentType','AdminLessonContents','Upload', 'SweetAlert'];
     function AdminLessonsController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, AdminCustomContentType, AdminLessonContents, Upload, SweetAlert) {
       var vm = this;
+      $scope.lessoncontents = [];
+
       AdminLessonsService.get().success(function(data){
         $scope.lessons = data;
       });
@@ -170,6 +172,11 @@
         });
       }
 
+      vm.selectIndex = function (index) {
+        console.log(index);
+        console.log(vm.lessonContents);
+      }
+
       vm.LFILEsave = function () {
         if (vm.lessonContents){        
           if (vm.lessonContents.module == 'g'){
@@ -188,18 +195,26 @@
             vm.selectedLessonContent = resp.data;
             vm.lessonContents = resp.data;
             vm.LFILEediting = true;
-            $scope.lessoncontents.push(vm.lessonContents);
+            var html_text = "";
+            if (resp.data.index_file_list) {
+              var index_file_list = JSON.parse(resp.data.index_file_list);
+              for (var i in index_file_list){
+                html_text += "<a href='#"+index_file_list[i]+"'>"+index_file_list[i]+"</a><br>";
+              }
+            }
+            console.log(vm.lessonContents);
             SweetAlert.swal({
-              title: "HTML Archive Extracted",
-              text: "HTML We found and index.html file locate at:<br> \
-              Would you like to use it as the default index file? \
+              title: "ZIP Archive Extracted",
+              text: "Please select your default index file:<br> \
+              "+html_text+" <br>\
               ",
               type: "success",
               showCancelButton: true,   
               confirmButtonColor: "#DD6B55",   
               confirmButtonText: "Yes, set that at my default index",
               cancelButtonText: "No, let me choose from a list of files",
-              closeOnConfirm: false
+              closeOnConfirm: false,
+              html: true
             });
         }, function (resp) {
             if (lc_module_copy) { vm.lessonContents.module = lc_module_copy; }
