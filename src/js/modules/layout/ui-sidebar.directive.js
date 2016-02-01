@@ -20,6 +20,7 @@
 
       function link(scope, element) {
         element.find('a').on('click', function (event) {
+          console.log('a tag clicked');
           var ele = angular.element(this),
               par = ele.parent()[0];
 

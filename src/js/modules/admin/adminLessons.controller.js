@@ -9,8 +9,8 @@
         .module('naut')
         .controller('AdminLessonsController', AdminLessonsController);
     
-    AdminLessonsController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'AdminCustomContentType','AdminLessonContents','Upload'];
-    function AdminLessonsController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, AdminCustomContentType, AdminLessonContents, Upload) {
+    AdminLessonsController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'AdminCustomContentType','AdminLessonContents','Upload', 'SweetAlert'];
+    function AdminLessonsController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, AdminCustomContentType, AdminLessonContents, Upload, SweetAlert) {
       var vm = this;
       AdminLessonsService.get().success(function(data){
         $scope.lessons = data;
@@ -39,8 +39,27 @@
         vm.LFILEediting = false;
       }
 
-      vm.getFilename = function (data){
+      vm.deriveData = function (data){
         data.name = data.file.name;
+        var extension = data.name.split('.').pop();
+        var ct = "Asset";
+        if (extension.toUpperCase() === 'ZIP'){
+          ct = 'Lesson';
+        }
+
+        if (extension.toUpperCase() === 'HTML'){
+          ct = 'Lesson';
+        }
+
+        if (extension.toUpperCase() === 'PNG'){
+          ct = 'Image';
+        }
+
+        if (extension.toUpperCase() === 'MP4'){
+          ct = 'Video';
+        }
+
+        data.content_type = $rootScope.val2key(ct,$scope.customcontenttypes);
       }
 
       vm.LSNsave = function () {
@@ -170,11 +189,17 @@
             vm.lessonContents = resp.data;
             vm.LFILEediting = true;
             $scope.lessoncontents.push(vm.lessonContents);
-            toasty.success({
-              title: 'Saved',
-              msg: 'New Lesson Content Added',
-              sound: false,
-              clickToClose: true,
+            SweetAlert.swal({
+              title: "HTML Archive Extracted",
+              text: "HTML We found and index.html file locate at:<br> \
+              Would you like to use it as the default index file? \
+              ",
+              type: "success",
+              showCancelButton: true,   
+              confirmButtonColor: "#DD6B55",   
+              confirmButtonText: "Yes, set that at my default index",
+              cancelButtonText: "No, let me choose from a list of files",
+              closeOnConfirm: false
             });
         }, function (resp) {
             if (lc_module_copy) { vm.lessonContents.module = lc_module_copy; }

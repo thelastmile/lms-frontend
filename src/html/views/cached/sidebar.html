@@ -1,8 +1,8 @@
 <!-- START Sidebar-->
 <div class="sidebar-wrapper">
-   <div ui-sidebar="" class="sidebar">
+   <div class="sidebar">
       <div class="sidebar-nav" ng-controller="DashboardController as dashboard">
-         <ul class="nav" ng-if="isAdmin() || isSuperAdmin()">
+         <ul ui-sidebar class="nav" ng-if="isAdmin() || isSuperAdmin()">
             <!-- Iterates over all sidebar items-->
 
             <li class="nav-heading" ng-if="isAdmin() && !isSuperAdmin()">
@@ -30,7 +30,7 @@
                </a>
             </li>
          </ul>
-         <ul class="nav" ng-if="isSuperAdmin()">
+         <ul ui-sidebar class="nav" ng-if="isSuperAdmin()">
             <hr>
             <!--
             <li ui-sref-active="active">
@@ -40,23 +40,38 @@
                </a>
             </li>
             -->
-            <li ui-sref-active="active">
+            <li>
                <a ui-sref="app.adminCourses" title="Lessons" ripple="">
                   <em class="sidebar-item-icon fa fa-code"></em>
                   <span>Courses</span>
                </a>
             </li>
-            <li ui-sref-active="active">
+            <li>
                <a ui-sref="app.adminLessons" title="Lessons" ripple="">
                   <em class="sidebar-item-icon fa fa-code"></em>
                   <span>Modules</span>
                </a>
             </li>
-            <li ui-sref-active="active">
-               <a ui-sref="app.adminModuleContent" title="Content" ripple="">
+            <li ng-class="{active:$root.$state.includes('adminModuleContent')}">
+               <a href="" title="Layouts" ripple="">
+                  <em class="sidebar-item-caret fa pull-right fa-angle-right"></em>
                   <em class="sidebar-item-icon fa fa-code"></em>
                   <span>Content</span>
-               </a>
+               <span class="ripple"><span class="angular-ripple" style="width: 242px; height: 242px; left: 40px; top: -91px;"></span></span></a>
+               <ul class="nav sidebar-subnav">
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.adminModuleContent.list" title="View / Edit" ripple="" >
+                        <em class="sidebar-item-icon"></em>
+                        <span>View / Edit</span>
+                     <span class="ripple"></span></a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.adminModuleContent.add" title="Full Height" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Add</span>
+                     <span class="ripple"></span></a>
+                  </li>
+               </ul>
             </li>
             <!--
             <li ui-sref-active="active">
@@ -89,7 +104,7 @@
 
 
          <!-- STUDENT MENU -->
-         <ul class="nav" ng-if="isStudent()" ng-controller="StudentMenuController as SMC" >
+         <ul ui-sidebar class="nav" ng-if="isStudent()" ng-controller="StudentMenuController as SMC" >
             <!-- Iterates over all sidebar items-->
             <li class="nav-heading">
                <span class="text-muted">Learning Modules</span>

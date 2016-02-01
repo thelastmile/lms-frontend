@@ -31,5 +31,6 @@ angular
     'com.2fdevs.videogular.plugins.overlayplay',
     'com.2fdevs.videogular.plugins.poster',
     'com.2fdevs.videogular.plugins.buffering',
-    'ngBusy'
+    'ngBusy',                                   // Show messages when GET/POST/PUT etc
+    'oitozero.ngSweetAlert'                     // Nice alerts
 ]);

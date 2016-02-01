@@ -93,6 +93,18 @@
           templateUrl: Route.base('adminModuleContent.html'),
         })
 
+        .state('app.adminModuleContent.add', {
+          url: '/admin/modulecontent/add/',
+          authenticate: true,
+          templateUrl: Route.base('adminModuleContentAdd.html'),
+        })
+
+        .state('app.adminModuleContent.list', {
+          url: '/admin/modulecontent/list/',
+          authenticate: true,
+          templateUrl: Route.base('adminModuleContentList.html'),
+        })
+
         .state('app.viewstudents', {
           url: '/viewstudents',
           authenticate: true,
