@@ -90,16 +90,22 @@
         .state('app.adminModuleContent', {
           url: '/admin/modulecontent',
           authenticate: true,
-          templateUrl: Route.base('adminModuleContent.html'),
+          templateUrl: Route.base('adminModuleContentList.html'),
         })
 
-        .state('app.adminModuleContent.add', {
+        .state('app.adminModuleContentAdd', {
           url: '/admin/modulecontent/add/',
           authenticate: true,
-          templateUrl: Route.base('adminModuleContentAdd.html'),
+          templateUrl: Route.base('adminModuleContentEdit.html'),
         })
 
-        .state('app.adminModuleContent.list', {
+        .state('app.adminModuleContentEdit', {
+          url: '/admin/modulecontent/edit/',
+          authenticate: true,
+          templateUrl: Route.base('adminModuleContentEdit.html'),
+        })
+
+        .state('app.adminModuleContentList', {
           url: '/admin/modulecontent/list/',
           authenticate: true,
           templateUrl: Route.base('adminModuleContentList.html'),

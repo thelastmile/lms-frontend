@@ -30,8 +30,8 @@
                </a>
             </li>
          </ul>
-         <ul ui-sidebar class="nav" ng-if="isSuperAdmin()">
-            <hr>
+         <hr>
+         <ul ui-sref-active="active" ui-sidebar class="nav" ng-if="isSuperAdmin()">
             <!--
             <li ui-sref-active="active">
                <a ui-sref="app.tests" title="Cards" ripple="">
@@ -40,36 +40,37 @@
                </a>
             </li>
             -->
-            <li>
+            <li ui-sref-active="active">
                <a ui-sref="app.adminCourses" title="Lessons" ripple="">
                   <em class="sidebar-item-icon fa fa-code"></em>
                   <span>Courses</span>
                </a>
             </li>
-            <li>
+            <li ui-sref-active="active">
                <a ui-sref="app.adminLessons" title="Lessons" ripple="">
                   <em class="sidebar-item-icon fa fa-code"></em>
                   <span>Modules</span>
                </a>
             </li>
             <li ng-class="{active:$root.$state.includes('adminModuleContent')}">
-               <a href="" title="Layouts" ripple="">
+               <a title="Layouts" ripple="">
                   <em class="sidebar-item-caret fa pull-right fa-angle-right"></em>
                   <em class="sidebar-item-icon fa fa-code"></em>
                   <span>Content</span>
-               <span class="ripple"><span class="angular-ripple" style="width: 242px; height: 242px; left: 40px; top: -91px;"></span></span></a>
+                  <span class="ripple"><span class="angular-ripple" style="width: 242px; height: 242px; left: 40px; top: -91px;"></span></span>
+               </a>
                <ul class="nav sidebar-subnav">
-                  <li ui-sref-active="active">
-                     <a ui-sref="app.adminModuleContent.list" title="View / Edit" ripple="" >
+                  <li>
+                     <a ui-sref="app.adminModuleContentList" title="View / Edit" ripple>
                         <em class="sidebar-item-icon"></em>
                         <span>View / Edit</span>
-                     <span class="ripple"></span></a>
+                     </a>
                   </li>
-                  <li ui-sref-active="active">
-                     <a ui-sref="app.adminModuleContent.add" title="Full Height" ripple="">
+                  <li>
+                     <a ui-sref="app.adminModuleContentAdd" title="Full Height" ripple>
                         <em class="sidebar-item-icon"></em>
                         <span>Add</span>
-                     <span class="ripple"></span></a>
+                     </a>
                   </li>
                </ul>
             </li>
