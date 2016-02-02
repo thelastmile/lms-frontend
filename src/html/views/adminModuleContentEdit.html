@@ -35,7 +35,7 @@
                            <option ng-repeat="ls in lessons" value="{{ls.id}}">{{ls.name}}</option>
                         </select>
                         <br>
-                        <div class="alert alert-info">
+                        <div ng-show="ALC.lessonContents.file_url" class="alert alert-info">
                            <h4>Full path to file
                               <span class="label label-primary">Only applies to this deployment</span>
                            </h4>
@@ -44,7 +44,7 @@
                               {{ALC.lessonContents.file_url ? ALC.lessonContents.file_url : ' - Create or view content to see path - '}}
                            </div>
                         </div>
-                        <div class="alert alert-info">
+                        <div ng-show="ALC.lessonContents.relative_url" class="alert alert-info">
                            <h4>Relative path to file
                               <span class="label label-primary">Applies to all deployments</span>
                            </h4>{{ALC.lessonContents.relative_url || "- Create or view content to see path - "}}</div>

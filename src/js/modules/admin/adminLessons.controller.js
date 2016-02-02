@@ -197,6 +197,7 @@
             vm.LFILEediting = true;
             var html_text = "";
             var index_dropdown_options = [];
+            var index_file_list = false;
             if (resp.data.index_file_list) {
               var index_file_list = JSON.parse(resp.data.index_file_list);
               for (var i in index_file_list){
@@ -207,43 +208,39 @@
             var index_dropdown = { class:'form-control', id: 'index_select', type: 'select', options: index_dropdown_options};
             console.log(index_dropdown);
             console.log(vm.lessonContents);
-            swal.withForm({
-              html: true,
-              type: 'success',
-              title: 'ZIP Archive Extracted',
-              text: '<h3>Please select your default index file</h3>',
-              showCancelButton: false,
-              confirmButtonColor: '#DD6B55',
-              confirmButtonText: 'Select Index and Close',
-              closeOnConfirm: true,
-              formFields: [
-                 index_dropdown
-              ]}, function(isConfirm) {
-              // do whatever you want with the form data
-              //vm.lessonContents.index_file = this.swalForm.index_select;
-              vm.LFILEindexPath = this.swalForm.index_select;
-              vm.LFILEselectIndexPath();
-            });
-            // SweetAlert.swal({
-            //   title: "ZIP Archive Extracted",
-            //   text: "Please select your default index file:<br> \
-            //   "+html_text+" <br>\
-            //   ",
-            //   type: "success",
-            //   showCancelButton: true,   
-            //   confirmButtonColor: "#DD6B55",   
-            //   confirmButtonText: "Yes, set that at my default index",
-            //   cancelButtonText: "No, let me choose from a list of files",
-            //   closeOnConfirm: false,
-            //   html: true
-            // }, function(inputValue){
-            //   if (inputValue === false) return false;
-            //   if (inputValue === "") {
-            //     swal.showInputError("You need to write something!");
-            //     return false
-            //   }
-            //   swal("Nice!", "You wrote: " + inputValue, "success");
-            // });
+
+            console.log(Object.keys(index_file_list).length);
+            if (Object.keys(index_file_list).length > 0) {
+              swal.withForm({
+                html: true,
+                type: 'success',
+                title: 'ZIP Archive Extracted',
+                text: '<h3>Please select your default index file</h3>',
+                showCancelButton: false,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'Select Index and Close',
+                closeOnConfirm: true,
+                formFields: [
+                   index_dropdown
+                ]}, function(isConfirm) {
+                // do whatever you want with the form data
+                //vm.lessonContents.index_file = this.swalForm.index_select;
+                vm.LFILEindexPath = this.swalForm.index_select;
+                vm.LFILEselectIndexPath();
+              });
+            } else {
+              SweetAlert.swal({
+                title: "Data Uploaded",
+                text: "All set",
+                type: "success",
+                showCancelButton: false,   
+                confirmButtonColor: "#DD6B55",   
+                confirmButtonText: "Close",
+                closeOnConfirm: true,
+                html: true
+              });
+            }
+            
             
         }, function (resp) {
             if (lc_module_copy) { vm.lessonContents.module = lc_module_copy; }
