@@ -57,6 +57,14 @@
           ct = 'Image';
         }
 
+        if (extension.toUpperCase() === 'JPG'){
+          ct = 'Image';
+        }
+
+        if (extension.toUpperCase() === 'JPEG'){
+          ct = 'Image';
+        }
+
         if (extension.toUpperCase() === 'MP4'){
           ct = 'Video';
         }
