@@ -15,6 +15,7 @@
    // Allow loading from our assets domain.  Notice the difference between * and **.
    'http://127.0.0.1:8000/**',
    'https://s3-us-west-2.amazonaws.com/**',
+   'https://lms-backend-static-dev.s3.amazonaws.com/**',
    'http://lms-backend-dev.elasticbeanstalk.com/**',
    'http://tlm-lms-backend.elasticbeanstalk.com/**']);
  })
@@ -31,7 +32,7 @@
     .factory('customUrl', function(){
         if (document.location.hostname == "localhost" || document.location.hostname == "127.0.0.1"){
             console.log("In Local DEV");
-            return {"url": "http://127.0.0.1:8000"}
+            return {"url": "http://127.0.0.1:8000","staticUrl":"https://lms-backend-static-dev.s3.amazonaws.com"}
         } else {
             return {"url": "http://tlm-lms-backend.elasticbeanstalk.com"}
         }

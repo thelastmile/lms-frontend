@@ -9,8 +9,8 @@
         .module('naut')
         .controller('StudentContentController', StudentContentController);
     
-    StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService', 'HomeContentService', '$sce', '$stateParams','AdminCustomContentType'];
-    function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, HomeContentService, $sce, $stateParams, AdminCustomContentType) {
+    StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService', 'HomeContentService', '$sce', '$stateParams','AdminCustomContentType','customUrl'];
+    function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, HomeContentService, $sce, $stateParams, AdminCustomContentType, customUrl) {
       var scc = this;
 
       console.log($stateParams);
@@ -100,8 +100,9 @@
       $rootScope.iframeActive = false;
       scc.getFullURL = function(){
         if (!scc.projUrl) {return "";}
-        console.log($sce.getTrustedResourceUrl($rootScope.url+scc.projUrl));
-        return $sce.getTrustedResourceUrl($rootScope.url+scc.projUrl);
+        var custom_url = customUrl.staticUrl+scc.projUrl;
+        console.log(custom_url);
+        return $sce.getTrustedResourceUrl(custom_url);
       }
 
     }
