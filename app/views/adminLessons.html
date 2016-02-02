@@ -44,7 +44,7 @@
                   <div class="panel-body">
                      <h3>Modules</h3>
                      <div ng-repeat="lesson in lessons">
-                        <a href="" ng-click="ALC.selectedLesson = lesson; ALC.LSNedit()">{{lesson.name}} {{lesson.course}}</a>
+                        <a href="" ng-click="ALC.selectedLesson = lesson; ALC.LSNedit()">{{lesson.name}}</a>
                         <a class="btn btn-xs" ng-click="ALC.removeLesson(lesson,$index)" ng-confirm-click="Are you sure you want to delete this lesson ({{lesson.name}})?">
                            <em class="sidebar-item-icon fa fa-times"></em>
                         </a>

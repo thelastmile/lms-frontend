@@ -86,8 +86,13 @@
                           $window.sessionStorage.setItem("userPermissions","student");
 
                           AccessLogService.get($rootScope.user.id).success(function(data){
-                            console.log(data[0].path);
-                            $window.location = "#"+data[0].path;
+                            var keys = data[0];
+                            if (typeof(keys) != "undefined")  {
+                              $window.location = "#"+data[0].path;
+                            } else {
+                              $state.go("app.home");
+                            }
+                            
                           }).error(function (error){
                             console.log('error previous page log not found for user');
                             $state.go("app.home");

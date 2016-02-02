@@ -9,8 +9,8 @@
         .module('naut')
         .controller('AdminLessonsController', AdminLessonsController);
     
-    AdminLessonsController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'AdminCustomContentType','AdminLessonContents','Upload', 'SweetAlert'];
-    function AdminLessonsController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, AdminCustomContentType, AdminLessonContents, Upload, SweetAlert) {
+    AdminLessonsController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'AdminCustomContentType','AdminLessonContents','Upload', 'SweetAlert', '$state'];
+    function AdminLessonsController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, AdminCustomContentType, AdminLessonContents, Upload, SweetAlert, $state) {
       var vm = this;
       $scope.lessoncontents = [];
 
@@ -29,6 +29,10 @@
       AdminLessonContents.get_ultralite().success(function(data){
         $scope.lessoncontents = data;
       });
+
+      $scope.remove = function(item) {
+        $state.go($state.current, {}, {reload: true});
+      }
 
       // AdminLessonContents.get().success(function(data){
       //   $scope.lessoncontents = data;
