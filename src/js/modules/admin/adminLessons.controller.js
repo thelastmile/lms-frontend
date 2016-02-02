@@ -121,17 +121,38 @@
       }
 
       vm.removeLesson = function(item,index){
-        AdminLessonsService.delete_single(item.id);
+        AdminLessonsService.delete_single(item.id).success(function (){
+            toasty.success({
+              title: 'Success',
+              msg: 'Module Deleted',
+              sound: false,
+              clickToClose: true,
+            });
+          });
         $scope.lessons.splice(index, 1);
       }
 
       vm.removeCourse = function(item,index){
-        AdminCoursesService.delete_single(item.id);
+        AdminCoursesService.delete_single(item.id).success(function (){
+            toasty.success({
+              title: 'Success',
+              msg: 'Course Deleted',
+              sound: false,
+              clickToClose: true,
+            });
+          });
         $scope.courses.splice(index, 1);
       }
 
       vm.removeLessonContent = function(item,index){
-        AdminLessonContents.delete_single(item.id);
+        AdminLessonContents.delete_single(item.id).success(function (){
+            toasty.success({
+              title: 'Success',
+              msg: 'Lesson Content Deleted',
+              sound: false,
+              clickToClose: true,
+            });
+          });
         $scope.lessoncontents.splice(index, 1);
       }
 
