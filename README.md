@@ -55,5 +55,6 @@ gulp serve --usehtml
 * `node_modules`
 
 ## Production
+* `npm install`
 * `gulp build --usehtml`
 * `aws s3 sync . s3://tlm-lms-master --exclude="*" --include="vendor*" --include="src*" --include=index.html --acl public-read`
