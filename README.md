@@ -8,8 +8,10 @@ cd lms-frontend
 ```
 
 ###Setup Environment
-Node is used to download and install packages used for the build process
+Node is used to download and install packages used for the build process.
+
 Download Node.js from https://nodejs.org/
+
 from ```lms-frontend/``` directory run:
 ```
 sudo npm -g install bower gulp
