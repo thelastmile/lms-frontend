@@ -12,9 +12,6 @@
     StudentCodeController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService', 'HomeContentService', '$sce', '$stateParams','AdminCustomContentType'];
     function StudentCodeController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, HomeContentService, $sce, $stateParams, AdminCustomContentType) {
       var scc = this;
-
-      $scope.app.sidebar.isOffscreen=true;
-
       if (typeof $scope.content == 'undefined' && typeof $scope.lesson == 'undefined'){
         $rootScope.currentModule = 0;
         $rootScope.currentContentType = 0;

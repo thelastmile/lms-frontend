@@ -63,6 +63,12 @@
           templateUrl: Route.base('studentContent/code.html'),
         })
 
+        .state('app.code2', {
+          url: '/code2',
+          authenticate: true,
+          templateUrl: Route.base('studentContent/code2.html'),
+        })
+
         .state('app.video', {
           url: '/video',
           authenticate: true,
@@ -114,7 +120,7 @@
         .state('app.viewstudents', {
           url: '/viewstudents',
           authenticate: true,
-          templateUrl: Route.base('viewStudents.html'),
+          templateUrl: Route.base('adminViewStudents.html'),
           resolve: {
             assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart', 'blueimp-gallery')
           }

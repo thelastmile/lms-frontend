@@ -5797,6 +5797,24 @@ hr {
 .fullScreen {
   overflow: hidden;
 }
+#jsr {
+  width: 100%;
+  overflow-y: auto !important;
+  overflow: hidden;
+  height: 100%;
+}
+#jsr .jasmine_html-reporter {
+  width: 100%;
+  height: 50vh;
+  overflow-y: auto !important;
+  overflow: hidden;
+}
+#jsr #jasmine-out {
+  width: 100%;
+  height: 50vh;
+  overflow-y: auto !important;
+  overflow: hidden;
+}
 .profile-list {
   overflow: hidden;
 }

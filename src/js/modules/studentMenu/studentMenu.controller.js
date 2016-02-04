@@ -43,6 +43,8 @@
       smc.getLessonContents = function (){
         AdminLessonContents.get_by_content_type($state.current.url.slice(1),$stateParams.module).success(function(data){
           $rootScope.content_by_type = data;
+          console.log('getting content');
+          console.log($rootScope.content_by_type);
         })
         .error(function(data){
         });

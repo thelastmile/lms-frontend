@@ -1,13 +1,15 @@
 <div ng-controller="StudentContentController as SCC">
-   <div ng-show="!$root.iframeActive" class="row testclass">
-      <div class="col-md-4 col-6-sm col-1-sm fw-boxed">
-         <h1>Lessons</h1>
-         <div ng-repeat="content in content_by_type" class="panel">
-            <div class="panel-body">
-               <a href="" ng-click="$root.iframeActive=true;SCC.projUrl=content.extracted_path+content.index_file;">
-                  <h4>{{ content.name }}</h4>
-                  <p>{{ content.description }}</p>
-               </a>
+   <div ng-show="!$root.iframeActive" class="testclass">
+      <div class="row">
+         <div class="col-lg-6 fw-boxed">
+            <h1>Lessons</h1>
+            <div ng-repeat="content in content_by_type" class="panel">
+            <a href="" ng-click="$root.iframeActive=true;SCC.projUrl=content.extracted_path+content.index_file;">
+               <div class="panel-body">
+                     <h4>{{ content.name }}</h4>
+                     <p>{{ content.description }}</p>
+               </div>
+            </a>
             </div>
          </div>
       </div>

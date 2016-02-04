@@ -4,7 +4,7 @@
          <div class="media mt-lg">
             <div class="media-left media-middle">
                <a href="{{$root.mediaUrl}}{{user.profile_image}}">
-                  <img src="{{$root.mediaUrl}}{{user.profile_image}}" class="img-circle profile-image-circle" />
+                  <img ng-src="{{$root.mediaUrl}}{{user.profile_image}}" class="img-circle profile-image-circle" />
                </a>
             </div>
             <div class="media-body text-white">
@@ -23,7 +23,7 @@
                <div class="col-sm-6">
                   <div ripple="" class="panel panel-default">
                      <div ng-class="'bg-' + app.theme.name" class="panel-body bg-primary">
-                        <div class="text-left text-md" ng-if="isSuperAdmin()"style="color:red;"><b>SUPER ADMIN</b></div>
+                        <div class="text-left text-md" ng-if="isSuperAdmin()" style="color:red;"><b>SUPER ADMIN</b></div>
                         <div class="text-left text-md" ng-if="isAdmin()">Facilitator</div>
                         <div class="text-left text-md" ng-if="isStudent()">Student</div>
                      </div>
@@ -44,8 +44,8 @@
       <div ng-if="$root.selectedStudent" class="container container-lg p-lg">
          <div class="media mt-lg">
             <div class="media-left media-middle">
-               <a href="{{$root.mediaUrl}}{{$root.selectedStudent.profile_image}}" data-gallery="">
-                  <img src="{{$root.mediaUrl}}{{$root.selectedStudent.profile_image}}" class="img-circle profile-image-circle" />
+               <a ng-href="{{$root.mediaUrl}}{{$root.selectedStudent.profile_image}}" data-gallery="">
+                  <img ng-src="{{$root.mediaUrl}}{{$root.selectedStudent.profile_image}}" class="img-circle profile-image-circle" />
                </a>
             </div>
             <div class="media-body text-white">
