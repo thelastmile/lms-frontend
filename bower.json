@@ -18,7 +18,7 @@
     "angular-loading-bar": "0.7.1",
     "angular-translate": "2.8.0",
     "angular-ui-router": "0.2.15",
-    "angular": "1.4.6",
+    "angular": "~1.4.8",
     "angular-route": "1.4.6",
     "angular-bootstrap": "0.14.3",
     "angular-cookies": "1.4.6",
@@ -87,7 +87,7 @@
     "ngSweetAlert": "angular-sweetalert-promised#~1.1.0"
   },
   "resolutions": {
-    "angular": "1.4.8",
+    "angular": "~1.4.8",
     "fullcalendar": "2.3.1",
     "angular-touch": "1.4.6",
     "jquery": "2.1.3",
