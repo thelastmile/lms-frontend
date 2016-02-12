@@ -17,7 +17,9 @@
    'https://s3-us-west-2.amazonaws.com/**',
    'https://lms-backend-static-dev.s3.amazonaws.com/**',
    'http://lms-backend-dev.elasticbeanstalk.com/**',
-   'http://tlm-lms-backend.elasticbeanstalk.com/**']);
+   'http://tlm-lms-backend.elasticbeanstalk.com/**',
+   'http://tlmlmsbackend-prod.us-west-2.elasticbeanstalk.com/**',
+   'http://tlmlmsbackend-staging.us-west-2.elasticbeanstalk.com/**']);
  })
     .run(function($templateCache,$http, $rootScope, $state, UserService){
             $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
