@@ -76,7 +76,7 @@ npm install
 bower install
 ```
 
-# Server config change
+### Server config change
 `vi /etc/nginx/nginx.conf`
 change "server root" to /opt/lms-frontend
 `service nginx reload`
