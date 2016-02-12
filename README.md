@@ -59,3 +59,24 @@ gulp serve --usehtml
 * `gulp build --usehtml`
 * `aws s3 sync . s3://tlm-lms-master --exclude="*" --include="vendor*" --include="src*" --include=index.html --acl public-read`
 
+## CENTOS7
+
+### Initial install
+
+```
+git clone https://github.com/thelastmile/lms-frontend.git
+cd lms-frontend
+sudo yum -y install npm
+sudo npm -g install bower gulp
+```
+
+### Build
+```
+npm install
+bower install
+```
+
+# Server config change
+`vi /etc/nginx/nginx.conf`
+change "server root" to /opt/lms-frontend
+`service nginx reload`
