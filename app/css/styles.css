@@ -5139,6 +5139,17 @@ a.files-file-selected {
   background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
+.whereami {
+  border-top: solid grey 2px;
+  border-left: solid grey 2px;
+  border-top-left-radius: 10px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 2px 2px 2px 8px;
+  color: grey;
+  background-color: white;
+}
 /**
    Component: datepicker.less
 */

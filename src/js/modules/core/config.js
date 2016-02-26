@@ -33,10 +33,9 @@
 
     .factory('customUrl', function(){
         if (document.location.hostname == "localhost" || document.location.hostname == "127.0.0.1"){
-            console.log("In Local DEV");
-            return {"url": "http://127.0.0.1:8000","staticUrl":"https://lms-backend-static-dev.s3.amazonaws.com"}
+            return {"name":"localdev","url": "http://127.0.0.1:8000","staticUrl":"https://lms-backend-static-dev.s3.amazonaws.com"}
         } else {
-            return {"url": "http://tlm-lms-backend.elasticbeanstalk.com","staticUrl":"https://lms-backend-static-dev.s3.amazonaws.com"}
+            return {"name":"prod1","url": "http://tlm-lms-backend.elasticbeanstalk.com","staticUrl":"https://lms-backend-static-dev.s3.amazonaws.com"}
         }
     })
 

@@ -32,5 +32,6 @@ angular
     'com.2fdevs.videogular.plugins.poster',
     'com.2fdevs.videogular.plugins.buffering',
     'ngBusy',                                   // Show messages when GET/POST/PUT etc
-    'oitozero.ngSweetAlert'                     // Nice alerts
+    'oitozero.ngSweetAlert',                    // Nice alerts
+    'environment'                               // Set backend path and more based on url
 ]);
