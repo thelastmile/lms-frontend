@@ -32,10 +32,33 @@
     })
 
     .factory('customUrl', function(){
-        if (document.location.hostname == "localhost" || document.location.hostname == "127.0.0.1"){
-            return {"name":"localdev","url": "http://127.0.0.1:8000","staticUrl":"https://lms-backend-static-dev.s3.amazonaws.com"}
-        } else {
-            return {"name":"prod1","url": "http://tlm-lms-backend.elasticbeanstalk.com","staticUrl":"https://lms-backend-static-dev.s3.amazonaws.com"}
+
+        var deployments = [{
+                      "name":"localdev",
+                      "url": "http://127.0.0.1:8000",
+                      "staticUrl":"localhost,127.0.0.1"
+                    },
+                    {
+                      "name":"legacy-dev",
+                      "url": "http://tlm-lms-backend.elasticbeanstalk.com",
+                      "staticUrl":"lms-frontent-static-dev"
+                    },
+                    {
+                      "name":"cloud-master",
+                      "url": "http://tlmlmsbackend-prod.us-west-2.elasticbeanstalk.com",
+                      "staticUrl":"tlm-lms-master-production.s3-website-us-west-2.amazonaws.com"
+                    },
+                    {
+                      "name":"cloud-staging",
+                      "url": "http://tlmlmsbackend-staging.us-west-2.elasticbeanstalk.com",
+                      "staticUrl":"tlm-lms-master.s3-website-us-west-2.amazonaws.com"
+                    }]
+
+        for (var i in deployments){
+          if (deployments[i].staticUrl.indexOf(document.location.hostname) > -1){
+            // RETURNS OUR DEPLOYMENT INFO BASED ON FRONTEND BEING ACCESSED
+            return deployments[i];
+          };
         }
     })
 
