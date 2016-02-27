@@ -46,12 +46,12 @@
                     {
                       "name":"cloud-master",
                       "url": "http://tlmlmsbackend-prod.us-west-2.elasticbeanstalk.com",
-                      "staticUrl":"tlm-lms-master-production.s3-website-us-west-2.amazonaws.com"
+                      "staticUrl":"interchange.thelastmile.org,tlm-lms-master-production.s3-website-us-west-2.amazonaws.com"
                     },
                     {
-                      "name":"cloud-staging",
+                      "name":"cloud-dev",
                       "url": "http://tlmlmsbackend-staging.us-west-2.elasticbeanstalk.com",
-                      "staticUrl":"tlm-lms-master.s3-website-us-west-2.amazonaws.com"
+                      "staticUrl":"interchange-dev.thelastmile.org,tlm-lms-master.s3-website-us-west-2.amazonaws.com"
                     }]
 
         for (var i in deployments){
