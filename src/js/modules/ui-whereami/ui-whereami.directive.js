@@ -13,7 +13,7 @@
     function whereami() {
       return {
         restrict: 'E',
-        templateUrl: 'src/html/views/whereami.html',
+        templateUrl: 'app/views/whereami.html',
         controller: ['$scope','customUrl',
             function ($scope,customUrl) {
                 // observe changes in attribute - could also be scope.$watch
