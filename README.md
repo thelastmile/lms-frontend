@@ -66,6 +66,7 @@ gulp serve --usehtml
 ```
 git clone https://github.com/thelastmile/lms-frontend.git
 cd lms-frontend
+curl --silent --location https://rpm.nodesource.com/setup_4.x | bash -
 sudo yum -y install npm
 sudo npm -g install bower gulp
 ```
