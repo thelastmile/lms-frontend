@@ -1,0 +1,129 @@
+<!-- START Sidebar-->
+<div class="sidebar-wrapper">
+   <div class="sidebar">
+      <div class="sidebar-nav" ng-controller="DashboardController as dashboard">
+         <ul ui-sidebar class="nav" ng-if="isAdmin() || isSuperAdmin()">
+            <!-- Iterates over all sidebar items-->
+
+            <li class="nav-heading" ng-if="isAdmin() && !isSuperAdmin()">
+               <span class="text-muted">Faculty Menu</span>
+            </li>
+            <li class="nav-heading" ng-if="isSuperAdmin()">
+               <span class="text-muted">Admin Menu</span>
+            </li>
+            <li ui-sref-active="active">
+               <a ui-sref="app.classoverview" title="Overview" ripple="">
+                  <em class="sidebar-item-icon fa fa-bar-chart-o"></em>
+                  <span>Overview</span>
+               </a>
+            </li>
+            <li ui-sref-active="active">
+               <a ui-sref="app.viewstudents" title="Students" ripple="">
+                  <em class="sidebar-item-icon fa fa-list"></em>
+                  <span>Student List</span>
+               </a>
+            </li>
+            <li ui-sref-active="active">
+               <a ui-sref="app.edithomepage" title="Home Page Content" ripple="">
+                  <em class="sidebar-item-icon fa fa-list"></em>
+                  <span>Home Page Content</span>
+               </a>
+            </li>
+         </ul>
+         <hr>
+         <ul ui-sref-active="active" ui-sidebar class="nav" ng-if="isSuperAdmin()">
+            <!--
+            <li ui-sref-active="active">
+               <a ui-sref="app.tests" title="Cards" ripple="">
+                  <em class="sidebar-item-icon fa fa-check"></em>
+                  <span>Tests</span>
+               </a>
+            </li>
+            -->
+            <li ui-sref-active="active">
+               <a ui-sref="app.adminCourses" title="Lessons" ripple="">
+                  <em class="sidebar-item-icon fa fa-code"></em>
+                  <span>Courses</span>
+               </a>
+            </li>
+            <li ui-sref-active="active">
+               <a ui-sref="app.adminLessons" title="Lessons" ripple="">
+                  <em class="sidebar-item-icon fa fa-code"></em>
+                  <span>Modules</span>
+               </a>
+            </li>
+            <li ng-class="{active:$root.$state.includes('adminModuleContent')}">
+               <a title="Layouts" ripple="">
+                  <em class="sidebar-item-caret fa pull-right fa-angle-right"></em>
+                  <em class="sidebar-item-icon fa fa-code"></em>
+                  <span>Content</span>
+                  <span class="ripple">
+                     <span class="angular-ripple" style="width: 242px; height: 242px; left: 40px; top: -91px;"></span>
+                  </span>
+               </a>
+               <ul class="nav sidebar-subnav">
+                  <li>
+                     <a ui-sref="app.adminModuleContentList" title="View / Edit" ripple>
+                        <em class="sidebar-item-icon"></em>
+                        <span>View / Edit</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a ui-sref="app.adminModuleContentAdd" title="Full Height" ripple>
+                        <em class="sidebar-item-icon"></em>
+                        <span>Add</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <!--
+            <li ui-sref-active="active">
+               <a ui-sref="app.docs" title="Cards" ripple="">
+                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
+                  <span>Docs</span>
+               </a>
+            </li>
+            <li ui-sref-active="active">
+               <a ui-sref="app.media" title="Media" ripple="">
+                  <em class="sidebar-item-icon fa fa-film"></em>
+                  <span>Media</span>
+               </a>
+            </li>
+            
+            <li ui-sref-active="active">
+               <a ui-sref="app.notes" title="Notes" ripple="">
+                  <em class="sidebar-item-icon fa fa-pencil"></em>
+                  <span>Notes</span>
+               </a>
+            </li>-->
+            <hr>
+            <li ui-sref-active="active" ng-if="isSuperAdmin()">
+               <a href="http://tlm-lms-backend.elasticbeanstalk.com/admin" title="Admin" ripple="">
+                  <em class="sidebar-item-icon fa fa-key"></em>
+                  <span>Backend Admin</span>
+               </a>
+            </li>
+         </ul>
+
+
+         <!-- STUDENT MENU -->
+         <ul ui-sidebar class="nav" ng-if="isStudent()" ng-controller="StudentMenuController as SMC">
+            <!-- Iterates over all sidebar items-->
+            <li class="nav-heading">
+               <span class="text-muted">Learning Modules</span>
+            </li>
+
+            <li ui-sref-active="active" ng-repeat="mc in moduleMenuContent">
+               <a ripple="" href="/#/app{{currentState.url}}?module={{mc.id}}">
+                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
+                  <span>{{ mc.name }}</span>
+               </a>
+            </li>
+         </ul>
+      </div>
+      <footer class="footer">
+         <span>&copy; {{app.year}} - {{ app.name }}</span>
+      </footer>
+   </div>
+</div>
+<!-- END Sidebar-->

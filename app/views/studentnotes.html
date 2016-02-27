@@ -1,0 +1,12 @@
+<div class="noteviewer row" ng-controller="StudentNotesController as SNC">
+   <div class="col-xs-12">
+      <h3>My Notes</h3>
+      <div class="note-list">
+         <div class="note-item panel" style="padding:5px;" ng-repeat="note in SNC.notes" ng-click="SNC.selectedNote = note">
+            Created: {{ note.date }}
+            <br>
+            <b>{{ note.body }}</b>
+         </div>
+      </div>
+   </div>
+</div>
