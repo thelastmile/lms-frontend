@@ -19,7 +19,8 @@
    'http://lms-backend-dev.elasticbeanstalk.com/**',
    'http://tlm-lms-backend.elasticbeanstalk.com/**',
    'http://tlmlmsbackend-prod.us-west-2.elasticbeanstalk.com/**',
-   'http://tlmlmsbackend-staging.us-west-2.elasticbeanstalk.com/**']);
+   'http://tlmlmsbackend-staging.us-west-2.elasticbeanstalk.com/**'
+   'http://interchange-dev.thelastmile.org/**']);
  })
     .run(function($templateCache,$http, $rootScope, $state, UserService){
             $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
