@@ -98,7 +98,7 @@
             </li>-->
             <hr>
             <li ui-sref-active="active" ng-if="isSuperAdmin()">
-               <a href="http://tlm-lms-backend.elasticbeanstalk.com/admin" title="Admin" ripple="">
+               <a ng-href="{{customUrl.url}}/admin" title="Admin" ripple="">
                   <em class="sidebar-item-icon fa fa-key"></em>
                   <span>Backend Admin</span>
                </a>
