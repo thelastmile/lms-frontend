@@ -100,7 +100,7 @@
       $rootScope.iframeActive = false;
       scc.getFullURL = function(){
         if (!scc.projUrl) {return "";}
-        var custom_url = customUrl.url+scc.projUrl;
+        var custom_url = customUrl.backendStaticUrl+scc.projUrl;
         console.log(custom_url);
         return $sce.getTrustedResourceUrl(custom_url);
       }
