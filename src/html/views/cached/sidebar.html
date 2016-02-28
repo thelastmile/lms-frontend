@@ -30,7 +30,7 @@
                </a>
             </li>
          </ul>
-         <hr>
+         <hr ng-if="isAdmin() || isSuperAdmin()">
          <ul ui-sref-active="active" ui-sidebar class="nav" ng-if="isSuperAdmin()">
             <!--
             <li ui-sref-active="active">
