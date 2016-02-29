@@ -10,8 +10,8 @@
         .controller('CoreController', CoreController);
 
     /* @ngInject */
-    CoreController.$inject = ['$rootScope','UserService','$scope','customUrl','$window', '$stateParams', '$location', 'AccessLogService', '$state', 'customUrl'];
-    function CoreController($rootScope,UserService,$scope,customUrl,$window, $stateParams, $location, AccessLogService, $state, customUrl) {
+    CoreController.$inject = ['$rootScope','UserService','$scope','customUrl','$window', '$stateParams', '$location', 'AccessLogService', '$state'];
+    function CoreController($rootScope,UserService,$scope,customUrl,$window, $stateParams, $location, AccessLogService, $state) {
       // Get title for each page
       $rootScope.pageTitle = function() {
         return $rootScope.app.name + ' - ' + $rootScope.app.description;
