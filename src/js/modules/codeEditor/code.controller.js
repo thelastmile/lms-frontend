@@ -12,6 +12,8 @@
     CodeController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'CodeService', '$stateParams', 'JSONCode'];
     function CodeController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, CodeService, $stateParams, JSONCode) {
       var cc = this;
+      $rootScope.console = [];
+      
       var editor = ace.edit("editor_code");
       editor.setTheme("ace/theme/twilight");
       editor.session.setMode("ace/mode/javascript");
@@ -21,13 +23,17 @@
           autoScrollEditorIntoView: true,
       });
 
+      var editor_tests = ace.edit("editor_tests");
+      editor_tests.setTheme("ace/theme/twilight");
+      editor_tests.session.setMode("ace/mode/javascript");
+
       JSONCode.get().success(function(data){
         $scope.jsonCode = data;
       });
 
       cc.loadCode = function () {
-        console.log(cc.challenge.challengeSeed);
         editor.setValue(cc.challenge.challengeSeed.join("\r"), -1);
+        editor_tests.setValue(cc.challenge.tests.join("\r"), -1);
       }
 
 
@@ -36,13 +42,8 @@
         console.log($scope.jsonCodeChallenges);
       }
 
-      var editor_tests = ace.edit("editor_tests");
-      editor_tests.setTheme("ace/theme/twilight");
-      editor_tests.session.setMode("ace/mode/javascript");
-
       CodeService.get_single($stateParams.lesson)
       .success(function(data){
-        console.log('data', data);
         $scope.code_list = data;
         editor.setValue(data.code);
         editor_tests.setValue(data.tests);
@@ -50,23 +51,23 @@
         // TODO Add check for browser storage variable
       });
 
-      cc.console = [];
       cc.run = function($event){
-        cc.console = [];
+        $rootScope.console = [];
         var code = editor.getValue();
-        var tests = editor_tests.getValue();
-        var vanillaConsole = $window.console.log.bind(console);
+        //var tests = editor_tests.getValue();
+        var tests = cc.challenge.tests.join("\r");
+        var vanillaConsole = $window.console.log.bind($rootScope.console);
 
 
         // Override console.log and spit it into a div named code-output
         $window.console.log = function () {
           vanillaConsole(arguments);
-          cc.console = cc.console.concat(Array.prototype.slice.call(arguments));
+          $rootScope.console = $rootScope.console.concat(Array.prototype.slice.call(arguments));
         };
         try {
           eval(code + ';' + tests);
         } catch (e) {
-          cc.console = ['=== An error was thrown during execution ===', e.stack];
+          $rootScope.console = ['=== An error was thrown during execution ===', e.stack];
         }
         $window.console.log = vanillaConsole;
       }

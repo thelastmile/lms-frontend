@@ -1,7 +1,7 @@
-<div ng-controller="StudentCodeController as SCC" class="row testclass">
-   <div class="col-lg-12 fw-boxed">
+<div class="container">
+   <div ng-controller="StudentCodeController as SCC" class="testclass">
       <div ng-controller="CodeController as CODE">
-         <div class="row">
+         <div class="row fluid">
             <div class="col-xs-12">
                <select ng-change="CODE.getChallenges()" ng-model="CODE.problem">
                   <option value="">Select Problem</option>
@@ -22,31 +22,30 @@
                <div class="instructions hidden">
                   <b>Tests</b>
                   <pre id="editor_tests">
-                     describe('JavaScript addition operator', function () { it('adds two numbers together', function () { expect(1 + 2).toEqual(3); }); });
                   </pre>
                </div>
 
             </div>
             <div class="col-sm-8">
 
-               <div class="row">
-                  <div class="code-time">
+               <div class="code-time">
 
-                     <b>Code Editor</b>
-                     <pre id="editor_code" ng-model="CODE.editor_code" name="editor_code">
-                     </pre>
+                  <b>Code Editor</b>
+                  <pre id="editor_code" ng-model="CODE.editor_code" name="editor_code">
+                  </pre>
 
-                     <span ng-controller="ModalController as modal">
-                        <a ng-click="CODE.run($event); modal.open_code()" class="btn btn-info btn-sm pull-right">Run Code <i class="fa fa-play-circle"></i></a>
-                     </span>
+                  <span ng-controller="ModalController as modal">
+                     <button ng-click="CODE.run($event); modal.open_code()" class="btn btn-info btn-sm form-control">Run Code <i class="fa fa-play-circle"></i>
+                     </button>
+                  </span>
 
-                     <!--                   <div class="btn-switch mb mr btn-switch-success pull-right">
+                  <!--                   <div class="btn-switch mb mr btn-switch-success pull-right">
                         <input type="checkbox" id="input-btn-switch-success">
                         <label for="input-btn-switch-success" class="btn btn-sm btn-success">
                            <em class="fa fa-check"></em>Save Code</label>
                      </div> &nbsp; -->
 
-                     <!--                      <div uib-dropdown="dropdown" class="btn-group mb mr dropdown pull-right">
+                  <!--                      <div uib-dropdown="dropdown" class="btn-group mb mr dropdown pull-right">
                         <button type="button" class="btn btn-default btn-sm" ripple="" ng-click="CODE.enterfilename=false;CODE.save(CODE.current_code);CODE.saveclass='btn btn-success btn-sm';" ng-class="CODE.saveclass">Save Code</button>
                         <button type="button" uib-dropdown-toggle="" ripple="" class="btn dropdown-toggle btn-default btn-sm" ng-class="CODE.saveclass" aria-haspopup="true" aria-expanded="false">
                            <span class="caret"></span>
@@ -65,14 +64,8 @@
                         </ul>
                      </div>
                      <input ng-model="CODE.current_code.name" id="input-id-1" type="text" class="form-control pull-right input-sm" style="width: 25%; margin-right: 1em;" placeholder="Create New Name">&nbsp; -->
-                  </div>
                </div>
-               <div class="row">
-                  <div class="console">
-                     <b>Console Output</b>
-                     <textarea disabled id="code-output" ng-model="CODE.console" ng-list="&#10;"></textarea>
-                  </div>
-               </div>
+
             </div>
          </div>
       </div>
