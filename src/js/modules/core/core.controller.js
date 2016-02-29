@@ -10,8 +10,8 @@
         .controller('CoreController', CoreController);
 
     /* @ngInject */
-    CoreController.$inject = ['$rootScope','UserService','$scope','customUrl','$window', '$stateParams', '$location', 'AccessLogService', '$state'];
-    function CoreController($rootScope,UserService,$scope,customUrl,$window, $stateParams, $location, AccessLogService, $state) {
+    CoreController.$inject = ['$rootScope','UserService','$scope','customUrl','$window', '$stateParams', '$location', 'AccessLogService', '$state', 'customUrl'];
+    function CoreController($rootScope,UserService,$scope,customUrl,$window, $stateParams, $location, AccessLogService, $state, customUrl) {
       // Get title for each page
       $rootScope.pageTitle = function() {
         return $rootScope.app.name + ' - ' + $rootScope.app.description;
@@ -44,7 +44,7 @@
 
       $rootScope.user = angular.fromJson($window.sessionStorage.getItem("user"));
 
-      $rootScope.mediaUrl = "https://lms-backend-static-dev.s3.amazonaws.com";
+      $rootScope.mediaUrl = customUrl.backendStaticUrl;
 
       // Log all state changes, simply comment out to turn off
       $rootScope.$on('$stateChangeSuccess', 
