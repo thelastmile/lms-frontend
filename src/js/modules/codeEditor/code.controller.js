@@ -21,6 +21,10 @@
           autoScrollEditorIntoView: true,
       });
 
+      JSONCode.get().success(function(data){
+        $scope.jsonCode = data;
+      });
+
       cc.loadCode = function () {
         console.log(cc.challenge.challengeSeed);
         editor.setValue(cc.challenge.challengeSeed.join("\r"), -1);
@@ -45,12 +49,6 @@
 
         // TODO Add check for browser storage variable
       });
-
-
-      JSONCode.get().success(function(data){
-        $scope.jsonCode = data;
-      });
-
 
       cc.console = [];
       cc.run = function($event){
