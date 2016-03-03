@@ -3,7 +3,7 @@
     <h3>My Notes</h3>
     <div class="note-list">
       <div class="note-item panel" style="padding:5px;" ng-repeat="note in SNC.notes" ng-click="SNC.selectedNote = note">
-        Created: {{ note.date }}<br>
+        Created: {{ note.date | date : medium }}<br>
         <b>{{ note.body }}</b>
       </div>
     </div>
