@@ -86,7 +86,8 @@
     "sweetalert": "~1.1.3",
     "ngSweetAlert": "angular-sweetalert-promised#~1.1.0",
     "angular-environment": "~1.0.3",
-    "node-assert": "*"
+    "node-assert": "*",
+    "load-awesome": "^1.1.0"
   },
   "resolutions": {
     "angular": "~1.4.8",

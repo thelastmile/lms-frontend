@@ -15,6 +15,8 @@
    <link rel="stylesheet" href="app/css/styles.css">
    <link rel="stylesheet" href="vendor/angular-toasty/dist/angular-toasty.min.css"/>
    <link rel="stylesheet" type="text/css" href="vendor/sweetalert/dist/sweetalert.css">
+   <link rel="stylesheet" type="text/css" href="vendor/load-awesome/css/ball-beat.min.css">
+   
 <!--    <link rel="stylesheet" href="src/js/vendor/jasmine-standalone/lib/jasmine-2.4.1/jasmine.css"> -->
    <!-- endbuild-->
 </head>
@@ -188,6 +190,7 @@
    <script src="src/js/modules/codeEditor/code.controller.js"></script>
    <script src="src/js/modules/codeEditor/code.services.js"></script>
    <script src="src/js/modules/ui-whereami/ui-whereami.directive.js"></script>
+   <script src="src/js/modules/ajax-loading-indicator/loading.directive.js"></script>
    <script src="src/js/vendor/ace/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
    <script src="src/js/vendor/swal-forms.js" type="text/javascript" charset="utf-8"></script>
 
@@ -326,10 +329,19 @@
   }
 
 }());
-//    </script>
+</script>
    <!-- endbuild-->
    <toasty></toasty>
    <whereami></whereami>
+   <div class="loading-spiner-holder" data-loading>
+      <div class="loading-spiner">
+        <div class="la-ball-beat">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+      </div>
+   </div>
 </body>
 
 </html>
