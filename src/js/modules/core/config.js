@@ -93,7 +93,29 @@
 //            })
         };
         return resetMethods;
-    }]);
+    }])
+
+    .factory('sessionInjector', ['$injector', function($injector) {
+      var sessionInjector = {
+          request: function(config) {
+              console.log('pushing');
+              var user = $injector.get('UserService');
+              var state = $injector.get('$state').current.name;
+              var token = user.token();
+              if (token.bearer) {
+                  config.headers['Authorization'] = 'Bearer ' + token.bearer;
+              } else if (token.token && state !== 'login' && state !=='register' && state !=='verification' && state !== 'forgot_password') {
+                  config.headers['Authorization'] = 'Token ' + token.token;
+              }
+              return config;
+          }
+      };
+      return sessionInjector;
+  }])
+
+  .config(['$httpProvider', function ($httpProvider) {
+      $httpProvider.interceptors.push('sessionInjector');
+  }]);
 
   // Common object accessibility
   commonConfig.$inject = ['$controllerProvider', '$compileProvider', '$filterProvider', '$provide'];
