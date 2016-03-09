@@ -5,7 +5,7 @@ angular.module('naut')
   function notesCtl ($rootScope, $scope, notes, toasty, $uibmodal) {
     var NC = this;
 
-    NC.save = function() {
+    NC.save = function(_notes) {
       notes.create(NC.note).success(function (data){
           toasty.success({
             title: 'Saved',
@@ -14,6 +14,7 @@ angular.module('naut')
             clickToClose: true,
           });
           NC.note.body = "";
+          $rootScope.notes.push(data);
       }).error(function (error){
         toasty.error({
             title: 'Not Saved',

@@ -73,7 +73,6 @@
         // var url = registerService.backend_url();
 
         resetMethods.password_update = function(data){
-            console.log(data);
             $http.post(customUrl.url + '/api/user_profile/password_update/', data)
             .success(function(data){
                 $state.go('confirmation');

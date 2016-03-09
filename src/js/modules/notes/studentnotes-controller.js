@@ -4,13 +4,12 @@
   angular.module('naut')
   .controller('StudentNotesController', StudentNotesController);
 
-  StudentNotesController.$inject = ['notes'];
-  function StudentNotesController(notes) {
+  StudentNotesController.$inject = ['notes','$rootScope'];
+  function StudentNotesController(notes,$rootScope) {
     var SNC = this;
 
     notes.fetchAll(true).success(function (notes) {
-      console.log(notes);
-      SNC.notes = notes;
+      $rootScope.notes = notes;
     });
 
     // If not editing, enables edit mote

@@ -10,7 +10,7 @@
         .module('naut')
         .controller('ModalController', ModalController);
     /* @ngInject */
-    function ModalController($modal, $log) {
+    function ModalController($modal, $log, $scope) {
       var vm = this;
       vm.open = function (size) {
 
@@ -57,5 +57,5 @@
       ModalInstanceCtrl.$inject = ['$scope', '$modalInstance'];
 
     }
-    ModalController.$inject = ['$modal', '$log'];
+    ModalController.$inject = ['$modal', '$log', '$scope'];
 })();

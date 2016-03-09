@@ -45,7 +45,6 @@
         });
       },
       fetchAll: function (byUser) {
-        console.log(byUser);
         if ($stateParams.selectedStudent) {
           var userId = $stateParams.selectedStudent;
         }
@@ -54,17 +53,6 @@
         } else {
           return $http.get(customUrl.url + '/api/note/');
         }
-        
-        // .then(function (response) {
-        //   if (byUser) {
-        //     // Ideally, this would be filtered on the Django side
-        //     return response.data.filter(function (note) {
-        //       return note.author === userId;
-        //     });
-        //   } else {
-        //     return response.data;
-        //   }
-        // });
       }
     };
   }
