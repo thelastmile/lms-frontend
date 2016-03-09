@@ -3,8 +3,8 @@
   angular.module('naut')
   .factory('notes', notes);
 
-  notes.$inject = ['$rootScope', '$http', '$window', 'customUrl'];
-  function notes($rootScope, $http, $window, customUrl) {
+  notes.$inject = ['$rootScope', '$http', '$window', 'customUrl','$stateParams'];
+  function notes($rootScope, $http, $window, customUrl, $stateParams) {
 
     var userId = $rootScope.user.id;
 
@@ -45,8 +45,9 @@
         });
       },
       fetchAll: function (byUser) {
-        if ($rootScope.selectedStudent) {
-          var userId = $rootScope.selectedStudent.id;
+        console.log(byUser);
+        if ($stateParams.selectedStudent) {
+          var userId = $stateParams.selectedStudent;
         }
         if (userId) {
           return $http.get(customUrl.url + '/api/note/?student='+userId);
