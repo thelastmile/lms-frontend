@@ -8,8 +8,8 @@
   function StudentNotesController(notes) {
     var SNC = this;
 
-    notes.fetchAll(true)
-    .then(function (notes) {
+    notes.fetchAll(true).success(function (notes) {
+      console.log(notes);
       SNC.notes = notes;
     });
 

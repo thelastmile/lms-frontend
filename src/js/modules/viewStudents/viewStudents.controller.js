@@ -105,7 +105,7 @@
         }
       }
 
-      vm.attendanceDataUrl = 'http://127.0.0.1:8000/api/attendancegraphdaily';
+      vm.attendanceDataUrl = customUrl.url+'/api/attendancegraphdaily';
 
       vm.toggleDatepicker = function ($event, student) {
         console.log('toggled');

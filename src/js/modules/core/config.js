@@ -103,11 +103,12 @@
                 var state = $injector.get('$state');
                 if (user.isAuthenticated() && state !== 'page.login' && state !== '') {
                   var token = user.token();
-                  console.log(token);
                   if (token.bearer) {
                       config.headers['Authorization'] = 'Bearer ' + token.bearer;
-                  } else if (token.token && state !== 'page.login') {
+                  } else if (token.token) {
                       config.headers['Authorization'] = 'Token ' + token.token;
+                  } else if (token) {
+                      config.headers['Authorization'] = 'Token ' + token;
                   }
                 }
                 return config;

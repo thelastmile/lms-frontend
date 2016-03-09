@@ -8,9 +8,9 @@
   function AdminNotesController(notes) {
     var SNC = this;
 
-    notes.fetchAll()
-    .then(function (notes) {
-      SNC.notes = notes;
+    notes.fetchAll().success(function (data) {
+      console.log(data);
+      SNC.notes = data;
     });
   }
 })();

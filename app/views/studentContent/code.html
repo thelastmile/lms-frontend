@@ -12,6 +12,8 @@
                <select ng-show="CODE.problem" ng-model="CODE.challenge" ng-options="jcc as jcc.title for jcc in jsonCodeChallenges track by jcc.id" ng-change="CODE.loadCode()">
                </select>
             </div>
+         </div>
+         <div class="row">
             <div class="col-sm-4">
                <b>Instructions</b>
                <div class="panel instruction-panel">
@@ -27,7 +29,6 @@
 
             </div>
             <div class="col-sm-8">
-
                <div class="code-time">
 
                   <b>Code Editor</b>
