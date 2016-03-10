@@ -56,7 +56,6 @@
         var tests = cc.challenge.tests.join("\r");
         var vanillaConsole = $window.console.log.bind($rootScope.console);
 
-
         // Override console.log and spit it into a div named code-output
         $window.console.log = function () {
           vanillaConsole(arguments);
