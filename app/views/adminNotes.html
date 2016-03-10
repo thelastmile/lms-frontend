@@ -2,7 +2,7 @@
    <div class="col-xs-3 note-picker">
       <h3>Saved notes</h3>
       <ul class="note-list">
-         <li class="note-item" ng-repeat="note in ANC.notes" ng-click="ANC.selectedNote = note">
+         <li class="note-item" ng-repeat="note in $root.notes" ng-click="ANC.selectedNote = note">
             {{ note.title }}
          </li>
       </ul>

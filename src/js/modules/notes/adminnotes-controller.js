@@ -4,13 +4,12 @@
   angular.module('naut')
   .controller('AdminNotesController', AdminNotesController);
 
-  AdminNotesController.$inject = ['notes'];
-  function AdminNotesController(notes) {
+  AdminNotesController.$inject = ['notes','$rootScope'];
+  function AdminNotesController(notes,$rootScope) {
     var SNC = this;
 
     notes.fetchAll().success(function (data) {
-      console.log(data);
-      SNC.notes = data;
+      $rootScope.notes = data;
     });
   }
 })();

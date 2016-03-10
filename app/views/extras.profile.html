@@ -109,8 +109,8 @@
                         <div class="noteviewer row" ng-controller="StudentNotesController as SNC">
                            <div class="col-xs-12">
                               <div class="note-list">
-                                 <div ng-if="SNC.notes.length < 1">No notes from this student.</div>
-                                 <div class="note-item panel" style="padding:5px;" ng-repeat="note in SNC.notes" ng-click="SNC.selectedNote = note">
+                                 <div ng-if="$root.notes.length < 1">No notes from this student.</div>
+                                 <div class="note-item panel" style="padding:5px;" ng-repeat="note in $root.notes" ng-click="SNC.selectedNote = note">
                                     <span class="label label-default">{{ note.date | date : medium }}</span>
                                     <br>
                                     <p>
