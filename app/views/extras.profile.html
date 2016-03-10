@@ -98,7 +98,7 @@
                            <div class="panel-body">
                               <div class="row">
                                  <div class="col-lg-12" ng-controller="FlotChartController as flot">
-                                    <flot src="'http://127.0.0.1:3000/server/chart/line.json'" options="flot.chartLineFlotChart" series="{lines: flot.lineSeriesLines, points: flot.lineSeriesPoints}"></flot>
+                                    <flot ng-src="$root.customUrl.url+'/server/chart/line.json'" options="flot.chartLineFlotChart" series="{lines: flot.lineSeriesLines, points: flot.lineSeriesPoints}"></flot>
                                  </div>
                               </div>
                            </div>

@@ -102,22 +102,7 @@
 
         // find lessons by content type
         lessons.get_by_content_type = function(content_type,module_pk){
-
-            if (!content_type){
-                console.log('no content');
-            } else {
-                console.log(content_type);
-                // TODO: Set the current content in session
-            }
-
-            if (!module_pk){
-                console.log('no module');
-            } else {
-                // TODO: Set the current module in session
-            }
-
             return $http.get(customUrl.url + '/api/binarycontentlite/?content_type=' + content_type +'&module=' + $stateParams.module);
-
         };
 
                 // find lessons by content type

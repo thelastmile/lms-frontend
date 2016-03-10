@@ -29,7 +29,6 @@
 
       $scope.tinymceOptions = {
         onChange: function(e) {
-          console.log('af');
           // put logic here for keypress and cut/paste changes
         },
         skin: 'lightgray',

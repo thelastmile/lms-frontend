@@ -34,11 +34,6 @@
         $state.go($state.current, {}, {reload: true});
       }
 
-      // AdminLessonContents.get().success(function(data){
-      //   $scope.lessoncontents = data;
-      //   console.log($scope.lessoncontents);
-      // });
-
       vm.editMode = function(){
         vm.lesson = {};
         vm.selectedLesson = {}
@@ -206,14 +201,12 @@
       }
 
       vm.selectIndex = function (index) {
-        console.log(index);
-        console.log(vm.lessonContents);
+        // do something if we select an index
       }
 
       vm.LFILEsave = function () {
         if (vm.lessonContents){        
           if (vm.lessonContents.module == 'g'){
-            console.log('e');
             vm.lessonContents.is_global = true;
             var lc_module_copy = vm.lessonContents.module;
             delete vm.lessonContents.module;
@@ -239,10 +232,6 @@
               }
             }
             var index_dropdown = { class:'form-control', id: 'index_select', type: 'select', options: index_dropdown_options};
-            console.log(index_dropdown);
-            console.log(vm.lessonContents);
-
-            console.log(Object.keys(index_file_list).length);
             if (Object.keys(index_file_list).length > 0) {
               swal.withForm({
                 html: true,
@@ -295,13 +284,10 @@
         if (vm.LFILEediting == false) {
           vm.LFILEediting = true;
         }
-        console.log(vm.selectedLessonContent);
       }
 
       vm.LFILEindexPath = '';
       vm.LFILEselectIndexPath = function (){
-        console.log(vm.LFILEindexPath);
-        console.log(vm.selectedLessonContent);
         AdminLessonContents.patch(vm.selectedLessonContent.id,{index_file:vm.LFILEindexPath})
         .success(function(data){
           toasty.success({

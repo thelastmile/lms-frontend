@@ -13,8 +13,6 @@
     function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, HomeContentService, $sce, $stateParams, AdminCustomContentType, customUrl) {
       var scc = this;
 
-      console.log($stateParams);
-
       AdminCustomContentType.get().success(function(data){
         $scope.customcontenttypes = data;
       });
@@ -72,7 +70,7 @@
           url: "http://www.videogular.com/styles/themes/default/latest/videogular.css"
         },
         plugins: {
-          poster: "http://127.0.0.1:3000/app/img/1x1.png"
+          poster: customUrl.url+"/app/img/1x1.png"
         }
       };
 
@@ -101,7 +99,6 @@
       scc.getFullURL = function(){
         if (!scc.projUrl) {return "";}
         var custom_url = customUrl.backendStaticUrl+scc.projUrl;
-        console.log(custom_url);
         return $sce.getTrustedResourceUrl(custom_url);
       }
 

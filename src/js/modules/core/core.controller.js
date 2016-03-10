@@ -32,7 +32,6 @@
       $rootScope.val2key = function(val,array){
           for (var key in array) {
               var this_val = array[key];
-              console.log(this_val.id);
               if(this_val.name == val){
                   return this_val.id;
                   break;
@@ -50,10 +49,8 @@
       $rootScope.$on('$stateChangeSuccess', 
       function(event, toState, toParams, fromState, fromParams){ 
           var location = $location.url();
-          console.log(location.indexOf("login"));
           if ($rootScope.user && location.indexOf("login") == -1) {
             AccessLogService.post({path:location,user:$rootScope.user.id}).success(function(data){
-            console.log('logged');
           }).error(function (error){
             console.log('error, not logging!');
           });

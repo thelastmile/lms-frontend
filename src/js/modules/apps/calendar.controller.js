@@ -84,11 +84,11 @@
       
       /* alert on eventClick */
       vm.alertOnEventClick = function( event, allDay, jsEvent, view ){
-          console.log(event.title + ' was clicked ');
+         //console.log(event.title + ' was clicked ');
       };
       /* alert on Drop */
       vm.alertOnDrop = function(event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view){
-         console.log('Event Droped to make dayDelta ' + dayDelta);
+         //console.log('Event Droped to make dayDelta ' + dayDelta);
       };
       
       /* Change View */

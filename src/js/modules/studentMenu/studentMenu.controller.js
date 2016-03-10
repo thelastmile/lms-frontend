@@ -43,19 +43,14 @@
       smc.getLessonContents = function (){
         AdminLessonContents.get_by_content_type($state.current.url.slice(1),$stateParams.module).success(function(data){
           $rootScope.content_by_type = data;
-          console.log('getting content');
-          console.log($rootScope.content_by_type);
         })
         .error(function(data){
         });
       }
-
       $rootScope.$state = $state;
       $rootScope.currentState = $state.current;
-      console.log($state);
       $rootScope.$stateParams = $stateParams;
       $rootScope.$on('$stateChangeSuccess', function(ev, to, toParams, from) {
-        console.log(to);
         $rootScope.previousState = from.name;
         $rootScope.currentState = to;
         smc.getLessonContents();

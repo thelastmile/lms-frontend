@@ -39,7 +39,6 @@
                         $window.sessionStorage.setItem("authenticated", false);
                         $window.sessionStorage.setItem("user", null);
                         $window.sessionStorage.setItem("token", "");
-                        console.log(status);
                         if (status===-1){
                           toasty.error({
                             title: 'Connection Problem',
@@ -73,16 +72,13 @@
                 var user = $rootScope.user;
                 for (var group in user.groups){
                         if (user.groups[group].name==='Super Admin'){
-                          console.log('is Super Admin');
                           $window.sessionStorage.setItem("userPermissions","superAdmin");
                           $state.go("app.viewstudents");
                           break;
                         } else if (user.groups[group].name==='Faculty') {
-                          console.log('is Admin');
                           $window.sessionStorage.setItem("userPermissions","faculty");
                           $state.go("app.viewstudents");
                         } else if (user.groups[group].name==='Student' || user.groups[group].name==='Inmate') {
-                          console.log('is Student');
                           $window.sessionStorage.setItem("userPermissions","student");
 
                           AccessLogService.get($rootScope.user.id).success(function(data){
@@ -94,7 +90,6 @@
                             }
                             
                           }).error(function (error){
-                            console.log('error previous page log not found for user');
                             $state.go("app.home");
                           });
                         }
