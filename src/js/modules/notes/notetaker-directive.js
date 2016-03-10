@@ -14,7 +14,7 @@ angular.module('naut')
             clickToClose: true,
           });
           NC.note.body = "";
-          $rootScope.notes.push(data);
+          $rootScope.notes.unshift(data);
       }).error(function (error){
         toasty.error({
             title: 'Not Saved',
