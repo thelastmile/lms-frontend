@@ -38,8 +38,7 @@
 
 
       cc.getChallenges = function (){
-        $scope.jsonCodeChallenges = $scope.jsonCode[cc.problem].json["challenges"];
-        console.log($scope.jsonCodeChallenges);
+        $scope.jsonCodeChallenges = cc.problem.json["challenges"];
       }
 
       CodeService.get_single($stateParams.lesson)
@@ -54,7 +53,6 @@
       cc.run = function($event){
         $rootScope.console = [];
         var code = editor.getValue();
-        //var tests = editor_tests.getValue();
         var tests = cc.challenge.tests.join("\r");
         var vanillaConsole = $window.console.log.bind($rootScope.console);
 
