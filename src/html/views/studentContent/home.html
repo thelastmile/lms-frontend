@@ -5,9 +5,15 @@
 
    {{SCC.id}}
 
-      <div ng-show="content==0 || lesson==0">
-         <div compile="homeContent.value">
-            <!-- PULLED FROM DB -->
+      <div class="panel panel-default">
+         <div class="row">
+            <div class="col-xs-12">
+               <div class="panel-body">
+                  <div compile="homeContent.content">
+                  <!-- PULLED FROM DB -->
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
 

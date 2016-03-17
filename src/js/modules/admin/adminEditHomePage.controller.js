@@ -24,7 +24,6 @@
       ehc.loadContent = function (course_id){
         HomeContentService.get(course_id).success(function(data){
           $scope.homeContent = data[0];
-          console.log(data);
         });
       }
 
