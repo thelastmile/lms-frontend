@@ -15,16 +15,18 @@
     .service('HomeContentService', ['customUrl', '$http', function(customUrl, $http){
         var homeContent = {};
 
-        homeContent.get = function(pk){
-            return $http.get(customUrl.url + '/api/setting/?name=HomeContent');
+        homeContent.get = function(course_id){
+            var the_end = '';
+            if (course_id) {the_end='?course='+course_id}
+            return $http.get(customUrl.url + '/api/homepagecontent/'+the_end);
         };
 
         homeContent.put = function(data){
-            return $http.put(customUrl.url + '/api/setting/'+data.id+'/', data);
+            return $http.put(customUrl.url + '/api/homepagecontent/'+data.id+'/', data);
         };
 
         homeContent.post = function(data){
-            return $http.post(customUrl.url + '/api/setting/', data);
+            return $http.post(customUrl.url + '/api/homepagecontent/', data);
         };
         
         return homeContent;

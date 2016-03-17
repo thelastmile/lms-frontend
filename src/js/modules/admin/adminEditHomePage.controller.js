@@ -9,12 +9,24 @@
         .module('naut')
         .controller('EditHomePageController', EditHomePageController);
     
-    EditHomePageController.$inject = ['$scope','HomeContentService', 'toasty'];
-    function EditHomePageController($scope, HomeContentService, toasty) {
+    EditHomePageController.$inject = ['$scope','HomeContentService', 'toasty', 'AdminCoursesService'];
+    function EditHomePageController($scope, HomeContentService, toasty, AdminCoursesService) {
       var ehc = this;
-      HomeContentService.get().success(function(data){
-        $scope.homeContent = data[0];
+
+      AdminCoursesService.get().success(function(data){
+        $scope.courses = data;
       });
+
+      // HomeContentService.get().success(function(data){
+      //   $scope.homeContent = data[0];
+      // });
+
+      ehc.loadContent = function (course_id){
+        HomeContentService.get(course_id).success(function(data){
+          $scope.homeContent = data[0];
+          console.log(data);
+        });
+      }
 
       ehc.saveHomePage = function(){
         HomeContentService.put($scope.homeContent).success(function(data){
