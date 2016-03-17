@@ -28,8 +28,8 @@
         });
       }
 
-      ehc.saveHomePage = function(){
-        HomeContentService.put($scope.homeContent).success(function(data){
+      ehc.saveHomePage = function(record){
+        HomeContentService.patch(record).success(function(data){
           toasty.success({
             title: 'Saved',
             msg: 'Home page content updated.',

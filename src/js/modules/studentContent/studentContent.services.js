@@ -25,6 +25,12 @@
             return $http.put(customUrl.url + '/api/homepagecontent/'+data.id+'/', data);
         };
 
+        homeContent.patch = function(data){
+            var course_id = data.course;
+            delete(data.course);
+            return $http.patch(customUrl.url + '/api/homepagecontent/'+course_id+'/', data);
+        };
+
         homeContent.post = function(data){
             return $http.post(customUrl.url + '/api/homepagecontent/', data);
         };

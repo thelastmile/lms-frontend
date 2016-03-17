@@ -6,11 +6,11 @@
             <div class="col-xs-12">
               <div class="panel-body">
                 <form method="post">
-                  <select class="form-control" ng-model="course" ng-options="course as course.name for course in courses track by course.id" ng-change="EHC.loadContent(course.id)">
+                  <select class="form-control mb" ng-model="course" ng-options="course as course.name for course in courses track by course.id" ng-change="EHC.loadContent(course.id)">
                     <option value="">--- Select Course ---</option>
                   </select>
                   <textarea ng-value="homeContent.value" ui-tinymce="tinymceOptions" ng-model="homeContent.content" class="edit-home-page"></textarea><br>
-                  <button ng-click="EHC.saveHomePage()" class="btn btn-success pull-right">Save</button>
+                  <button ng-click="EHC.saveHomePage(homeContent)" class="btn btn-success pull-right">Save</button>
                 </form>
               </div>
             </div>
