@@ -50,8 +50,6 @@
 
       var ModalInstanceCtrl = function ($rootScope,$scope, $modalInstance, CodeRunResultService, toasty, code) {
         $scope.submit_code = function (cc) {
-          console.log(code);
-          console.log($rootScope);
           var data = {
             "problem_link":code.problem.id,
             "problem_name":code.problem.title,
@@ -96,4 +94,41 @@
 
     }
     ModalController.$inject = ['$modal', '$log', '$scope'];
+})();
+
+(function() {
+    'use strict';
+
+angular
+    .module('naut')
+    .controller('ModalNoteController', ModalNoteController);
+    /* @ngInject */
+    function ModalNoteController($modal, $log, $scope) {
+      var vm = this;
+      vm.open = function (size) {
+
+        var modalInstance = $modal.open({
+          templateUrl: 'app/views/modal.html',
+          controller: ModalInstanceCtrl,
+          size: size,
+          animation: true
+        });
+      }
+
+      var ModalInstanceCtrl = function ($rootScope, $scope, $modalInstance, toasty) {
+
+        $scope.ok = function () {
+          $modalInstance.close('closed');
+        };
+
+        $scope.cancel = function () {
+          $modalInstance.dismiss('cancel');
+        };
+
+      };
+    ModalInstanceCtrl.$inject = ['$rootScope','$scope', '$modalInstance', 'toasty'];
+
+
+    }
+    ModalNoteController.$inject = ['$modal', '$log', '$scope'];
 })();
