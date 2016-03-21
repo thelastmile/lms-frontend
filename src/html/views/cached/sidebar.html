@@ -74,26 +74,6 @@
                   </li>
                </ul>
             </li>
-            <!--
-            <li ui-sref-active="active">
-               <a ui-sref="app.docs" title="Cards" ripple="">
-                  <em class="sidebar-item-icon fa fa-file-text-o"></em>
-                  <span>Docs</span>
-               </a>
-            </li>
-            <li ui-sref-active="active">
-               <a ui-sref="app.media" title="Media" ripple="">
-                  <em class="sidebar-item-icon fa fa-film"></em>
-                  <span>Media</span>
-               </a>
-            </li>
-            
-            <li ui-sref-active="active">
-               <a ui-sref="app.notes" title="Notes" ripple="">
-                  <em class="sidebar-item-icon fa fa-pencil"></em>
-                  <span>Notes</span>
-               </a>
-            </li>-->
             <hr>
             <li ui-sref-active="active" ng-if="isSuperAdmin()">
                <a ng-href="{{customUrl.url}}/admin" title="Admin" ripple="">
@@ -102,7 +82,6 @@
                </a>
             </li>
          </ul>
-
 
          <!-- STUDENT MENU -->
          <ul ui-sidebar class="nav" ng-if="isStudent()" ng-controller="StudentMenuController as SMC" >

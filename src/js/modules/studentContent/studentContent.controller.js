@@ -47,7 +47,6 @@
       }
 
       HomeContentService.get($rootScope.user.course_id).success(function(data){
-        console.log(data[0]);
         $rootScope.homeContent = data[0];
       });
 

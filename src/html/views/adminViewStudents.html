@@ -56,17 +56,24 @@
                      </div>
                   </p>
                </div>
-               <div class="text-center col-xs-3 col-md-3" style="padding-left: 25px;">
-                  <h6>Daily Scores</h6>
-                  <select ng-model="student.tech_score" ng-change="VSC.recordTechnicalScore(student)" name="account" class="form-control m-b" style="width:80%;" ng-options="item.val as item.label for item in VSC.score_options_tech">
-                     <option value="">Technical</option>
-                  </select>
-                  <select ng-model="student.social_score" ng-change="VSC.recordSocialScore(student)" name="social" class="form-control m-b" style="width:80%;" ng-options="item.val as item.label for item in VSC.score_options_social">
-                     <option value="">Social</option>
-                  </select>
-                  <select ng-model="student.participation_score" ng-change="VSC.recordParticipationScore(student)" name="social" class="form-control m-b" style="width:80%;" ng-options="item.val as item.label for item in VSC.score_options_participation">
-                     <option value="">Participation</option>
-                  </select>
+               <div class="text-center col-xs-3 col-md-2" style="padding: 10px;" ng-controller="RatingDemoController as rating">
+                  <h4>Daily Scores</h4>
+                  <hr>
+
+                  <div>
+                  <label for="tech_score">Tech</label>
+                  <rating ng-model="student.tech_score" max="rating.max" readonly="rating.isReadonly" on-hover="rating.hoveringOver(value)" on-leave="rating.overStar = null" state-on="'fa fa-star text-orange'" state-off="'fa fa-star-o'" id="tech_score" ng-change="VSC.recordTechnicalScore(student)"></rating>
+                  </div>
+
+                  <div>
+                  <label for="tech_score">Social</label>
+                  <rating ng-model="student.social_score" max="rating.max" readonly="rating.isReadonly" on-hover="rating.hoveringOver(value)" on-leave="rating.overStar = null" state-on="'fa fa-star text-orange'" state-off="'fa fa-star-o'" id="tech_score" ng-change="VSC.recordSocialScore(student)"></rating>
+                  </div>
+
+                  <div>
+                  <label for="tech_score">Participation</label>
+                  <rating ng-model="student.participation_score" max="rating.max" readonly="rating.isReadonly" on-hover="rating.hoveringOver(value)" on-leave="rating.overStar = null" state-on="'fa fa-star text-orange'" state-off="'fa fa-star-o'" id="tech_score" ng-change="VSC.recordParticipationScore(student)"></rating>
+                  </div>
                </div>
          </div>
       </div>
