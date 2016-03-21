@@ -54,7 +54,14 @@
       cc.run = function($event){
         $rootScope.console = [];
         var code = editor.getValue();
-        var tests = cc.challenge.tests.join("\r");
+
+        if (cc.challenge){
+          var tests = cc.challenge.tests.join("\r");
+        } else {
+          //No challanges are loaded.  Just running code with no tests
+          tests = "";
+        }
+        
         var vanillaConsole = $window.console.log.bind($rootScope.console);
 
         // Override console.log and spit it into a div named code-output
@@ -65,7 +72,8 @@
         try {
           eval(code + ';' + tests);
         } catch (e) {
-          $rootScope.console = ['=== An error was thrown during execution ===', e.stack];
+          //$rootScope.console = ['=== An error was thrown during execution ===', e.stack];
+          $rootScope.console = [e.stack];
         }
         $window.console.log = vanillaConsole;
       }
