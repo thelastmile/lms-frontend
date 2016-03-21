@@ -38,6 +38,7 @@
 
 
       cc.getChallenges = function (){
+
         $scope.jsonCodeChallenges = cc.problem.json["challenges"];
       }
 

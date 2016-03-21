@@ -3,11 +3,8 @@
       <div ng-controller="CodeController as CODE">
          <div class="row">
             <div class="col-xs-12">
-               <select ng-change="CODE.getChallenges()" ng-model="CODE.problem">
+               <select ng-change="CODE.getChallenges()" ng-model="CODE.problem" ng-options="jc as jc.title for jc in jsonCode">
                    <option value="">Select Problem</option>
-                   <option ng-repeat="jc in jsonCode" value="{{jc.id}}">
-                     {{jc.title}}
-                   </option>
                </select>
                <select ng-show="CODE.problem" ng-model="CODE.challenge"
 
