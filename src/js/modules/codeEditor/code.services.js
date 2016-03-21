@@ -33,5 +33,24 @@
       };
       return code;
     }])
+
+    .service('CodeRunResultService', ['customUrl', '$http', function(customUrl, $http){
+      var code = {};
+      // list
+      code.get = function(){
+        return $http.get(customUrl.url + '/api/coderun/')
+      };
+
+      // find 1
+      code.get_single = function(pk){
+        return $http.get(customUrl.url + '/api/coderun/' + pk + '/');
+      };
+
+      code.post = function(data){
+        return $http.post(customUrl.url + '/api/coderun/', data);
+      };
+
+      return code;
+    }])
   }
 )();

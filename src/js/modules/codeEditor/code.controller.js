@@ -9,8 +9,8 @@
         .module('naut')
         .controller('CodeController', CodeController);
 
-    CodeController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'CodeService', '$stateParams', 'JSONCode'];
-    function CodeController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, CodeService, $stateParams, JSONCode) {
+    CodeController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'CodeService', '$stateParams', 'JSONCode', '$modal','CodeRunResultService'];
+    function CodeController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, CodeService, $stateParams, JSONCode, $modal,CodeRunResultService) {
       var cc = this;
       $rootScope.console = [];
       
@@ -120,6 +120,52 @@
           });
         }
       }
+
+      // cc.open_code = function (challange) {
+      //   console.log(challange);
+      //   var modalInstance = $modal.open({
+      //     templateUrl: 'app/views/modal-code.html',
+      //     animation: false,
+      //     controller: ModalController,
+      //     size: 'lg',
+      //     resolve: {
+      //           challange: function(){
+      //               return cc.challange;
+      //           }
+      //       }
+      //   });
+      // };
+
+      // $scope.submit_code = function (challange) {
+      //     console.log(challange);
+      //     //console.log(challange);
+      //     //console.log($scope);
+      //     CodeRunResultService.post().success(function(data){
+      //     toasty.success({
+      //       title: 'Saved',
+      //       msg: 'Code Saved',
+      //       sound: false,
+      //       clickToClose: true
+      //       });
+      //     // TODO Add check for browser storage variable
+      //     }).error(function(){
+      //       toasty.error({
+      //         title: 'Code Not Saved',
+      //         msg: 'Ensure you filled out the title field',
+      //         sound: false,
+      //         clickToClose: true
+      //         });
+      //     });
+      //     return true;
+      //   }
+
+      // cc.ok = function () {
+      //   $modalInstance.close('closed');
+      // };
+
+      // $scope.cancel = function () {
+      //   $modalInstance.dismiss('cancel');
+      // };
 
 
     }

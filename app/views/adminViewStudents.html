@@ -41,12 +41,12 @@
                   <p>
                      <div class="checkbox c-checkbox needsclick">
                         <label class="needsclick">
-                           <input type="radio" class="needsclick" ng-model="student.attendance" ng-change="VSC.recordAttendance(student,false)" ng-value="false">
+                           <input type="radio" class="needsclick" ng-model="student.attendance" ng-change="VSC.recordAttendance(student,'None')" ng-value="null">
                            <span class="fa fa-check"></span>Absent Full</label>
                      </div>
                      <div class="checkbox c-checkbox needsclick">
                         <label class="needsclick">
-                           <input type="radio" class="needsclick" ng-model="student.attendance" ng-change="VSC.recordAttendance(student,'None')" ng-value="null">
+                           <input type="radio" class="needsclick" ng-model="student.attendance" ng-change="VSC.recordAttendance(student,false)" ng-value="false">
                            <span class="fa fa-check"></span>Absent Part</label>
                      </div>
                      <div class="checkbox c-checkbox needsclick">
