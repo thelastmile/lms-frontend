@@ -4,6 +4,7 @@
         <button type="button" class="close" ng-click="cancel()">×</button><h4 id="myModalLabel" class="modal-title">Test Output</h4>
     </div>
     <div class="modal-body">
+    {{pro.challenge.tests}}
       <div class="console">
               <b>Console Output</b>
               <textarea disabled id="code-output" ng-model="console"></textarea>

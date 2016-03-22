@@ -32,14 +32,19 @@
       };
 
       vm.open_code = function (size) {
+        var editor = ace.edit("editor_code");
+        var code = editor.getValue();
         var modalInstance = $modal.open({
           templateUrl: 'app/views/modal-code.html',
           animation: false,
           controller: ModalInstanceCtrl,
           size: size,
           resolve: {
-                code: function(){
+                problem: function(){
                     return $scope.$parent.CODE;
+                },
+                code: function(){
+                    return code;
                 }
             }
         });
@@ -48,15 +53,15 @@
       // Please note that $modalInstance represents a modal window (instance) dependency.
       // It is not the same as the $modal service used above.
 
-      var ModalInstanceCtrl = function ($rootScope,$scope, $modalInstance, CodeRunResultService, toasty, code) {
-        $scope.submit_code = function (cc) {
+      var ModalInstanceCtrl = function ($rootScope,$scope, $modalInstance, CodeRunResultService, toasty, code, problem) {
+        $scope.submit_code = function () {
           var data = {
-            "problem_link":code.problem.id,
-            "problem_name":code.problem.title,
+            "problem_link":problem.problem.id,
+            "problem_name":problem.problem.title,
             //"challange_name":code.challange.title,
             "student":$rootScope.user.id,
-            "code":"",
-            "tests":"",
+            "code":code,
+            "tests":problem.challenge.tests.join("\r"),
             "status":"FAIL",
             "course":$rootScope.user.course_id,
             "module":$rootScope.currentModule,
@@ -90,7 +95,7 @@
           $modalInstance.dismiss('cancel');
         };
       };
-      ModalInstanceCtrl.$inject = ['$rootScope','$scope', '$modalInstance', 'CodeRunResultService', 'toasty', 'code'];
+      ModalInstanceCtrl.$inject = ['$rootScope','$scope', '$modalInstance', 'CodeRunResultService', 'toasty', 'code', 'problem'];
 
     }
     ModalController.$inject = ['$modal', '$log', '$scope'];
