@@ -38,7 +38,8 @@
                       "name":"localdev",
                       "url": "http://127.0.0.1:8000",
                       "staticUrl":"localhost,127.0.0.1",
-                      "backendStaticUrl":"http://127.0.0.1:8000"
+                      "backendStaticUrl":"http://127.0.0.1:8000",
+                      "mediaUrl":"http://127.0.0.1:8000/media"
                     
                     },
                     {

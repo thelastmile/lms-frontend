@@ -92,8 +92,8 @@
                <span class="text-muted">Learning Modules</span>
             </li>
 
-            <li ui-sref-active="active" ng-repeat="mc in moduleMenuContent">
-               <a ripple="" href="/#/app{{currentState.url}}?module={{mc.id}}">
+            <li ng-class="{active:$stateParams.module==mc.id}" ng-repeat="mc in moduleMenuContent">
+               <a ripple="" href="" ng-href="{{$state.href(currentState.name, {module:mc.id})}}">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>{{ mc.name }}</span>
                </a>

@@ -9,9 +9,11 @@
         .module('naut')
         .controller('StudentContentController', StudentContentController);
     
-    StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService', 'HomeContentService', '$sce', '$stateParams','AdminCustomContentType','customUrl'];
-    function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, HomeContentService, $sce, $stateParams, AdminCustomContentType, customUrl) {
+    StudentContentController.$inject = ['$rootScope', '$scope', 'colors', '$timeout' ,'$window','AdminLessonsService','AdminCoursesService', 'toasty', 'StudentMenuService', 'HomeContentService', '$sce', '$stateParams','AdminCustomContentType','customUrl', '$state'];
+    function StudentContentController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, StudentMenuService, HomeContentService, $sce, $stateParams, AdminCustomContentType, customUrl, $state) {
       var scc = this;
+      $scope.$stateParams = $stateParams;
+      $scope.$state = $state;
 
       AdminCustomContentType.get().success(function(data){
         $scope.customcontenttypes = data;
@@ -84,7 +86,7 @@
         console.log(current_video);
         scc.API.stop();
         scc.API.clearMedia();
-        var tmp_source = [{src: $sce.trustAsResourceUrl(current_video.url), type: "video/mp4"}];
+        var tmp_source = [{src: $sce.trustAsResourceUrl($rootScope.backendUrl+current_video.file_url), type: "video/mp4"}];
         var tmp_poster = {
           poster: "/app/img/1x1.png"
         };
@@ -100,7 +102,6 @@
       scc.getFullURL = function(){
         if (!scc.projUrl) {return "";}
         var custom_url = customUrl.backendStaticUrl+scc.projUrl;
-        console.log(scc);
         return $sce.getTrustedResourceUrl(custom_url);
       }
 

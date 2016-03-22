@@ -9,8 +9,8 @@
         .module('naut')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['$rootScope', '$scope', 'colors', 'flotOptions', '$timeout' ,'$window', '$stateParams', 'StudentInfoService'];
-    function DashboardController($rootScope, $scope, colors, flotOptions, $timeout, $window, $stateParams, StudentInfoService) {
+    DashboardController.$inject = ['$rootScope', '$scope', 'colors', 'flotOptions', '$timeout' ,'$window', '$stateParams', 'StudentInfoService', '$state'];
+    function DashboardController($rootScope, $scope, colors, flotOptions, $timeout, $window, $stateParams, StudentInfoService, $state) {
       var vm = this;
 
       if (typeof $stateParams.selectedStudent != 'undefined'){

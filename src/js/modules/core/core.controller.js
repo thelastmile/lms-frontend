@@ -43,7 +43,8 @@
 
       $rootScope.user = angular.fromJson($window.sessionStorage.getItem("user"));
 
-      $rootScope.mediaUrl = customUrl.backendStaticUrl;
+      $rootScope.mediaUrl = customUrl.mediaUrl;
+      $rootScope.backendUrl = customUrl.backendStaticUrl;
 
       // Log all state changes, simply comment out to turn off
       $rootScope.$on('$stateChangeSuccess', 
