@@ -218,6 +218,7 @@
 
         AdminLessonContents.post_file(vm.lessonContents)
         .then(function (resp) {
+            console.log(resp);
             vm.selectedLessonContent = resp.data;
             vm.lessonContents = resp.data;
             vm.LFILEediting = true;
