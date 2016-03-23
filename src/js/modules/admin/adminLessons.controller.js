@@ -282,6 +282,7 @@
 
       vm.LFILEediting = false;
       vm.LFILEedit = function () {
+        console.log(vm.lessonContents);
         if (vm.LFILEediting == false) {
           vm.LFILEediting = true;
         }

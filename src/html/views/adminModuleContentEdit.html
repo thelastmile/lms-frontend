@@ -1,4 +1,4 @@
-<div class="row" ng-controller="AdminLessonsController as ALC">
+<div class="row">
    <div class="col-lg-12">
       <!-- START Tabbed panel-->
       <div class="panel panel-default">
@@ -6,30 +6,24 @@
             <div class="col-md-12">
                <div class="panel-body">
                   <h3>{{ ALC.LFILEediting ? 'Edit' : 'Add' }} Module Content
-
-                     <div>
-                        <button class="btn btn-xs btn-success" ng-click="ALC.lessonContents={};" tabindex="-1">Add New Content</button>
-                     </div>
-
                   </h3>
 
                   <div ng-show="!ALC.LFILEediting">
                      <form>
                         <small>Content File</small>
-                        <input type="file" ngf-select ng-model="ALC.lessonContents.file" name="ALC.lessonContents.file" class="form-control" ng-change="ALC.getFilename(ALC.lessonContents)" />
+                        <input type="file" ngf-select ng-model="ALC.lessonContents.file" name="ALC.lessonContents.file" class="form-control" ng-change="ALC.deriveData(ALC.lessonContents)" />
                         <small>Note: filename will be canged to a guid when stored.</small>
                         <br>
                         <br>
                         <small>Optional Thumbnail</small>
-                        <input type="file" ngf-select ng-model="ALC.lessonContents.thumbnail" name="ALC.lessonContents.thumbnail" class="form-control" ng-change="ALC.getFilename(ALC.lessonContents)" />
+                        <input type="file" ngf-select ng-model="ALC.lessonContents.thumbnail" name="ALC.lessonContents.thumbnail" class="form-control" ng-change="ALC.deriveData(ALC.lessonContents)" />
                         <br>
                         <input ng-model="ALC.lessonContents.name" class="form-control" placeholder="Content Name (will be shown on lables)">
                         <br>
                         <input ng-model="ALC.lessonContents.description" class="form-control" placeholder="Description">
                         <br>
-                        <select name="ALC.lessonContents.content_type" ng-model="ALC.lessonContents.content_type" class="form-control">
+                        <select name="ALC.lessonContents.content_type" ng-model="ALC.lessonContents.content_type" class="form-control" ng-options="ct.id as ct.name for ct in customcontenttypes">
                            <option value="">--- Select Content Type ---</option>
-                           <option ng-repeat="ct in customcontenttypes" value="{{ct.id}}">{{ct.name}}</option>
                         </select>
                         <br>
                         <select name="ALC.lessonContents.module" ng-model="ALC.lessonContents.module" class="form-control">
@@ -38,7 +32,7 @@
                            <option ng-repeat="ls in lessons" value="{{ls.id}}">{{ls.name}}</option>
                         </select>
                         <br>
-                        <div class="alert alert-info">
+                        <div ng-show="ALC.lessonContents.file_url" class="alert alert-info">
                            <h4>Full path to file
                               <span class="label label-primary">Only applies to this deployment</span>
                            </h4>
@@ -47,7 +41,7 @@
                               {{ALC.lessonContents.file_url ? ALC.lessonContents.file_url : ' - Create or view content to see path - '}}
                            </div>
                         </div>
-                        <div class="alert alert-info">
+                        <div ng-show="ALC.lessonContents.relative_url" class="alert alert-info">
                            <h4>Relative path to file
                               <span class="label label-primary">Applies to all deployments</span>
                            </h4>{{ALC.lessonContents.relative_url || "- Create or view content to see path - "}}</div>
@@ -55,17 +49,18 @@
                         <button busy="Submitting.." class="btn save-btn btn-primary" ng-click="ALC.LFILEsave()" tabindex="-1">
                            <busy-message><i class="fa fa-refresh fa-spin"></i>&nbsp;&nbsp;Content Uploading. Please wait, this will take some time...</busy-message>
                            Save</button>
+                           <button busy="..." class="btn btn-default" ng-click="remove(ALC.lessonContents)" tabindex="-1">Clear Form | Add New Content</button>
                      </form>
                   </div>
                   <div ng-show="ALC.LFILEediting">
                      <form>
                         <small>Content File</small>
-                        <input type="file" ngf-select ng-model="ALC.selectedLessonContent.file" name="ALC.selectedLessonContent.file" class="form-control" ng-change="ALC.getFilename(ALC.selectedLessonContent)" />
+                        <input type="file" ngf-select ng-model="ALC.selectedLessonContent.file" name="ALC.selectedLessonContent.file" class="form-control" ng-change="ALC.deriveData(ALC.selectedLessonContent)" />
                         <small>Note: filename will be canged to a guid when stored.</small>
                         <br>
                         <br>
                         <small>Optional Thumbnail</small>
-                        <input type="file" ngf-select ng-model="ALC.lessonContents.thumbnail" name="ALC.lessonContents.thumbnail" class="form-control" ng-change="ALC.getFilename(ALC.lessonContents)" />
+                        <input type="file" ngf-select ng-model="ALC.lessonContents.thumbnail" name="ALC.lessonContents.thumbnail" class="form-control" ng-change="ALC.deriveData(ALC.lessonContents)" />
                         <br>
                         <input ng-model="ALC.selectedLessonContent.name" class="form-control" placeholder="Content Name (will be shown on lables)">
                         <br>
@@ -100,6 +95,8 @@
                         <button busy="Submitting.." class="btn save-btn btn-primary" ng-click="ALC.LFILEeditSave()" tabindex="-1">
                            <busy-message><i class="fa fa-refresh fa-spin"></i>&nbsp;&nbsp;Content Uploading. Please wait, this will take some time...</busy-message>
                            Save</button>
+                        
+                           <button busy="..." class="btn btn-default" ng-click="remove(ALC.lessonContents)" tabindex="-1">Clear Form | Add New Content</button>
                      </form>
 
                   </div>

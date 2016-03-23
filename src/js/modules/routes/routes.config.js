@@ -103,6 +103,8 @@
           url: '/admin/modulecontent/add/',
           authenticate: true,
           templateUrl: Route.base('adminModuleContentEdit.html'),
+          controller: 'AdminLessonsController',
+          controllerAs: 'ALC',
         })
 
         .state('app.adminModuleContentEdit', {
