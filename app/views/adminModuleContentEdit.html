@@ -96,9 +96,10 @@
                            <busy-message><i class="fa fa-refresh fa-spin"></i>&nbsp;&nbsp;Content Uploading. Please wait, this will take some time...</busy-message>
                            Save</button>
 
-                        <button busy="..." class="btn btn-default" ng-click="remove(ALC.lessonContents)" tabindex="-1">Clear Form | Add New Content</button>
+                        <button ng-show="current_state.name == 'app.adminModuleContentList'" busy="..." class="btn btn-default" ng-click="remove(ALC.lessonContents)" tabindex="-1">
+                           <- Go back to list</button>
+                              <button ng-show="current_state.name != 'app.adminModuleContentList'" busy="..." class="btn btn-default" ng-click="remove(ALC.lessonContents)" tabindex="-1">Clear Form | Add New Content</button>
                      </form>
-
                   </div>
                </div>
             </div>

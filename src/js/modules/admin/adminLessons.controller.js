@@ -13,6 +13,7 @@
     function AdminLessonsController($rootScope, $scope, colors, $timeout, $window, AdminLessonsService, AdminCoursesService, toasty, AdminCustomContentType, AdminLessonContents, Upload, SweetAlert, $state) {
       var vm = this;
       $scope.lessoncontents = [];
+      $scope.current_state = $state.current;
 
       AdminLessonsService.get().success(function(data){
         $scope.lessons = data;
@@ -313,17 +314,17 @@
       vm.LFILEeditSave = function () {
         console.log(vm.lessonContents);
         var patch_data = {
-          "content_type": vm.lessonContents.content_type,
-          "description": vm.lessonContents.description,
-          "module": vm.lessonContents.module,
-          "name": vm.lessonContents.name,
+          "content_type": vm.selectedLessonContent.content_type,
+          "description": vm.selectedLessonContent.description,
+          "module": vm.selectedLessonContent.module,
+          "name": vm.selectedLessonContent.name,
         }
-        AdminLessonContents.patch(vm.lessonContents.id,patch_data)
+        AdminLessonContents.patch(vm.selectedLessonContent.id,patch_data)
         .then(function (resp) {
-            $scope.lessoncontents.push(vm.lessonContents);
+            //$scope.lessoncontents.push(vm.selectedLessonContent);
             toasty.success({
               title: 'Saved',
-              msg: 'New Lesson Content Added',
+              msg: 'Content has been updated',
               sound: false,
               clickToClose: true,
             });
