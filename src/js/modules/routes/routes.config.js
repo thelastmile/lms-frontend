@@ -53,7 +53,6 @@
 
         .state('app.lesson', {
           url: '/lesson',
-          ReloadOnSearch: false,
           authenticate: true,
           templateUrl: Route.base('studentContent/lessons.html'),
         })
@@ -198,6 +197,59 @@
             assets: Route.require('flot-chart', 'flot-chart-plugins', 'easypiechart')
           }
         })
+
+        .state('app.cards', {
+          url: '/cards',
+          templateUrl: Route.base('cards.html'),
+          resolve: {
+            assets: Route.require('flot-chart', 'flot-chart-plugins', 'ui.knob', 'loadGoogleMapsJS', function() {
+              return loadGoogleMaps();
+            }, 'ui.map')
+          }
+        })
+        
+        .state('app.extras', {
+          url: '/extras',
+          template: '<div ui-view ng-class="app.views.animation"></div>'
+        })
+        .state('app.extras.profile', {
+          url: '/profile?selectedStudent',
+          templateUrl: Route.base('extras.profile.html'),
+          resolve: {
+            assets: Route.require('jquery-ui', 'moment', 'ui.calendar', 'gcal', 'flot-chart', 'flot-chart-plugins')
+          }
+        })
+      
+      // Single Page Routes
+      .state('page', {
+        url: '/page',
+        templateUrl: Route.base('page.html'),
+        resolve: {
+          assets: Route.require('icons', 'animate')
+        }
+      })
+        .state('page.login', {
+          url: '/login',
+          controller: 'loginCtrl',
+          controllerAs: 'lctrl',
+          authenticate: false,
+          templateUrl: Route.base('page.login.html'),
+          resolve: {
+            assets: Route.require('toaster')
+          }
+        })
+        .state('page.register', {
+          url: '/register',
+          templateUrl: Route.base('page.register.html')
+        })
+        .state('page.recover', {
+          url: '/recover',
+          templateUrl: Route.base('page.recover.html')
+        })
+        .state('page.lock', {
+          url: '/lock',
+          templateUrl: Route.base('page.lock.html')
+        });
     }
 
 })();
