@@ -310,7 +310,14 @@
       }
 
       vm.LFILEeditSave = function () {
-        AdminLessonContents.post_file(vm.lessonContents)
+        console.log(vm.lessonContents);
+        var patch_data = {
+          "content_type": vm.lessonContents.content_type,
+          "description": vm.lessonContents.description,
+          "module": vm.lessonContents.module,
+          "name": vm.lessonContents.name,
+        }
+        AdminLessonContents.patch(vm.lessonContents.id,patch_data)
         .then(function (resp) {
             $scope.lessoncontents.push(vm.lessonContents);
             toasty.success({
