@@ -93,7 +93,7 @@
             </li>
 
             <li ng-class="{active:$stateParams.module==mc.id}" ng-repeat="mc in moduleMenuContent">
-               <a ripple="" href="" ng-href="{{$state.href(currentState.name, {module:mc.id})}}">
+               <a ripple="" ng-href="{{$state.href(currentState.name, {module:mc.id})}}">
                   <em class="sidebar-item-icon fa fa-file-text-o"></em>
                   <span>{{ mc.name }}</span>
                </a>
